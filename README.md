@@ -17,6 +17,7 @@ Pajon Alejandro
 Nabarro Alexis Ariel
 
 **Casalaspro Cristian Hernan**
+
 27 años. Consultor psicológico, astrologo y programador Web FullStack (Fundación Formar). Amante de los animales, el diseño y el lenguaje en cualquiera de sus formas.
 Linkedin: https://www.linkedin.com/in/cristian-casalaspro-6b38a0115/
 GitHub: https://github.com/cristianh6
