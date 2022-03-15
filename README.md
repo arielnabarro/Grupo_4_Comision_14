@@ -12,7 +12,11 @@ Nuestro target apunta a ellos, nuestras mascotas. Nuestra misión es cubrir toda
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 STAFF
 
-Pajon Alejandro
+***Pajon Alejandro
+
+20 años, experiencia de vendedor al turismo, estudiante y programador Web FullStack (Fundación Formar). protector de la vida animal, amante del arte y la naturaleza.
+linkedin:https://www.linkedin.com/in/alejandro-pajon-304740234/
+Github:https://github.com/AlyPajon
 
 Nabarro Alexis Ariel
 
