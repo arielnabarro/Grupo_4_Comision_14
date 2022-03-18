@@ -14,9 +14,9 @@ STAFF
 
 ***Pajon Alejandro**
 
-***20 años. Experiencia de vendedor al turismo, estudiante y programador Web FullStack (Fundación Formar). Protector de la vida animal, amante del arte y la naturaleza.
+*20 años. Experiencia de vendedor al turismo, estudiante y programador Web FullStack (Fundación Formar). Protector de la vida animal, amante del arte y la naturaleza.
 Linkedin: https://www.linkedin.com/in/alejandro-pajon-304740234/
-GitHub: https://github.com/AlyPajon ***
+GitHub: https://github.com/AlyPajon*
 
 Nabarro Alexis Ariel
 
