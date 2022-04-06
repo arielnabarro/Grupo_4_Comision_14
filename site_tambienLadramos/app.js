@@ -24,7 +24,7 @@ app.use('/users', usersRouter);
 */
 
 app.get("/", (req,res) => {
-  res.sendFile(path.join(__dirname, "views", "home.html" ))
+  res.sendFile(path.join(__dirname, "views", "index.html" ))
 })
 
 // catch 404 and forward to error handler
