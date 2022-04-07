@@ -1,0 +1,12 @@
+header {
+    margin: 10px 10px 10px 10px;
+    background-color: #46b593;
+    
+}
+
+header ul, header a {
+    color: white;
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none;
+}
