@@ -27,6 +27,14 @@ app.get("/", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "home.html" ))
 })
 
+app.get("/carrito_de_compras", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "carrito_de_compras.html" ))
+})
+
+app.get("/productos", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "productos.html" ))
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
