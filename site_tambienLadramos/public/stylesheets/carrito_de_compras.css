@@ -1,0 +1,64 @@
+.tabla_carrito{
+
+    font-family: Roboto;
+    letter-spacing: 0.05em;
+
+}
+
+.tabla_carrito h1 {
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    justify-content:center;
+
+    padding: 10px;
+
+    margin:0px;
+
+    height: 20px;
+    width: 100%;
+    left: 0px;
+    top: 84px;
+    border-radius: nullpx;
+
+
+
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+   
+    background: #FAC368;
+    border: 0.1px solid #000000;
+
+    border-bottom:0px;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+table, th, td {
+    
+    width: 100vw;
+    height: 30px;
+
+    text-align: center;
+    font-size: 10px;
+
+    border: 0.1px solid black;
+    border-collapse: collapse;
+
+}
+
+body, html {
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+}
+
+* {
+    box-sizing: border-box;
+}
