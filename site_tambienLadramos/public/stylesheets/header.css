@@ -1,12 +1,161 @@
+.home body {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 header {
-    margin: 10px 10px 10px 10px;
-    background-color: #46b593;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+    background-color: #46b593;  
+    font-size: 12px;
+}
+
+header a {
+    font-size: 12px;
+    text-decoration: none;
+    align-items: center;
+    padding: 4px;
+    margin: 4px;
+    color: white;
+}
+
+.nav-login {
+    display: flex;
+    flex-direction: row; 
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 75px;  
+    color: white;
+    align-items: center;    
+    justify-content: space-between;
+}
+
+header .nav-login a .logo {
+    padding: 0;
+    margin: 0;
+    width: 100%;    
+}
+
+header .nav-login .header-logo{
+    width: 20%;
+}
+
+.icon-user {
+    width: 10%;
+}
+
+img {
+    width: 100%;  
+}  
+
+.nav-hambur {
+    display: flex;
+    flex-direction: row; 
+    padding: 0;
+    margin: 0;
+    width: 360px;
+    height: 75px;
+    align-items: center;
+    justify-content: space-around;    
+}
+
+.productos {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+main .prod-h2, .serv-h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px 0;    
+    font-weight: bold;
+    background-color: var(--amarillo);
+    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
+    margin-bottom: 20px;
+    
+}
+.serv-h2 { 
+    background-color: var(--azul);
+}
+
+.sect-pr h3 {
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.productos div {
+    display: flex;
+    width: 45%;
+}
+.productos div img{
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.sect-pr {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
     
 }
 
-header ul, header a {
-    color: white;
+.sect-pr div {
+    width: 100%;
+    flex-direction: row;
+    
+}
+.sect-pr div a  {
+    width: 50%;
+    height: 200px;
+    
+}
+
+.sect-pr div a img {
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+
+
+body header .nav-login div ul {
+    display: flex;    
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.div-header  {
+    width: 70%;
+    display: flex;
+}
+
+.div-header h3 {
+    color:white;
+}
+
+body header .nav-login div ul li {
     text-decoration: none;
     list-style: none;
-    list-style-type: none;
+    width: 30%;    
+}
+
+
+
+
+footer {
+    width: 360px;
+    display: flex;
+    flex-wrap: wrap;
 }

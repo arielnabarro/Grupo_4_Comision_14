@@ -1,0 +1,15 @@
+.login{
+    margin: 80px;
+    padding: 10px;
+    text-align: center;
+}
+
+.login ul, .login li {
+    text-decoration: none;
+    list-style: none;
+}
+footer {
+    background-image: url("/images/Logo.png");
+    background-repeat: repeat;
+
+}
