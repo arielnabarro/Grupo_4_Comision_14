@@ -24,8 +24,11 @@ app.use('/users', usersRouter);
 */
 
 app.get("/", (req,res) => {
-  res.sendFile(path.join(__dirname, "views", "home.html" ))
-})
+  res.sendFile(path.join(__dirname, "views", "index.html" ))
+});
+app.get("/login", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "login.html" ))
+});
 
 app.get("/carrito_de_compras", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "carrito_de_compras.html" ))
