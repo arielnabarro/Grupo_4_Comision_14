@@ -1,15 +1,64 @@
-.login{
-    margin: 80px;
-    padding: 10px;
+.login-main {
+    width: 100%;
     text-align: center;
+    align-items: center;
 }
 
-.login ul, .login li {
-    text-decoration: none;
+.login-form{
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 75%;   
+    height: 25%;
+}
+.login-form ul {
     list-style: none;
 }
-footer {
-    background-image: url("/images/Logo.png");
-    background-repeat: repeat;
 
+h2 {
+    font-size: 25px;  
+    text-align: center; 
+    padding: 12% auto;
+    margin: 12% auto;
+    
+}
+#login_user{
+    display: flex;
+    width: 100%;
+    padding: 10%;
+    margin: 12% auto;
+    font-size: 16px;
+    background-color: gainsboro;
+    border-radius: 40px;
+    border: gainsboro;
+}
+
+.bottons{
+    position: relative;
+    width: 75%;
+    height: 75px;
+    padding: 0 auto;
+    border: none;
+    margin: 12% auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #46b593;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 40px;    
+}
+
+#boton {
+    text-decoration: none;
+}
+.login-olvi {
+    color: none;
+    margin: 15% auto;
+    padding: 15% auto;
+    text-decoration: none;
+}
+
+footer {
+    margin: 15% auto;
 }

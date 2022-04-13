@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,24 +10,18 @@
     <title>Home</title>
 </head>
 <body class="home-body">
-    <header>        
-            <nav class="nav-login">                
-                    <a class="header-logo" href=""><img class="logo" src="/images/Logo.png" alt="Logo"></a>                
+    <header class="home-header">        
+            <nav class="home-nav-login">                
+                    <a class="home-header-logo" href=""><img class="logo" src="/images/Logo.png" alt="Logo"></a>                
 
-                <div class="div-header">
+                <div class="home-div-header">
                     <ul>
                         <li><a href=""><h3>Productos</h3></a></li>
                         <li><a href=""><h3>Servicios</h3></a></li>
                         <li><a href=""><h3>Nosotros</h3></a></li>
-                    </ul>  
-                </div>       
-                <div class="icon-user">
-                    <a href=""><i class="fa-solid fa-user fa-2x"></i></a> 
-                </div>
-                   
-                 
-                
-                
+                        <a href=""><i class="fa-solid fa-user fa-2x"></i></a>                      
+                    </ul>                    
+                </div>                               
                 <!--
                     <a href=""><h4>Alimento balanceado</h4></a>
                  <ul>
@@ -58,12 +52,13 @@
                                         <li><a href="">Perros</a></li>
                                         <li><a href="">Gatos</a></li>
                                     </ul>     
-                            </ul> -->                  
-                            
-                
+                            </ul> -->                 
             </nav>
 
             <nav class="nav-hambur">
+                <!-- <input type="checkbox" id="menu">
+                <label for="menu"> ☰ </label>
+ -->
                 <a href=""><i class="fa-solid fa-bars fa-2x"></i></a>
                 <a href=""><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
                 <a href=""><i class="fa-solid fa-circle-question fa-2x"></i></a>
@@ -73,11 +68,11 @@
             
     <main>
         <h2 class="prod-h2">PRODUCTOS</h2>  
-            <nav class="productos">                                     
+            <nav class="productos">                               
                     <section class="sect-pr">                
                         <h3>ALIMENTO BALANCEADO</h3>                   
                                 <div>
-                                    <a href=""><img src="/images/perro-cocinero.jfif" alt="perro-cocinero"></a>    
+                                    <a  href=""><img  src="/images/perro-cocinero.jfif" alt="perro-cocinero"></a>    
                                     <a href=""> <img src="/images/gato-cocinero.jpg" alt="gato-cocinero"></a> 
                                 </div>                                                     
                     </section>
@@ -86,79 +81,77 @@
                                 <div>
                                         <a href=""><img src="/images/perro-baño.jfif" alt="perro-cocinero"></a>   
                                         <a href=""><img src="/images/gato-casita.jpg" alt="gato-cocinero"></a>
-                                </div>                                      
+                                </div>             
                     </section>                          
             
-            </nav>        
-        <nav class="servicios">
-            <h2 class="serv-h2">SERVICIOS</h2>
-                <section>
-                    <article>
+            </nav>  
+            <h2 class="serv-h2">SERVICIOS</h2>      
+                <nav class="servicios">            
+                    <section class="sect-serv">
                         <h3>CORTES DE PELO</h3>                
-                        <a href="">
-                            <div>
-                                <img src="/images/perro-elvis.jpg" alt="perrito-presley">
-                            </div>                        
-                        </a>
-                    </article>
-                </section>
-        </nav>            
-                <h3>BAÑOS</h3>
-                    <article>
-                        <a href="">
-                            <div>
-                                <img src="/images/perro-Husky.jfif" alt="perrito-husky">
-                            </div>                        
-                        </a>
-                    </article>
-            </section>
-        <section>
+                            <div class="home-serv-div">
+                                <a href="">
+                                    <img src="/images/perro-elvis.jpg" alt="perrito-presley">
+                                </a>
+                            </div>                   
+                    </section>
+                   
+                    <section class="sect-serv">      
+                        <h3>BAÑOS</h3>          
+                            <div class="home-serv-div">
+                                <a href="">
+                                    <img src="/images/perro-Husky.jfif" alt="perrito-husky">
+                                </a>
+                            </div>         
+                    </section>      
+                </nav>   
             <h2 class="nosotros-h2">NOSOTROS</h2>
-            <article>
-                <img src="/images/perro-campito.webp" alt="">
-                <h2>¿Quienes somos?</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.
-                Asperiores eius doloremque enim expedita temporibus ducimus exercitationem tenetur hic sed iure dolorem fuga quis illum perspiciatis, delectus veniam architecto, harum vel! Aperiam id dignissimos dolores maiores, fugiat molestias cum.</p>
-            </article>
-            <article>
-                <img src="/images/perro-playa.jfif" alt="">
-                <h2>Nuestro horizonte</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.
-                Asperiores eius doloremque enim expedita temporibus ducimus exercitationem tenetur hic sed iure dolorem fuga quis illum perspiciatis, delectus veniam architecto, harum vel! Aperiam id dignissimos dolores maiores, fugiat molestias cum.</p>
-            </article>
-            <article>
-                <img src="/images/perro-gato.webp" alt="">
-                <h2>Adopciones</h2>   
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.
-                Asperiores eius doloremque enim expedita temporibus ducimus exercitationem tenetur hic sed iure dolorem fuga quis illum perspiciatis, delectus veniam architecto, harum vel! Aperiam id dignissimos dolores maiores, fugiat molestias cum.</p>             
-            </article>
-        </section>
+                <nav class="nosotros">
+                <section class="sect-nos">               
+                        <div class="perro-campo">
+                            <h4>¿Quienes somos?</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.                  
+                            </p>                        
+                        </div>                    
+                </section>
+                <section class="sect-nos">                   
+                        <div class="perro-playa">
+                            <h4>Nuestro horizonte</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.                     
+                            </p>
+                        </div>          
+                </section>
+                <section class="sect-nos">
+                    <div class="perro-gato">
+                        <h4>Adopciones</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.   
+                            </p>
+                        </div>                 
+                </section>
+            </nav>
     </main>
-    <footer>
-        <section>
-            <img src="/images/Logo.png" alt="">
-            <h3>Sobre nosotros</h3>
-            <p>¿Tenes dudas? ¡Contactanos!</p>
-            <img src="" alt="Icono-telefono">
-            <p>0800-222-800</p>
-            <img src="" alt="Icono-correo">
-            <p>tambienladramos@gmail.com</p>
-        </section>
-
-        <section>            <!-- <p>FONDO-LOGO</p> -->
-            <h3>¡Seguinos!</h3>
-            <img src="" alt="Icono-instagram">
-            <p>#TambiénLadramos</p>
-        </section>
-
-        <section class="c14">               <!-- <p>FONDO-LOGO</p> -->
-            <!-- <h3>Legales</h3>
-            <p>Institucional</p>
-            <p>Política de privacidad</p> -->
-            <h3>Hecho con <a href=""><i class="fa-solid fa-heart"></i></a> por la Comisión 14</h3> 
-            
-        </section>
-            <h3>2022 - All rights Reserved</h3>
+    <footer class="home-footer">
+        <nav>
+            <section class="home-footer-sect">
+                    <h4>¡Contactanos!</h4>
+                    <a href=""><i class="fa-solid fa-phone fa-2x"></i></a>            
+                    <h4>0800-222-800</h4>
+                    <a href=""><i class="fa-solid fa-envelope fa-2x"></i>
+                    <h4>tambienladramos@gmail.com</h4></a>
+                </section>          
+            <section class="home-footer-sect">
+                    <h4>¡Seguinos!</h4>
+                    <a href=""><i class="fa-brands fa-instagram fa-2x"></i></a>            
+                    <h4>#TambiénLadramos</h4>       
+            </section>
+            <section class="home-footer-sect"> 
+                    <h4>Hecho con <a href=""><i class="fa-solid fa-heart"></i></a> por la Comisión 14</h4> 
+            </section>   
+                <h4>2022 - All rights Reserved</h4>
+        </nav>
     </footer>
 </body>
 </html>
