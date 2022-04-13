@@ -121,13 +121,13 @@ img {
 
 /*     MAIN - PRODUCTOS - SERVICIOS */
 
-.productos, .servicios {
+.home-productos, .servicios {
     display: flex;
     flex-direction: row;
     width: 100vw;
 }
 
-.productos div:hover .productos img{
+.home-productos div:hover .home-productos img{
     position: relative;
     transform: scale(1.1);
     transition: all 0.5 ;
@@ -157,11 +157,11 @@ main .prod-h2, .serv-h2, .nosotros-h2 {
     margin-bottom: 10px;
 }
 
-.productos div, .servicios div {
+.home-productos div, .servicios div {
     display: flex;
     width: 45%;
 }
-.productos div img, .servicios div img{
+.home-productos div img, .servicios div img{
     width: 100%;
     object-fit: cover;
     opacity: 0.5;
