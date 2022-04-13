@@ -3,6 +3,11 @@
 @import url(./header.css);
 @import url(./variables.css);
 @import url(./login.css);
+<<<<<<< HEAD
 @import url(./productos.css);
 @import url(./carrito_de_compras.css);
+=======
+@import url(./register.css);
+@import url(./footer.css);
+>>>>>>> develop
 

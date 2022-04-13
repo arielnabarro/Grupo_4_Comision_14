@@ -38,6 +38,12 @@ app.get("/productos", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "productos.html" ))
 })
 
+app.get("/register", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "register.html" )) // redirige a la pagina de register
+});
+app.get("/detalle_de_producto", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "detalle_de_producto.html" )) // redirige a la pagina de detalle_de_producto
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

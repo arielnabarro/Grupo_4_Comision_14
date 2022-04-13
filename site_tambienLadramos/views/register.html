@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +7,27 @@
     <script src="https://kit.fontawesome.com/4c01eff087.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     
-    <title>Login</title>
+    <title>Home</title>
 </head>
 <body class="home-body">
-    <header class="home-header">        
-            <nav class="home-nav-login">                
-                    <a class="home-header-logo" href=""><img class="logo" src="/images/Logo.png" alt="Logo"></a>                
+    <header>        
+            <nav class="nav-login">                
+                    <a class="header-logo" href=""><img class="logo" src="/images/Logo.png" alt="Logo"></a>                
 
-                <div class="home-div-header">
+                <div class="div-header">
                     <ul>
                         <li><a href=""><h3>Productos</h3></a></li>
                         <li><a href=""><h3>Servicios</h3></a></li>
                         <li><a href=""><h3>Nosotros</h3></a></li>
-                        <a href=""><i class="fa-solid fa-user fa-2x"></i></a>                      
-                    </ul>                    
-                </div>                               
+                    </ul>  
+                </div>       
+                <div class="icon-user">
+                    <a href=""><i class="fa-solid fa-user fa-2x"></i></a> 
+                </div>
+                   
+                 
+                
+                
                 <!--
                     <a href=""><h4>Alimento balanceado</h4></a>
                  <ul>
@@ -52,36 +58,46 @@
                                         <li><a href="">Perros</a></li>
                                         <li><a href="">Gatos</a></li>
                                     </ul>     
-                            </ul> -->                 
+                            </ul> -->                  
+                            
+                
             </nav>
 
             <nav class="nav-hambur">
-                <!-- <input type="checkbox" id="menu">
-                <label for="menu"> ☰ </label>
- -->
                 <a href=""><i class="fa-solid fa-bars fa-2x"></i></a>
                 <a href=""><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
                 <a href=""><i class="fa-solid fa-circle-question fa-2x"></i></a>
                 <a href=""><i class="fa-solid fa-cart-shopping fa-2x"></i></a>                 
             </nav>
     </header>
-    <main class="login-main"> 
+
+    <main class="register"> 
         <nav>
-            <form class="login-form" action="" method="get">
-                <h2>Acceder</h2>
-                <ul>   
+            <h2>Registrarse</h2>
+            <form class="form-register" action="" method="get">
+                <ul>
                     <li>
-                        <input type="text" type="email" id="login_user" name="user_name" placeholder="Nombre completo o email">
-                        <input type="password" id="login_user" name="user_contrasena" placeholder="Contraseña">
-                        <a id="boton" href=""><input class="bottons" type="submit" value="Acceder"></a>  
-                        <a class="login-olvi" href="">¿Olvidaste tu contraseña?</a>
+                        <!--<label for="name">Nombre de usuario o e-mail</label>  --> 
+
+                        <input type="text" id="register_user" name="user_name" placeholder="Ingrese Nombre">
+                        <input type="date" id="register_user" name="user_name">
+                        <input type="email" id="register_user" name="user_name" placeholder="E-mail">
+                        <input type="password" id="register_user" name="user_name" placeholder="Contraseña">
+                        <input type="password" id="register_user" name="user_name" placeholder="Contraseña">
                     </li>
                 </ul>
+                <imput class="botons" type="submit" value="Registrarse">
+                <!--aca prodria ir el "ya tengo cuenta"-->
             </form>
         </nav>
     </main>   
+
+
+
+
     <footer>
-        <section>            
+        <section>
+            <img src="/images/Logo.png" alt="">
             <h3>Sobre nosotros</h3>
             <p>¿Tenes dudas? ¡Contactanos!</p>
             <img src="" alt="Icono-telefono">
@@ -95,14 +111,15 @@
             <img src="" alt="Icono-instagram">
             <p>#TambiénLadramos</p>
         </section>
+
         <section class="c14">               <!-- <p>FONDO-LOGO</p> -->
             <!-- <h3>Legales</h3>
             <p>Institucional</p>
             <p>Política de privacidad</p> -->
-            <h3>Hecho con <a href=""><i class="fa-solid fa-heart"></i></a> por la Comisión 14</h3>             
+            <h3>Hecho con <a href=""><i class="fa-solid fa-heart"></i></a> por la Comisión 14</h3> 
+            
         </section>
             <h3>2022 - All rights Reserved</h3>
     </footer>
-
 </body>
 </html>
