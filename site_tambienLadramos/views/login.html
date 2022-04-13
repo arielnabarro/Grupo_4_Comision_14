@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/4c01eff087.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     
-    <title>Home</title>
+    <title>Login</title>
 </head>
 <body class="home-body">
     <header class="home-header">        
@@ -65,29 +65,21 @@
                 <a href=""><i class="fa-solid fa-cart-shopping fa-2x"></i></a>                 
             </nav>
     </header>
-    <main class="login-main">
-        <h2>Acceder</h2>
-        <form class="login-form" action="/login" method="post">
-                <ul>
+    <main class="login-main"> 
+        <nav>
+            <form class="login-form" action="" method="get">
+                <h2>Acceder</h2>
+                <ul>   
                     <li>
-                        <label for="login-usuario"></label>
-                        <input type="text" name="login-usuario" id="login-usuario" placeholder="Ingrese su usuario o e-mail">
+                        <input type="text" type="email" id="login_user" name="user_name" placeholder="Nombre completo o email">
+                        <input type="password" id="login_user" name="user_contrasena" placeholder="Contraseña">
+                        <a id="boton" href=""><input class="bottons" type="submit" value="Acceder"></a>  
+                        <a class="login-olvi" href="">¿Olvidaste tu contraseña?</a>
                     </li>
-                    <li>
-                        <label for="login-clave"></label>
-                        <input type="password" name="clave" id="login-clave" placeholder="Ingrese su contraseña">
-                    </li>
-                    <li>
-                        <a id="login-ingresar" href=""><button type="button">Ingresar</button></a> 
-                    </li>
-                    <li>
-                        <a id="login-olvido" href="">¿Olvidó su contraseña?</a>  
-                    </li>
-                </ul>        
-                    
-                       
-        </form>
-    </main>
+                </ul>
+            </form>
+        </nav>
+    </main>   
     <footer>
         <section>            
             <h3>Sobre nosotros</h3>
