@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/4c01eff087.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     
-    <title>Home</title>
+    <title>Registrarse</title>
 </head>
 <body class="home-body">
     <header>        
@@ -71,30 +71,25 @@
             </nav>
     </header>
 
-    <main class="register"> 
+    <main class="register_form"> 
         <nav>
             <h2>Registrarse</h2>
-            <form class="form-register" action="" method="get">
+            <form  action="" method="get">
                 <ul>
                     <li>
-                        <!--<label for="name">Nombre de usuario o e-mail</label>  --> 
-
-                        <input type="text" id="register_user" name="user_name" placeholder="Ingrese Nombre">
-                        <input type="date" id="register_user" name="user_name">
-                        <input type="email" id="register_user" name="user_name" placeholder="E-mail">
-                        <input type="password" id="register_user" name="user_name" placeholder="Contraseña">
-                        <input type="password" id="register_user" name="user_name" placeholder="Contraseña">
+                        <input type="text" id="register_user" name="user_name" placeholder="Nombre completo">
+                        <input type="date" id="register_user" name="user_date">
+                        <input type="email" id="register_user" name="user_mail" placeholder="E-mail">
+                        <input type="password" id="register_user" name="user_contrasena" placeholder="Contraseña">
+                        <input type="password" id="register_user" name="user_contrasena" placeholder="Confirmar contraseña">
+                        <p><a href="#"> Términos y condiciones</a></p>
+                        <input class="bottons" type="submit" value="Registrar">
+                        <p><a href="#">¿Ya tengo cuenta?</p></a>
                     </li>
                 </ul>
-                <imput class="botons" type="submit" value="Registrarse">
-                <!--aca prodria ir el "ya tengo cuenta"-->
             </form>
         </nav>
     </main>   
-
-
-
-
     <footer>
         <section>
             <img src="/images/Logo.png" alt="">
