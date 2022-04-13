@@ -4,7 +4,7 @@
     background-position: center;
     background-repeat: repeat;
     width: 100%;
-    line-height: 75px;
+    line-height: 30px;
     margin: 10px auto;
     padding: 10px;
     opacity: 0.7;
@@ -12,21 +12,28 @@
 }
 
 .home-footer nav {
-    font-size: 14px;
+    font-size: 15px;
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     text-align: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .home-footer-sect a{
     text-decoration: none;
     color: none;
     background-color: none;  
-
 }
 
+.home-footer-sect-ig {
+    width: 100%;
+    margin: 80px auto;
+}
+
+.home-footer-sect-comi {
+    width: 100%;
+}
 
