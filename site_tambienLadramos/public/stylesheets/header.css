@@ -1,21 +1,51 @@
+@keyframes rotacion{
+    0% {
+        -webkit-transform: rotate3d(0, 1, 0deg);
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+    25% {
+        -webkit-transform: rotate3d(0, 1, 90deg);
+        transform: rotate3d(0, 0, 1, 90deg);
+    }
+    50% {
+        -webkit-transform: rotate3d(0, 1, 180deg);
+        transform: rotate3d(0, 0, 1, 180deg);
+    }
+    75% {-webkit-transform: rotate3d(0, 1, 270deg);
+        transform: rotate3d(0, 0, 1, 270deg);
+    }
+    100% {
+        -webkit-transform: rotate3d(0, 1, 360deg);
+        transform: rotate3d(0, 0, 1, 360deg);
+    }
+}
+/* @media (min-width: 480px) and (orientation: portrait) {
+    .home-body {
+        
+    }
+} */
+
+
+/* 
+    HEADER 
+*/
+
 .home-body {
-    display: flex;
-    flex-wrap: wrap;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 100vw;
 }
 
-header {
+.home-header {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     height: 150px;
     background-color: #46b593;  
     font-size: 12px;
 }
 
-header a {
+.home-header a {
     font-size: 12px;
     text-decoration: none;
     align-items: center;
@@ -24,34 +54,70 @@ header a {
     color: white;
 }
 
-.nav-login {
+.home-nav-login {
     display: flex;
     flex-direction: row; 
     padding: 0;
     margin: 0;
-    width: 100%;
-    height: 75px;  
+    width: 100vw;
+    height: 75%;  
     color: white;
     align-items: center;    
     justify-content: space-between;
 }
+.home-icon-user {
+    width: 100%;
+}
 
-header .nav-login a .logo {
+.logo {
     padding: 0;
     margin: 0;
+    width: 75%;   
+    border-radius: 50%; 
+    animation: rotacion 5s normal linear infinite;
+}
+.logo:hover {
+    background-color: black;
+    opacity: 0.5;
+    border: none;
+    border-radius: 50%;
+}
+
+.home-header-logo{
+    width: 25%;
+}
+.home-nav-login div ul {
+    display: flex;    
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.home-nav-login div ul li:hover {
+    transition: all 1s;
+    background-color: var(--amarillo);
+
+}
+
+.home-div-header  {
+    display: flex;
     width: 100%;    
+    color:white;
 }
 
-header .nav-login .header-logo{
-    width: 20%;
-}
+/* .div-header h3 {
+    
+} */
 
-.icon-user {
-    width: 10%;
+.home-nav-login div ul li {
+    text-decoration: none;
+    list-style: none;
+    width: 30%;    
+    justify-content: space-around;
 }
 
 img {
-    width: 100%;  
+    width: 100vw;  
 }  
 
 .nav-hambur {
@@ -59,19 +125,43 @@ img {
     flex-direction: row; 
     padding: 0;
     margin: 0;
-    width: 360px;
+    width: 100%;
     height: 75px;
-    align-items: center;
+    align-items:center;
     justify-content: space-around;    
 }
 
-.productos {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+/* .nav-hambur input {
+    display: none;
+    font-size: 32px;
 }
 
-main .prod-h2, .serv-h2 {
+.nav-hambur label {
+    display: block;
+    background-color: var(--amarillo);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin: 10px auto;
+    font-size: 25px;
+    padding: 8px 12px 8px 12px;
+}
+
+.header__menu input:checked ~ ul{
+    display: flex;
+} */
+      
+
+/* 
+    MAIN - PRODUCTOS - SERVICIOS
+*/
+.productos, .servicios {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+main .prod-h2, .serv-h2, .nosotros-h2 {
     font-size: 20px;
     text-align: center;
     margin-top: 10px;
@@ -79,80 +169,177 @@ main .prod-h2, .serv-h2 {
     font-weight: bold;
     background-color: var(--amarillo);
     box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
-    margin-bottom: 20px;
-    
+    margin-bottom: 20px; 
 }
 .serv-h2 { 
     background-color: var(--azul);
 }
-
-.sect-pr h3 {
+.nosotros-h2 {
+    background-color: var(--verde);
+}
+.sect-pr h3, .sect-serv h3{
     font-size: 12px;
     color: black;
     text-align: center;
     margin-bottom: 10px;
 }
 
-.productos div {
+.productos div, .servicios div {
     display: flex;
     width: 45%;
 }
-.productos div img{
+.productos div img, .servicios div img{
     width: 100%;
     object-fit: cover;
     opacity: 0.5;
 }
 
-.sect-pr {
+.sect-pr{
     display: flex;
     width: 50%;
-    flex-direction: column;
-    
+    flex-direction: column; 
 }
 
-.sect-pr div {
+.sect-pr div{
     width: 100%;
     flex-direction: row;
-    
 }
-.sect-pr div a  {
+.sect-pr div a{
     width: 50%;
     height: 200px;
-    
 }
 
-.sect-pr div a img {
+.sect-pr div a img{
     width: 100%;
     height: 100%;
     justify-content: space-evenly;
 }
 
-
-
-body header .nav-login div ul {
-    display: flex;    
-    flex-direction: row;
-    justify-content: center;
+.home-serv-div {
     width: 100%;
+    height: 100%;
+}
+.sect-serv .home-serv-div a img {
+    width: 50vw;
+    height: 50vw;
 }
 
-.div-header  {
-    width: 70%;
+.nosotros {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.sect-nos h4 {
+    color: white;
+    text-align: center;
+}
+.sect-nos p{
+    color: black;
+    text-align: center;    
 }
 
-.div-header h3 {
-    color:white;
+.sect-nos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-body header .nav-login div ul li {
-    text-decoration: none;
-    list-style: none;
-    width: 30%;    
+
+.perro-campo {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(/images/perro-campito.webp);
+    background-position: center;
+}
+
+.perro-campo:hover h4, .perro-campo:hover p {
+    color: white;
+    font-weight: 500;
+    opacity: 100;
+    background-color: black;
+    opacity:0.6;
+}
+
+.perro-playa {
+    background-image: url(/images/perro-playa.jfif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.perro-playa:hover h4, .perro-playa:hover p {
+    color: white;
+    font-weight: 500;
+    opacity: 100;
+    background-color: black;
+    opacity:0.6;
+}
+.perro-gato {
+    background-image: url(/images/perro-gato.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.perro-gato:hover h4, .perro-gato:hover p {
+    color: white;
+    font-weight: 500;
+    opacity: 100;
+    background-color: black;
+    opacity:0.6;
 }
 
 footer {
-    width: 360px;
+    margin: 10px 0px 10px 0;
+    padding: 10vw;
+    background-image: url(/images/Logo.png);
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    justify-content: left;
+    opacity: 0.7;
+    line-height: 8vw;
+    font-size: 12px;
 }
+
+
+footer:hover h4, footer:hover p, footer:hover a {
+    background-color: black;
+    color: var(--amarillo);
+    opacity: 0.7;
+}
+
+/* MEDIA QUERIES */
+
+ @media (min-width: 0px) and (max-width: 359px)  {
+    .home-body {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 480px)  {
+    .home-body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        align-items: center; 
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px)  {
+    .nosotros div {
+        padding: 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 20px;
+        justify-content: center;
+
+    }
+  }  
