@@ -1,40 +1,64 @@
 .login-main {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 100%;
     text-align: center;
-    margin: 10% auto;
-    justify-content: center;
+    align-items: center;
 }
 
-.login-main ul {
+.login-form{
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 75%;   
+    height: 25%;
+}
+.login-form ul {
     list-style: none;
-    padding: 12px auto;
-    margin: 12% auto;    
 }
 
-.login-main ul li {
-    list-style: none;
-    padding: 5px;
-    margin: 5px;
-}
-
-#login-usuario, #login-clave {
-    margin: 5% auto;
-    text-align: center;
+h2 {
+    font-size: 25px;  
+    text-align: center; 
     padding: 12% auto;
-    width: 75vw;
-    height: 12vw;
-    background-color: var(--gris);
-    color: black;
+    margin: 12% auto;
+    
+}
+#login_user{
+    display: flex;
+    width: 100%;
+    padding: 10%;
+    margin: 12% auto;
+    font-size: 16px;
+    background-color: gainsboro;
     border-radius: 40px;
+    border: gainsboro;
 }
 
-#login-ingresar button {
-    margin: 10px auto;
-    padding: 15px auto;
-    width: 50%;    
+.bottons{
+    position: relative;
+    width: 75%;
+    height: 75px;
+    padding: 0 auto;
+    border: none;
+    margin: 12% auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #46b593;
+    color: white;
     font-size: 20px;
-    border-radius: 40px;
-    background-color: var(--verde);
-    text-align: center;
+    font-weight: bold;
+    border-radius: 40px;    
+}
+
+#boton {
+    text-decoration: none;
+}
+.login-olvi {
+    color: none;
+    margin: 15% auto;
+    padding: 15% auto;
+    text-decoration: none;
+}
+
+footer {
+    margin: 15% auto;
 }
