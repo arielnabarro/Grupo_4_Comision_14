@@ -8,7 +8,6 @@
     margin: 10px auto;
     padding: 10px;
     opacity: 0.7;
-    
 }
 
 .home-footer nav {
@@ -26,11 +25,13 @@
     text-decoration: none;
     color: none;
     background-color: none;  
+    
 }
 
 .home-footer-sect-ig {
     width: 100%;
     margin: 80px auto;
+    
 }
 
 .home-footer-sect-comi {
