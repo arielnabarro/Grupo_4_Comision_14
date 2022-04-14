@@ -121,9 +121,151 @@ img {
     justify-content: space-around;    
 }
 
+/*     MAIN - PRODUCTOS - SERVICIOS */
+
+.home-productos, .servicios {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.home-productos div:hover .home-productos img{
+    position: relative;
+    transform: scale(1.1);
+    transition: all 0.5 ;
+    z-index: 10;
+}
+
+main .prod-h2, .serv-h2, .nosotros-h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px 0;    
+    font-weight: bold;
+    background-color: var(--amarillo);
+    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
+    margin-bottom: 20px; 
+}
+.serv-h2 { 
+    background-color: var(--azul);
+}
+.nosotros-h2 {
+    background-color: var(--verde);
+}
+.sect-pr h3, .sect-serv h3{
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.home-productos div, .servicios div {
+    display: flex;
+    width: 45%;
+}
+.home-productos div img, .servicios div img{
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.sect-pr{
+    display: flex;
+    width: 50%;
+    flex-direction: column; 
+}
+
+.sect-pr div{
+    width: 100%;
+    flex-direction: row;
+}
+.sect-pr div a{
+    width: 50%;
+    height: 200px;
+}
+
+.sect-pr div a img{
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.home-serv-div {
+    width: 100%;
+    height: 100%;
+}
+.sect-serv .home-serv-div a img {
+    width: 50vw;
+    height: 50vw;
+}
+
+.nosotros {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.sect-nos h4 {
+    color: white;
+    text-align: center;
+}
+.sect-nos p{
+    color: black;
+    text-align: center;    
+}
+
+.sect-nos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.perro-campo {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(/images/perro-campito.webp);
+    background-position: center;
+}
+
+.perro-campo:hover h4, .perro-campo:hover p {
+    color: white;
+    font-weight: 500;
+    opacity: 100;
+    background-color: black;
+    opacity:0.6;
+}
+
+.perro-playa {
+    background-image: url(/images/perro-playa.jfif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.perro-playa:hover h4, .perro-playa:hover p {
+    color: white;
+    font-weight: 500;
+    opacity: 100;
+    background-color: black;
+    opacity:0.6;
+}
+.perro-gato {
+    background-image: url(/images/perro-gato.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.perro-gato:hover h4, .perro-gato:hover p {
+    color: white;
+    font-weight: 500;
+    opacity: 100;
+    background-color: black;
+    opacity:0.6;
+}
+
 /* MEDIA QUERIES */
 
-/*  @media (min-width: 0px) and (max-width: 359px)  {
+@media (min-width: 0px) and (max-width: 359px)  {
     .home-body {
         display: flex;
         flex-direction: column;
@@ -151,4 +293,4 @@ img {
         justify-content: center;
 
     }
-  }   */
+  }   

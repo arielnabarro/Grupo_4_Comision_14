@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" class="body_productos">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="https://kit.fontawesome.com/e1309903af.js" crossorigin="anonymous"></script>
-    <title>productos</title>
+    <title>carrito de compras</title>
 </head>
-<body class="body_productos">
+
+<body class="carrito_body">
 
     <header class="home-header">        
         <nav class="home-nav-login">                
-                <a class="home-header-logo" href=""><img class="logo" src="/images/Logo.png" alt="Logo"></a>                
+                <a class="home-header-logo" href="/"><img class="logo" src="/images/Logo.png" alt="Logo"></a>                
 
             <div class="home-div-header">
                 <ul>
-                    <li><a href=""><h3>Productos</h3></a></li>
-                    <li><a href=""><h3>Servicios</h3></a></li>
-                    <li><a href=""><h3>Nosotros</h3></a></li>
-                    <a href=""><i class="fa-solid fa-user fa-2x"></i></a>                      
+                    <li><a href="product"><h3>Productos</h3></a></li>
+                    <li><a href="services"><h3>Servicios</h3></a></li>
+                    <li><a href="services"><h3>Nosotros</h3></a></li>
+                    <a href="login"><i class="fa-solid fa-user fa-2x"></i></a>                      
                 </ul>                    
             </div>                               
             <!--
@@ -65,90 +66,133 @@
             <a href=""><i class="fa-solid fa-cart-shopping fa-2x"></i></a>                 
         </nav>
 </header>
-        
+
 <main>
+
+    <nav class="tabla_carrito"> 
+
+        <h1 >carrito de compras</h1>
     
-    <section class="productos"> 
-        
-                <h1>productos</h1>
+            <table>
 
-            <h5>inicio>Productos</h5>
-                <div>
-                    <p>mas relevante</p>
-                    <i class="fa-solid fa-angle-down"></i>
-                </div>
-                
-        <nav class="productos">
+                <tr>
 
-            <article>
+                    <th>nombre</th>
+                    <th>producto</th>
+                    <th>detalles de producto</th>
+                    <th>cantidad</th>
+                    <th>precio unitario</th>
+                    <th>precio total</th>
+
+                </tr>
+
+                <tr>
             
-                <a href="">
-                    <img src="" alt="producto">
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
+                    <td>nombre</td>
+                    <td><img src="" alt="producto"></td>
+                    <td>detalles de producto</td>
+                    <td>cantidad</td>               
+                    <td>precio unitario</td>
+                    <td>precio total</td>
+
+                </tr>
+                <tr>
+
+                    <td>nombre</td>
+                    <td><img src="" alt="producto"></td>
+                    <td>detalles de producto</td>               
+                    <td>cantidad</td>
+                    <td>precio unitario</td>               
+                    <td>precio total</td>
+
+                </tr>
+                <tr>
+            
+                    <td>nombre</td>
+                    <td><img src="" alt="producto"></td>
+                    <td>detalles de producto</td>               
+                    <td>cantidad</td>
+                    <td>precio unitario</td>               
+                    <td>precio total</td>
+
+                </tr>
+                <tr>
+            
+                    <td>nombre</td>
+                    <td><img src="" alt="producto"></td>
+                    <td>detalles de producto</td>               
+                    <td>cantidad</td>
+                    <td>precio unitario</td>               
+                    <td>precio total</td>
+
+                </tr>
+                <tr>
+            
+                    <td>nombre</td>
+                    <td><img src="" alt="producto"></td>
+                    <td>detalles de producto</td>               
+                    <td>cantidad</td>
+                    <td>precio unitario</td>               
+                    <td>precio total</td>
+
+                </tr>
+                <tr>
+            
+                    <td>nombre</td>
+                    <td><img src="" alt="producto"></td>
+                    <td>detalles de producto</td>               
+                    <td>cantidad</td>
+                    <td>precio unitario</td>               
+                    <td>precio total</td>
+
+                </tr>
         
-            </article>
+            </table>
 
-            <article>
-                <a href="">
-                    <img src="" alt="producto">
-                    <p>nombre del producto</p>
-                    <p>precio 000$</p>
-                </a>
-            </article>
+    </nav>
 
-            <article>
-                <a href="">
-                    <img src="" alt="producto">
-                    <p>nombre del producto</p>
-                    <p>precio 000$</p>
-                </a>
-            </article>
+    <nav>
 
-            <article>
-                <a href="">
-                    <img src="" alt="producto">
-                    <p>nombre del producto</p>
-                    <p>precio 000$</p>
-                </a>
-            </article>
-
-            <article>
-                <a href="">
-                    <img src="" alt="producto">
-                    <p>nombre del producto</p>
-                    <p>precio 000$</p>
-                </a>
-            </article>
-
-            <article>
-                <a href="">
-                    <img src="" alt="producto">
-                    <p>nombre del producto</p>
-                    <p>precio 000$</p>
-                </a>
-            </article>
+        <section class="productos_relacionados">
+        
+            <h2>productos relacionados</h2>
     
-        </nav>
+            <div>
+                <i class="fa-solid fa-circle-arrow-left fa-2x"></i>
+            </div>
 
-    </section>
+            <article>
+                <a href=""><p>producto</p>
+                    <img src="" alt="producto">
+                </a>
+            </article>
 
-    <section>
+            <article>
+                <a href=""><p>producto</p>
+                    <img src="" alt="producto">
+                </a>
+            </article>
 
-        <article class="producto_pag_1">
+            <article>
+                <a href=""><p>producto</p>
+                    <img src="" alt="producto">
+                </a>
+            </article>
 
-           <i class="fa-solid fa-circle-arrow-left fa-2x"></i>
+            <div>
+                <i class="fa-solid fa-circle-arrow-right fa-2x"></i>
+            </div>
+            
+            <nav class="ver-mas"> 
+                <p>si quieres ver mas precione aqui porfavor> <a href="">ver más</a></p>
+            </nav>
 
-                <p>Pág 1</p>
-
-            <i class="fa-solid fa-circle-arrow-right fa-2x"></i>    
-
-        </article>
-
-    </section>
+        </section>
+    
+    </nav>
 
 </main>
+
 
 <footer class="home-footer">
     <nav>
@@ -170,7 +214,6 @@
             <h4>2022 - All rights Reserved</h4>
     </nav>
 </footer>
-
 
 </body>
 </html>
