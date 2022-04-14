@@ -29,6 +29,15 @@ app.get("/", (req,res) => {
 app.get("/login", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "login.html" ))
 });
+
+app.get("/carrito_de_compras", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "carrito_de_compras.html" ))
+})
+
+app.get("/productos", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "productos.html" ))
+})
+
 app.get("/register", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "register.html" )) // redirige a la pagina de register
 });
