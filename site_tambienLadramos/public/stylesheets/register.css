@@ -4,7 +4,7 @@
 }
 
  
-.register_form h2 {
+.reg h2 {
     display: flex;
     width: 80%;    
     padding: 10px;
@@ -21,7 +21,7 @@
     margin: 5%;
 
     font-size: 20px;
-    background-color: gainsboro;/*background: var(--amarillo); /*reforzar esta WEAAA! */
+    background-color: gainsboro;
     border-radius: 40px;
 
     border: gainsboro;

@@ -121,13 +121,13 @@ img {
 
 /*     MAIN - PRODUCTOS - SERVICIOS */
 
-.productos, .servicios {
+.home-productos, .servicios {
     display: flex;
     flex-direction: row;
     width: 100vw;
 }
 
-.productos div:hover .productos img{
+.home-productos div:hover .home-productos img{
     position: relative;
     transform: scale(1.1);
     transition: all 0.5 ;
@@ -157,11 +157,11 @@ main .prod-h2, .serv-h2, .nosotros-h2 {
     margin-bottom: 10px;
 }
 
-.productos div, .servicios div {
+.home-productos div, .servicios div {
     display: flex;
     width: 45%;
 }
-.productos div img, .servicios div img{
+.home-productos div img, .servicios div img{
     width: 100%;
     object-fit: cover;
     opacity: 0.5;
@@ -260,36 +260,3 @@ main .prod-h2, .serv-h2, .nosotros-h2 {
     background-color: black;
     opacity:0.6;
 }
-
-
-/* MEDIA QUERIES */
-
-/*  @media (min-width: 0px) and (max-width: 359px)  {
-    .home-body {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-}
-
-@media (min-width: 360px) and (max-width: 480px)  {
-    .home-body {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        text-align: center;
-        align-items: center; 
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px)  {
-    .nosotros div {
-        padding: 50px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        font-size: 20px;
-        justify-content: center;
-
-    }
-  }   */

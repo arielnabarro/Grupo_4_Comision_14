@@ -30,12 +30,12 @@ app.get("/login", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "login.html" ))
 });
 
-app.get("/carrito_de_compras", (req,res) => {
-  res.sendFile(path.join(__dirname, "views", "carrito_de_compras.html" ))
+app.get("/productCart", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "productCart.html" ))
 })
 
-app.get("/productos", (req,res) => {
-  res.sendFile(path.join(__dirname, "views", "productos.html" ))
+app.get("/product", (req,res) => {
+  res.sendFile(path.join(__dirname, "views", "product.html" ))
 })
 
 app.get("/register", (req,res) => {
