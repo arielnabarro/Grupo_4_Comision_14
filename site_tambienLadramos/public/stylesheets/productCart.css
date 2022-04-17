@@ -42,7 +42,7 @@
 .tabla_carrito table, .tabla_carrito th, .tabla_carrito td {
     
     width: 100vw;
-    height: 30px;
+    height: 10vw;
 
     text-align: center;
     font-size: 10px;
@@ -51,6 +51,19 @@
     border-collapse: collapse;
 
 }
+
+.tabla_carrito .tabla-img-td {
+
+    background-repeat: no-repeat;
+
+    background-size: 60%;
+
+    background-position: center;
+
+    background-image: url(/images/productos_jpg/cat_pescado_1.jpg);
+}
+
+
 
 .carrito_body {
     margin: 0px;
