@@ -1,14 +1,17 @@
 .login-main {
     width: 100%;
+    height: max-content;
     text-align: center;
     align-items: center;
+    
 }
 
-.login-form{
+.login-form {
     margin: 0 auto;
     padding: 0 auto;
     width: 75%;   
     height: 25%;
+    margin: 12%;
 }
 .login-form ul {
     list-style: none;
@@ -19,9 +22,9 @@ h2 {
     text-align: center; 
     padding: 12% auto;
     margin: 12% auto;
-    
 }
-#login_user{
+
+#login_user {
     display: flex;
     width: 100%;
     padding: 10%;
@@ -32,7 +35,7 @@ h2 {
     border: gainsboro;
 }
 
-.bottons{
+.bottons {
     position: relative;
     width: 75%;
     height: 75px;
@@ -59,6 +62,38 @@ h2 {
     text-decoration: none;
 }
 
-footer {
-    margin: 15% auto;
+
+@media (min-width: 1px) and (max-width: 189px) {
+    .login-form {
+        font-size: 12px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
 }
+
+@media (min-width: 190px) and (max-width: 359px) {
+    .login-form {
+        font-size: 14px;
+        margin-bottom: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 539px) {
+    
+    .login-form {
+        max-width: 75%;
+        max-height: 75%;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        justify-content: center;
+    }
+}   
+
