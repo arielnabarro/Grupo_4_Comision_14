@@ -1,155 +1,52 @@
-.tabla_carrito{
-
-    letter-spacing: 0.05em;
-
-}
-
-.tabla_carrito h1 {
-
-    display: flex;
-    align-items: center;
+.cart-title {
+    background-color: var(--amarillo);
+    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
+    margin:1% 0px;
     text-align: center;
-
-    justify-content:center;
-
-    padding: 10px;
-
-    margin:0px;
-
-    height: 20px;
-    width: 100%;
-    left: 0px;
-    top: 84px;
-    border-radius: nullpx;
-
-
-
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19px;
-    letter-spacing: 0.05em;
-   
-    background: #FAC368;
-    border: 0.1px solid #000000;
-
-    border-bottom:0px;
-
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+    font-size: 125%;
 }
 
-.tabla_carrito table, .tabla_carrito th, .tabla_carrito td {
-    
+table {
+    background: #8f8ad8;
+    border: 1px black solid;
     width: 100vw;
-    height: 10vw;
-
-    text-align: center;
-    font-size: 10px;
-
-    border: 0.1px solid black;
+    height: 30vw;
     border-collapse: collapse;
-
 }
 
-.tabla_carrito .tabla-img-td {
-
-    background-repeat: no-repeat;
-
-    background-size: 60%;
-
-    background-position: center;
-
-    background-image: url(/images/productos_jpg/cat_pescado_1.jpg);
+td,th {
+    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px black solid;
 }
 
 
+.tabla-img-td {
+    width: 20vw;
+    height: 20vw;
+}
 
-.carrito_body {
-    margin: 0px;
-    padding: 0px;
-    width: 100vw;
+
+.cart-title-relaciondos {
+    background-color: var(--azul);
+    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
+    margin:1% 0px;
+    text-align: center;
+    font-size: 125%;
 }
 
 .productos_relacionados {
-
-    justify-content:center;
-    border: 0.1px solid black;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    height: 100%;
-
-}
-
-.productos_relacionados h2, .ver-mas {
-
-   font-size: 12px;
-   display:block;
-
-   margin: 5% 0 5% 0;
-
-   width: 100%;
-   height: 1%;
-
-   text-align: center;
-
 }
 
 .productos_relacionados article {
-
-    height: 25vw;
-    align-self:center;
-    border: 0.1px solid black;
-    width:20%;
-    font-size: 8px;
-    margin: 3%;
-
+    width: 30%;
 }
 
-.productos_relacionados div {
-
-    border: 0.1px solid black;
-    width: 12%;
-    font-size: 8px;
-    height: 50vw;
-
-}
-
-
-
-.ver-mas {
-
-    border: 0.1px solid black;
-
-    font-size: 12px;
-
-
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    justify-content:center;
-
-    padding: 10px;
-
-    margin-top: 10%;
-    height: 30px;
-    width: 100vw;
-
-    font-family: Roboto;
-
-    background: #FAC368;
-
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-}
-
-.productos_relacionados div {
-
-    height: 100%;
-    width: 18px;
-
-    align-self:center ;
-
+.productos_relacionados {
+    width: 1px;
 }
