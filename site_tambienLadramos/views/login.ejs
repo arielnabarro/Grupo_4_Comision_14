@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('./partials/head') %>
+
+<body class="home-body">
+
+    <%- include('./partials/header') %>
+
+    <main class="login-main"> 
+        <nav>
+            <form class="login-form" action="" method="get">
+                <h2>Acceder</h2>
+                <ul>   
+                    <li>
+                        <input type="text" type="email" id="login_user" name="user_name" placeholder="Nombre completo o email">
+                        <input type="password" id="login_user" name="user_contrasena" placeholder="Contraseña">
+                        <a id="boton" href=""><input class="bottons" type="submit" value="Acceder"></a>  
+                        <a class="login-olvi" href="">¿Olvidaste tu contraseña?</a>
+                        <a class="login-olvi" href="register">¿Quieres registrarte?</a>
+                    </li>
+                </ul>
+            </form>
+        </nav>
+    </main>   
+    
+    <%- include('./partials/footer') %>
+
+</body>
+</html>
