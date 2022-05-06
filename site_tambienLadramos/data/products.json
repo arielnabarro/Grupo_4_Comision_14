@@ -1,0 +1,33 @@
+[
+    {
+       "id": 1,
+       "name": "dog_chow_1",
+       "price": 600,
+       "category": 1,
+       "img": "dog_chow_1.jpg"
+       
+    },
+    {
+       "id": 2,
+       "name": "dog_chow_2",
+       "price": 500,
+       "category": 1,
+       "img": "dog_chow_2.jpg"
+       
+    },
+    {
+       "id": 3,
+       "name": "cat_atun_1",
+       "price": 400,
+       "category": 2,
+       "img": "cat_atun_1.jpg"
+    },
+    {
+       "id": 4,
+       "name": "cat_pescado_2",
+       "price": 300,
+       "category": 2,
+       "img": "cat_pescado_2.jpg"
+    }
+]
+    
