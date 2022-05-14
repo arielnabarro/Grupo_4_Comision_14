@@ -4,8 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
+const servicesRouter = require('./routes/services');
 
 var app = express();
 
@@ -18,15 +20,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-/** 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-*/
 
-app.get("/", (req,res) => {
+app.use('/', indexRouter);
+app.use('/users', usersRouter); 
+app.use('/products', productsRouter); 
+app.use('/services', servicesRouter); 
+
+
+/* app.get("/", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "index.html" ))
-});
-app.get("/login", (req,res) => {
+}); */
+/* app.get("/login", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "login.html" ))
 });
 
@@ -46,7 +50,9 @@ app.get("/register", (req,res) => {
 });
 app.get("/productDetail", (req,res) => {
   res.sendFile(path.join(__dirname, "views", "productDetail.html" )) // redirige a la pagina de detalle_de_producto
-});
+}); */
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
