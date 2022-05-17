@@ -5,11 +5,24 @@ const alimentos = require('../data/products.json');
 
 
 module.exports = {
-    products : (req, res) => {
-        res.render('products')
+    add : (req,res) => {
+            return res.render('productAdd',{
+                alimentos
+            })
+        },
+
+    edit : (req,res) => {
+    
+        return res.render('productEdit',{
+            alimentos
+        })
     },
     
+    products : (req, res) => {
+        res.render('products')
+    },    
     
     detail : (req, res) => res.render('productDetail'),
+
     cart : (req, res) => res.render('productCart')
 }
