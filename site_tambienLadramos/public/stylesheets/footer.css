@@ -1,3 +1,6 @@
+.corazon {
+    color: red;
+}
 footer {
     display: flex;
     flex-direction: row;
@@ -54,7 +57,7 @@ footer div a i {
 
 /* EFECTOS */
 
-footer div h3:hover, h4:hover {
+footer div h3:hover, h4:hover, h3:hover{
     background-color: var(--amarillo);
     margin: 0;
     padding: 0;
