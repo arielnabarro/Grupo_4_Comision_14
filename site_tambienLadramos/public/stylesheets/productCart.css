@@ -6,20 +6,26 @@
     font-size: 125%;
 }
 
-table {
-    background: var(--amarillento);
+.cart-table, .cart-end-of-table {
+    background: var(--amarillo);
     border: 1px black solid;
     width: 100vw;
     height: 30vw;
     border-collapse: collapse;
 }
 
-td,th {
+.cart-table td, .cart-table th, .cart-end-of-table th {
     box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
     text-align: center;
     align-items: center;
     justify-content: center;
     border: 1px black solid;
+    background: var(--verde);
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 5vw;
+    cursor: pointer;
 }
 
 
@@ -32,24 +38,99 @@ td,th {
 .cart-title-relaciondos {
     background-color: var(--azul);
     box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
-    margin:1% 0px;
+    margin-bottom: 10px;
     text-align: center;
     font-size: 125%;
 }
 
+
+
+
 .productos_relacionados {
+
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    font-size: 4vw;
+    align-items: center;
     flex-direction: row;
 }
 
 .productos_relacionados article {
+
+    display: flex;
+    height: 50vw;
+    margin-bottom: 10px;
     width: 25%;
-    border: 1px solid black;
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    border: 2px solid var(--amarillo);
+    outline: 2px solid var(--azul);
+
 }
 
-.productos_relacionados {
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+.productos_relacionados article a {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.productos_relacionados article a div {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.productos_relacionados article a div img {
+
+    height: 100%;
+    width: 90%;
+
+}
+
+.productos_relacionados article form input {
+
+    background: var(--verde);
+    color: white;
+    border-radius: 35px;
+    padding: 10px;
+    font-size: 2vw;
+    border: 2px solid var(--amarillo);
+    outline: 2px solid var(--azul);
+    cursor: pointer;
+
+}
+
+.cart-ver-mas {
+
+    background: var(--verde);
+    color: white;
+    border-radius: 35px;
+    padding: 10px;
+    font-size: 3vw;
+    border: 2px solid var(--amarillo);
+    outline: 2px solid var(--azul);
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    
+    .cart-end-of-table tbody, .cart-end-of-table tr{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
 }
