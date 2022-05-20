@@ -1,33 +1,99 @@
 [
-    {
-       "id": 1,
-       "name": "dog_chow_1",
-       "price": 600,
-       "category": 1,
-       "img": "dog_chow_1.jpg"
-       
-    },
-    {
-       "id": 2,
-       "name": "dog_chow_2",
-       "price": 500,
-       "category": 1,
-       "img": "dog_chow_2.jpg"
-       
-    },
-    {
-       "id": 3,
-       "name": "cat_atun_1",
-       "price": 400,
-       "category": 2,
-       "img": "cat_atun_1.jpg"
-    },
-    {
-       "id": 4,
-       "name": "cat_pescado_2",
-       "price": 300,
-       "category": 2,
-       "img": "cat_pescado_2.jpg"
-    }
+   {
+  "id": 1,
+  "name": "Eukanuba 1 kg",
+  "description": "PERRO",
+  "image": ["/images/alimento-balanceado/perros/eukanuba/perro-eukanuba-1kg.webp"],
+  "category": 1,
+  "price": 1216
+}, 
+   {
+  "id": 2,
+  "name": "Eukanuba 3 kg",
+  "description": "PERRO",
+  "image": "/images/alimento-balanceado/perros/eukanuba/perro-eukanuba-3kg.webp",
+  "category": 1,
+  "price": 7209
+}, 
+   {
+  "id": 3,
+  "name": "Eukanuba 15 kg",
+  "description": "PERRO",
+  "image": "/images/alimento-balanceado/perros/eukanuba/perro-eukanuba-15kg.webp",
+  "category": 1,
+  "price": 8675
+}, 
+   {
+  "id": 4,
+  "name": "Pro Plan 3 kg",
+  "description": "PERRO",
+  "image": "/images/alimento-balanceado/perros/pro-plan/perro-proplan-3kg.webp",
+  "category": 1,
+  "price": 7861
+}, 
+   {
+  "id": 5,
+  "name": "Pro Plan 7.5 kg",
+  "description": "PERRO",
+  "image": "/images/alimento-balanceado/perros/pro-plan/perro-proplan-7.5kg.webp",
+  "category": 1,
+  "price": 4577
+}, 
+   {
+  "id": 6,
+  "name": "Pro Plan 15 kg",
+  "description": "PERRO",
+  "image": "/images/alimento-balanceado/perros/pro-plan/perro-proplan-15kg.webp",
+  "category": 1,
+  "price": 9038
+}, 
+   {
+  "id": 7,
+  "name": "Excellent 1 kg",
+  "description": "GATO",
+  "image": "/images/alimento-balanceado/gatos/excelent/gato-excelent-1kg.webp",
+  "category": 2,
+  "price": 4209
+}, 
+   {
+  "id": 8,
+  "name": "Excellent 3 kg",
+  "description": "GATO",
+  "image": "/images/alimento-balanceado/gatos/excelent/gato-excelent-3kg.webp",
+  "category": 2,
+  "price": 4884
+}, 
+   {
+  "id": 9,
+  "name": "Excellent 7.5 kg",
+  "description": "GATO",
+  "image": "/images/alimento-balanceado/gatos/excelent/gato-excelent-7.5kg.webp",
+  "category": 2,
+  "price": 5618
+}, 
+   {
+  "id": 10,
+  "name": "Pro Plan 3 kg",
+  "description": "GATO",
+  "image": "/images/alimento-balanceado/gatos/pro-plan/gato-proplan-3kg.webp",
+  "category": 2,
+  "price": 2675
+}, 
+   {
+  "id": 11,
+  "name": "Pro Plan 7.5 kg",
+  "description": "GATO",
+  "image": "/images/alimento-balanceado/gatos/pro-plan/gato-proplan-7.5kg.webp",
+  "category": 2,
+  "price": 3153
+}, 
+   {
+  "id": 12,
+  "name": "Pro Plan 15 kg",
+  "description": "GATO",
+  "image": "/images/alimento-balanceado/gatos/pro-plan/gato-proplan-15kg.webp",
+  "category": 2,
+  "price": 8953
+}
 ]
-    
+

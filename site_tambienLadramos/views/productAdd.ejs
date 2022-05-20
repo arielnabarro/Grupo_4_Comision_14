@@ -31,13 +31,13 @@
                     </div>
              
                     <div>
-                            <label for="category">Productos</label>
-                            <select name="alimentos" id="alimentos">
-                                <option value="" hidden selected>Seleccione el producto</option>
-                              <% alimentos.forEach(alimento => { %>
-                                <option value="<%=alimentos.id %>"><%=alimentos.name %></option>
-                              <% }) %>
-                            </select>
+                        <label for="category">Productos</label>
+                        <select name="alimentos" id="alimentos">
+                            <option value="" hidden selected>Seleccione el producto</option>
+                            <% alimentos.forEach(alimento => { %>
+                            <option value="<%=alimentos.id %>"><%=alimentos.name %></option>
+                            <% }) %>
+                        </select>
                     </div>
 
                 </article>
