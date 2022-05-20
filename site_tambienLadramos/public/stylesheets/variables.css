@@ -6,3 +6,18 @@
     --gris: #f5f4f2;
 }
 
+@font-face {
+    font-family: opificio-bold-rounded;
+    src: url(/stylesheets/fonts/Opificio/opificio_bold_rounded.ttf);
+  }
+  
+@font-face {
+    font-family: opificio-regular;
+    src: url(/stylesheets/fonts/Opificio/opificio_regular.ttf);
+  }
+  
+  @font-face {
+    font-family: opificio-rounded;
+    src: url(/stylesheets/fonts/Opificio/opificio_rounded.ttf);
+  }
+  
