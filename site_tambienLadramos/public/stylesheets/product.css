@@ -3,23 +3,12 @@
     display: flex;
     align-items: center;
     justify-content:center;
-
     margin: 3px 0px 10px;
-
     height: 30px;
-    width: 100%;
-
-
-    font-family: Roboto;
-    font-size: 5vw;
+    font-size: 4vw;
     font-weight: 500;
-    letter-spacing: 0.05em;
-   
     background: #FAC368;
-    border: 0.1px solid #ffffff;
-
     border-bottom:0px;
-
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 }
@@ -29,28 +18,26 @@
     width: 80vw;
     position: relative;
     left: 10vw;
-    display: flex;
+    display: none;
     justify-content: space-evenly;
-    align-items: center;
-
     background: var(--verde);
-    color: black;
     border-radius: 35px;
-    padding: 10px;
-
     margin-bottom: 10px;
-    font-size: 5vw;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-
+    border: 2px solid var(--amarillo);
+    outline: 2px solid var(--azul);
+    
 }
 
 .product-mas-relevante i {
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
 }
 
 .product-mas-relevante i p{
     margin-right: 5px;
+    font-size: 3vw;
 }
 
  
@@ -69,7 +56,7 @@
 .products-productos article{
 
     display: flex;
-    height: 100vw;
+    height: 90vw;
     margin-bottom: 10px;
     width: 45%;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -80,21 +67,22 @@
 
 }
 
-.products-productos article form input {
+.products-productos input {
     background: var(--verde);
     border: 2px solid var(--amarillo);
     outline: 2px solid var(--azul);
     color: white;
     border-radius: 35px;
     padding: 10px;
-    font-size: 5vw;
+    font-size: 3vw;
 }
 
 .products-productos article a {
 
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 
 }
 
@@ -110,6 +98,10 @@
     height: 100%;
     width: 90%;
 
+}
+
+.products-productos article a p {
+    font-size: 4vw;
 }
 
 .producto_pag_1 {
@@ -133,6 +125,10 @@
         font-size: 3vw;
     }
 
+    .product-mas-relevante i p{
+        font-size: 2vw;
+    }
+
     .products-productos {
         font-size: 3vw;
     }
@@ -142,13 +138,17 @@
         width: 30%;
     }
 
-    .products-productos article form input {
+    .products-productos input {
+        font-size: 2vw;
+    }
+
+    .products-productos article a p {
         font-size: 3vw;
     }
 
 }
 
-@media (min-width: 1024px) and (max-width: 1441px) {
+@media (min-width: 1024px) and (max-width: 2561px) {
 
     .productos h1 {
         font-size: 2vw;
@@ -158,16 +158,24 @@
         font-size: 2vw;
     }
 
+    .product-mas-relevante i p{
+        font-size: 2vw;
+    }
+
     .products-productos {
         font-size: 2vw;
     }
 
     .products-productos article{
         height: 40vw;
-        width: 20vw;
+        width: 17vw;
     }
 
-    .products-productos article form input {
+    .products-productos input {
+        font-size: 1vw;
+    }
+
+    .products-productos article a p {
         font-size: 2vw;
     }
 

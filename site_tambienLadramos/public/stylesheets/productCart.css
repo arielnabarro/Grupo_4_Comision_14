@@ -1,9 +1,16 @@
 .cart-title {
-    background-color: var(--amarillo);
-    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
-    margin:1% 0px;
-    text-align: center;
-    font-size: 125%;
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: 3px 0px 10px;
+    height: 30px;
+    font-size: 4vw;
+    font-weight: 500;
+    background: #FAC368;
+    border-bottom:0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 .cart-table, .cart-end-of-table {
@@ -12,6 +19,10 @@
     width: 100vw;
     height: 30vw;
     border-collapse: collapse;
+}
+
+.cart-end-section-table {
+    margin-bottom: 5px;
 }
 
 .cart-table td, .cart-table th, .cart-end-of-table th {
@@ -24,8 +35,14 @@
     color: white;
     border-radius: 15px;
     padding: 10px;
-    font-size: 5vw;
+    font-size: 3vw;
     cursor: pointer;
+    border: 3px solid var(--azul);
+    outline: 1px solid var(--amarillo);
+}
+
+.cart-end-of-table a {
+    font-size: 3vw;
 }
 
 
@@ -36,34 +53,35 @@
 
 
 .cart-title-relaciondos {
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: 3px 0px 10px;
+    height: 30px;
+    font-size: 4vw;
     background-color: var(--azul);
-    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 125%;
+    font-weight: 500;
+    border-bottom:0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
-
-
-
 
 .productos_relacionados {
 
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin-bottom: 10px;
-    font-size: 4vw;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .productos_relacionados article {
 
     display: flex;
-    height: 50vw;
     margin-bottom: 10px;
-    width: 25%;
+    width: 35%;
     box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
     justify-content: space-evenly;
     align-items: center;
@@ -71,14 +89,15 @@
     border-radius: 25px;
     border: 2px solid var(--amarillo);
     outline: 2px solid var(--azul);
+    height: 55vw;
 
 }
 
 .productos_relacionados article a {
 
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -96,7 +115,7 @@
 
 }
 
-.productos_relacionados article form input {
+.productos_relacionados article input {
 
     background: var(--verde);
     color: white;
@@ -109,13 +128,18 @@
 
 }
 
+.productos_relacionados article a p {
+    font-size: 3vw;
+}
+
+.productos_relacionados div {
+    display: none;
+}
+
 .cart-ver-mas {
 
     background: var(--verde);
-    color: white;
     border-radius: 35px;
-    padding: 10px;
-    font-size: 3vw;
     border: 2px solid var(--amarillo);
     outline: 2px solid var(--azul);
     display: flex;
@@ -124,13 +148,92 @@
 
 }
 
+.cart-ver-mas a p{
+    font-size: 4vw;
+}
+
 @media (min-width: 640px) and (max-width: 1023px) {
-    
-    .cart-end-of-table tbody, .cart-end-of-table tr{
-        display: flex;
+
+    .cart-title {
+        font-size: 3vw;
+    }
+
+    .cart-table td, .cart-table th, .cart-end-of-table th {
+        font-size: 2vw;
+    }
+
+    .cart-end-of-table a {
+        font-size: 2vw;
+    }
+
+    .cart-title-relaciondos {
+        font-size: 3vw;
+    }
+
+    .productos_relacionados {
         flex-direction: row;
-        flex-wrap: nowrap;
-        width: 100%;
+    }
+
+    .productos_relacionados article {
+        width: 25%;
+        height: 45vw;
+    }
+
+    .productos_relacionados article a p {
+        font-size: 2vw;
+    }
+
+    .productos_relacionados div {
+        display: flex;
+    }
+
+    .cart-ver-mas a p{
+        font-size: 3vw;
+    }
+
+}
+
+@media (min-width: 1024px) and (max-width: 2561px) {
+
+    .cart-title {
+        font-size: 2vw;
+    }
+
+    .cart-table td, .cart-table th, .cart-end-of-table th {
+        font-size: 1vw;
+    }
+
+    .cart-end-of-table a {
+        font-size: 1vw;
+    }
+
+    .cart-title-relaciondos {
+        font-size: 2vw;
+    }
+
+    .productos_relacionados {
+        flex-direction: row;
+    }
+
+    .productos_relacionados article {
+        width: 15%;
+        height: 30vw;
+    }
+
+    .productos_relacionados article a p {
+        font-size: 2vw;
+    }
+
+    .productos_relacionados div {
+        display: flex;
+    }
+
+    .productos_relacionados article input {
+        font-size: 1vw;
+    }
+
+    .cart-ver-mas a p{
+        font-size: 2vw;
     }
 
 }
