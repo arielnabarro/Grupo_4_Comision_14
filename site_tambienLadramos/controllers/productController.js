@@ -71,5 +71,9 @@ module.exports = {
     
     detail : (req, res) => res.render('productDetail'),
 
-    cart : (req, res) => res.render('productCart')
+    cart : (req, res) => {
+        return res.render('productCart', {
+            products
+        })
+    }
 }

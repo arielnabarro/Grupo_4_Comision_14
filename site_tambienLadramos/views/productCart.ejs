@@ -8,68 +8,35 @@
     <%- include('./partials/header') %>
 
 <main>
-    <h1 class="cart-title">carrito de compras</h1>
+    <h1 class="cart-title">Carrito de compras</h1>
     
     <nav class="tabla-carrito"> 
         <table class="cart-table">
             <tr>
-                <th>nombre</th>
-                <th>producto</th>
-                <th>detalles de producto</th>
-                <th>precio</th>
+                <th>Nombre</th>
+                <th>Producto</th>
+                <th>Detalles de producto</th>
+                <th>Precio</th>
             </tr>
-         
+
+            <% products.forEach(({name, image, price, description}) => { %> 
             <tr>
-                <td>nombre</td>
+                <td><%= name %></td>
                 <td class="tabla-img-td"><img src="/images/gato-mambru.jpg" alt="comida-perron"></td>
-                <td>detalles de producto</td>
-                <td>precio</td>
+                <td><%= description %></td>
+                <td><%= price %></td>
             </tr>
-
-            <tr>
-                <td>nombre</td>
-                <td class="tabla-img-td"><img src="/images/gato-mambru.jpg" alt=""></td>
-                <td>detalles de producto</td>
-                <td>precio</td>
-            </tr>
-
-            <tr>
-                <td>nombre</td>
-                <td class="tabla-img-td"><img src="/images/gato-mambru.jpg" alt=""></td>
-                <td>detalles de producto</td>
-                <td>precio</td>
-            </tr>
-                
-            <tr>
-                <td>nombre</td>
-                <td class="tabla-img-td"><img src="/images/gato-mambru.jpg" alt=""></td>
-                <td>detalles de producto</td>
-                <td>precio</td>
-            </tr>
-
-            <tr>
-                <td>nombre</td>
-                <td class="tabla-img-td"><img src="/images/gato-mambru.jpg" alt=""></td>
-                <td>detalles de producto</td>
-                <td>precio</td>
-            </tr>
-
-            <tr>
-                <td>nombre</td>
-                <td class="tabla-img-td"><img src="/images/gato-mambru.jpg" alt=""></td>
-                <td>detalles de producto</td>
-                <td>precio</td>
-            </tr>
-        </table>
+            <% }) %>
+        </table> 
 
         <section class="cart-end-section-table">
             <table class="cart-end-of-table">     
                 <tr>
-                    <th>total a pagar</th>
+                    <th>Total a pagar</th>
                 </tr>
 
                 <tr>
-                    <th><a href="">finalizar compra</a></th>
+                    <th><a href="">Finalizar compra</a></th>
                 </tr>
             </table>
         </section>
@@ -77,7 +44,7 @@
     </nav>
 
     <nav>
-        <h2 class="cart-title-relaciondos">productos relacionados</h2>
+        <h2 class="cart-title-relaciondos">Productos relacionados</h2>
         
         <section class="productos_relacionados">
             <div>

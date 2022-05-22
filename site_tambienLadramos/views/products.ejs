@@ -10,202 +10,32 @@
 <main>
     
     <section class="productos"> 
+        <h1>Productos</h1>
+            <div class="product-mas-relevante">
+                <p>Más relevante</p>
+                <i class="fa-solid fa-angle-down"></i>
+            </div>
 
-                <h1>productos</h1>
-
-            <h5>inicio>Productos</h5>
-            <% categories.forEach(({name}) => { %>
-                <div>
-                    <h5>
-                        <a href="/products"><%= name %> </a>
-                    </h5>
-                </div>
-            <% }) %> 
-                <div>
-                    <p>mas relevante</p>
-                    <i class="fa-solid fa-angle-down"></i>
-                </div>
-                
-        <nav class="productos">
-            <article>
-                <% products.forEach(({name, image, price}) => { %>
-                    <a href="/products/productDetail">
-                        <div>
-                            <p><%= name %></p>
-                                <div>
-                                    <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
-                                    <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="">
-                                </div>
-                            <p>$<%= price %></p>
-                        </div>
-                    </a>
-                <% }) %>
-            </article>
-
-            <!-- <article>
-                <a href="productDetail">
-                    <img src="/images/productos_jpg/dog_chow_1.jpg" alt="producto">
-                    <p>nombre del producto</p>
-        <section class="product-mas-relevante">
-            <article>
-                <i class="fa-solid fa-angle-down"><p>mas relevante</p></i>
-            </article>
-        </section>
-        
         <nav class="products-productos">
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/dog_chow_1.jpg" alt="producto">
-                    </div>
 
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
+            <% products.forEach(({name, image, price, description}) => { %> 
+
+            <article>
+                <a href="/products/productDetail">
+                    <div>
+                        <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
+                    </div>
+                    <p><%= name %></p>
+                    <p>$<%= price %></p>
+                    <p><%= description %></p>
                 </a>
                 
                 <form action="" method="get">
                     <input type="button" value="agregar a carrito">
                 </form>
-            </article>
+            </article> 
+            <% }) %>
 
-            <article>
-                <a href="products/productDetail" class="productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/dog_chow_1.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/cat_atun_2.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/dog_chow_2.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/pedigre_1.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/raza_1.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-            </article> -->
-    
-                <!--
-                    CAMBIOS MERGE
-                -->
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-            
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/pedigre_1.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/raza_1.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-            
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/pedigre_1.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <article>
-                <a href="products/productDetail">
-                    <div>
-                        <img src="/images/productos_jpg/raza_1.jpg" alt="producto">
-                    </div>
-
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
         </nav>
 
     </section>

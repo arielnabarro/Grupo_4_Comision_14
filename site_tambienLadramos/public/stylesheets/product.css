@@ -18,8 +18,8 @@
     width: 80vw;
     position: relative;
     left: 10vw;
-    display: none;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: center;
     background: var(--verde);
     border-radius: 35px;
     margin-bottom: 10px;
