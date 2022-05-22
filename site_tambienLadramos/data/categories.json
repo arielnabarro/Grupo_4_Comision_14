@@ -1,13 +1,16 @@
 [
-
     {
        "id" : 1,
-       "name ": "Alimento-Perros"
-     
-   },
-   {
-       "id" : 2,
-       "name" : "Alimento-Gatos"
-    }
+       "name" : "Perros",
+       "description" : [
+           "Alimento balanceado", "Higiene & Accesorios"
+       ]
+    },
+    {
+        "id" : 2,
+        "name" : "Gatos",
+        "description" : [
+            "Alimento balanceado", "Higiene & Accesorios"
+        ]
+     }
  ]
- 

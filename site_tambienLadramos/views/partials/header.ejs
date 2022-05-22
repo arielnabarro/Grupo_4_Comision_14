@@ -1,23 +1,34 @@
 <header>
     <nav class="home__header__contenedor">
+
         <div class="home__header__div__logo">
-            <div class="home__header__logo">
-            </div>
-        </div>               
+            <div class="home__header__logo"></div>
+        </div>
+
         <div id="home__header__div1">
             <div class="home__header__div__busqueda">
                 <a id="question" href=""><i class="fa-solid fa-circle-question fa-2x"></i></a>
-                <a id="hamburger" href=""><i class="fa-solid fa-align-justify fa-2x"></i></a>     
+                <a id="hamburger" href=""><i class="fa-solid fa-align-justify fa-2x"></i></a>
             </div>
         </div>
+
         <div id="home__header__div2">
             <div class="home__header__div__user">
-                <a id="user" href=""><i class="fa-solid fa-user fa-2x"></i></a>
-                <a id="cart" href="/productCart"><i class="fa-solid fa-cart-shopping fa-2x"></i></a> 
+                <a id="user" href="/users/login"><i class="fa-solid fa-user fa-2x"></i></a>
+                <a id="cart" href="/products/productCart"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
             </div>
-            <div class="home__header__div__hamburger">
-                <a id="search" href=""><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>          
-            </div> 
-        </div>            
+
+            <div class="search__bar">
+                <form action="searchResult" method="GET">
+                    <div>
+                        <input type="text" class="search__bar__input" name="keyword" id="keyword" placeholder="Search..."/>
+                        <button class="search__bar__submit" type="submit" name="keyword">
+                            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                        </button>
+                    </div>
+                    
+                </form>
+                </div>
+            </div>
     </nav>
 </header>

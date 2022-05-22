@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head'); %>
+<body>
+    
+<%- include('partials/header'); %> 
+
+<main>
+    <div>
+        <h2>Resultado de la búsqueda: "<%= aver %>"</h2>
+        <% if (products.length > 0) { %>
+            <% products.forEach(({id,name,price,category,image}) => { %>
+                <div>
+                    <div>
+                        <img src="/images/alimento-balanceado/perros/<%= image %>" alt="" style="width: 150px; display: flex; align-self: center;">
+                        <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="" style="width: 150px; display: flex; align-self: center;">
+                        <div>
+                            <h5><%= name %></h5>
+                            <h5><%= price %></h5>
+                            <% namesCategories.forEach(element => { %>
+                                <p><%= element.id === category ? element.name : null %></p>
+                            <% }) %>
+                            <a href="/products/detail/<%= id %>">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% }else{ %>
+            <div>
+                No se encontraron resultados
+            </div>
+        <% } %>
+      
+      
+
+    </div>
+    
+</main>
+
+
+<%- include('partials/footer'); %> 
+
+</body>
+</html>

@@ -63,7 +63,7 @@ h2 {
 }
 
 
-@media (min-width: 1px) and (max-width: 189px) {
+/* @media (min-width: 1px) and (max-width: 189px) {
     .login-form {
         font-size: 12px;
         width: 100%;
@@ -96,4 +96,4 @@ h2 {
         justify-content: center;
     }
 }   
-
+ */

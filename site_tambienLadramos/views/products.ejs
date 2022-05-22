@@ -14,24 +14,35 @@
                 <h1>productos</h1>
 
             <h5>inicio>Productos</h5>
+            <% categories.forEach(({name}) => { %>
+                <div>
+                    <h5>
+                        <a href="/products"><%= name %> </a>
+                    </h5>
+                </div>
+            <% }) %> 
                 <div>
                     <p>mas relevante</p>
                     <i class="fa-solid fa-angle-down"></i>
                 </div>
                 
         <nav class="productos">
-
             <article>
-            
-                <a href="productDetail">
-                    <img src="/images/productos_jpg/cat_pescado_1.jpg" alt="producto">
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-        
+                <% products.forEach(({name, image, price}) => { %>
+                    <a href="/products/productDetail">
+                        <div>
+                            <p><%= name %></p>
+                                <div>
+                                    <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
+                                    <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="">
+                                </div>
+                            <p>$<%= price %></p>
+                        </div>
+                    </a>
+                <% }) %>
             </article>
 
-            <article>
+            <!-- <article>
                 <a href="productDetail">
                     <img src="/images/productos_jpg/dog_chow_1.jpg" alt="producto">
                     <p>nombre del producto</p>
@@ -69,7 +80,7 @@
                     <p>nombre del producto</p>
                     <p>precio 000$</p>
                 </a>
-            </article>
+            </article> -->
     
         </nav>
 
