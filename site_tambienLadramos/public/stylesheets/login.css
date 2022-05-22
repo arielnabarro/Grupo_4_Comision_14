@@ -17,12 +17,12 @@
     list-style: none;
 }
 
-h2 {
+/* h2 {
     font-size: 25px;  
     text-align: center; 
     padding: 12% auto;
     margin: 12% auto;
-}
+} */
 
 #login_user {
     display: flex;

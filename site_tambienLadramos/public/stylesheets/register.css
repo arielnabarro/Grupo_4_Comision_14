@@ -27,12 +27,12 @@
     border: gainsboro;
 }
 
-p{
+/* p{
     display: flex;
     width: 80%;
     justify-content: center;
     margin: 10% 10%;
-}
+} */
 
 .bottons{
     display: flex;
