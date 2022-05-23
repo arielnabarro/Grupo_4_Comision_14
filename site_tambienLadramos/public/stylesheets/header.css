@@ -18,7 +18,6 @@ HEADER
     height: 50vw;
 }
 
-
 .home__header__div__logo {
     overflow: hidden;
     width: 100%;
@@ -30,13 +29,21 @@ HEADER
     height: 50%;
     margin: 0 auto;
     padding: 0 auto;
-    background: url(/images/Logo.png);
+    background: url(/images/Logo.png); 
     background-position:top;
     justify-content: center;
     background-repeat:no-repeat;
     background-size: 50%;
-    animation: rotacion 6s normal linear infinite;
+    display: flex;
+    position: relative;
+    z-index: 2;
+    animation: rotacion 6s normal linear infinite; 
+    cursor: pointer;
 }
+
+.home__header__logo:hover {
+    animation: none;
+} 
 
 .home__header__contenedor .home__header__div__busqueda{
     position: absolute;
@@ -74,6 +81,7 @@ HEADER
     padding: 0;
     margin: 0;
 }
+
 .home__header__contenedor #home__header__div2{
     display: flex;
     position: absolute;
@@ -139,11 +147,6 @@ HEADER
     margin-left: auto;
     transition: background 150ms ease-in-out;
 }
-
-
-
-
-
 
 @keyframes rotacion{
     0% {
