@@ -8,19 +8,38 @@
     <%- include('./partials/header') %>
     
     <main class="detalleprod-main">
+
         <nav class="detalleprod-nav">
+            
             <section> <!-- árbol de navegación-->
+                
                 <h2 class="prod-h2">PRODUCTOS</h2>
-                <a class="navegacion" href="#" >inicio</a>
-                <a class="navegacion" href="#" >>Productos</a>
-                <a class="navegacion" href="#" >>Cat Chow Adultos 3Kg</a>   
+                <a class="navegacion" href="/">Inicio</a>
+                <a class="navegacion" href="/products">>Productos</a>
+                <a class="navegacion" href="#"><%= product.name %></a> 
+                <a href="/products/productEdit/<%= product.id %>" style="margin-left: 2vw; color: var(--marron);">
+                    <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                </a>  
+
+                <form action="/products/productDetail/remove/<%= product.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-sm btn-danger m-1"><i class="fas fa-trash-alt"></i></button>
+                </form>
+                <a href="/products" style="margin-left: 2vw; color: red;"><i class="fa-solid fa-trash-can fa-2x"></i></a>
             </section>
         
-        <h2>Cat Chow Adultos 3Kg</h2>
-        
+        <h2><%= product.name %></h2>
+
         <section class="detalleprod-sect" >
             <div class="detalle-prod-divprin"> 
-            <a class="pescado-a" href=""> <img class="pescado-prin" src="/images/productDetail/001 cat-chow-gato-adulto-pescado-3kg_600.jpeg" alt="Bolsa de alimento"></a> 
+                <% if (product.id < 7) { %>
+                    <a class="pescado-a" href=""><img src="/images/alimento-balanceado/perros/<%= product.image %>" alt=""></a> 
+                    <% } else { %>
+                    <a class="pescado-a" href=""><img src="/images/alimento-balanceado/gatos/<%= product.image %>" alt=""></a> 
+                    <% if (!product.image) { %>
+                        <img src="/images/logo.png" alt="" style="width:60vw ;">
+                    <% } %>
+                <% } %>
+            
             </div>
             <div class="detalle-prod-div-secun">
                 <a class="det-prod-pescado-det" href="#"> <img src="/images/productDetail/002 cat-chow-gato-adulto-pescado-3kg_600.jpg" alt="detalles"></a>
@@ -31,7 +50,7 @@
     
         <section class="sect-precio"> <!--Precio / Añadir al carrito / img de MercadoPago / detalles / mas detalles-->
             <div class="div-precio">
-                <h3>$1540</h3>
+                <h3><%= product.price %> </h3>
                     <a href="#">
                         <input class="botton_carrito" type="submit" value="Agregar al carrito">
                     </a>

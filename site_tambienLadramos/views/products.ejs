@@ -12,18 +12,25 @@
     <section class="productos"> 
         <h1>Productos</h1>
             <div class="product-mas-relevante">
-                <p>Más relevante</p>
-                <i class="fa-solid fa-angle-down"></i>
+                <p>Más relevante</p>   
+            </div>
+            <div>
+                <p>Eliminar</p>
+                <i class="fa-solid fa-trash-can"></i>
             </div>
 
         <nav class="products-productos">
 
-            <% products.forEach(({name, image, price, description}) => { %> 
+            <% products.forEach(({id, name, image, price, description}) => { %> 
 
             <article>
-                <a href="/products/productDetail">
+                <a href="/products/productDetail/<%= id %>">
                     <div>
                         <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
+                        <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="">
+                        <% if (!image) { %>
+                            <img src="/images/logo.png" alt="">
+                        <% } %>
                     </div>
                     <p><%= name %></p>
                     <p>$<%= price %></p>

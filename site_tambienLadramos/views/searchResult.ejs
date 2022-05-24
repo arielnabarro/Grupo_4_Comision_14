@@ -7,7 +7,7 @@
 
 <main>
     <div>
-        <h2>Resultado de la búsqueda: "<%= aver %>"</h2>
+        <h2>Resultado de la búsqueda: "<%= noSpaceKeyword %>"</h2>
         <% if (products.length > 0) { %>
             <% products.forEach(({id,name,price,category,image}) => { %>
                 <div>
@@ -16,7 +16,7 @@
                         <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="" style="width: 150px; display: flex; align-self: center;">
                         <div>
                             <h5><%= name %></h5>
-                            <h5><%= price %></h5>
+                            <h5>$ <%= price %></h5>
                             <% namesCategories.forEach(element => { %>
                                 <p><%= element.id === category ? element.name : null %></p>
                             <% }) %>

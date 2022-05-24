@@ -4,24 +4,34 @@ const path = require('path');
 const products = require('../data/products.json');
 const categories = require('../data/categories.json');
 
-/* const alimentos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/products.json'),'utf-8')); */
+const leerProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/products.json'),'utf-8')); 
 
 module.exports = {
-    listar : (req, res) => {
+    list : (req, res) => {
 
         /* const leerProductos = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));   
         const leerCategorias= JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','categories.json')));   */
+
         return res.render('products', {
             products,
             categories
-        })
+        });
+    },
 
+    detail : (req, res) => {
+
+        const { id } = req.params;
+        const product = products.find((product) => product.id === +id);
+
+        return res.render("productDetail", {
+        product 
+        });
     },
 
     search : (req, res) => {
         let {keyword} = req.query;
-        let aver = keyword.join("");
-        const result = products.filter(product => product.name.toLowerCase().includes(aver));
+        let noSpaceKeyword = keyword.join("");
+        const result = products.filter(product => product.name.toLowerCase().includes(noSpaceKeyword));
 
         let namesCategories = categories.map(category => {
             return {
@@ -32,48 +42,97 @@ module.exports = {
 
             return res.render('searchResult', {
                 products : result,
-                aver,
+                noSpaceKeyword,
                 namesCategories
                 }
             )
      },
 
     add : (req,res) => {
-        return res.send('productAdd')
+
+        return res.render('productAdd',{
+            categories
+        });
     },
 
     edit : (req,res) => {
     
-        return res.render('productEdit',{
-            alimentos
+        const { id } = req.params;
+        const product = products.find((product) => product.id === +id);
+
+        return res.render("productEdit", {
+        categories,
+        product,
         });
     },
 
+    update : (req, res) => {
+        const { id } = req.params;
+        let { name, price, category} = req.body;
+  
+        const productsUpdated = products.map((product) => {
+          if (product.id === +id) {
+            let productModify = {
+              ...product,
+              name : name,
+              price: +price,
+              category: +category  
+            }
+            return productModify;
+        }else {
+            return product;
+        }        
+    });
+
+    fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(productsUpdated,null,3),'utf-8');
+    
+    return res.render('productEdit', {
+        categories,
+        product : req.body,
+    })
+    },
+
+
     store : (req,res) => {
-        let {name,price,category,state,origin} = req.body;
+        
+        let {name, price, category} = req.body;
         let lastID = products[products.length - 1].id;
-        let images = req.files.map(image => image.filename);
         let newProduct =  {
             id: +lastID + 1,
             name : name.trim(),
             price: +price,
             category: +category,
-            img: images.length > 0 ? images : ["noimage.jpeg"],
-            features : [origin,state]
         }
 
-        products.push(newProduct);
+        if(!newProduct.name || !newProduct.price || !newProduct.category) {
+            res.send("Debe completar todos los campos");
+        }else {
+            products.push(newProduct);
 
-        fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(products,null,3),'utf-8')
-
-        return res.redirect('/products')
+            fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(products,null,3),'utf-8')
+    
+            return res.redirect('/products')
+        } 
+        
     },  
     
-    detail : (req, res) => res.render('productDetail'),
-
     cart : (req, res) => {
         return res.render('productCart', {
             products
         })
+    },
+
+    remove : (req, res) => {
+        const { id } = req.params;
+    
+        const productFilter = products.filter((product) => product.id !== +id);
+    
+        fs.writeFileSync(
+          path.resolve(__dirname, "..", "data", "products.json"),
+          JSON.stringify(productFilter, null, 3),
+          "utf-8"
+        );
+    
+        return res.redirect("/products");
     }
 }
