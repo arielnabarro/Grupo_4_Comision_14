@@ -14,20 +14,22 @@
             <div class="product-mas-relevante">
                 <p>Más relevante</p>   
             </div>
-            <div>
-                <p>Eliminar</p>
-                <i class="fa-solid fa-trash-can"></i>
-            </div>
 
         <nav class="products-productos">
 
-            <% products.forEach(({id, name, image, price, description}) => { %> 
+            <% products.forEach(({id, name, image, price, description, category}) => { %> 
 
             <article>
                 <a href="/products/productDetail/<%= id %>">
                     <div>
-                        <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
-                        <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="">
+                        <% if (category === 1) { %>
+                            <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
+                        <% }else { %>
+                            <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="">
+                            <% } %> 
+                    </div>
+                    
+                    <div>
                         <% if (!image) { %>
                             <img src="/images/logo.png" alt="">
                         <% } %>
@@ -41,7 +43,7 @@
                     <input type="button" value="agregar a carrito">
                 </form>
             </article> 
-            <% }) %>
+           <% }) %>
 
         </nav>
 

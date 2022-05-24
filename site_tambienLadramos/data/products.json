@@ -1,11 +1,11 @@
 [
    {
       "id": 1,
-      "name": "EUKANUBA 1 kg",
+      "name": "Eukanuba 1 kg",
       "description": "PERRO",
       "image": "/eukanuba/perro-eukanuba-1kg.webp",
       "category": 1,
-      "price": 1216
+      "price": 1206
    },
    {
       "id": 2,

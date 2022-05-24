@@ -41,6 +41,10 @@
     outline: 1px solid var(--amarillo);
 }
 
+.cart-table img {
+    width: 30vw;
+}
+
 .cart-end-of-table a {
     font-size: 3vw;
 }

@@ -95,8 +95,8 @@
 
 .products-productos article a div img {
 
-    height: 100%;
-    width: 90%;
+    height: 40vw;
+    width: 20vw;
 
 }
 
@@ -177,6 +177,11 @@
 
     .products-productos article a p {
         font-size: 2vw;
+    }
+
+    .products-productos article a div img {
+        height: 20vw;
+        width: 10vw;
     }
 
     .producto_pag_1 {

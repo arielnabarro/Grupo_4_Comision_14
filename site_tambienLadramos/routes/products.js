@@ -4,12 +4,14 @@ const path = require('path');
 
 const { list, detail, cart, search, add, store, edit, update, remove } = require('../controllers/productController');
 
+
 // /products 
 
 router
          .get('/', list) 
          .get('/productDetail/:id', detail) 
          .get('/productCart', cart)
+         .get("/Detail", detail)
          .get('/searchResult', search)
          .get('/productAdd', add)  
          .post('/productAdd', store)  
