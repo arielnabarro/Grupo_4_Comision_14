@@ -19,21 +19,24 @@
         <nav class="products-productos">
 
             <% products.forEach(({name, image, price, description}) => { %> 
+                <article>
+                    <a href="/products/productDetail">
+                        <div>
+                            <% if (description === "PERRO") { %>
+                                <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
+                            <% } else {%>
+                                <img src="/images/alimento-balanceado/gatos<%= image %>" alt="">
+                            <% } %> 
+                        </div>
 
-            <article>
-                <a href="/products/productDetail">
-                    <div>
-                        <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
-                    </div>
-                    <p><%= name %></p>
-                    <p>$<%= price %></p>
-                    <p><%= description %></p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article> 
+                        <p><%= name %></p>
+                        <p>$<%= price %></p>
+                        <p><%= description %></p>
+                    </a>
+                    <form action="" method="get">
+                        <input type="button" value="agregar a carrito">
+                    </form>
+                </article> 
             <% }) %>
 
         </nav>
