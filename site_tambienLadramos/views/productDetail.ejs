@@ -7,72 +7,51 @@
     
     <%- include('./partials/header') %>
     
-    <main class="detalleprod-main">
+<main>
 
-        <nav class="detalleprod-nav">
-            
-            <section> <!-- árbol de navegación-->
-                
-                <h2 class="prod-h2">PRODUCTOS</h2>
-                <a class="navegacion" href="/">Inicio</a>
-                <a class="navegacion" href="/products">>Productos</a>
-                <a class="navegacion" href="#"><%= product.name %></a> 
-                <a href="/products/productEdit/<%= product.id %>" style="margin-left: 2vw; color: var(--marron);">
-                    <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                </a>  
-
-                <form action="/products/productDetail/remove/<%= product.id %>?_method=DELETE" method="POST">
+    <nav class="detail-nav">
+        <h2>PRODUCTO</h2>
+        <article> 
+            <a class="navegacion" href="/">Inicio</a>
+            <a class="navegacion" href="/products">>Productos</a>
+            <p class="navegacion"><%= product.name %></p>
+        </article> 
+        <article>
+            <a href="/products/productEdit/<%= product.id %>" style="margin-left: 2vw; color: var(--marron);">
+                <i class="fa-solid fa-pen-to-square fa-2x"></i>
+            </a>  
+            <form action="/products/productDetail/remove/<%= product.id %>?_method=DELETE" method="POST">
                 <button type="submit"><i class="fas fa-trash-alt fa-2x"></i></button>
-                </form>
-                
-            </section>
-        
-        <h2><%= product.name %></h2>
+            </form>
+        </article>
+    </nav>
 
-        <section class="detalleprod-sect" >
-            <div class="detalle-prod-divprin"> 
-                <% if (product.id < 7) { %>
-                    <a class="pescado-a" href=""><img src="/images/alimento-balanceado/perros/<%= product.image %>" alt=""></a> 
-                    <% } else { %>
-                    <a class="pescado-a" href=""><img src="/images/alimento-balanceado/gatos/<%= product.image %>" alt=""></a> 
-                    <% if (!product.image) { %>
-                        <img src="/images/logo.png" alt="" style="width:60vw ;">
+    <section class="detail-conjunto">
+        
+            <article class="detail-producto"> 
+                <h2><%= product.name %></h2>
+                <div>
+                    <% if (product.id < 7) { %>
+                            <img src="/images/alimento-balanceado/perros/<%= product.image %>" alt="">
+                        <% } else { %>
+                            <img src="/images/alimento-balanceado/gatos/<%= product.image %>" alt=""> 
+                        <% if (!product.image) { %>
+                            <img src="/images/logo.png" alt="" style="width:60vw ;">
+                        <% } %>
                     <% } %>
-                <% } %>
-            
-            </div>
-    
-        </section>  
-    
-        <section class="sect-precio"> <!--Precio / Añadir al carrito / img de MercadoPago / detalles / mas detalles-->
-            <div class="div-precio">
-                <h3><%= product.price %> </h3>
-                    <a href="#">
-                        <input class="botton_carrito" type="submit" value="Agregar al carrito">
-                    </a>
-            </div> 
-        </section> 
-        </nav>
+                </div>
+            </article>
+            <article class="detail-detalle">
+                <p><% product.description %></p>
+                <h3><%= product.price %></h3>
+                <form action="">
+                    <a href="/products/productCart"><input type="submit" value="Agregar al carrito"></a>
+                </form>
+            </article>
         
-    <main>
+    </section>  
 
-            <section class="detail-conjunto">
-                <article class="detail-producto">
-                    <h2>Cat Chow Adultos 3Kg</h2>
-                    <div> 
-                        <img src="/images/Alimento-balanceado/PERROS/EUKANUBA/perro-eukanuba-3kg.webp">
-                    </div>
-                </article>
-                <article class="detail-detalle">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime modi vel dolor odio, vitae doloribus autem quidem, debitis facere reprehenderit temporibus laborum, accusamus nobis. Expedita omnis autem neque similique maxime? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae quaerat nostrum necessitatibus eos recusandae consequuntur rem consequatur, velit id explicabo facilis in debitis ad rerum ducimus at! Sed, rerum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ratione laboriosam odit consequuntur quam iure quidem ab eius eum expedita labore, commodi placeat distinctio in illum cumque recusandae, ea amet! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia explicabo dolores aut, consectetur fugiat sequi rerum reprehenderit numquam nostrum, quibusdam velit ratione iure veritatis est nobis inventore deserunt esse consequatur.</p>
-                        <h3>$1540</h3>
-                        <form action="">
-                        <input class="" type="submit" value="Agregar al carrito">
-                        </form>
-                </article> 
-            </section>  
-
-    </main>
+</main>
     
     <%- include('./partials/footer') %>
 

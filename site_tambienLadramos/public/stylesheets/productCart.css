@@ -42,7 +42,7 @@
 }
 
 .cart-table img {
-    width: 30vw;
+    width: 20vw;
 }
 
 .cart-end-of-table a {
@@ -166,6 +166,10 @@
         font-size: 2vw;
     }
 
+    .cart-table img {
+        width: 15vw;
+    }
+
     .cart-end-of-table a {
         font-size: 2vw;
     }
@@ -209,6 +213,10 @@
 
     .cart-end-of-table a {
         font-size: 1vw;
+    }
+
+    .cart-table img {
+        width: 10vw;
     }
 
     .cart-title-relaciondos {

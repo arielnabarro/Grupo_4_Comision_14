@@ -19,30 +19,30 @@
 
             <% products.forEach(({id, name, image, price, description, category}) => { %> 
 
-            <article>
-                <a href="/products/productDetail/<%= id %>">
-                    <div>
-                        <% if (category === 1) { %>
-                            <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
-                        <% }else { %>
-                            <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="">
-                            <% } %> 
-                    </div>
+                <article>
+                    <a href="/products/productDetail/<%= id %>">
+                        <div>
+                            <% if (category === 1) { %>
+                                <img src="/images/alimento-balanceado/perros/<%= image %>" alt="">
+                            <% }else { %>
+                                <img src="/images/alimento-balanceado/gatos/<%= image %>" alt="">
+                                <% } %> 
+                        </div>
+                        
+                        <div>
+                            <% if (!image) { %>
+                                <img src="/images/logo.png" alt="">
+                            <% } %>
+                        </div>
+                        <p><%= name %></p>
+                        <p>$<%= price %></p>
+                        <p><%= description %></p>
+                    </a>
                     
-                    <div>
-                        <% if (!image) { %>
-                            <img src="/images/logo.png" alt="">
-                        <% } %>
-                    </div>
-                    <p><%= name %></p>
-                    <p>$<%= price %></p>
-                    <p><%= description %></p>
-                </a>
-                
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article> 
+                    <form action="" method="get">
+                        <input type="button" value="agregar a carrito">
+                    </form>
+                </article> 
            <% }) %>
 
         </nav>
