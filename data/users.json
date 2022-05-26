@@ -1,0 +1,20 @@
+[
+    {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Pajón",
+    "email": "",
+    "password": "rDSYGf",
+    "category": "user",
+    "image": "user_1.jpg"
+  },
+  {
+    "id": 2,
+    "first_name": "Cristian",
+    "last_name": "Casalaspro",
+    "email": "",
+    "password": "rDSYGf",
+    "category": "user",
+    "image": "user_1.jpg"
+  }
+]

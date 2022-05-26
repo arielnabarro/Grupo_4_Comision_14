@@ -1,27 +1,23 @@
 .login-main {
     width: 100%;
+    max-width: 1440px;
     text-align: center;
-    align-items: center;
+    align-items: center;  
 }
 
-.login-form{
+.login-form {
     margin: 0 auto;
     padding: 0 auto;
     width: 75%;   
     height: 25%;
+    margin: 12%;
 }
+
 .login-form ul {
     list-style: none;
 }
 
-h2 {
-    font-size: 25px;  
-    text-align: center; 
-    padding: 12% auto;
-    margin: 12% auto;
-    
-}
-#login_user{
+#login_user {
     display: flex;
     width: 100%;
     padding: 10%;
@@ -32,7 +28,7 @@ h2 {
     border: gainsboro;
 }
 
-.bottons{
+.bottons {
     position: relative;
     width: 75%;
     height: 75px;
@@ -52,6 +48,7 @@ h2 {
 #boton {
     text-decoration: none;
 }
+
 .login-olvi {
     color: none;
     margin: 15% auto;
@@ -59,6 +56,3 @@ h2 {
     text-decoration: none;
 }
 
-footer {
-    margin: 15% auto;
-}

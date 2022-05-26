@@ -1,3 +1,153 @@
+/* 
+ANIMACIONES
+*/
+
+
+/* 
+HEADER
+*/
+.home__header__contenedor {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: var(--verde);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 25%;
+    width: 100%;
+    height: 50vw;
+}
+
+.home__header__div__logo {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.home__header__logo {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+    padding: 0 auto;
+    background: url(/images/Logo.png); 
+    background-position:top;
+    justify-content: center;
+    background-repeat:no-repeat;
+    background-size: 50%;
+    display: flex;
+    position: relative;
+    z-index: 2;
+    animation: rotacion 6s normal linear infinite; 
+    cursor: pointer;
+}
+
+.home__header__logo:hover {
+    animation: none;
+} 
+
+.home__header__contenedor .home__header__div__busqueda{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:flex-start;    
+    margin: 0;
+    padding: 0;
+    /* border: solid 3px black; */
+}
+
+.home__header__contenedor .home__header__div__user {   
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.home__header__contenedor #home__header__div1{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 75%;
+    height: 100%;
+    align-items: center;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+}
+
+.home__header__contenedor #home__header__div2{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 75%;
+    height: 100%;
+    align-items: center;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+}
+
+#question, #user, #cart, #hamburger{
+    color: white;
+}
+
+.search__bar {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 70%;
+    transition: width 500ms ease-in-out ;
+}
+
+.search__bar:focus-within {
+    background: var(--amarillo);
+    width: 30vw;
+}
+
+.search__bar__input {
+    border-radius: 100vh;
+    flex-grow: 1;
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0 0.5rem;
+    border: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer; 
+}
+
+.search__bar__input:focus-within {
+    width: 100%;
+    outline: 0;
+    opacity: 1;
+    cursor: initial; 
+}
+
+.search__bar__submit {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    color: white;
+    margin-left: auto;
+    transition: background 150ms ease-in-out;
+}
+
 @keyframes rotacion{
     0% {
         -webkit-transform: rotate3d(0, 1, 0deg);
@@ -18,277 +168,4 @@
         -webkit-transform: rotate3d(0, 1, 360deg);
         transform: rotate3d(0, 0, 1, 360deg);
     }
-}
-/* 
-    HEADER 
-*/
-
-.home-body {
-    margin: 0 auto;
-    padding: 0 auto;
-    width: 100%;
-}
-
-.home-header {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 150px;
-    background-color: #46b593;  
-    font-size: 12px;
-}
-
-.home-header a {
-    width: 25%;
-    height: 50%;
-    font-size: 12px;
-    text-decoration: none;
-    align-items: center;
-    padding: 3px auto;
-    margin: 3px auto;
-    color: white;
-    text-align: center;
-    justify-content: center;
-}
-
-.home-nav-login {
-    display: flex;
-    flex-direction: row; 
-    padding: 0 auto;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;  
-    color: white;
-    align-items: center;    
-    justify-content: space-around;
-}
-
-.logo {
-    margin: 0 auto;
-    padding: 0 auto;    
-    width: 60px; 
-    height: 60px;  
-    border-radius: 50%; 
-    animation: rotacion 5s normal linear infinite;
-}
-
-.logo:hover {
-    background-color: black;
-    border: none;
-    border-radius: 50%;
-    animation: rotacion 5s normal linear infinite;
-}
-
-.home-nav-login div ul {
-    display: flex;    
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
-.home-nav-login div ul li:hover {
-    transition: all 1s;
-    background-color: var(--amarillo);
-}
-
-.home-div-header  {
-    display: flex;
-    width: 100%;    
-    color:white;
-}
-
-.home-nav-login div ul li {
-    text-decoration: none;
-    list-style: none;
-    width: 30%;    
-    justify-content: space-around;
-}
-
-img {
-    width: 100vw;  
-}  
-
-.nav-hambur {
-    display: flex;
-    flex-direction: row; 
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 75px;
-    align-items:center;
-    justify-content: space-around;    
-}
-
-/*     MAIN - PRODUCTOS - SERVICIOS */
-
-.home-productos, .servicios {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-}
-
-.home-productos div:hover .home-productos img{
-    position: relative;
-    transform: scale(1.1);
-    transition: all 0.5 ;
-    z-index: 10;
-}
-
-main .prod-h2, .serv-h2, .nosotros-h2 {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 10px;
-    padding: 10px 0;    
-    font-weight: bold;
-    background-color: var(--amarillo);
-    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
-    margin-bottom: 20px; 
-}
-.serv-h2 { 
-    background-color: var(--azul);
-}
-.nosotros-h2 {
-    background-color: var(--verde);
-}
-.sect-pr h3, .sect-serv h3{
-    font-size: 12px;
-    color: black;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.home-productos div, .servicios div {
-    display: flex;
-    width: 45%;
-}
-.home-productos div img, .servicios div img{
-    width: 100%;
-    object-fit: cover;
-    opacity: 0.5;
-}
-
-.sect-pr{
-    display: flex;
-    width: 50%;
-    flex-direction: column; 
-}
-
-.sect-pr div{
-    width: 100%;
-    flex-direction: row;
-}
-.sect-pr div a{
-    width: 50%;
-    height: 200px;
-}
-
-.sect-pr div a img{
-    width: 100%;
-    height: 100%;
-    justify-content: space-evenly;
-}
-
-.home-serv-div {
-    width: 100%;
-    height: 100%;
-}
-.sect-serv .home-serv-div a img {
-    width: 50vw;
-    height: 50vw;
-}
-
-.nosotros {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.sect-nos h4 {
-    color: white;
-    text-align: center;
-}
-.sect-nos p{
-    color: black;
-    text-align: center;    
-}
-
-.sect-nos {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-
-.perro-campo {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url(/images/perro-campito.webp);
-    background-position: center;
-}
-
-.perro-campo:hover h4, .perro-campo:hover p {
-    color: white;
-    font-weight: 500;
-    opacity: 100;
-    background-color: black;
-    opacity:0.6;
-}
-
-.perro-playa {
-    background-image: url(/images/perro-playa.jfif);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.perro-playa:hover h4, .perro-playa:hover p {
-    color: white;
-    font-weight: 500;
-    opacity: 100;
-    background-color: black;
-    opacity:0.6;
-}
-.perro-gato {
-    background-image: url(/images/perro-gato.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-}
-.perro-gato:hover h4, .perro-gato:hover p {
-    color: white;
-    font-weight: 500;
-    opacity: 100;
-    background-color: black;
-    opacity:0.6;
-}
-
-/* MEDIA QUERIES */
-
-@media (min-width: 0px) and (max-width: 359px)  {
-    .home-body {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-}
-
-@media (min-width: 360px) and (max-width: 480px)  {
-    .home-body {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        text-align: center;
-        align-items: center; 
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px)  {
-    .nosotros div {
-        padding: 50px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        font-size: 20px;
-        justify-content: center;
-
-    }
-  }   
+} 

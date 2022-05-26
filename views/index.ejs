@@ -1,81 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <%- include('./partials/head') %>
+<%- include('partials/head'); %>
 
-<body class="home-body">
+<body>
 
-    <%- include('./partials/header') %>
+    <%- include('partials/header'); %> 
 
-    <main>
-        <h2 class="prod-h2">PRODUCTOS</h2>  
-            <nav class="home-productos">                               
-                    <section class="sect-pr">                
-                        <h3>ALIMENTO BALANCEADO</h3>                   
-                                <div>
-                                    <a href="/products/productDetail"><img  src="/images/perro-cocinero.jfif" alt="perro-cocinero"></a>    
-                                    <a href="productDetail"> <img src="/images/gato-cocinero.jpg" alt="gato-cocinero"></a> 
-                                </div>                                                     
-                    </section>
-                    <section class="sect-pr">
-                        <h3>HIGIENE Y ACCESORIOS</h3>                     
-                                <div>
-                                        <a href="productDetail"><img src="/images/perro-baño.jfif" alt="perro-cocinero"></a>   
-                                        <a href="productDetail"><img src="/images/gato-casita.jpg" alt="gato-cocinero"></a>
-                                </div>             
-                    </section>                          
+<main class="home__main">
+    
+        <section class="home__main__productos">
+            <div class="home__main__prod__h2">
+                <h2>PRODUCTOS</h2>
+            </div>
+                <h3>ALIMENTO BALANCEADO</h3>
+                    <article>
+                        <div class="imagen">
+                            <a href="products">
+                                <img src="/images/perro-cocinero.jfif" alt="">
+                            </a>
+                        </div>
+                        <div class="imagen">
+                            <a href="products">
+                                <img src="/images/gato-cocinero.jpg" alt="" width="20px">
+                            </a>   
+                        </div>   
+                    </article>
+            </section>    
+            <!-- <h3>HIGIENE & ACCESORIOS</h3>
+                <article>
+                    <div class="imagen">
+                        <a href="">
+                            <img src="/images/perro-baño.jfif" alt="">
+                        </a>
+                    </div>
+                    <div class="imagen">
+                        <a href="">
+                            <img src="/images/gato-casita.jpg" alt="">
+                        </a>
+                    </div>
+                </article>
+                                  -->
+        
+        <section class="home__main__servicios">
+            <div class="home__main__serv__h2">
+                <h2>SERVICIOS</h2>
+            </div>
             
-            </nav>  
-            <h2 class="serv-h2">SERVICIOS</h2>      
-                <nav class="servicios">            
-                    <section class="sect-serv">
-                        <h3>CORTES DE PELO</h3>                
-                            <div class="home-serv-div">
-                                <a href="">
-                                    <img src="/images/perro-elvis.jpg" alt="perrito-presley">
-                                </a>
-                            </div>                   
-                    </section>
-                   
-                    <section class="sect-serv">      
-                        <h3>BAÑOS</h3>          
-                            <div class="home-serv-div">
-                                <a href="">
-                                    <img src="/images/perro-Husky.jfif" alt="perrito-husky">
-                                </a>
-                            </div>         
-                    </section>      
-                </nav>   
-            <h2 class="nosotros-h2">NOSOTROS</h2>
-                <nav class="nosotros">
-                <section class="sect-nos">               
-                        <div class="perro-campo">
-                            <h4>¿Quienes somos?</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.                  
-                            </p>                        
-                        </div>                    
-                </section>
-                <section class="sect-nos">                   
-                        <div class="perro-playa">
-                            <h4>Nuestro horizonte</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.                     
-                            </p>
-                        </div>          
-                </section>
-                <section class="sect-nos">
-                    <div class="perro-gato">
-                        <h4>Adopciones</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nesciunt natus itaque, et sed illo cumque adipisci nam eveniet sequi vel. Odio laborum rerum iste nihil beatae sit facere deserunt.   
-                            </p>
-                        </div>                 
-                </section>
-            </nav>
+            <article>
+                <h3>CORTES DE PELO</h3>
+                <div class="imagen">
+                    <a href="services">
+                        <img src="/images/perro-elvis.jpg" alt="">
+                    </a>
+                </div>
+            </article>
+            
+            <article>
+                <h3>BAÑOS</h3>
+                <div class="imagen">
+                    <a href="services">
+                        <img src="/images/perro-Husky.jfif" alt="">
+                    </a>
+                </div>
+            </article>    
+        </section>
+
+        <section class="home__main__nosotros">
+            <div class="home__main__nos__h2">
+                <h2>NOSOTROS</h2>
+            </div>
+                <article>
+                    <h4>¿Quienes somos?</h4>
+                        <div class="home__main__nosotros__div1">
+                            <img src="/images/perro-campito.webp" alt="">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, facere?</p> 
+                        </div>
+                                
+                </article>
+                <article>
+                    <h4>Nuestro horizonte</h4>
+                        <div class="home__main__nosotros__div2">
+                            <img src="/images/perro-playa.jfif" alt="">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, facere?</p>
+                        </div>    
+                </article>
+                <article>
+                    <h4>Adopciones</h4>
+                    <div class="home__main__nosotros__div3">
+                            <img src="/images/perro-gato.webp" alt="">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, facere?</p>
+                        </div>
+                        
+                </article>
+        </section>
     </main>
 
-    <%- include('./partials/footer') %>
+    <%- include('partials/footer'); %> 
     
-</body>
+</body>    
 </html>

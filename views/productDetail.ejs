@@ -7,38 +7,51 @@
     
     <%- include('./partials/header') %>
     
-    <main class="detalleprod-main">
-        <nav class="detalleprod-nav">
-            <section> <!-- árbol de navegación-->
-                <h2 class="prod-h2">PRODUCTOS</h2>
-                <a class="navegacion" href="#" >inicio</a>
-                <a class="navegacion" href="#" >>Productos</a>
-                <a class="navegacion" href="#" >>Cat Chow Adultos 3Kg</a>   
-            </section>
+<main>
+
+    <nav class="detail-nav">
+        <h2>PRODUCTO</h2>
+        <article> 
+            <a class="navegacion" href="/">Inicio</a>
+            <a class="navegacion" href="/products">>Productos</a>
+            <p class="navegacion"><%= product.name %></p>
+        </article> 
+        <article>
+            <a href="/products/productEdit/<%= product.id %>" style="margin-left: 2vw; color: var(--marron);">
+                <i class="fa-solid fa-pen-to-square fa-2x"></i>
+            </a>  
+            <form action="/products/productDetail/remove/<%= product.id %>?_method=DELETE" method="POST">
+                <button type="submit"><i class="fas fa-trash-alt fa-2x"></i></button>
+            </form>
+        </article>
+    </nav>
+
+    <section class="detail-conjunto">
         
-        <h2>Cat Chow Adultos 3Kg</h2>
+            <article class="detail-producto"> 
+                <h2><%= product.name %></h2>
+                <div>
+                    <% if (product.id < 7) { %>
+                            <img src="/images/alimento-balanceado/perros/<%= product.image %>" alt="">
+                        <% } else { %>
+                            <img src="/images/alimento-balanceado/gatos/<%= product.image %>" alt=""> 
+                        <% if (!product.image) { %>
+                            <img src="/images/logo.png" alt="" style="width:60vw ;">
+                        <% } %>
+                    <% } %>
+                </div>
+            </article>
+            <article class="detail-detalle">
+                <p><%= product.description %></p>
+                <h3><%= product.price %></h3>
+                <form action="">
+                    <a href="/products/productCart"><input type="submit" value="Agregar al carrito"></a>
+                </form>
+            </article>
         
-        <section class="detalleprod-sect" >
-            <div class="detalle-prod-divprin"> 
-            <a class="pescado-a" href=""> <img class="pescado-prin" src="/images/productDetail/001 cat-chow-gato-adulto-pescado-3kg_600.jpeg" alt="Bolsa de alimento"></a> 
-            </div>
-            <div class="detalle-prod-div-secun">
-                <a class="det-prod-pescado-det" href="#"> <img src="/images/productDetail/002 cat-chow-gato-adulto-pescado-3kg_600.jpg" alt="detalles"></a>
-                <a class="det-prod-pescado-det" href="#"> <img src="/images/productDetail/003 cat-chow-gato-adulto-pescado-3kg_600.jpg"></a>
-            </div> <!-- Principal-->
-    
-        </section>  
-    
-        <section class="sect-precio"> <!--Precio / Añadir al carrito / img de MercadoPago / detalles / mas detalles-->
-            <div class="div-precio">
-                <h3>$1540</h3>
-                    <a href="#">
-                        <input class="botton_carrito" type="submit" value="Agregar al carrito">
-                    </a>
-            </div> 
-        </section> 
-        </nav>
-    </main>
+    </section>  
+
+</main>
     
     <%- include('./partials/footer') %>
 

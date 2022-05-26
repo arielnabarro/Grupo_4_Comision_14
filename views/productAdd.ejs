@@ -12,44 +12,48 @@
 
     <main class="login-main"> 
 
-            <section>
+        <section>
+            <div>
+                <h2>Agregar Producto</h2>
+            </div>
 
-                <h1>Agregar Producto</h1>
-                <hr><hr><hr><hr>
-
-            <form method="" action="">
-                <article>
-
-                    <div>
-                        <label for="name">Nombre del producto</label>
-                        <input type="text" id="name" name="name">
-                    </div>
-
-                    <div>
-                        <label for="price">Precio</label>
-                        <input type="number" id="price" name="price">
-                    </div>
-             
-                    <div>
-                            <label for="category">Productos</label>
-                            <select name="alimentos" id="alimentos">
-                                <option value="" hidden selected>Seleccione el producto</option>
-                              <% alimentos.forEach(alimento => { %>
-                                <option value="<%=alimentos.id %>"><%=alimentos.name %></option>
+        
+            <div class="form__productAdd" >
+                <form method="POST" action="">
+                    <article style="display: flex; justify-content: center; flex-direction: column; border: 1px solid black; text-align: center;">
+                        <div style="text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; margin: 10px auto; justify-content:center; width: 10vw;">
+                            <label for="name">Nombre del producto</label>
+                            <input type="text" id="name" name="name" required>
+                            
+                        </div>
+                        <div style="text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; margin: 10px auto; justify-content:center; width: 10vw;">
+                            <label for="price">Precio</label>
+                            <input type="number" id="price" name="price" required>
+                        </div>
+                        <div style="text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; margin: 10px auto; justify-content:center; width: 10vw;">
+                            <label for="category">Categorías</label>
+                            <select <%= locals.errors && errors.category ? 'is-invalid' : null%> name="category" id="category" required>
+                                <option value="" hidden selected>Selecciona la categoría</option>
+                              <% categories.forEach(category => { %>
+                                <option <%= locals.old && old.category && +old.category === +category.id ? 'selected' : null %>  value="<%= category.id %>"><%= category.name %></option>
                               <% }) %>
                             </select>
-                    </div>
-
+                            <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
+                        </div>                
                 </article>
 
+                <div>
                     <button type="submit">Guardar</button>
-                  
-                    <button type="reset">Limpiar</button>
-                    </div>
                     
+                    <button type="reset">Limpiar</button>
+                </div>
+                    
+                        
                 </form>
-                </section>
-        </main>
+            </div>
+            
+        </section>
+    </main>
 
     
     <%- include('./partials/footer') %>
