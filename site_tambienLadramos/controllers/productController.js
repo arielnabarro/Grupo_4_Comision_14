@@ -9,8 +9,8 @@ const leerProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/pr
 module.exports = {
     list : (req, res) => {
 
-        /* const leerProductos = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));   
-        const leerCategorias= JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','categories.json')));   */
+        const leerProductos = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));   
+        const leerCategorias= JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','categories.json')));  
 
         return res.render('products', {
             products,
@@ -92,28 +92,38 @@ module.exports = {
     })
     },
 
-
     store : (req,res) => {
         
-        let {name, price, category} = req.body;
-        let lastID = products[products.length - 1].id;
-        let newProduct =  {
-            id: +lastID + 1,
-            name : name.trim(),
-            price: +price,
-            category: +category,
-        }
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      let { name, price, category } = req.body;
+      let lastID = products[products.length - 1].id;
+      let images = req.files.map((image) => image.filename);
+      let newProduct = {
+        id: +lastID + 1,
+        name: name.trim(),
+        price: +price,
+        category: +category,
+        image: images.length > 0 ? images : null,
+      };
 
-        if(!newProduct.name || !newProduct.price || !newProduct.category) {
-            res.send("Debe completar todos los campos");
-        }else {
-            products.push(newProduct);
+      products.push(newProduct);
 
-            fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(products,null,3),'utf-8')
-    
-            return res.redirect('/products')
-        } 
-        
+      fs.writeFileSync(
+        path.resolve(__dirname, "..", "data", "products.json"),
+        JSON.stringify(products, null, 3),
+        "utf-8"
+      );
+
+      return res.redirect("/");
+    } else {
+      console.log(errors.mapped());
+      return res.render("productAdd", {
+        categories,
+        errors: errors.mapped(),
+        old: req.body,
+      });
+    }
     },  
     
     cart : (req, res) => {
