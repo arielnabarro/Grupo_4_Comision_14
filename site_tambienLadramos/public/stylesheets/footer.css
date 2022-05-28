@@ -1,35 +1,101 @@
-footer  {
-    margin-top: 5px;
-    padding: 10px;
-    display: flex;
+footer {
+    display: block;
+    position: relative;
     flex-direction: column;
     flex-wrap: wrap;
+    height: 85vw;
     justify-content: center;
     align-items: center;
+    /* background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));    */
+    text-align: center;
+}
+
+footer::after {
+    content: "";
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
     background-image: url(/images/Logo.png);
-    background-color: rgba(250, 250, 250, 0);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+footer p {
+    font-size: 0.8rem;
+    display: flex;
+    position: absolute;
+    top: 75vw;
+    left: 45vw;
+}
+
+.home__footer__div1, .home__footer__div2, .home__footer__div3 {
+    display: flex;
+    position: absolute;
+    left: 25vw;
+    top: 15vw;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    /* background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron)); */   
+}
+
+.home__footer__div1::after, .home__footer__div2::after, .home__footer__div3::after  {
+    content: "";
+    background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+    background-size: contain;
+    border-radius: 100vh; 
+}
+
+.home__footer__div2 {
+    top: 35vw;
+}
+
+.home__footer__div3 {
+    top: 55vw;
+}
+
+.home__footer__div1 a, .home__footer__div2 a, .home__footer__div3 a {
+    text-decoration: none;
+    font-size: small;
+    color: var(--nieve);
+    text-decoration: none;
+}
+
+.home__footer__div1 span, .home__footer__div2 span, .home__footer__div3 span {
+    background-color: var(--amarillo);
+    color: black;
+    font-size: 2.5vw;
+    border-radius: 100vh;
+}
+
+.home__footer__div1:hover, .home__footer__div2:hover, .home__footer__div3:hover {
+    background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
+    border-radius: 100vh;
+}
+
+.home__footer__div1 span:hover, .home__footer__div2 span:hover, .home__footer__div3 span:hover {
+    background:linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
+    color: var(--nieve);
+    border: 1px solid black
     
 }
-footer div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-}
-
-footer div a {
-    color: var(--amarillo);
-}
 
 
-footer div p {
-    color: white;
-    text-align: center;
-}
+
+
 
 
 
