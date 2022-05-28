@@ -11,7 +11,6 @@ router
          .get('/', list) 
          .get('/productDetail/:id', detail) 
          .get('/productCart', cart)
-         .get("/Detail", detail)
          .get('/searchResult', search)
          .get('/productAdd', add)  
          .post('/productAdd', store)  

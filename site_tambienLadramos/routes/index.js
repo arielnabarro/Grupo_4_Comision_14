@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-const { index } = require('../controllers/indexController');
+const { index, formContact } = require('../controllers/indexController');
 const { search } = require('../controllers/productController');
 
 /* GET home page. */
-router.get('/', index);
-router.get('/searchResult', search)
+router.get
+        ('/', index);
+        ('/searchResult', search);
+        ('/formContact', formContact);
+
 
 module.exports = router;
