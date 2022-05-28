@@ -39,7 +39,11 @@
                               <% }) %>
                             </select>
                             <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
-                        </div>                
+                        </div>
+                        <div style="text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; margin: 10px auto; justify-content:center; width: 10vw;">
+                            <label for="image"><%= product.image %> </label>
+                            <input type="file" id="image" name="image" accept="image/*">
+                        </div>             
                 </article>
 
                 <div>

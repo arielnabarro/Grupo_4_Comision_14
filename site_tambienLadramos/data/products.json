@@ -94,5 +94,11 @@
       "image": "/pro-plan/gato-proplan-15kg.webp",
       "category": 2,
       "price": 8953
+   },
+   {
+      "id": 13,
+      "name": "Alejandro",
+      "price": 31263289,
+      "category": 2
    }
 ]
