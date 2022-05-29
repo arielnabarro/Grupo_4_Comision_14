@@ -19,7 +19,7 @@
 
         
             <div class="form__productAdd">
-                 <form method="POST" action="/products/productEdit/<%= product.id %>/?_method=PUT">
+                 <form method="POST" action="/products/productEdit/<%= product.id %>/?_method=PUT" enctype="multipart/form-data">
                     <article style="display: flex; justify-content: center; flex-direction: column; border: 1px solid black; text-align: center;">
                         <div style="text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; margin: 10px auto; justify-content:center; width: 10vw;">
                             <label for="name"><%= product.name %></label>
@@ -41,7 +41,7 @@
                             <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
                         </div>
                         <div style="text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; margin: 10px auto; justify-content:center; width: 10vw;">
-                            <label for="image"><%= product.image %> </label>
+                            <label for="image"><%= product.image %></label>
                             <input type="file" id="image" name="image" accept="image/*">
                         </div>             
                 </article>

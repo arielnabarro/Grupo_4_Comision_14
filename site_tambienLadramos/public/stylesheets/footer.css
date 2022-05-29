@@ -19,7 +19,7 @@ footer::after {
     right: 0;
     position: absolute;
     z-index: -1;   
-    background-image: url(/images/Logo.png);
+    background-image: url(/images/Alimento-balanceado/Logo.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
