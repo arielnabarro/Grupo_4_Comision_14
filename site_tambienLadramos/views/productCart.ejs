@@ -21,14 +21,10 @@
 
             <% products.forEach(({name, image, price, description}) => { %>
                 <tr>
-                    <td><%= name %></td>
-                    <% if (description === "PERRO") { %>
-                        <td class="tabla-img-td"><img src="/images/alimento-balanceado/perros/<%= image %>" alt=""></td>
-                    <% } else {%>
-                        <td class="tabla-img-td"><img src="/images/alimento-balanceado/gatos<%= image %>" alt=""></td>
-                    <% } %> 
-                    
-                    
+                    <td><%= name %></td>                 
+                    <td class="tabla-img-td">
+                        <img src="/images/alimento-balanceado/<%= image %>" alt="">
+                    </td>                    
                     <td><%= description %></td>
                     <td><%= price %></td>
                 </tr>

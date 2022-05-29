@@ -12,6 +12,7 @@ module.exports = {
         const leerProductos = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));   
         const leerCategorias= JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','categories.json')));  
 
+        leerProductos
         return res.render('products', {
             products,
             categories
@@ -19,7 +20,7 @@ module.exports = {
     },
 
     detail : (req, res) => {
-
+        
         const { id } = req.params;
         const product = products.find((product) => product.id === +id);
 
@@ -68,15 +69,22 @@ module.exports = {
 
     update : (req, res) => {
         const { id } = req.params;
-        let { name, price, category} = req.body;
-  
+        let { name, price, category } = req.body;
+        
         const productsUpdated = products.map((product) => {
           if (product.id === +id) {
             let productModify = {
               ...product,
               name : name,
               price: +price,
-              category: +category  
+              category: +category,
+              image : req.file ? req.file.filename : product.image
+            }
+
+            if(req.file) {
+                if(fs.existsSync(path.resolve(__dirname, '..', 'public', 'images', 'Alimento-balanceado', product.image)) && product.image !== "Logo.png" ) {
+                    fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', 'Alimento-balanceado', product.image));
+                }          
             }
             return productModify;
         }else {
@@ -85,7 +93,7 @@ module.exports = {
     });
 
     fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(productsUpdated,null,3),'utf-8');
-    
+    res.redirect('/products')
     return res.render('productEdit', {
         categories,
         product : req.body,
@@ -93,18 +101,15 @@ module.exports = {
     },
 
     store : (req,res) => {
-        
-    let errors = validationResult(req);
-    if (errors.isEmpty()) {
       let { name, price, category } = req.body;
       let lastID = products[products.length - 1].id;
-      let images = req.files.map((image) => image.filename);
+
       let newProduct = {
         id: +lastID + 1,
         name: name.trim(),
         price: +price,
         category: +category,
-        image: images.length > 0 ? images : null,
+        image: req.file ? req.file.filename : "Logo.png"
       };
 
       products.push(newProduct);
@@ -112,19 +117,11 @@ module.exports = {
       fs.writeFileSync(
         path.resolve(__dirname, "..", "data", "products.json"),
         JSON.stringify(products, null, 3),
-        "utf-8"
-      );
+        "utf-8");
 
-      return res.redirect("/");
-    } else {
-      console.log(errors.mapped());
-      return res.render("productAdd", {
-        categories,
-        errors: errors.mapped(),
-        old: req.body,
-      });
-    }
-    },  
+        return res.redirect('/products')
+
+    },
     
     cart : (req, res) => {
         return res.render('productCart', {

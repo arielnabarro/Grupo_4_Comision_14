@@ -3,7 +3,7 @@
       "id": 1,
       "name": "Eukanuba 1 kg",
       "description": "PERRO",
-      "image": "/eukanuba/perro-eukanuba-1kg.webp",
+      "image": "perro-eukanuba-1kg.webp",
       "category": 1,
       "price": 1206
    },
@@ -11,7 +11,7 @@
       "id": 2,
       "name": "Eukanuba 3 kg",
       "description": "PERRO",
-      "image": "/eukanuba/perro-eukanuba-3kg.webp",
+      "image": "perro-eukanuba-3kg.webp",
       "category": 1,
       "price": 7209
    },
@@ -19,7 +19,7 @@
       "id": 3,
       "name": "Eukanuba 15 kg",
       "description": "PERRO",
-      "image": "/eukanuba/perro-eukanuba-15kg.webp",
+      "image": "perro-eukanuba-15kg.webp",
       "category": 1,
       "price": 8675
    },
@@ -27,7 +27,7 @@
       "id": 4,
       "name": "Pro Plan 3 kg",
       "description": "PERRO",
-      "image": "/pro-plan/perro-proplan-3kg.webp",
+      "image": "perro-proplan-3kg.webp",
       "category": 1,
       "price": 7861
    },
@@ -35,7 +35,7 @@
       "id": 5,
       "name": "Pro Plan 7.5 kg",
       "description": "PERRO",
-      "image": "/pro-plan/perro-proplan-7.5kg.webp",
+      "image": "perro-proplan-7.5kg.webp",
       "category": 1,
       "price": 4577
    },
@@ -43,7 +43,7 @@
       "id": 6,
       "name": "Pro Plan 15 kg",
       "description": "PERRO",
-      "image": "/pro-plan/perro-proplan-15kg.webp",
+      "image": "perro-proplan-15kg.webp",
       "category": 1,
       "price": 9038
    },
@@ -51,7 +51,7 @@
       "id": 7,
       "name": "Excellent 1 kg",
       "description": "GATO",
-      "image": "/excelent/gato-excelent-1kg.webp",
+      "image": "gato-excelent-1kg.webp",
       "category": 2,
       "price": 4209
    },
@@ -59,7 +59,7 @@
       "id": 8,
       "name": "Excellent 3 kg",
       "description": "GATO",
-      "image": "/excelent/gato-excelent-3kg.webp",
+      "image": "gato-excelent-3kg.webp",
       "category": 2,
       "price": 4884
    },
@@ -67,7 +67,7 @@
       "id": 9,
       "name": "Excellent 7.5 kg",
       "description": "GATO",
-      "image": "/excelent/gato-excelent-7.5kg.webp",
+      "image": "gato-excelent-7.5kg.webp",
       "category": 2,
       "price": 5618
    },
@@ -75,7 +75,7 @@
       "id": 10,
       "name": "Pro Plan 3 kg",
       "description": "GATO",
-      "image": "/pro-plan/gato-proplan-3kg.webp",
+      "image": "gato-proplan-3kg.webp",
       "category": 2,
       "price": 2675
    },
@@ -83,22 +83,16 @@
       "id": 11,
       "name": "Pro Plan 7.5 kg",
       "description": "GATO",
-      "image": "/pro-plan/gato-proplan-7.5kg.webp",
+      "image": "gato-proplan-7.5kg.webp",
       "category": 2,
       "price": 3153
    },
    {
       "id": 12,
-      "name": "Pro Plan 15 KGGGGASDASD",
+      "name": "Pro Plan 15 KG",
       "description": "GATO",
-      "image": "/pro-plan/gato-proplan-15kg.webp",
-      "category": 1,
-      "price": 812333123123123
-   },
-   {
-      "id": 13,
-      "name": "Alejandasqwe",
-      "price": 31263,
-      "category": 2
+      "image": "gato-proplan-15kg.webp",
+      "category": 2,
+      "price": 3250
    }
 ]

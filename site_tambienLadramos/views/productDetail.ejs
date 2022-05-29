@@ -13,15 +13,20 @@
         <h2>PRODUCTO</h2>
         <article> 
             <a class="navegacion" href="/">Inicio</a>
-            <a class="navegacion" href="/products">>Productos</a>
+            <a class="navegacion" href="/products">Productos</a>
             <p class="navegacion"><%= product.name %></p>
         </article> 
         <article>
+            <a href="/products/productAdd" style="margin-left: 2vw; color: var(--marron);">
+                <i class="fa-solid fa-circle-plus fa-2x"></i>
+            </a>  
             <a href="/products/productEdit/<%= product.id %>" style="margin-left: 2vw; color: var(--marron);">
                 <i class="fa-solid fa-pen-to-square fa-2x"></i>
             </a>  
             <form action="/products/productDetail/remove/<%= product.id %>?_method=DELETE" method="POST">
-                <button type="submit"><i class="fas fa-trash-alt fa-2x"></i></button>
+                <button type="submit">
+                    <i class="fas fa-trash-alt fa-2x"></i>
+                </button>
             </form>
         </article>
     </nav>
@@ -31,14 +36,7 @@
             <article class="detail-producto"> 
                 <h2><%= product.name %></h2>
                 <div>
-                    <% if (product.id < 7) { %>
-                            <img src="/images/alimento-balanceado/perros/<%= product.image %>" alt="">
-                        <% } else { %>
-                            <img src="/images/alimento-balanceado/gatos/<%= product.image %>" alt=""> 
-                        <% if (!product.image) { %>
-                            <img src="/images/logo.png" alt="" style="width:60vw ;">
-                        <% } %>
-                    <% } %>
+                    <img src="/images/alimento-balanceado/<%= product.image %>" alt="">
                 </div>
             </article>
             <article class="detail-detalle">

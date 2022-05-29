@@ -21,7 +21,7 @@
 .detail-nav article {
     display: flex;
     width: 100vw;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
 }
 
 .detail-nav article a, .detail-nav article p, .detail-nav article form {
@@ -33,17 +33,24 @@
     padding: 10px;
     font-size: 3vw;
     margin: 2px;
+    align-self: center;
+}
+
+.detail-nav article a:hover, .detail-nav article :hover, .detail-nav article form:hover {
+    background-color: var(--amarillo);
+    cursor: pointer;
 }
 
 .detail-nav article form button {
     color: var(--verde);
     background-color: var(--verde);
-    border: var(--verde);
+    border: var(--verde);  
 }
 
 .detail-nav article form i {
     background-color: var(--verde);
     color: var(--marron);
+    
 }
 
 .detail-conjunto {
@@ -51,6 +58,7 @@
     flex-direction: column;
     align-items: center;
     margin: 5px 0px;
+    
 }
 
 .detail-producto h2 {

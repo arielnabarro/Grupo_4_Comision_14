@@ -14,7 +14,7 @@ router
          .get('/productCart', cart)
          .get('/searchResult', search)
          .get('/productAdd', add)  
-         .post('/productAdd', store)  
+         .post('/productAdd',upload.single('image'),store)  
          .get('/productEdit/:id', edit)
          .put('/productEdit/:id', upload.single('image'), update)
          .delete('/productDetail/remove/:id', remove)

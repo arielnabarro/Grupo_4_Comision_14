@@ -17,9 +17,9 @@
                 <h2>Agregar Producto</h2>
             </div>
 
-        
+    
             <div class="form__productAdd" >
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     <article style="display: flex; justify-content: center; flex-direction: column; border: 1px solid black; text-align: center;">
                         <div style="text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; margin: 10px auto; justify-content:center; width: 10vw;">
                             <label for="name">Nombre del producto</label>
@@ -39,19 +39,19 @@
                               <% }) %>
                             </select>
                             <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
-                        </div>                
+                        </div>  
+                        <div>
+                            <label for="image">Imagen</label>
+                            <input type="file" id="image" name="image" accept="image/*">
+                        </div>  
+                        <div>
+                            <button type="submit">Guardar</button>
+                            <button type="reset">Limpiar</button>
+                        </div>            
                 </article>
-
-                <div>
-                    <button type="submit">Guardar</button>
-                    
-                    <button type="reset">Limpiar</button>
-                </div>
-                    
-                        
+      
                 </form>
             </div>
-            
         </section>
     </main>
 
