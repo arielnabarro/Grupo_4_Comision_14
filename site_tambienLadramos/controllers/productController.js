@@ -132,7 +132,7 @@ module.exports = {
     remove : (req, res) => {
         const { id } = req.params;
     
-        const productFilter = products.filter((product) => product.id !== +id);
+        const productFilter = products.filter(product => product.id !== +id);
     
         fs.writeFileSync(
           path.resolve(__dirname, "..", "data", "products.json"),
