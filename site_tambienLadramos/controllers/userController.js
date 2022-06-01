@@ -6,9 +6,9 @@ const users = require('../data/users.json')
 
 module.exports = {
 
-
-
     login : (req,res) => res.render('./users/login'),
     
-    register : (req,res) => res.render('./users/register')
+    register : (req,res) => res.render('./users/register'),
+
+    profile : (req,res) => res.render('./users/profile'),
 }
