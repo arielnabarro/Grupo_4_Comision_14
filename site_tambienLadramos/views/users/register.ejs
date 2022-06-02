@@ -7,27 +7,20 @@
 
     <%- include('../partials/header') %>
 
-    <main class="register_form"> 
-        <nav>
-            <h2>Registrarse</h2>
-            <form action="" method="POST" enctype="multipart/form-data">
-                <ul>
-                    <li>
-                        <input type="text" id="name" name="name" placeholder="Nombre completo">
-                        <input type="email" id="mail" name="mail" placeholder="E-mail">
-                        <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña">
-                        <input type="password" id="contraseña_2" name="contraseña_2" placeholder="Confirmar contraseña">
-                    <div style="text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; margin: 10px auto; justify-content:center; width: 10vw;">
-                        <input type="file" id="image" name="image" accept="image/*">
-                    </div>
-                        <p><a href="#"> Términos y condiciones</a></p>
-                        <input class="bottons" type="submit" value="Registrar">
-                        <p><a href="login">¿Ya tengo cuenta?</p></a>
-                    </li>
-                </ul>
-            </form>
-        </nav>
-    </main>  
+<main > 
+    <form class="register_form" action="" method="POST" enctype="multipart/form-data">
+        <h2>Registrarse</h2>
+        <input class="register_datos" type="text" id="name" name="name" placeholder="Nombre completo">
+        <input class="register_datos" type="email" id="mail" name="mail" placeholder="E-mail">
+        <input class="register_datos" type="password" id="contraseña" name="contraseña" placeholder="Contraseña">
+        <input class="register_datos" type="password" id="contraseña_2" name="contraseña_2" placeholder="Confirmar contraseña">
+        <p>foto de perfil (opcional)</p>
+        <input class="register_datos" type="file" id="image" name="image" accept="image/*">
+        <p><a href=""> Términos y condiciones</a></p>
+        <input class="bottons" type="submit" value="Registrar">
+        <p><a href="login">¿Ya tengo cuenta?</p></a>
+    </form>
+</main>  
 
     <%- include('../partials/footer') %>
 
