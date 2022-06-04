@@ -94,5 +94,43 @@
       "image": "gato-proplan-15kg.webp",
       "category": 2,
       "price": 3250
+   },
+   {
+      "id": 13,
+      "name": "prueba2",
+      "price": 123123,
+      "category": 1
+   },
+   {
+      "id": 14,
+      "name": "prueba3",
+      "price": 123,
+      "category": 1
+   },
+   {
+      "id": 15,
+      "name": "prueba4",
+      "price": 123123,
+      "category": 1
+   },
+   {
+      "id": 16,
+      "name": "prueba5",
+      "price": 123213,
+      "category": 1
+   },
+   {
+      "id": 17,
+      "name": "prueba6",
+      "price": 123,
+      "category": 1,
+      "image": "79012449_10216055645083431_5971596166125584384_n.jpg"
+   },
+   {
+      "id": 18,
+      "name": "prueba7",
+      "price": 123,
+      "category": 1,
+      "image": "79012449_10216055645083431_5971596166125584384_n.jpg"
    }
 ]

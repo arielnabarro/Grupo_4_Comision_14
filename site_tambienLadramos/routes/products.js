@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const upload = require('../middlewares/uploadImageProducts');
 
 const { list, detail, cart, search, add, store, edit, update, remove } = require('../controllers/productController');
@@ -14,7 +13,7 @@ router
          .get('/productCart', cart)
          .get('/searchResult', search)
          .get('/productAdd', add)  
-         .post('/productAdd',upload.single('image'),store)  
+         .post('/productAdd', upload.single('image'), store)  
          .get('/productEdit/:id', edit)
          .put('/productEdit/:id', upload.single('image'), update)
          .delete('/productDetail/remove/:id', remove)
