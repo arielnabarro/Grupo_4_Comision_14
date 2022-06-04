@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head', {
+        title : 'Admin'
+    }) %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+    
+<main>
+
+    <h2 class="profile-title"><%= usuarioAdmin.name %></h2>
+
+    <section class="profile-conjunto">
+        <article class="profile-user"> 
+            <h2><%= usuarioAdmin.name %></h2>
+            <div>
+                <img src="../../images/perro-campito.webp" alt="">
+            </div>
+            <form action="">
+                <a href=""><input type="submit" value="cambiar foto de perfil"></a>
+            </form>
+        </article>
+        <article class="profile-info">
+            <h2>datos</h2>
+            <div class="profile-detalle">
+                <p>tu email: sdkahdjk@gmail.com</p>
+                <p>nombre: hasdh</p>
+                <p>mascota: hdashkjd</p>
+            </div>
+            <form action="">
+                <a href=""><input type="submit" value="editar datos de perfil"></a>
+            </form>
+        </article>
+    </section>  
+
+</main>
+    
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

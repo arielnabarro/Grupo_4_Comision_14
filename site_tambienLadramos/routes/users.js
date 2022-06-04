@@ -1,30 +1,24 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const uploadAvatars = require('../middlewares/uploadImageUsers')
 
-<<<<<<< HEAD
-/* const registerValidator = require('../validations/registerValidator');
-const loginValidator = require('../validations/loginValidator'); */
-=======
 const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator');
->>>>>>> develop
 
 // const userCheck = require('../middlewares/userCheck');
-const {register,login, processRegister, processLogin,logout, profile, updateProfile} = require('../controllers/userController');
+const {register, login, processRegister, processLogin, logout, profile, updateProfile, adminProfile} = require('../controllers/userController');
 
 /* /users */
 
 router
-    .get('/register', register)
-    // .post('/register',registerValidator,processRegister)
+   /*  .get('/register', register)
+    .post('/register',registerValidator, uploadAvatars.single(), processRegister) */
     .get('/login', login)
-    // .post('/login',loginValidator, processLogin)
+    .post('/login', loginValidator, processLogin)
     // .get('/logout',logout)
-<<<<<<< HEAD
-    // .get('/profile',profile)
-=======
-     .get('/profile',profile)
->>>>>>> develop
+     .get('/profile', profile)
     // .put('/update-profile',updateProfile)
+    .get('/admin', adminProfile)
 
 module.exports = router;

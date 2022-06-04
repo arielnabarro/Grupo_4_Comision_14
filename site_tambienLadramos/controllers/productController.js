@@ -91,7 +91,7 @@ module.exports = {
             return product;
         }        
     });
-
+    
     fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(productsUpdated,null,3),'utf-8');
     res.redirect('/products')
     return res.render('productEdit', {

@@ -1,20 +1,19 @@
 [
     {
     "id": 1,
+    "rol": "admin",
     "first_name": "Alejandro",
-    "last_name": "Pajón",
-    "email": "",
-    "password": "rDSYGf",
-    "category": "user",
-    "image": "user_1.jpg"
+    "email": "alejandro@gmail.com",
+    "password": "prueba1",
+    "image" : ""
+ 
   },
   {
     "id": 2,
+    "rol": "user",
     "first_name": "Cristian",
-    "last_name": "Casalaspro",
-    "email": "",
-    "password": "rDSYGf",
-    "category": "user",
-    "image": "user_1.jpg"
+    "email": "cristian@gmail.com",
+    "password": "prueba2",
+    "image" : ""
   }
 ]

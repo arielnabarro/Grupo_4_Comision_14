@@ -269,13 +269,16 @@ HEADER
 }
 
 @media (min-width: 1024px) {
+    header .home__header__ig   {
+        height: 5vw;
+    }
     .home__header__logo {
         width: 10vw;
         height: 10vw;
     }
 
     .home__header__contenedor {    
-        height: 30vw; 
+        height: 20vw; 
         resize: both;
         overflow: auto;
     }
