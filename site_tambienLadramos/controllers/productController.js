@@ -108,7 +108,7 @@ module.exports = {
             name: name.trim(),
             price: +price,
             category: +category,
-            image: req.file ? req.file.originalname : 'Logo.png'
+            image: req.file ? req.file.originalname : 'null'
             };
             console.log('PRUEBA', req.file)
             products.push(newProduct);
