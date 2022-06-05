@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const users = require('../data/users.json')
 const { validationResult } = require("express-validator");
-
+const modelUsers = require('../model/modelUsers')
 
 module.exports = {
 
@@ -24,9 +24,31 @@ module.exports = {
         } */
     },
 
+    //posible raiz del problema de que no funcione en la vista
     
     register : (req,res) => res.render('users/register'),
 
+    processRegister: (req,res) => {
+        const resultadoValidacion = validationResult(req);
+
+        if (resultadoValidacion.errors.length > 0) {
+            return res.render('../views/users/register', {
+                errors: resultadoValidacion.mapped(),
+                oldData: req.body
+            });
+        }
+    //     console.log(req.body, req.file);
+        
+    //     let userToCreate = {
+    //     ...req.body,
+    //     avatar: req.file.filename
+    // }
+        modelUsers.create(req.body)
+        return res.send("se registro el usuario")
+        
+    },
+    
+    
 
     profile : (req,res) => {
 
@@ -59,3 +81,4 @@ module.exports = {
         }
     },
 }
+

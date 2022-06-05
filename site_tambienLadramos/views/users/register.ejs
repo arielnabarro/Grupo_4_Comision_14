@@ -11,22 +11,28 @@
 
 <main> 
     <div>
-        <form class="register_form" action="" method="POST" enctype="multipart/form-data">
+
+        <!-- incompleto -->
+
+        <form class="register_form" method="POST" action="" enctype="multipart/form-data">
             <h2>Registrarse</h2>
             <div>
-                <input class="register_datos" type="text" id="name" name="name" placeholder="Nombre completo">
+                <input class="register_datos" type="text" id="name" name="name" placeholder="Nombre completo" value="<%= locals.old && old.nombre ? old.nombre : null %>">    
             </div>
             <div>
-                <input class="register_datos" type="email" id="mail" name="mail" placeholder="E-mail">
+                <input class="register_datos" type="email" id="email" name="email" placeholder="E-mail">
+                <span class=""><%= locals.errores && errores.email ? errores.email.msg : null %></span>
             </div>
             <div>
                 <input class="register_datos" type="password" id="password" name="password" placeholder="Contraseña">
+                <span class=""><%= locals.errores && errores.password ? errores.password.msg : null %></span>
             </div>
             <div>
                 <input class="register_datos" type="password" id="password2" name="password2" placeholder="Confirmar contraseña">
+                <span class=""><%= locals.errores && errores.password2 ? errores.password2.msg : null %></span>
             </div>
             <div>
-                <input class="register_datos" type="file" id="image" name="image" accept="image/*">
+                <input class="register_datos" type="file" id="avatar" name="avatar" accept="image/*">
             </div>
             <div>
                 <a href=""> Términos y condiciones</a>
@@ -35,12 +41,6 @@
                 <input class="bottons" type="submit" value="Registrar">
                 <p><a href="login">¿Ya tengo cuenta?</p></a>
             </div>
-            
-            
-            
-            
-            
-            
         </form>
     </div>
   

@@ -1,19 +1,18 @@
 [
-    {
-    "id": 1,
-    "rol": "admin",
-    "first_name": "Alejandro",
-    "email": "alejandro@gmail.com",
-    "password": "prueba1",
-    "image" : ""
- 
-  },
-  {
-    "id": 2,
-    "rol": "user",
-    "first_name": "Cristian",
-    "email": "cristian@gmail.com",
-    "password": "prueba2",
-    "image" : ""
-  }
+ {
+  "id": 1,
+  "rol": "admin",
+  "first_name": "Alejandro",
+  "email": "alejandro@gmail.com",
+  "password": "prueba1",
+  "image": ""
+ },
+ {
+  "id": 2,
+  "rol": "user",
+  "first_name": "Cristian",
+  "email": "cristian@gmail.com",
+  "password": "prueba2",
+  "image": ""
+ }
 ]

@@ -1,19 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const uploadAvatars = require('../middlewares/uploadImageUsers')
 
 const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator');
 
 // const userCheck = require('../middlewares/userCheck');
-const {register, login, processRegister, processLogin, logout, profile, updateProfile, adminProfile} = require('../controllers/userController');
+const {register, login, processRegister, processLogin, profile,  adminProfile} = require('../controllers/userController');
 
-/* /users */
+/* /users uploadAvatars.single()*/
+
+//problema de ruteo con register  post
 
 router
-   /*  .get('/register', register)
-    .post('/register',registerValidator, uploadAvatars.single(), processRegister) */
+    .get('/register', register)
+    .post('/register',registerValidator, uploadAvatars.single('avatar'),processRegister) 
     .get('/login', login)
     .post('/login', loginValidator, processLogin)
     // .get('/logout',logout)
