@@ -108,9 +108,8 @@ module.exports = {
             name: name.trim(),
             price: +price,
             category: +category,
-            image: req.file ? req.file.originalname : 'null'
+            image: req.file ? req.file.originalname : ''
             };
-            console.log('PRUEBA', req.file)
             products.push(newProduct);
 
             fs.writeFileSync(

@@ -18,12 +18,10 @@ const uploadAvatars = multer({
 
 const storageFood = multer.diskStorage({
     destination : (req,file,callback) => {
-        console.log('destination')
-        callback(null,'/public/images/Alimento-balanceado')
+        callback(null,'/public/images/alimento-balanceado')
         
     },
     filename : (req,file,callback) => {
-        console.log('fil')
         callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
@@ -32,4 +30,5 @@ const upload = multer({
 });
 
 
-module.exports =  upload, uploadAvatars;
+module.exports =  upload;
+module.exports = uploadAvatars
