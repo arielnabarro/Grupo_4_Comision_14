@@ -1,5 +1,5 @@
 const {check, body} = require('express-validator');
-const usuarios = require('../data/users.json')
+const users = require('../data/users.json')
 // const path = require('path')
 
 //incompleto
@@ -18,8 +18,8 @@ module.exports = [
         .notEmpty().withMessage('Debes ingresar tu email').bail()
         .isEmail().withMessage('Email no válido').bail()
         .custom((value) => {
-            const usuario = usuarios.find(usuario => usuario.email === value);
-            if(usuario){
+            const user = users.find(user => user.email === value);
+            if(user){
                 return false
             }else{
                 return true
@@ -37,20 +37,20 @@ module.exports = [
             return true
         }).withMessage('Las contraseñas no coinciden!!'),
 
-    body('image').custom((value, { req }) => {
-        let file = req.file;
-        let acceptedExtensions = ['jpg', 'png'];
+    // body('image').custom((value, { req }) => {
+    //     let file = req.file;
+    //     let acceptedExtensions = ['jpg', 'png'];
 
-        if (!file) {
-            throw new Error('tiene que subir una imagen');
-        } else {
-            let fileExtensions = path.extname(file.originalname);
-            if (!acceptedExtensions.includes(fileExtensions)) {
-                throw new Error(`solo imagenes de extensiones ${acceptedExtensions.join(', ')}`);
-            }
-        }
-        return true; 
-    }),
+    //     if (!file) {
+    //         throw new Error('tiene que subir una imagen');
+    //     } else {
+    //         let fileExtensions = path.extname(file.originalname);
+    //         if (!acceptedExtensions.includes(fileExtensions)) {
+    //             throw new Error(`solo imagenes de extensiones ${acceptedExtensions.join(', ')}`);
+    //         }
+    //     }
+    //     return true; 
+    // }),
     
     check('terminos')
         .isString('on')

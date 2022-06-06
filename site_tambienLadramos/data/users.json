@@ -1,18 +1,74 @@
 [
- {
-  "id": 1,
-  "rol": "admin",
-  "first_name": "Alejandro",
-  "email": "alejandro@gmail.com",
-  "password": "prueba1",
-  "image": ""
- },
- {
-  "id": 2,
-  "rol": "user",
-  "first_name": "Cristian",
-  "email": "cristian@gmail.com",
-  "password": "prueba2",
-  "image": ""
- }
+   {
+      "id": 1,
+      "rol": "admin",
+      "name": "Alejandro",
+      "email": "alejandro@gmail.com",
+      "password": "prueba1",
+      "image": ""
+   },
+   {
+      "id": 2,
+      "rol": "user",
+      "name": "Cristian",
+      "email": "cristian@gmail.com",
+      "password": "prueba2",
+      "image": ""
+   },
+   {
+      "id": 3,
+      "name": "alejas",
+      "email": "alejandropajon2000@mai.com",
+      "password": "qwer123",
+      "rol": "user"
+   },
+   {
+      "id": 4,
+      "name": "agdsfds",
+      "email": "alejandropajon098@gmail.com",
+      "password": "$2a$10$QwO5ps9CyDGwayIv0mJOHel2OmHhmEKOGthvqZZ59n.Kr1to/I8He",
+      "rol": "user"
+   },
+   {
+      "id": 5,
+      "rol": "user",
+      "name": "asdasdsd",
+      "email": "asdas@gmail.com",
+      "password": "$2a$10$zI6k9z2zS4Ax7UIcm6jA8uqecvc3ZwHR2fGDiBLMfVb2VIqmCGJMq"
+   },
+   {
+      "id": 6,
+      "rol": "user",
+      "name": "qweqwew",
+      "email": "qeqwe@gmail.com",
+      "password": "$2a$10$gxiFJ39HChA0sDiWcQE5hOWVz.SnTShxi6sR/1IPc0rSuFgNEwKBe"
+   },
+   {
+      "id": 7,
+      "rol": "user",
+      "name": "sdasdasds",
+      "email": "sadsad@gmail.com",
+      "password": "$2a$10$ipWDFuzstyHvWgMZLEAdeOmNs0EpkN8phKEttHmWOwcGTQChCHWA2"
+   },
+   {
+      "id": 8,
+      "rol": "user",
+      "name": "dsdadsadd",
+      "email": "asdasddsas@gmail.com",
+      "password": "$2a$10$MOyjHgJicez/nG8D9pd6qeuofobytPVmzd6Q7dpsZExI9sXyoeI6m"
+   },
+   {
+      "id": 9,
+      "rol": "user",
+      "name": "dsdadsadd",
+      "email": "asdasdds@gmail.com",
+      "password": "$2a$10$QJ/IYDnjUaaHvaD1LKwsM.LBoxvvoL6em.W9PQVsOmRJ5y0w0VeU2"
+   },
+   {
+      "id": 10,
+      "rol": "user",
+      "name": "dsdadsadd",
+      "email": "asdasdas@gmail.com",
+      "password": "$2a$10$xSlRTzDcSuZOlLDw4W3J8eubtDcbifQSQ/Uuu21ecYb4ConWtlC.2"
+   }
 ]

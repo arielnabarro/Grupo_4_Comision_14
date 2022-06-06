@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const users = require('../data/users.json')
 const { validationResult } = require("express-validator");
-const modelUsers = require('../model/modelUsers')
+const bcryptjs =require('bcryptjs')
+// const modelUsers = require('../model/modelUsers')
 
 module.exports = {
 
@@ -29,34 +30,48 @@ module.exports = {
     register : (req,res) => res.render('users/register'),
 
     processRegister: (req,res) => {
-        const resultadoValidacion = validationResult(req);
+        let errors = validationResult(req);
 
-        if (resultadoValidacion.errors.length > 0) {
-            return res.render('../views/users/register', {
-                errors: resultadoValidacion.mapped(),
-                oldData: req.body
+        if (errors.isEmpty()) {
+            let { name, email, password } = req.body;
+            let lastID = users.length !== 0 ? users[users.length - 1].id : 0;
+            
+            let newUser = {
+                id: +lastID + 1,
+                rol : "user",
+                name: name.trim(),
+                email: email,
+                password : bcryptjs.hashSync(password, 10),
+            };
+
+            users.push(newUser);
+
+            fs.writeFileSync(
+                path.resolve(__dirname, "..", "data", "users.json"),
+                JSON.stringify(users, null, 3),
+                "utf-8"
+              );
+
+            return res.redirect("profile");
+        
+        }else{
+
+            return res.render("users/register",{
+                old : req.body,
+                errores : errors.mapped()
             });
         }
-    //     console.log(req.body, req.file);
-        
-    //     let userToCreate = {
-    //     ...req.body,
-    //     avatar: req.file.filename
-    // }
-        modelUsers.create(req.body)
-        return res.send("se registro el usuario")
-        
     },
     
     
 
     profile : (req,res) => {
 
-        const usuarios = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
+        const users = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
         /* const usuario = usuarios.find(usuario => usuario.id === req.session.userLogin.id); */
 
         return res.render('users/profile', {
-        usuarios 
+        users 
         })
 
     },
