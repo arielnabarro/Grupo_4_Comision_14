@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-// const uploadAvatars = require('../middlewares/uploadImageUsers')
+/* const upload= require('../middlewares/uploadImages') */
 
 const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator');
 
 // const userCheck = require('../middlewares/userCheck');
-const {register, login, processRegister, processLogin, profile,  adminProfile} = require('../controllers/userController');
+const {register, login, processRegister, processLogin, profile, adminProfile} = require('../controllers/userController');
 
 /* /users */
 

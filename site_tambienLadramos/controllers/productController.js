@@ -1,18 +1,17 @@
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require("express-validator");
 
 const products = require('../data/products.json');
 const categories = require('../data/categories.json');
 
-const leerProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/products.json'),'utf-8')); 
+/* const leerProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/products.json'),'utf-8'));  */
 
 module.exports = {
     list : (req, res) => {
 
-        const leerProductos = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));   
-        const leerCategorias= JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','categories.json')));  
+        /* const leerProductos = fs.readFileSync(path.resolve(__dirname, "..", "data", "products.json"),JSON.parse(products, null, 3), "utf-8"); */
 
-        leerProductos
         return res.render('products', {
             products,
             categories
@@ -20,7 +19,6 @@ module.exports = {
     },
 
     detail : (req, res) => {
-        
         const { id } = req.params;
         const product = products.find((product) => product.id === +id);
 
@@ -101,26 +99,32 @@ module.exports = {
     },
 
     store : (req,res) => {
-      let { name, price, category } = req.body;
-      let lastID = products[products.length - 1].id;
+        let errors = validationResult(req);
+        if(errors.isEmpty()) {
+            let { name, price, category } = req.body;
+            let lastID = products[products.length - 1].id;
+            let newProduct = {
+            id: +lastID + 1,
+            name: name.trim(),
+            price: +price,
+            category: +category,
+            image: req.file ? req.file.originalname : ''
+            };
+            products.push(newProduct);
 
-      let newProduct = {
-        id: +lastID + 1,
-        name: name.trim(),
-        price: +price,
-        category: +category,
-        image: req.file ? req.file.filename : "Logo.png"
-      };
-
-      products.push(newProduct);
-
-      fs.writeFileSync(
-        path.resolve(__dirname, "..", "data", "products.json"),
-        JSON.stringify(products, null, 3),
-        "utf-8");
-
-        return res.redirect('/products')
-
+            fs.writeFileSync(
+            path.resolve(__dirname, "..", "data", "products.json"),
+            JSON.stringify(products, null, 3),
+            "utf-8");
+    
+            return res.redirect('/products')
+        } else {
+            return res.render("productAdd", {
+                categories,
+                errors: errors.mapped(),
+                old: req.body,
+            })
+        }
     },
     
     cart : (req, res) => {

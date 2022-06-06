@@ -1,30 +1,23 @@
 const {check, body} = require('express-validator');
 const users = require('../data/users.json')
-// const path = require('path')
-
-//incompleto
 
 module.exports = [
 
     check('name')
-        .isLength({min: 2}).withMessage('Como mínimo dos letras').bail()
-        .isAlpha().withMessage('Solo letras porfa!'),
-
-    // check('apellido')
-    //     .isLength({min: 2}).withMessage('Como mínimo dos letras').bail()
-    //     .isAlpha().withMessage('Solo letras porfa!'),
+        .isLength({min: 2}).withMessage('Tiene que ingresar dos letras como mínimo').bail()
+        .isAlpha().withMessage('Sólo se aceptan caracteres alfabéticos'),
     
     check('email')
-        .notEmpty().withMessage('Debes ingresar tu email').bail()
-        .isEmail().withMessage('Email no válido').bail()
+        .notEmpty().withMessage('Debe ingresar su email').bail()
+        .isEmail().withMessage('Formato de email invalido').bail()
         .custom((value) => {
-            const user = users.find(user => user.email === value);
-            if(user){
+            const usuario = users.find(user => user.email === value);
+            if(usuario){
                 return false
             }else{
                 return true
             }
-        }).withMessage('El email ya está registrado!'),
+        }).withMessage('El email ya se encuentra registrado'),
 
     check('password')
         .isLength({min: 6, max:12}).withMessage('La contraseña debe tener entre 6 y 12 caracteres'),
@@ -35,25 +28,10 @@ module.exports = [
                 return false
             }
             return true
-        }).withMessage('Las contraseñas no coinciden!!'),
-
-    // body('image').custom((value, { req }) => {
-    //     let file = req.file;
-    //     let acceptedExtensions = ['jpg', 'png'];
-
-    //     if (!file) {
-    //         throw new Error('tiene que subir una imagen');
-    //     } else {
-    //         let fileExtensions = path.extname(file.originalname);
-    //         if (!acceptedExtensions.includes(fileExtensions)) {
-    //             throw new Error(`solo imagenes de extensiones ${acceptedExtensions.join(', ')}`);
-    //         }
-    //     }
-    //     return true; 
-    // }),
+        }).withMessage('Las contraseñas ingresadas no coinciden'),
     
     check('terminos')
         .isString('on')
-        .withMessage('Debes aceptar términos y condiciones')
+        .withMessage('Debe aceptar términos y condiciones')
 
 ]

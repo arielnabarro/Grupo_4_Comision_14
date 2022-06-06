@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const bcryptjs = require('bcryptjs');
 const users = require('../data/users.json')
 const { validationResult } = require("express-validator");
-const bcryptjs =require('bcryptjs')
-// const modelUsers = require('../model/modelUsers')
 
 module.exports = {
 
@@ -13,16 +12,29 @@ module.exports = {
     processLogin: (req, res) => {
         let errors = validationResult(req);
     
-        if (errors.isEmpty()) {
+        if(errors.isEmpty()) {
             
             const {id, rol, email } = users.find(usuario => usuario.email === req.body.email);
-        }
+            
+            req.session.userLogin = {
+                id,
+                rol,
+                email,
+            } 
+        
 
-        /* req.session.userLogin = {
-            id,
-            rol,
-            email,
-        } */
+            if(req.body.recordarme){
+                res.cookie("userTest", req.session.userLogin,{maxAge: 1000*60*2})
+            }
+            
+            return res.redirect("/");
+    
+        }else{
+          res.render('users/login' ,{
+            errors : errors.mapped(),
+            old : req.body
+          })
+        }
     },
 
     //posible raiz del problema de que no funcione en la vista
@@ -52,7 +64,7 @@ module.exports = {
                 "utf-8"
               );
 
-            return res.redirect("profile");
+            return res.redirect("login");
         
         }else{
 
@@ -62,19 +74,6 @@ module.exports = {
             });
         }
     },
-    
-    
-
-    profile : (req,res) => {
-
-        const users = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
-        /* const usuario = usuarios.find(usuario => usuario.id === req.session.userLogin.id); */
-
-        return res.render('users/profile', {
-        users 
-        })
-
-    },
 
     logout : (req,res) => {
         req.session.destroy();
@@ -83,10 +82,10 @@ module.exports = {
       },
 
     profile : (req,res) => {
-        const usersprofile = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
-        const userprofile = usersprofile.find(user => user.id === req.session.userLogin.id);
-        return res.render('profile',{
-            userprofile
+        const usersRead = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
+        const userProfile = usersRead.find(user => user.id === req.session.userLogin.id);
+        return res.render('users/profile',{
+            userProfile
         })
       },
 
@@ -109,5 +108,6 @@ module.exports = {
             })
         }
     },
+
 }
 

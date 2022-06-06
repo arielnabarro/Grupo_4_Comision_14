@@ -84,5 +84,54 @@
       "name": "alejandrooo",
       "email": "alelalllaa@gmail.com",
       "password": "$2a$10$oWxFea9IXhk1kdkBFdq8OeCwRf9QyWks/73EFn6pW5A5ddbdboj5O"
+   },
+   {
+      "id": 13,
+      "rol": "user",
+      "name": "adafafadf",
+      "email": "fdsfasdfa@gmail.com",
+      "password": "$2a$10$98Nim4ht70IZEfckBwn26OoH73A7rk9OkBUJAErJq29aeZh3.OzM2"
+   },
+   {
+      "id": 14,
+      "rol": "user",
+      "name": "asdasdasd",
+      "email": "asdasdasd@gmail.com",
+      "password": "$2a$10$9fzpxTD38nGIywZcu2fhBeM3kXGIRbkIgFgwMoRadFlWPit3f1Yvq"
+   },
+   {
+      "id": 15,
+      "rol": "user",
+      "name": "asdasdasd",
+      "email": "asdasds@gmail.com",
+      "password": "$2a$10$23o7nD2L/Dp4dDADGa8NNOBX.imloFCYCb/.zipiHuP18YHTEpeBm"
+   },
+   {
+      "id": 16,
+      "rol": "user",
+      "name": "asdasdasd",
+      "email": "sdasds@gmail.com",
+      "password": "$2a$10$LibM6VgTKflYbc3GYN6ImuLrVmIjC88fsA/2gqpQE3u/L2iWVzkdq"
+   },
+   {
+      "id": 17,
+      "rol": "user",
+      "name": "asdasdasd",
+      "email": "asdasdsy@gmail.com",
+      "password": "$2a$10$OX6NIgOa3F6iPj1xkmt6cO5lM1wHyPPNqt0l24a5OF1H8j6vsXrgW"
+   },
+   {
+      "id": 18,
+      "rol": "user",
+      "name": "asdasdasd",
+      "email": "asdasdsk@gmail.com",
+      "password": "$2a$10$VM/SBiSwKpzX5inZC7zO5e/TGwDdym0MY9GpWGyZ9oKAS6ktBKIK2"
+   },
+   {
+      "id": 19,
+      "rol": "user",
+      "name": "asdasdasd",
+      "email": "asdasdsp@gmail.com",
+      "password": "$2a$10$dUwvOQvMWfjZwO/ezpQ.T.eP7iNQzC4dzG9wCkLuO11nL.3C920DW"
    }
 ]
