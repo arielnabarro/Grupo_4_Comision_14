@@ -76,6 +76,20 @@ module.exports = {
 
     },
 
+    logout : (req,res) => {
+        req.session.destroy();
+        res.cookie('usertambienLadramos',null,{maxAge : -1})
+        return res.redirect('/')
+      },
+
+    profile : (req,res) => {
+        const usersprofile = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
+        const userprofile = usersprofile.find(user => user.id === req.session.userLogin.id);
+        return res.render('profile',{
+            userprofile
+        })
+      },
+
     adminProfile : (req, res) => {
         const usuarioAdmin = users.find(usuario => usuario.rol == admin)
 

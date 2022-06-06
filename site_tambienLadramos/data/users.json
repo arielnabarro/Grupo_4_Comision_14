@@ -70,5 +70,19 @@
       "name": "dsdadsadd",
       "email": "asdasdas@gmail.com",
       "password": "$2a$10$xSlRTzDcSuZOlLDw4W3J8eubtDcbifQSQ/Uuu21ecYb4ConWtlC.2"
+   },
+   {
+      "id": 11,
+      "rol": "user",
+      "name": "alejandrooo",
+      "email": "alelallla@gmail.com",
+      "password": "$2a$10$jfZV4dqYrs78BF1/rMjC4.AIpCakxBcLkruKuQnQvpb7iN.VJmEHq"
+   },
+   {
+      "id": 12,
+      "rol": "user",
+      "name": "alejandrooo",
+      "email": "alelalllaa@gmail.com",
+      "password": "$2a$10$oWxFea9IXhk1kdkBFdq8OeCwRf9QyWks/73EFn6pW5A5ddbdboj5O"
    }
 ]
