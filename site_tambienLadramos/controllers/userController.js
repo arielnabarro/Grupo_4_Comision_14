@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const bcryptjs = require('bcryptjs');
 const users = require('../data/users.json')
 const { validationResult } = require("express-validator");
 
@@ -30,8 +31,8 @@ module.exports = {
             return res.redirect("/");
     
         }else{
-          return res.render("index",{
-            errores : errors.mapped(),
+          res.render('users/login' ,{
+            errors : errors.mapped(),
             old : req.body
           })
         }

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const upload= require('../middlewares/uploadImages')
+/* const upload= require('../middlewares/uploadImages') */
 
 const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator');
@@ -12,7 +12,7 @@ const {register, login, processRegister, processLogin, profile, adminProfile} = 
 
 router
     .get('/register', register)
-    .post('/register',registerValidator, upload.single('avatar'), processRegister)
+    .post('/register',registerValidator/* , upload.single('avatar') */, processRegister)
     .get('/login', login)
     .post('/login', loginValidator, processLogin)
     // .get('/logout',logout)

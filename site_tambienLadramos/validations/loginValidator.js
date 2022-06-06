@@ -15,7 +15,7 @@ module.exports = [
             if(!usuario){
                 return false
             }else {
-                if(!bcryptjs.compareSync(value, usuario.password)){
+                if(usuario.password !== req.body.password){
                     return false
                 }
             }
