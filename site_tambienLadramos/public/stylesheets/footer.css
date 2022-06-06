@@ -3,7 +3,7 @@ footer {
     position: relative;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 85vw;
+    height: 75vw;
     justify-content: center;
     align-items: center;
     /* background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));    */
@@ -39,7 +39,7 @@ footer p {
     left: 25vw;
     top: 15vw;
     flex-direction: column;
-    width: 50%;
+    width: 50vw;
     justify-content: center;
     text-align: center;
     align-items: center;
