@@ -6,7 +6,8 @@ const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator');
 
 // const userCheck = require('../middlewares/userCheck');
-const {register, login, processRegister, processLogin, profile, adminProfile} = require('../controllers/userController');
+const {register, login, processRegister, processLogin, profile, adminProfile, logout} = require('../controllers/userController');
+const userCheck = require('../middlewares/userCheck');
 
 /* /users */
 
@@ -17,9 +18,8 @@ router
     .post('/register', registerValidator,processRegister)
     .get('/login', login)
     .post('/login', loginValidator, processLogin)
-    // .get('/logout',logout)
-     .get('/profile', profile)
+     .get('/profile', userCheck, profile)
+     .get('/logout', logout)
     // .put('/update-profile',updateProfile)
-    .get('/admin', adminProfile)
 
 module.exports = router;

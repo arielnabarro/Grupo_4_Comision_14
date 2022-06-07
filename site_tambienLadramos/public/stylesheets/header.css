@@ -127,8 +127,16 @@ HEADER
     margin: 0;
 }
 
-#question, #user, #cart, #hamburger{
+#question, #user, #cart, #hamburger, #logout{
     color: white;
+}
+
+#logout {
+    color: black;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .search__bar {
@@ -179,6 +187,19 @@ HEADER
     color: white;
     margin-left: auto;
     transition: background 150ms ease-in-out;
+}
+.home__header__div__user {
+    text-align: center;
+}
+
+.home__header__div__user #userName {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    color: black;
+    background-color: var(--amarillo);
+    font-size: 1.1rem;
 }
 
 @keyframes rotacion{

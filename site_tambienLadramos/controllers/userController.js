@@ -4,41 +4,12 @@ const bcryptjs = require('bcryptjs');
 const users = require('../data/users.json')
 const { validationResult } = require("express-validator");
 
+const leerUsuarios = () => {
+    fs.readFileSync(path.resolve(__dirname, "..", "data", "users.json"),JSON.parse(users, null, 3),
+    "utf-8"
+  );
+} 
 module.exports = {
-
-    login : (req,res) => res.render('users/login'),
-
-
-    processLogin: (req, res) => {
-        let errors = validationResult(req);
-    
-        if(errors.isEmpty()) {
-            
-            const {id, rol, email } = users.find(usuario => usuario.email === req.body.email);
-            
-            req.session.userLogin = {
-                id,
-                rol,
-                email,
-            } 
-        
-
-            if(req.body.recordarme){
-                res.cookie("userTest", req.session.userLogin,{maxAge: 1000*60*2})
-            }
-            
-            return res.redirect("/");
-    
-        }else{
-          res.render('users/login' ,{
-            errors : errors.mapped(),
-            old : req.body
-          })
-        }
-    },
-
-    //posible raiz del problema de que no funcione en la vista
-    
     register : (req,res) => res.render('users/register'),
 
     processRegister: (req,res) => {
@@ -64,7 +35,7 @@ module.exports = {
                 "utf-8"
               );
 
-            return res.redirect("login");
+            return res.redirect("/");
         
         }else{
 
@@ -75,6 +46,57 @@ module.exports = {
         }
     },
 
+    login : (req,res) => res.render('users/login'),
+
+    processLogin: (req, res) => {
+        let errors = validationResult(req);
+    
+        if(errors.isEmpty()) {
+            
+            const {id, rol, name, email } = users.find(usuario => usuario.email === req.body.email);
+            
+            req.session.userLogin = {
+                id,
+                rol,
+                name,
+                email,
+            } 
+        
+
+            if(req.body.recordarme){
+                if(req.session.userLogin.rol === 'admin'){
+                    const {name, email} = req.session.userLogin;
+                    req.session.adminLogin = {
+                        name,
+                        email
+                    }
+                    res.cookie("adminLogueado", req.session.adminLogin,{maxAge: 1000*60*2})
+                    return res.render('admin/adminProfile',{
+                        name,
+                        email,
+                    })
+                }
+                else {
+                    res.cookie("usertambienLadramos", req.session.userLogin,{maxAge: 1000*60*2})
+                    return res.render(leerUsuarios(),'users/profile', {
+                        name,
+                        email,
+                    })
+                }  
+            }
+            
+            return res.redirect("/");
+    
+        }else{
+          res.render('users/login' ,{
+            errors : errors.mapped(),
+            old : req.body
+          })
+        }
+    },
+
+    //posible raiz del problema de que no funcione en la vista
+
     logout : (req,res) => {
         req.session.destroy();
         res.cookie('usertambienLadramos',null,{maxAge : -1})
@@ -82,17 +104,16 @@ module.exports = {
       },
 
     profile : (req,res) => {
-        const usersRead = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
-        const userProfile = usersRead.find(user => user.id === req.session.userLogin.id);
+        /* const usersRead = JSON.parse(fs.readFileSync('./data/users.json','utf-8')); */
+        const userProfile = users.find(user => user.id === req.session.userLogin.id);
         return res.render('users/profile',{
             userProfile
         })
       },
 
     adminProfile : (req, res) => {
-        const usuarioAdmin = users.find(usuario => usuario.rol == admin)
 
-        res.render('admin/adminProfile', {
+        return res.render('admin/adminProfile', {
             usuarioAdmin
         })
     },
