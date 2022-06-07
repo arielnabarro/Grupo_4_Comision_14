@@ -106,16 +106,17 @@ module.exports = {
     profile : (req,res) => {
         /* const usersRead = JSON.parse(fs.readFileSync('./data/users.json','utf-8')); */
         const userProfile = users.find(user => user.id === req.session.userLogin.id);
+        const {name, email} = userProfile
         return res.render('users/profile',{
-            userProfile
+            userProfile,
+            name,
+            email
         })
       },
 
     adminProfile : (req, res) => {
 
-        return res.render('admin/adminProfile', {
-            usuarioAdmin
-        })
+        return res.render('admin/adminProfile')
     },
 
 
