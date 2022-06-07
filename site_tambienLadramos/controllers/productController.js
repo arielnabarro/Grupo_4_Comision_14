@@ -108,8 +108,9 @@ module.exports = {
             name: name.trim(),
             price: +price,
             category: +category,
-            image: req.file ? req.file.originalname : ''
+            image: req.file ? req.file.originalname : 'logo.png'
             };
+
             products.push(newProduct);
 
             fs.writeFileSync(

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../middlewares/uploadImages');
 
-console.log(upload)
 
 const { list, detail, cart, search, add, store, edit, update, remove } = require('../controllers/productController');
 

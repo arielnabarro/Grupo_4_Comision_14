@@ -4,6 +4,9 @@
        "name" : "Perros",
        "description" : [
            "Alimento balanceado", "Higiene & Accesorios"
+       ],
+       "imagenesGenerales" : [
+           "perro-miron", "perro-oficina", "perro-playa"
        ]
     },
     {
