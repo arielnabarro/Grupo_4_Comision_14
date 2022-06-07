@@ -12,5 +12,12 @@
       "name": "alejandro",
       "email": "aleja@gmail.com",
       "password": "$2a$10$EMYJCZRIX.yhhIHVN1CO3uGQTfa/9NIlJwCtVXRPnJAscZ.ar6L9e"
+   },
+   {
+      "id": 3,
+      "rol": "admin",
+      "name": "ale",
+      "email": "ale@gmail.com",
+      "password": "$2a$10$SfuqluV0EB7VEls4LsbEQ.Gwxmp9wTWAm0nSNVocgCoWZsjtAnW.6"
    }
 ]

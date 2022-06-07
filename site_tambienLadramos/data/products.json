@@ -104,22 +104,30 @@
    },
    {
       "id": 14,
-      "name": "prueba2",
-      "price": 123,
-      "category": 1
+      "name": "werty",
+      "price": 23456,
+      "category": 1,
+      "image": "dragon love .png"
    },
    {
       "id": 15,
-      "name": "prueba3",
-      "price": 123,
+      "name": "243245",
+      "price": 34342,
       "category": 1,
-      "image": "79012449_10216055645083431_5971596166125584384_n.jpg"
+      "image": "dragon love .png"
    },
    {
       "id": 16,
-      "name": "prueba4",
-      "price": 123,
+      "name": "dhsfcfc",
+      "price": 5534653,
       "category": 1,
-      "image": "79012449_10216055645083431_5971596166125584384_n.jpg"
+      "image": "dragon love .png"
+   },
+   {
+      "id": 17,
+      "name": "432354253",
+      "price": 55442342,
+      "category": 1,
+      "image": "jkcaptura.png"
    }
 ]

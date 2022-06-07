@@ -78,9 +78,10 @@ module.exports = {
                 }
                 else {
                     res.cookie("usertambienLadramos", req.session.userLogin,{maxAge: 1000*60*2})
-                    return res.render(leerUsuarios(),'users/profile', {
+                    return res.render('users/profile', {
                         name,
                         email,
+                        leerUsuarios,
                     })
                 }  
             }
