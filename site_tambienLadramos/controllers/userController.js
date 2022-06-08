@@ -114,6 +114,10 @@ module.exports = {
         })
       },
 
+      updateProfile : (req, res) => {
+          
+      },
+
     adminProfile : (req, res) => {
 
         return res.render('admin/adminProfile')
