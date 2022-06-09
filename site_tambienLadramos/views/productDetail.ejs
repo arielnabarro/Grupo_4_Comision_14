@@ -16,6 +16,8 @@
             <a class="navegacion" href="/products">Productos</a>
             <p class="navegacion"><%= product.name %></p>
         </article> 
+
+        <% if (locals.adminSession) { %> 
         <article>
             <a href="/products/productAdd" style="margin-left: 2vw; color: var(--marron);">
                 <i class="fa-solid fa-circle-plus fa-2x"></i>
@@ -29,6 +31,7 @@
                 </button>
             </form>
         </article>
+        <% } %>
     </nav>
 
     <section class="detail-conjunto">

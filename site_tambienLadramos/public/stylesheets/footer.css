@@ -3,7 +3,7 @@ footer {
     position: relative;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 75vw;
+    height: 90vw;
     justify-content: center;
     align-items: center;
     /* background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));    */
@@ -33,7 +33,7 @@ footer p {
     left: 45vw;
 }
 
-.home__footer__div1, .home__footer__div2, .home__footer__div3 {
+.home__footer__div1, .home__footer__div2, .home__footer__div3, .home__footer__div4 {
     display: flex;
     position: absolute;
     left: 25vw;
@@ -46,7 +46,7 @@ footer p {
     /* background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron)); */   
 }
 
-.home__footer__div1::after, .home__footer__div2::after, .home__footer__div3::after  {
+.home__footer__div1::after, .home__footer__div2::after, .home__footer__div3::after {
     content: "";
     background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
     top: 0;
@@ -66,6 +66,25 @@ footer p {
 .home__footer__div3 {
     top: 55vw;
 }
+
+#home__footer__heart {
+    position: absolute;
+    top: 60vw;
+    right: 30vw;
+    width: 100%;
+}
+#home__footer__heart i {
+    color: red;
+}
+
+
+#home__footer__rights {
+    position: absolute;
+    top: 60vw;
+    left: 25vw;
+    width: 100%;
+}
+
 
 .home__footer__div1 a, .home__footer__div2 a, .home__footer__div3 a {
     text-decoration: none;
@@ -90,7 +109,6 @@ footer p {
     background:linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
     color: var(--nieve);
     border: 1px solid black
-    
 }
 
 
