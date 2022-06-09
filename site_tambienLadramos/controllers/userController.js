@@ -4,11 +4,11 @@ const bcryptjs = require('bcryptjs');
 const users = require('../data/users.json')
 const { validationResult } = require("express-validator");
 
-const leerUsuarios = () => {
+/* const leerUsuarios = () => {
     fs.readFileSync(path.resolve(__dirname, "..", "data", "users.json"),JSON.parse(users, null, 3),
     "utf-8"
   );
-} 
+}  */
 module.exports = {
     register : (req,res) => res.render('users/register'),
 
@@ -78,7 +78,7 @@ module.exports = {
                 }
                 else {
                     res.cookie("usertambienLadramos", req.session.userLogin,{maxAge: 1000*60*2})
-                    return res.render(leerUsuarios(),'users/profile', {
+                    return res.render('users/profile', {
                         name,
                         email,
                     })

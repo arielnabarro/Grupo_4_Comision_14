@@ -1,29 +1,35 @@
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require("express-validator");
-
 const products = require('../data/products.json');
 const categories = require('../data/categories.json');
 
-/* const leerProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/products.json'),'utf-8'));  */
+const productsFilePath = path.join(__dirname, '../data/products.json');
+
+const readProducts = () => {
+    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    return products
+}
+
 
 module.exports = {
     list : (req, res) => {
-
-        /* const leerProductos = fs.readFileSync(path.resolve(__dirname, "..", "data", "products.json"),JSON.parse(products, null, 3), "utf-8"); */
-
+        
         return res.render('products', {
+            leerProductos : readProducts(),
             products,
-            categories
+            categories,
         });
     },
 
     detail : (req, res) => {
         const { id } = req.params;
         const product = products.find((product) => product.id === +id);
+        const adminSession = req.session.adminLogin;
 
         return res.render("productDetail", {
-        product 
+        product,
+        adminSession
         });
     },
 
@@ -84,18 +90,18 @@ module.exports = {
                     fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', 'Alimento-balanceado', product.image));
                 }          
             }
-            return productModify;
-        }else {
-            return product;
-        }        
-    });
+                return productModify;
+            }else {
+                return product;
+            }        
+        });
     
-    fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(productsUpdated,null,3),'utf-8');
-    res.redirect('/products')
-    return res.render('productEdit', {
-        categories,
-        product : req.body,
-    })
+        fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(productsUpdated,null,3),'utf-8');
+        res.redirect('/products')
+        return res.render('productEdit', {
+            categories,
+            product : req.body,
+        })
     },
 
     store : (req,res) => {
@@ -108,7 +114,7 @@ module.exports = {
             name: name.trim(),
             price: +price,
             category: +category,
-            image: req.file ? req.file.originalname : ''
+            image: req.file ? req.file.originalname : 'Logo.png'
             };
             products.push(newProduct);
 
