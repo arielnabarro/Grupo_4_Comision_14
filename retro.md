@@ -58,12 +58,14 @@ Contexto: El sprint fue realizado sin la comunicación previa de la situación r
 
 ## SPRINT 5 | MIDDLEWARES + AUTH
 
-1. Comenzar a hacer: 
+Contexto: reorganización de equipo y forma de trabajar (mejora en la productividad)
 
-2. Hacer más:
+1. Comenzar a hacer: trabajo cooperativo con otros equipos
 
-3. Continuar haciendo: 
+2. Hacer más: solidificar/estudiar antes de la daily temas específicos para el SPRINT
 
-4. Hacer menos: 
+3. Continuar haciendo: comunicación constante
 
-5. Dejar de hacer: 
+4. Hacer menos: no pedir ayuda a otros cuando es necesario
+
+5. Dejar de hacer: confiar en que el equipo va a tapar la carencia indiviual
