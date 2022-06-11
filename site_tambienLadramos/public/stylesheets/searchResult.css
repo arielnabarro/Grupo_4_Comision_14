@@ -1,0 +1,129 @@
+.searchResult h1 {
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: 3px 0px 10px;
+    height: 30px;
+    font-size: 4vw;
+    background: #FAC368;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+
+.searchResult-productos{
+
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    margin-bottom: 10px;
+    font-size: 5vw;
+}
+
+.searchResult-productos article{
+
+    display: flex;
+    height: 90vw;
+    margin-bottom: 10px;
+    width: 45%;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 35px;
+
+}
+
+.searchResult-productos input {
+    background: var(--verde);
+    border: 2px solid var(--amarillo);
+    outline: 2px solid var(--azul);
+    color: white;
+    border-radius: 35px;
+    padding: 10px;
+    font-size: 3vw;
+}
+
+.searchResult-productos article a {
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+}
+
+.searchResult-productos article a div {
+    
+    display: flex;
+    justify-content: center;
+
+}
+
+.searchResult-productos article a div img {
+
+    height: 40vw;
+    width: 20vw;
+
+}
+
+.searchResult-productos article a p {
+    font-size: 4vw;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    .searchResult h1 {
+        font-size: 3vw;
+    }
+
+    .searchResult-productos {
+        font-size: 3vw;
+    }
+
+    .searchResult-productos article{
+        height: 65vw;
+        width: 30%;
+    }
+
+    .searchResult-productos input {
+        font-size: 2vw;
+    }
+
+    .searchResult-productos article a p {
+        font-size: 3vw;
+    }
+
+}
+
+@media (min-width: 1024px) and (max-width: 2561px) {
+
+    .searchResult h1 {
+        font-size: 2vw;
+    }
+
+    .searchResult-productos {
+        font-size: 2vw;
+    }
+
+    .searchResult-productos article{
+        height: 40vw;
+        width: 17vw;
+    }
+
+    .searchResult-productos input {
+        font-size: 1vw;
+    }
+
+    .searchResult-productos article a p {
+        font-size: 2vw;
+    }
+
+    .searchResult-productos article a div img {
+        height: 20vw;
+        width: 10vw;
+    }
+
+}
