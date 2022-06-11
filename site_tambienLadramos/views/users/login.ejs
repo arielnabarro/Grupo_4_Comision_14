@@ -9,40 +9,43 @@
 
     <%- include('../partials/header') %>
 
-    <main class="login-main"> 
-        <nav>
-                <h2>Acceder</h2>
-                <form class="login-form" action="" method="POST">
-                <ul>   
-                    <li>
-                        <div>
-                            <input class="login_user" type="text" type="email" id="email" name="email" placeholder="Email">
-                            <span><%= locals.errors && errors.email ? errors.email.msg : null %></span>
-                        </div>
-                        <div>
-                            <input class="login_user" type="password" id="password" name="password" placeholder="Contraseña">
-                            <span><%= locals.errors && errors.password ? errors.password.msg : null %></span>
-                        </div>
-                        <div>
-                        <div>
-                            <input type="checkbox" name="recordarme" id="recordarme">
-                            <label for="recordame">Recordarme</label>
-                        </div>
-                        
-                            <a id="boton" href="">
-                                <input class="login_bottons" type="submit" value="Acceder">
-                            </a>  
-                        </div>
-                        <div>
-                            <a class="login-olvi" href="">¿Olvidaste tu contraseña?</a>
-                        </div>
-                        <div>
-                            <a class="login-olvi" href="register">¿Quieres registrarte?</a>
-                        </div>                        
-                    </li>
-                </ul>
-        </nav>
-    </main>   
+<main class="login-main"> 
+    
+    <nav>
+        <h2>Acceder</h2>
+        <form class="login-form" action="" method="POST">
+            <ul>   
+                <li>
+                    <div>
+                        <input class="login_user" type="text" type="email" id="email" name="email" placeholder="Email">
+                        <span><%= locals.errors && errors.email ? errors.email.msg : null %></span>
+                    </div>
+                    <div>
+                        <input class="login_user" type="password" id="password" name="password" placeholder="Contraseña">
+                        <span><%= locals.errors && errors.password ? errors.password.msg : null %></span>
+                    </div>
+                    <div>
+                    <div>
+                        <input type="checkbox" name="recordarme" id="recordarme">
+                        <label for="recordame">Recordarme</label>
+                    </div>
+                    
+                        <a id="boton" href="">
+                            <input class="login_bottons" type="submit" value="Acceder">
+                        </a>  
+                    </div>
+                    <div>
+                        <a class="login-olvi" href="">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div>
+                        <a class="login-olvi" href="register">¿Quieres registrarte?</a>
+                    </div>                        
+                </li>
+            </ul>
+
+    </nav>
+
+</main>   
     
     <%- include('../partials/footer') %>
 
