@@ -1,16 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-
-
 const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator');
+/* const profileValidator = require('../validations/profileValidator'); */
 
-// const userCheck = require('../middlewares/userCheck');
-const {register, login, processRegister, processLogin, profile, adminProfile, logout, updateProfile} = require('../controllers/userController');
+
+const {register, login, processRegister, processLogin, profile, logout, updateProfile} = require('../controllers/userController');
 const userCheck = require('../middlewares/userCheck');
-const adminCheck = require('../middlewares/adminCheck');
-const upload = require('../middlewares/uploadImages');
+const {uploadAvatars} = require('../middlewares/uploadImages');
 
 /* /users */
 
@@ -18,12 +16,11 @@ const upload = require('../middlewares/uploadImages');
 
 router
     .get('/register', register)
-    .post('/register', registerValidator,processRegister)
+    .post('/register',uploadAvatars.single('avatar'), registerValidator,processRegister)
     .get('/login', login)
     .post('/login', loginValidator, processLogin)
-    .get('/profile', userCheck, profile)
+    .get('/profile', userCheck,profile)
     .get('/logout', logout)
-    .get('/admin', adminCheck, adminProfile)
-    .put('/update-profile',updateProfile)
+    .put('/update-profile',uploadAvatars.single('avatar'),updateProfile)
 
 module.exports = router;

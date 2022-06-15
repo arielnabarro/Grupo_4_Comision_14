@@ -9,28 +9,36 @@
     
 <main>
 
-    <h2 class="profile-title">Perfil de usuario</h2>
+    <h2 class="profile-title"><%= userProfile.rol === "user" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
 
     <section class="profile-conjunto">
         <article class="profile-user"> 
-            <h2><%= name %></h2>
+            <h2><%= userProfile.name %></h2>
             <div>
-                <img src="../../images/perro-campito.webp" alt="">
+                <img src="/images/avatars/<%= userProfile.avatar %> " alt="" id="avatar-preview">
             </div>
-            <form action="">
-                <a href=""><input type="submit" value="cambiar foto de perfil"></a>
+            <form action="/users/update-profile" enctype="multipart/form-data">
+                <label for="avatar">Cambiar foto de perfil</label>
+                <input type="file" hidden id="avatar" onchange="changeAvatar(event)">
+                <script>
+                    const changeAvatar = (e) => {
+                        let reader = new FileReader();
+                        reader.readAsDataURL(e.target.files[0])
+                        reader.onload = () => {
+                            document.getElementById('avatar-preview').src = reader.result
+                        }
+                    }
+                </script>
             </form>
         </article>
         <article class="profile-info">
             <h2>datos</h2>
             <div class="profile-detalle">
-                <p>nombre: <%= name %></p>
-                <p>tu email: <%= email %></p>
-                <p>mascota: hdashkjd</p>
+                <p>nombre: <%= userProfile.name %></p>
+                <p>tu email: <%= userProfile.email %></p>
+                <p>mascota: <%= userProfile.mascota %></p>
             </div>
-            <form action="">
-                <a href=""><input type="submit" value="editar datos de perfil"></a>
-            </form>
+            <a href="/users/edit-profile">Editar datos de perfil</a>
         </article>
     </section>  
 

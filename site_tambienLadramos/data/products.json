@@ -17,10 +17,10 @@
    },
    {
       "id": 3,
-      "name": "Eukanuba 15 kg",
+      "name": "Eukanuba 150 kg",
       "description": "PERRO",
       "image": "perro-eukanuba-15kg.webp",
-      "category": 1,
+      "category": 2,
       "price": 8675
    },
    {
