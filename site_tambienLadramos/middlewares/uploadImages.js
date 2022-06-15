@@ -2,7 +2,7 @@ const multer = require('multer');
 const path = require('path');
 
 
-/* const avatars = multer.diskStorage({
+const avatars = multer.diskStorage({
     destination : (req,file,callback) => {
         callback(null,'public/images/avatars')
     },
@@ -12,8 +12,8 @@ const path = require('path');
 })
 
 const uploadAvatars = multer({
-    avatars
-}) */
+    storage : avatars
+})
 
 
 const storageFood = multer.diskStorage({
@@ -25,9 +25,12 @@ const storageFood = multer.diskStorage({
         callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
-const upload = multer({
-    storageFood
+const uploadProducts = multer({
+    storage : storageFood
 });
 
 
-module.exports = upload;
+module.exports = {
+    uploadProducts,
+    uploadAvatars
+};
