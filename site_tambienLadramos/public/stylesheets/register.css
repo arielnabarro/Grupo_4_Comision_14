@@ -32,7 +32,7 @@
 .register_datos {
     margin: 3vw auto;
     display: flex;
-    width: 80vw;
+    width: 50vw;
     padding: 5%;
     font-size: 3vw;
     background-color: gainsboro;
@@ -77,8 +77,9 @@
     }
 
     .register_datos {
-        margin: 2vw auto;
-        padding: 2%;
+        margin: 2.5vw auto;
+        padding: 3%;
+        font-size: 2vw;
     }
 
 }
@@ -91,8 +92,9 @@
     }
 
     .register_datos {
-        margin: 1vw auto;
-        padding: 1%;
+        margin: 2vw auto;
+        padding: 4%;
+        font-size: 1.5vw;
     }
 
 }

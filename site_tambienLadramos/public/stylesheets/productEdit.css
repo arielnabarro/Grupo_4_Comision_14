@@ -9,16 +9,11 @@
     text-align: center;
 }
 
-.productEdit__form{
-    margin: 0 auto;
-    width: 75%;
-}
-
 .productEdit__form div {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 3%;
+    width: 65%;
+    padding: 6%;
     margin: 5% auto;
     font-size: 3vw;
     background-color: gainsboro;
@@ -39,7 +34,7 @@
 }
 
 .productEdit__form__bottons div{
-    padding: 3%;
+    padding: 6%;
     margin:3% 1%;
     font-size: 3vw;
     background: 
@@ -62,7 +57,8 @@
 
     .productEdit__form div, .productEdit__form__bottons {
         font-size: 2.5vw;
-        margin:2.5% 1%;
+        margin:2.5% auto;
+        padding: 5%;
     }
 }
 
@@ -74,6 +70,7 @@
 
     .productEdit__form div, .productEdit__form__bottons {
         font-size: 2vw;
-        margin:2% 1%;
+        margin:2% auto;
+        padding: 5%;
     }
 }
