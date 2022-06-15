@@ -19,5 +19,12 @@
       "name": "ale",
       "email": "ale@gmail.com",
       "password": "$2a$10$SfuqluV0EB7VEls4LsbEQ.Gwxmp9wTWAm0nSNVocgCoWZsjtAnW.6"
+   },
+   {
+      "id": 4,
+      "rol": "admin",
+      "name": "Eric",
+      "email": "menaericdaniel@gmail.com",
+      "password": "$2a$10$DiHBFMCVKFkfy/4mgRViCOxGh5l72Z8DxOe6WVWQWD28HUe8AeqzK"
    }
 ]

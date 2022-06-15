@@ -53,55 +53,58 @@ module.exports = {
     
         if(errors.isEmpty()) {
             
-            const {id, rol, name, email } = users.find(usuario => usuario.email === req.body.email);
+            const { rol, name, email } = users.find(usuario => usuario.email === req.body.email);
             
             req.session.userLogin = {
-                id,
-                rol,
-                name,
                 email,
+                rol,
+                name
             } 
-        
-
+            
             if(req.body.recordarme){
-                if(req.session.userLogin.rol === 'admin'){
-                    const {name, email} = req.session.userLogin;
-                    req.session.adminLogin = {
-                        name,
-                        email
-                    }
-                    res.cookie("adminLogueado", req.session.adminLogin,{maxAge: 1000*60*2})
-                    return res.render('admin/adminProfile',{
-                        name,
-                        email,
-                    })
-                }
-                else {
-                    res.cookie("usertambienLadramos", req.session.userLogin,{maxAge: 1000*60*2})
+                if(req.session.userLogin.rol === 'user')
+                res.cookie("usertambienLadramos", req.session.userLogin,{maxAge: 1000*60*2})
                     return res.render('users/profile', {
                         name,
-                        email,
-                        leerUsuarios,
+                        email
                     })
-                }  
-            }
-            
-            return res.redirect("/");
-    
+                }    
+
+                else{
+                    req.session.adminLogin = {
+                        email,
+                        rol,
+                        name
+                    } 
+
+                    res.cookie("adminLogueado", req.session.adminLogin,{maxAge: 1000*60*2})
+                    return res.render('admin/adminProfile', {
+                        name,
+                        email
+                    })
+                }
         }else{
-          res.render('users/login' ,{
-            errors : errors.mapped(),
-            old : req.body
-          })
-        }
+            res.render('users/login' ,{
+                errors : errors.mapped(),
+                old : req.body
+            })
+            }
     },
 
     //posible raiz del problema de que no funcione en la vista
 
     logout : (req,res) => {
         req.session.destroy();
-        res.cookie('usertambienLadramos',null,{maxAge : -1})
-        return res.redirect('/')
+
+        if(req.session && req.session.userLogin.rol === 'user') {
+            res.cookie('usertambienLadramos',null,{maxAge : -1})
+            return res.redirect('/')
+        }
+
+        else {
+            res.cookie('adminLogueado',null,{maxAge : -1})
+            return res.redirect('/')
+        }
       },
 
     profile : (req,res) => {
@@ -119,11 +122,6 @@ module.exports = {
           
       },
 
-    adminProfile : (req, res) => {
-
-        return res.render('admin/adminProfile')
-    },
-
 
     storeUser : (req, res) => {
 
@@ -137,4 +135,3 @@ module.exports = {
     },
 
 }
-

@@ -1,0 +1,16 @@
+[
+    {
+       "id": 1,
+       "rol": "admin",
+       "name": "cristian",
+       "email": "cris@gmail.com",
+       "password": "$2a$10$S6TxhQP/UkvhZTIz99LqFOL4uoTC0Srf7nDP3NFIcZQi06x2fTRta"
+    },
+    {
+       "id": 2,
+       "rol": "admin",
+       "name": "ale",
+       "email": "ale@gmail.com",
+       "password": "$2a$10$SfuqluV0EB7VEls4LsbEQ.Gwxmp9wTWAm0nSNVocgCoWZsjtAnW.6"
+    }
+ ]
