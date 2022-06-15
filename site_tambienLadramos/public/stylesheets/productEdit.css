@@ -1,4 +1,4 @@
-.productAdd h2 {
+.productEdit h2 {
     margin: 3px 0px 10px;
     height: 7vw;
     font-size: 4vw;
@@ -9,12 +9,12 @@
     text-align: center;
 }
 
-.productAdd__form {
+.productEdit__form{
     margin: 0 auto;
-    width: 75%;   
+    width: 75%;
 }
 
-.productAdd__form div {
+.productEdit__form div {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -27,18 +27,18 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.productAdd__form div:hover {
+.productEdit__form div:hover {
     background: 
     linear-gradient(var(--nieve), var(--nieve)) padding-box,
     linear-gradient(to right, var(--amarillo), var(--azul), var(--marron)) border-box;
 }
 
-.productAdd__form__bottons {
+.productEdit__form__bottons {
     display: flex;
     justify-content: space-evenly;
 }
 
-.productAdd__form__bottons div{
+.productEdit__form__bottons div{
     padding: 3%;
     margin:3% 1%;
     font-size: 3vw;
@@ -49,30 +49,30 @@
     border: 4px solid transparent;
 }
 
-.productAdd__form__bottons div:hover{
+.productEdit__form__bottons div:hover{
     background: 
     linear-gradient(var(--azul), var(--verde), var(--azul)) padding-box,
     linear-gradient(to right, var(--marron), var(--amarillo), var(--azul)) border-box;
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
-    .productAdd h2 {
+    .productEdit h2 {
         font-size: 3vw;
     }
 
-    .productAdd__form div, .productAdd__form__bottons {
+    .productEdit__form div, .productEdit__form__bottons {
         font-size: 2.5vw;
         margin:2.5% 1%;
     }
 }
 
 @media (min-width: 1024px) and (max-width: 2561px) {
-    .productAdd h2 {
+    .productEdit h2 {
         font-size: 2vw;
         height: 4vw;
     }
 
-    .productAdd__form div, .productAdd__form__bottons {
+    .productEdit__form div, .productEdit__form__bottons {
         font-size: 2vw;
         margin:2% 1%;
     }
