@@ -12,11 +12,12 @@
             <% products.forEach(({id,name,price,category,image}) => { %>
                 <div>
                     <div>
-                        <img src="/images/Alimento-balanceado/perros/<%= image %>" alt="" style="width: 150px; display: flex; align-self: center;">
-                        <img src="/images/Alimento-balanceado/gatos/<%= image %>" alt="" style="width: 150px; display: flex; align-self: center;">
+                        <div>
+                            <img src="/images/Alimento-balanceado/<%= image %>" alt="" style="width: 150px; display: flex; align-self: center;">
+                        </div>
                         <div>
                             <h5><%= name %></h5>
-                            <h5>$ <%= price %></h5>
+                            <h5>$<%= price %></h5>
                             <% namesCategories.forEach(element => { %>
                                 <p><%= element.id === category ? element.name : null %></p>
                             <% }) %>
