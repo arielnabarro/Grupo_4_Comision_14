@@ -3,7 +3,7 @@ footer {
     position: relative;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 90vw;
+    height: 100vw;
     justify-content: center;
     align-items: center;
     /* background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));    */
@@ -23,14 +23,6 @@ footer::after {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-footer p {
-    font-size: 0.8rem;
-    display: flex;
-    position: absolute;
-    top: 75vw;
-    left: 45vw;
 }
 
 .home__footer__div1, .home__footer__div2, .home__footer__div3, .home__footer__div4 {
@@ -73,22 +65,31 @@ footer p {
     right: 30vw;
     width: 100%;
 }
+
+#home__footer__heart span {
+    font-size: 0.7rem;
+}
+
 #home__footer__heart i {
     color: red;
 }
 
 
-#home__footer__rights {
+#home__footer__rights  {
     position: absolute;
     top: 60vw;
     left: 25vw;
     width: 100%;
 }
 
+#home__footer__rights span {
+    font-size: 0.7rem;
+}
+
 
 .home__footer__div1 a, .home__footer__div2 a, .home__footer__div3 a {
     text-decoration: none;
-    font-size: small;
+    font-size: 0.6rem;
     color: var(--nieve);
     text-decoration: none;
 }

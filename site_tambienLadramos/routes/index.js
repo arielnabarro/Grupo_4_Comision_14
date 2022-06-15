@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
+
+
+const { index, adminProfile } = require('../controllers/indexController');
+
 const adminCheck = require('../middlewares/adminCheck');
-
-const { index } = require('../controllers/indexController');
-const { search } = require('../controllers/productController');
-
 
 /* GET home page. */
 router.get
         ('/', index);
-        ('/searchResult', search);
+        ('/', adminCheck, adminProfile)
         
 
 
