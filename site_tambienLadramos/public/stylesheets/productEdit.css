@@ -1,12 +1,4 @@
-.register_form{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    font-size: 4vw;
-}
-
-.register_form h2 {
+.productEdit h2 {
     margin: 3px 0px 10px;
     height: 7vw;
     font-size: 4vw;
@@ -15,25 +7,14 @@
     border-bottom:0px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
-    width: 100vw;
 }
 
-.register_form p {
-    font-size: 3vw;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    margin: 5px auto;
-}
-
-.register_form a {
-    font-size: 3vw;
-}
-
-.register_datos {
-    margin: 3vw auto;
+.productEdit__form div {
     display: flex;
-    width: 50vw;
-    padding: 5%;
+    flex-direction: column;
+    width: 65%;
+    padding: 6%;
+    margin: 5% auto;
     font-size: 3vw;
     background-color: gainsboro;
     border-radius: 40px;
@@ -41,21 +22,21 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.register_datos:hover {
+.productEdit__form div:hover {
     background: 
     linear-gradient(var(--nieve), var(--nieve)) padding-box,
+    linear-gradient(to right, var(--amarillo), var(--azul), var(--marron)) border-box;
 }
-.bottons {
+
+.productEdit__form__bottons {
     display: flex;
-    width: 80%;
-    padding: 5%;
-    margin: 7%;
-    color: white;
+    justify-content: space-evenly;
+}
+
+.productEdit__form__bottons div{
+    padding: 6%;
+    margin:3% 1%;
     font-size: 3vw;
-    font-weight: bold;
-    justify-content: center;
-    border-width: 4px;
-    border-style: solid;
     background: 
     linear-gradient(var(--verde), var(--verde)) padding-box,
     linear-gradient(to right, var(--amarillo), var(--azul), var(--marron)) border-box;
@@ -63,38 +44,33 @@
     border: 4px solid transparent;
 }
 
-.bottons:hover{
+.productEdit__form__bottons div:hover{
     background: 
     linear-gradient(var(--azul), var(--verde), var(--azul)) padding-box,
     linear-gradient(to right, var(--marron), var(--amarillo), var(--azul)) border-box;
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
-
-    .register_form h2 {
+    .productEdit h2 {
         font-size: 3vw;
-        height: 6vw;
     }
 
-    .register_datos {
-        margin: 2.5vw auto;
-        padding: 3%;
-        font-size: 2vw;
+    .productEdit__form div, .productEdit__form__bottons {
+        font-size: 2.5vw;
+        margin:2.5% auto;
+        padding: 5%;
     }
-
 }
 
-@media (min-width: 1023px) and (max-width: 2561px) {
-
-    .register_form h2 {
+@media (min-width: 1024px) and (max-width: 2561px) {
+    .productEdit h2 {
         font-size: 2vw;
         height: 4vw;
     }
 
-    .register_datos {
-        margin: 2vw auto;
-        padding: 4%;
-        font-size: 1.5vw;
+    .productEdit__form div, .productEdit__form__bottons {
+        font-size: 2vw;
+        margin:2% auto;
+        padding: 5%;
     }
-
 }

@@ -34,7 +34,32 @@
       
       
 
-    </div>
+    <section class="searchResult"> 
+        <h1>Resultado de la búsqueda: "<%= noSpaceKeyword %>"</h1>
+        <nav class="searchResult-productos">
+            <% if (products.length > 0) { %>
+            <% products.forEach(({id, name, image, price, description, category}) => { %> 
+                <article>
+                    <a href="/products/productDetail/<%= id %>">
+                        <div>
+                            <img src="/images/Alimento-balanceado/<%= image %>" alt="">     
+                        </div>
+                        <p><%= name %></p>
+                        <p>$<%= price %></p>
+                    </a>
+                    
+                    <form action="" method="get">
+                        <input type="button" value="agregar a carrito">
+                    </form>
+                </article> 
+        <% }) %>
+        <% }else{ %>
+                <div>
+                    No se encontraron resultados
+                </div>
+            <% } %>
+        </nav>
+    </section>
     
 </main>
 
