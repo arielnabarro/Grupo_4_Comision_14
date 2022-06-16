@@ -27,9 +27,9 @@
 .login_user {
     display: flex;
     width: 100%;
-    padding: 10%;
+    padding: 5%;
     margin: 12% auto;
-    font-size: 3vw;
+    font-size: 2vw;
     background-color: gainsboro;
     border-radius: 40px;
     border: gainsboro;
@@ -53,7 +53,7 @@
     justify-content: center;
     background: #46b593;
     color: white;
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: bold;
     border-width: 4px;
     border-style: solid;
