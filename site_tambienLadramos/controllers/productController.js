@@ -152,5 +152,9 @@ module.exports = {
         );
     
         return res.redirect("/products");
-    }
+    },
+    
+    question : (req, res) => res.render('specific-content/questionMark'),
+
+    terms : (req, res) => res.render('specific-content/terms'),
 }

@@ -100,19 +100,33 @@
 }
 
 @media (min-width: 1024px) and (max-width: 2561px) {
-
+    .login-main nav {
+        margin-bottom: 4vw;
+    }
     .login-main h2 {
         font-size: 2vw;
         height: 4vw;
     }
 
     .login_user {
-        font-size: 2vw;
+        font-size: 1vw;
         margin: 5% auto;
         padding: 4%;
+        width: 45vw;
+        height: 5vw;
     }
 
     .login-olvi {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
+        margin: 10vw;
     }
+
+    .login-form div {
+        margin: 2vw auto;
+    }
+
+    .login_bottons {
+        width: 50vw;
+    }
+
 }

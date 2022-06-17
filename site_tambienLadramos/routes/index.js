@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const { index, adminProfile } = require('../controllers/indexController');
+const { index, adminProfile, question, terms } = require('../controllers/indexController');
 
 const adminCheck = require('../middlewares/adminCheck');
 

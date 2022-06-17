@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     font-size: 4vw;
+   
 }
 
 .register_form h2 {
@@ -26,7 +27,8 @@
 }
 
 .register_form a {
-    font-size: 2vw;
+    margin: 5vw auto;
+    font-size: 1.2rem;
 }
 
 .register_datos {
@@ -45,15 +47,23 @@
     background: 
     linear-gradient(var(--nieve), var(--nieve)) padding-box,
 }
+
+.register-boton {
+    display: flex;
+    width: 100%;
+    
+    justify-content: center;
+    align-items: center;
+}
 .bottons {
     display: flex;
-    width: 80%;
-    padding: 5%;
-    margin: 7%;
+    width: 50%;
+    height: 5vw;
     color: white;
     font-size: 3vw;
     font-weight: bold;
     justify-content: center;
+    align-items: center;
     border-width: 4px;
     border-style: solid;
     background: 
@@ -85,7 +95,9 @@
 }
 
 @media (min-width: 1023px) and (max-width: 2561px) {
-
+    .register-main nav {
+        margin-bottom: 4vw;
+    }
     .register_form h2 {
         font-size: 2vw;
         height: 4vw;
@@ -94,7 +106,18 @@
     .register_datos {
         margin: 2vw auto;
         padding: 4%;
-        font-size: 1.5vw;
+        font-size: 1.1vw;
+        width: 45vw;
+        height: 5vw;
     }
 
+   .register_terminos a {
+    font-size: 1rem;
+   }
+
+   .bottons {
+    width: 50vw;
+    font-size: 1.4rem;
+    margin: 2rem;
+   }
 }

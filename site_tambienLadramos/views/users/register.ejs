@@ -9,11 +9,9 @@
 
     <%- include('../partials/header') %>
 
-<main> 
-    <div>
-
-        <!-- incompleto -->
-
+<main class="register-main"> 
+    <nav>
+        <div>
         <form class="register_form" method="POST" action="" enctype="multipart/form-data" >
             <h2>Registrarse</h2>
             <div>
@@ -37,16 +35,18 @@
             </div>
             <div>
                 <input type="checkbox" name="terminos" id="terminos">
-            <label for="terminos"><a href="/users/profile">Términos y condiciones</a></label>
+            <label class="register_terminos" for="terminos"><a href="/products/terms">Términos y condiciones</a></label>
             <span class="form-errors"><%= locals.errores && errores.terminos ? errores.terminos.msg : null %></span>
-
+            </div>
+            <div class="register-boton">
+                <input class="bottons" name="register-button" type="submit" value="Registrar"> 
             </div>
             <div>
-                <input class="bottons" type="submit" value="Registrar">
-                <p><a href="login">¿Ya tengo cuenta?</p></a>
+                <a class="register-yateng" href="login">¿Ya tengo cuenta?</a>
             </div>
         </form>
     </div>
+    </nav>
   
     
 </main>  

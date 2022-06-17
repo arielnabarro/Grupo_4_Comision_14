@@ -17,11 +17,11 @@ module.exports = {
     productCart : (req, res) => res.render('productCart'),
     services : (req, res) => res.render('services'),
     login : (req, res) => res.render('login'),
-
+    
     adminProfile : (req, res) => {
 
         return res.render('admin/adminProfile', {
             
         })
-},
+    },
 }
