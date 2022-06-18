@@ -1,5 +1,4 @@
 .productos h1 {
-
     display: flex;
     align-items: center;
     justify-content:center;
@@ -7,12 +6,10 @@
     height: 30px;
     font-size: 4vw;
     background: #FAC368;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
 }
 
 .product-mas-relevante {
-
     width: 80vw;
     position: relative;
     left: 10vw;
@@ -24,7 +21,12 @@
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid var(--amarillo);
     outline: 2px solid var(--azul);
-    
+}
+
+.product-mas-relevante:hover {
+    cursor: pointer;
+    background:
+    linear-gradient(to right, var(--azul), var(--verde), var(--azul)) padding-box;
 }
 
 .product-mas-relevante i {
@@ -40,31 +42,31 @@
 
  
 .products-productos{
-
     width: 100%;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
     margin-bottom: 10px;
     font-size: 5vw;
 }
 
 
 .products-productos article{
-
     display: flex;
     height: 90vw;
-    margin-bottom: 10px;
     width: 45%;
+    margin-bottom: 10px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     border-radius: 35px;
-
 }
 
+.products-productos article:hover{
+    background: 
+    linear-gradient(to right, var(--nieve), white, var(--nieve)) padding-box;
+}
 .products-productos input {
     background: var(--verde);
     border: 2px solid var(--amarillo);
@@ -75,27 +77,27 @@
     font-size: 3vw;
 }
 
-.products-productos article a {
+.products-productos input:hover {
+    cursor: pointer;
+    background:
+    linear-gradient(to right, var(--azul), var(--verde), var(--azul)) padding-box;
+}
 
+.products-productos article a {
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
-
 }
 
 .products-productos article a div {
-    
     display: flex;
     justify-content: center;
-
 }
 
 .products-productos article a div img {
-
     height: 40vw;
     width: 20vw;
-
 }
 
 .products-productos article a p {
@@ -103,7 +105,6 @@
 }
 
 .producto_pag_1 {
-
     display:flex;
     align-items:center ;
     justify-content: space-evenly;
@@ -114,7 +115,6 @@
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
-
     .productos h1 {
         font-size: 3vw;
     }
@@ -143,11 +143,9 @@
     .products-productos article a p {
         font-size: 3vw;
     }
-
 }
 
 @media (min-width: 1024px) and (max-width: 2561px) {
-
     .productos h1 {
         font-size: 2vw;
     }
@@ -185,5 +183,4 @@
     .producto_pag_1 {
         font-size: 2vw;
     }
-
 }
