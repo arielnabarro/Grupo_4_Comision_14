@@ -1,18 +1,22 @@
 footer {
     display: block;
-    position: relative;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 100vw;
     justify-content: center;
     align-items: center;
-    /* background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));    */
     text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-separador1 {
+    margin-top: 2vw;
+    height: 1vw;
+    background-color: var(--amarillo);
 }
 
 footer::after {
     content: "";
-    opacity: 0.6;
+    opacity: 0.4;
     top: 0;
     left: 0;
     bottom: 0;
@@ -21,102 +25,64 @@ footer::after {
     z-index: -1;   
     background-image: url(/images/Alimento-balanceado/Logo.png);
     background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.home__footer__div1, .home__footer__div2, .home__footer__div3, .home__footer__div4 {
-    display: flex;
-    position: absolute;
-    left: 25vw;
-    top: 15vw;
-    flex-direction: column;
-    width: 50vw;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    /* background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron)); */   
-}
-
-.home__footer__div1::after, .home__footer__div2::after, .home__footer__div3::after {
-    content: "";
-    background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1; 
     background-size: contain;
-    border-radius: 100vh; 
+    background-repeat: repeat;
 }
 
-.home__footer__div2 {
-    top: 35vw;
-}
-
-.home__footer__div3 {
-    top: 55vw;
+.home__footer__div1 , .home__footer__div2 , .home__footer__div3{
+    margin: 4vw 0 0;
 }
 
 #home__footer__heart {
-    position: absolute;
-    top: 60vw;
-    right: 30vw;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
 }
-
-#home__footer__heart span {
-    font-size: 0.7rem;
-}
-
-#home__footer__heart i {
+#home__footer__heart span i {
     color: red;
 }
 
-
-#home__footer__rights  {
-    position: absolute;
-    top: 60vw;
-    left: 25vw;
-    width: 100%;
-}
-
-#home__footer__rights span {
-    font-size: 0.7rem;
-}
-
-
-.home__footer__div1 a, .home__footer__div2 a, .home__footer__div3 a {
-    text-decoration: none;
-    font-size: 0.6rem;
+.home__footer__div1 span:hover, .home__footer__div2 span:hover, .home__footer__div3 span:hover {
     color: var(--nieve);
+}
+
+.home__footer__div1 a, .home__footer__div2 a, .home__footer__div3 a, .home__footer__div1 i, .home__footer__div2 i, .home__footer__div3 i {
     text-decoration: none;
+    color: var(--nieve);
+    background: var(--colores4);
+}
+
+.home__footer__div1 i:hover, .home__footer__div2 i:hover, .home__footer__div3 i:hover {
+    color: var(--amarillo);
 }
 
 .home__footer__div1 span, .home__footer__div2 span, .home__footer__div3 span {
-    background-color: var(--amarillo);
-    color: black;
-    font-size: 2.5vw;
-    border-radius: 100vh;
-}
-
-.home__footer__div1:hover, .home__footer__div2:hover, .home__footer__div3:hover {
-    background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
-    border-radius: 100vh;
-}
-
-.home__footer__div1 span:hover, .home__footer__div2 span:hover, .home__footer__div3 span:hover {
-    background:linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
-    color: var(--nieve);
-    border: 1px solid black
-}
-
-@media (min-width: 1024px) and (max-width: 2561px) {
-
+    font-size: 0.8rem;
+    background: var(--colores4);
 }
 
 
+ @media (min-width: 600px) and (max-width: 1023px){
+    .home__footer__div1 span, .home__footer__div2  span, .home__footer__div3 span,
+    .home__footer__div1 i, .home__footer__div2 i, .home__footer__div3 i{
+        font-size: 1.2rem;
+    }
 
 
+} 
 
+@media (min-width: 1024px) and (max-width: 1439px){
+    .home__footer__div1 span, .home__footer__div2  span, .home__footer__div3 span,
+    .home__footer__div1 i, .home__footer__div2 i, .home__footer__div3 i{
+        font-size: 1.6rem;
+    }
+}
+
+    @media (min-width: 1440px) and (max-width: 2561px) {
+        .home__footer__div1 span, .home__footer__div2  span, .home__footer__div3 span,
+        .home__footer__div1 i, .home__footer__div2 i, .home__footer__div3 i{
+            font-size: 1.8rem;
+        }
+    }    
+ 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head',{
+        title : 'Editar perfil'
+    })  %> 
+
+
+<body class="home-body">
+
+    <%- include('../partials/header') %>
+
+<main class="productEdit">
+    
+    <section>
+        <h2>Editar perfil : <%= name %></h2>
+
+        
+        <div class="productEdit__form">
+            <form method="POST" action="/users/update-profile/<%= id %>/?_method=PUT" enctype="multipart/form-data">
+                <article>
+                    <div>
+                        <label for="name">Nombre: <%= name %></label>
+                        <input type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= name %>" >
+                    </div>
+                    <div>
+                        <label for="image">imagen: <%= image %></label>
+                        <input type="file" id="image" name="image" accept="image/*">
+                    </div>             
+                    <article class="productEdit__form__bottons">
+                        <div><button type="reset">Limpiar</button></div>
+                        <div><button type="submit">Guardar</button></div>
+                    </article>
+                </article>    
+            </form>
+        </div>
+    </section>
+
+</main>
+
+    
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

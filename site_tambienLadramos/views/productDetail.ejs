@@ -17,7 +17,7 @@
             <p class="navegacion"><%= product.name %></p>
         </article> 
 
-        <% if (locals.adminSession) { %> 
+        <% if (locals.userLogin.rol === 'admin') { %> 
         <article>
             <a href="/products/productAdd" style="margin-left: 2vw; color: var(--marron);">
                 <i class="fa-solid fa-circle-plus fa-2x"></i>

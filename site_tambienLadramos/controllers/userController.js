@@ -102,9 +102,71 @@ module.exports = {
         });
     },
 
-    updateProfile: (req, res) => { 
-        
+    editProfile : (req, res) => {
+        const usersRead = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
+        const {id} = req.params;
+        const userProfile = usersRead.find((user) => user.id === +id);
+        const {name, email, rol, image} = userProfile;
+
+        return res.render("users/editProfile", {
+            id,
+            name,
+            email,
+            rol,
+            image 
+        });
+
     },
+
+    updateProfile: (req, res) => { 
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            const {name, email, image } = req.body
+            const {id} = users.find(user => user.id === req.session.userLogin.id );
+
+            const usuariosModificados = users.map((user) => {
+            if (user.id === id) {
+            let usuarioModificado = {
+                ...user,
+                name : name.trim(),
+                email : email.trim(),
+                image: req.file ? req.file.filename : 'perro-informatico.png'
+            };
+        
+            if (req.file) {
+                if (fs.existsSync(path.resolve(__dirname, "..", "public", "images", usuarioModificado.image)) 
+                    && user.image !== 'perro-informatico.png') {
+                fs.unlinkSync(
+                    path.resolve(__dirname, "..", "public", "images", user.image)
+                );
+                }
+            }
+            return usuarioModificado;
+            }
+            return user;
+        });
+
+        fs.writeFileSync(
+            path.resolve(__dirname, "..", "data", "users.json"),
+            JSON.stringify(usuariosModificados, null, 3),
+            "utf-8"
+        );
+
+        req.session.userLogin = {
+            ...req.session.userLogin,
+            name
+        }
+
+        return res.redirect("/");
+        }else{
+            console.log(errors);
+            return res.render("profile", {
+                user : req.body,
+                errors : errors.mapped()
+            });
+        }
+
+  },
 
     storeUser: (req, res) => {
         let errores = validationResult(req);

@@ -75,6 +75,7 @@
 }
 
 .login-olvi {
+    color: var(--azul);
     font-size: 3vw;
     color: none;
     text-decoration: none;

@@ -25,11 +25,9 @@ module.exports = {
     detail : (req, res) => {
         const { id } = req.params;
         const product = products.find((product) => product.id === +id);
-        const adminSession = req.session.adminLogin;
 
         return res.render("productDetail", {
-        product,
-        adminSession
+        product
         });
     },
 
