@@ -33,21 +33,12 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    border: 1px black solid;
     background: var(--verde);
     color: white;
     border-radius: 15px;
     font-size: 3vw;
     border: 3px solid var(--azul);
     outline: 1px solid var(--amarillo);
-}
-
-.cart-table td:hover, .cart-table th:hover, .cart-end-of-table th:hover {
-    box-shadow: 5px 5px 5px rgba(1, 1, 1, 1);
-    border: 3px solid white;
-    outline: none;
-    background: 
-    linear-gradient(to right, var(--azul), var(--verde), var(--azul)) padding-box;
 }
 
 .cart-end-of-table a {
@@ -150,7 +141,7 @@
 }
 
 .cart-ver-mas a p{
-    font-size: 4vw;
+    font-size: 3vw;
 }
 
 .cart-ver-mas:hover {
@@ -198,7 +189,7 @@
     }
 
     .cart-ver-mas a p{
-        font-size: 3vw;
+        font-size: 2vw;
     }
 }
 
@@ -246,6 +237,6 @@
     }
 
     .cart-ver-mas a p{
-        font-size: 2vw;
+        font-size: 1.5vw;
     }
 }
