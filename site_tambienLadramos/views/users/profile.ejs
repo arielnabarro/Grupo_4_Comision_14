@@ -38,7 +38,11 @@
                 <p>tu email: <%= userProfile.email %></p>
                 <p>mascota: <%= userProfile.mascota %></p>
             </div>
-            <a href="/users/edit-profile">Editar datos de perfil</a>
+                <article>
+                    <a href="/users/edit-profile/<%= userProfile.id %>" style="margin-left: 2vw; color: var(--marron);">
+                        <i class="fa-solid fa-pen-to-square">Editar datos del perfil</i>
+                    </a>  
+                </article>
         </article>
     </section>  
 
