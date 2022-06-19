@@ -222,11 +222,11 @@
         font-size: 2vw;
     }
 
-    .detail-detalle h3 {
+    /* .detail-detalle h3 {
         font-size: 3vw;
         border: 6px solid var(--azul);
         outline: 6px solid var(--marron);
-    }
+    } */
 
     .profile-detalle input {
         font-size: 2vw;
