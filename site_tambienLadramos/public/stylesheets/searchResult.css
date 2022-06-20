@@ -1,5 +1,4 @@
 .searchResult h1 {
-
     display: flex;
     align-items: center;
     justify-content:center;
@@ -8,73 +7,86 @@
     font-size: 4vw;
     background: #FAC368;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+}
+
+.search-mas-relevante {
+    width: 80vw;
+    position: relative;
+    left: 10vw;
+    display: flex;
+    justify-content: center;
+    background: var(--verde);
+    border-radius: 35px;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--amarillo);
+    outline: 2px solid var(--azul);
 }
 
 .searchResult-productos{
-
     width: 100%;
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-
+    justify-content: space-around;
     margin-bottom: 10px;
     font-size: 5vw;
 }
 
 .searchResult-productos article{
-
     display: flex;
-    height: 90vw;
-    margin-bottom: 10px;
+    height: 70vw;
     width: 45%;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px 3px rgb(0 0 0 / 25%);
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     border-radius: 35px;
+    padding: 10px;
+}
 
+.searchResult-productos article:hover{
+    background: 
+    linear-gradient(to right, var(--nieve), white, var(--nieve)) padding-box;
 }
 
 .searchResult-productos input {
-    background: var(--verde);
-    border: 2px solid var(--amarillo);
-    outline: 2px solid var(--azul);
-    color: white;
+    background: var(--amarillo);
+    border: 2px solid var(--azul);
+    color: black;
     border-radius: 35px;
     padding: 10px;
     font-size: 3vw;
 }
 
-.searchResult-productos article a {
+.searchResult-productos input:hover {
+    cursor: pointer;
+    background: var(--violeta);
+    color: white;
+}
 
+.searchResult-productos article a {
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
-
 }
 
-.searchResult-productos article a div {
-    
+.searchResult-productos article a div {  
     display: flex;
     justify-content: center;
-
 }
 
 .searchResult-productos article a div img {
-
     height: 40vw;
     width: 20vw;
-
 }
 
 .searchResult-productos article a p {
-    font-size: 4vw;
+    font-size: 3vw;
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
-
     .searchResult h1 {
         font-size: 3vw;
     }
@@ -84,8 +96,8 @@
     }
 
     .searchResult-productos article{
-        height: 65vw;
-        width: 30%;
+        height: 43vw;
+        width: 26%;
     }
 
     .searchResult-productos input {
@@ -93,13 +105,16 @@
     }
 
     .searchResult-productos article a p {
-        font-size: 3vw;
+        font-size: 2vw;
     }
 
+    .searchResult-productos article a div img {
+        height: 25vw;
+        width: 15vw;
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 2561px) {
-
     .searchResult h1 {
         font-size: 2vw;
     }
@@ -109,7 +124,7 @@
     }
 
     .searchResult-productos article{
-        height: 40vw;
+        height: 30vw;
         width: 17vw;
     }
 
@@ -118,12 +133,11 @@
     }
 
     .searchResult-productos article a p {
-        font-size: 2vw;
+        font-size: 1vw;
     }
 
     .searchResult-productos article a div img {
-        height: 20vw;
-        width: 10vw;
+        height: 18vw;
+        width: 12vw;
     }
-
 }

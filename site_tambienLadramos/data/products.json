@@ -51,7 +51,7 @@
       "id": 7,
       "name": "Excellent 1 kg",
       "description": "GATO",
-      "image": "gato-excelent-1kg.webp",
+      "image": "gato-excelent-1kg.png",
       "category": 2,
       "price": 4209
    },
@@ -59,7 +59,7 @@
       "id": 8,
       "name": "Excellent 3 kg",
       "description": "GATO",
-      "image": "gato-excelent-3kg.webp",
+      "image": "gato-excelent-3kg.png",
       "category": 2,
       "price": 4884
    },
@@ -67,7 +67,7 @@
       "id": 9,
       "name": "Excellent 7.5 kg",
       "description": "GATO",
-      "image": "gato-excelent-7.5kg.webp",
+      "image": "gato-excelent-7.5kg.png",
       "category": 2,
       "price": 5618
    },
