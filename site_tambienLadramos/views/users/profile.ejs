@@ -14,11 +14,18 @@
     <section class="profile-conjunto">
         <article class="profile-user"> 
             <h2><%= userProfile.name %></h2>
-            <div>
-                <img src="/images/avatars/<%= userProfile.avatar %> " alt="" id="avatar-preview">
-            </div>
+            <% if (userProfile.avatar === 'null' || 'undefined') { %>
+                <div>
+                    <img src="/images/avatars/perro-informatico.png %> " alt="" id="avatar-preview">
+                </div>
+            <% } else { %>
+                <div>
+                    <img src="/images/avatars/<%= userProfile.avatar %> " alt="" id="avatar-preview">
+                </div>
+            <% } %>           
+            
             <form action="/users/update-profile" enctype="multipart/form-data">
-                <label for="avatar">Cambiar foto de perfil</label>
+                <label style="cursor: pointer; color: var(--marron);" for="avatar"><i class="fa-solid fa-pen-to-square fa-2x"></i>Editar</label>
                 <input type="file" hidden id="avatar" onchange="changeAvatar(event)">
                 <script>
                     const changeAvatar = (e) => {

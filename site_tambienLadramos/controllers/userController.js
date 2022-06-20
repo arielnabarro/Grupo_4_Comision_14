@@ -103,17 +103,15 @@ module.exports = {
     },
 
     editProfile : (req, res) => {
-        const usersRead = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
         const {id} = req.params;
-        const userProfile = usersRead.find((user) => user.id === +id);
-        const {name, email, rol, image} = userProfile;
+        const userEdit = users.find((user) => user.id === +id)
+        const {name, email, avatar} = userEdit;
 
         return res.render("users/editProfile", {
             id,
             name,
             email,
-            rol,
-            image 
+            avatar
         });
 
     },
@@ -121,8 +119,8 @@ module.exports = {
     updateProfile: (req, res) => { 
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            const {name, email, image } = req.body
-            const {id} = users.find(user => user.id === req.session.userLogin.id );
+            const {id} = req.params;
+            const { email, name, avatar } = req.body;
 
             const usuariosModificados = users.map((user) => {
             if (user.id === id) {
@@ -130,14 +128,14 @@ module.exports = {
                 ...user,
                 name : name.trim(),
                 email : email.trim(),
-                image: req.file ? req.file.filename : 'perro-informatico.png'
+                avatar : req.file ? req.file.originalname : user.avatar
             };
         
             if (req.file) {
-                if (fs.existsSync(path.resolve(__dirname, "..", "public", "images", usuarioModificado.image)) 
-                    && user.image !== 'perro-informatico.png') {
+                if (fs.existsSync(path.resolve(__dirname, "..", "public", "images", 'avatars', user.avatar)) 
+                    && user.avatar !== 'perro-informatico.png') {
                 fs.unlinkSync(
-                    path.resolve(__dirname, "..", "public", "images", user.image)
+                    path.resolve(__dirname, "..", "public", "images", 'avatars', user.avatar)
                 );
                 }
             }
@@ -160,7 +158,7 @@ module.exports = {
         return res.redirect("/");
         }else{
             console.log(errors);
-            return res.render("profile", {
+            return res.render("users/editProfile", {
                 user : req.body,
                 errors : errors.mapped()
             });

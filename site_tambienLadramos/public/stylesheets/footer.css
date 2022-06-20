@@ -75,14 +75,14 @@ footer::after {
 @media (min-width: 1024px) and (max-width: 1439px){
     .home__footer__div1 span, .home__footer__div2  span, .home__footer__div3 span,
     .home__footer__div1 i, .home__footer__div2 i, .home__footer__div3 i{
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 }
 
     @media (min-width: 1440px) and (max-width: 2561px) {
         .home__footer__div1 span, .home__footer__div2  span, .home__footer__div3 span,
         .home__footer__div1 i, .home__footer__div2 i, .home__footer__div3 i{
-            font-size: 1.8rem;
+            font-size: 1.4rem;
         }
     }    
  

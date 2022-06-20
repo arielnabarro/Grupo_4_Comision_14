@@ -15,7 +15,7 @@
     <section>
         <h2>Editar perfil : <%= name %></h2>
 
-        
+        <% if (locals.userLogin) { %>
         <div class="productEdit__form">
             <form method="POST" action="/users/update-profile/<%= id %>/?_method=PUT" enctype="multipart/form-data">
                 <article>
@@ -24,8 +24,12 @@
                         <input type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= name %>" >
                     </div>
                     <div>
-                        <label for="image">imagen: <%= image %></label>
-                        <input type="file" id="image" name="image" accept="image/*">
+                        <label for="email">Email: <%= email %></label>
+                        <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" required placeholder="<%= email %>" >
+                    </div>
+                    <div>
+                        <label for="avatar">Imagen: <%= avatar %></label>
+                        <input type="file" id="avatar" name="avatar" accept="avatar/*">
                     </div>             
                     <article class="productEdit__form__bottons">
                         <div><button type="reset">Limpiar</button></div>
@@ -34,6 +38,7 @@
                 </article>    
             </form>
         </div>
+        <% } %>
     </section>
 
 </main>

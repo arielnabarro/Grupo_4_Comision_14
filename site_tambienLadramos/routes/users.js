@@ -22,6 +22,6 @@ router
     .get('/profile', userCheck,profile)
     .get('/logout', logout)
     .get('/edit-profile/:id', editProfile)
-    .put('/update-profile',uploadAvatars.single('avatar'),updateProfile)
+    .put('/update-profile/:id',uploadAvatars.single('avatar'),updateProfile)
 
 module.exports = router;
