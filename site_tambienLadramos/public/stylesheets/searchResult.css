@@ -51,19 +51,18 @@
 }
 
 .searchResult-productos input {
-    background: var(--verde);
-    border: 2px solid var(--amarillo);
-    outline: 2px solid var(--azul);
-    color: white;
+    background: var(--amarillo);
+    border: 2px solid var(--azul);
+    color: black;
     border-radius: 35px;
     padding: 10px;
     font-size: 3vw;
 }
 
 .searchResult-productos input:hover {
-    background: 
-    linear-gradient(to right, var(--azul), var(--verde), var(--azul)) padding-box;
     cursor: pointer;
+    background: var(--violeta);
+    color: white;
 }
 
 .searchResult-productos article a {
