@@ -118,6 +118,7 @@
 
 .home__main__servicios .home__main__cortepelo, .home__main__servicios .home__main__baño {
     width: 45vw;
+    height: 0 auto;
     margin: 0 auto;
     padding: 0;
     align-items: center;
@@ -211,7 +212,11 @@
     .home__main h2 {
         font-size: 1.2rem;
     }
-    .home__main h3 {
+    .home__main h3, .home__main__servicios .home__main__cortepelo h3, .home__main__servicios .home__main__baño h3{
+        font-size: 0.8rem;
+    }    
+
+    .home__main h4 {
         font-size: 0.8rem;
     }
     .home__main__nosotros article div img {
@@ -226,14 +231,20 @@
 
 @media (min-width: 1024px) {
     .home__main h2 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
-    .home__main h3 {
-        font-size: 1rem;
+
+    .home__main h3, .home__main__servicios .home__main__cortepelo h3, .home__main__servicios .home__main__baño h3{
+        font-size: 1.3rem;
     }    
 
+    .home__main h4 {
+        font-size: 1rem;
+    }
+
+
     .home__main__nosotros article div {
-        height: 30vw;
+        height: 27vw;
     }
 
     .home__main__nosotros p {
