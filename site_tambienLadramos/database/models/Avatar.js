@@ -1,32 +1,32 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "avatar";
+    const alias = "avatars";
 
     const cols = {
         id : {
-            type : dataTypes.INTEGER.UNSIGNED, 
+            type : dataTypes.INTEGER, 
             autoIncrement : true, 
             allowNull : false, 
             primaryKey : true
         },
         name : {
-            type : dataTypes.STRING(50),
+            type : dataTypes.TEXT,
             allowNull : false
         },
-        /* id_user : {
-            type : dataTypes.INTEGER.UNSIGNED,
+        id_user : {
+            type : dataTypes.INTEGER,
             allowNull : false
-        }, */
+        }, 
 
     }
 
     const config = {
-        tableName : "avatar",
+        tableName : "avatars",
         timestamps : false,
         underscored : true
     }
 
-    const Avatar = sequelize.define(alias,cols,config);
+    const Avatars = sequelize.define(alias,cols,config);
     
-    return Avatar
+    return Avatars
 }

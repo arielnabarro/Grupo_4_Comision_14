@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "product";
+    const alias = "products";
 
     const cols = {
         id : {
@@ -17,26 +17,25 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.INTEGER.UNSIGNED,
             allowNull : false
         },
-        description : {
+        descript : {
             type : dataTypes.STRING(250),
             allowNull : true,
             unique : true,
         },
-        /* id_image : {
+        id_image : {
             type : dataTypes.INTEGER.UNSIGNED,
             allowNull : false, 
-        }, */
+        }, 
 
     }
 
     const config = {
-        tableName : "product",
-        timestamps : false,
-        underscored : true
+        tableName : "products",
+        timestamps : false
     }
 
-    const Product = sequelize.define(alias,cols,config);
+    const Products = sequelize.define(alias,cols,config);
     
-    return Product
+    return Products
 
 }

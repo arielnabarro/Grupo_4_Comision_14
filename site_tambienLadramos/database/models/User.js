@@ -1,17 +1,13 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "user";
+    const alias = "users";
 
     const cols = {
         id : {
-            type : dataTypes.INTEGER.UNSIGNED, 
+            type : dataTypes.INTEGER, 
             autoIncrement : true, 
             allowNull : false, 
             primaryKey : true
-        },
-        rol : {
-            type : dataTypes.STRING(20), 
-            allowNull : false, 
         },
         name : {
             type : dataTypes.STRING(50),
@@ -22,29 +18,32 @@ module.exports = (sequelize, dataTypes) => {
             allowNull : false, 
         },
         email : {
-            type : dataTypes.STRING(100),
+            type : dataTypes.STRING(250),
             allowNull : false,
             unique : true
         },
         password : {
-            type : dataTypes.STRING(100),
+            type : dataTypes.STRING(250),
             allowNull : false
         },
-        /* id_avatar : {
-            type : dataTypes.INTEGER.UNSIGNED,
+        id_avatar : {
+            type : dataTypes.INTEGER,
             allowNull : false
-        }, */
-
+        },
+        rol_id : {
+            type : dataTypes.INTEGER, 
+            allowNull : false, 
+        }
     }
 
     const config = {
-        tableName : "user",
+        tableName : "users",
         timestamps : false,
         underscored : true
     }
 
-    const User = sequelize.define(alias,cols,config);
+    const Users = sequelize.define(alias,cols,config);
     
-    return User
+    return Users
 
 }

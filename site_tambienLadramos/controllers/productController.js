@@ -1,25 +1,29 @@
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require("express-validator");
-const products = require('../data/products.json');
+/* const products = require('../data/products.json'); */
 const categories = require('../data/categories.json');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-
+const db = require('../database/models')
+/* const productsFilePath = path.join(__dirname, '../data/products.json'); */
+/* 
 const readProducts = () => {
     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
     return products
-}
+} */
 
 
 module.exports = {
     list : (req, res) => {
-        
-        return res.render('products', {
+        db.products.findAll()
+            .then(product => {
+                return res.send(product)
+            })
+            .catch(error => console.log(error))
+        /* return res.render('products', {
             leerProductos : readProducts(),
             products,
             categories,
-        });
+        }); */
     },
 
     detail : (req, res) => {
