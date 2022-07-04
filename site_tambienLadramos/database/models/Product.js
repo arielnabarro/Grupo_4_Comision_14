@@ -4,7 +4,7 @@ module.exports = (sequelize, dataTypes) => {
 
     const cols = {
         id : {
-            type : dataTypes.INTEGER.UNSIGNED,
+            type : dataTypes.INTEGER,
             autoIncrement : true,
             allowNull : false,
             primaryKey : true
@@ -20,13 +20,7 @@ module.exports = (sequelize, dataTypes) => {
         descript : {
             type : dataTypes.STRING(250),
             allowNull : true,
-            unique : true,
         },
-        id_image : {
-            type : dataTypes.INTEGER.UNSIGNED,
-            allowNull : false, 
-        }, 
-
     }
 
     const config = {

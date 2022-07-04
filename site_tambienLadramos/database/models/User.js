@@ -26,11 +26,7 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.STRING(250),
             allowNull : false
         },
-        id_avatar : {
-            type : dataTypes.INTEGER,
-            allowNull : false
-        },
-        rol_id : {
+        id_rol : {
             type : dataTypes.INTEGER, 
             allowNull : false, 
         }
