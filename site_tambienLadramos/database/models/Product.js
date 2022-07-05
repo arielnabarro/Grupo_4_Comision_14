@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, dataTypes) => {
 
     const alias = "products";
@@ -11,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         title : {
             type : dataTypes.STRING(100),
-            allowNull : false,
+            allowNull : false
         },
         price : {
             type : dataTypes.INTEGER.UNSIGNED,
@@ -20,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
         descript : {
             type : dataTypes.STRING(250),
             allowNull : true,
-        },
+        }
     }
 
     const config = {
@@ -29,6 +30,14 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const Products = sequelize.define(alias,cols,config);
+
+    let association = Products.associate = (modelos) => {
+        Products.hasMany(modelos.images, {
+            as : 'images',
+            foreignKey : 'id_product'
+        })
+        return association
+    }
     
     return Products
 

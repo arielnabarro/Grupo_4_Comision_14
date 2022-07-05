@@ -3,8 +3,8 @@
       "id": 1,
       "rol": "admin",
       "name": "cristian",
-      "email": "cr@gmail.com",
-      "password": "$2a$10$S6TxhQP/UkvhZTIz99LqFOL4uoTC0Srf7nDP3NFIcZQi06x2fTRta",
+      "email": "cristian@gmail.com",
+      "password": "asdasd1",
       "avatar": "perro-informatico.png",
       "mascota": null
    },
@@ -43,5 +43,13 @@
       "password": "$2a$10$AuBQbZEIs1aKEGdPST7qwufPf6b5EgGZG8BvMWttdNdGh9d5EfYUu",
       "avatar": "avatar-1655323264473.jpg",
       "mascota": null
+   },
+   {
+      "id": 6,
+      "rol": "admin",
+      "name": "Cristiandos",
+      "email": "cristian2@gmail.com",
+      "password": "$2a$10$hsH7OfMUu6/oz3.5xykiO.MYtVybBnT4dOrL.R/6k3JJSRJmDGKBK",
+      "avatar": "gato-mambru.jpg"
    }
 ]

@@ -8,13 +8,13 @@
     <%- include('./partials/header') %>
     
 <main>
-
+    
     <nav class="detail-nav">
-        <h2>PRODUCTO</h2>
+        <h2><%= product.title %> </h2>
         <article> 
             <a class="navegacion" href="/">Inicio</a>
             <a class="navegacion" href="/products">Productos</a>
-            <p class="navegacion"><%= product.name %></p>
+            <p class="navegacion"><%= product.title %></p>
         </article> 
 
         <% if (locals.userLogin && locals.userLogin.rol === 'admin') { %> 
@@ -38,9 +38,12 @@
         
             <article class="detail-producto"> 
                 <h2><%= product.name %></h2>
-                <div>
-                    <img src="/images/Alimento-balanceado/<%= product.image %>" alt="">
-                </div>
+                <% product.images.forEach(({name}) => { %>
+                    <div>
+                        <img src="/images/Alimento-balanceado/<%= name %>" alt="">
+                    </div>
+                <% }) %>
+                
             </article>
             <article class="detail-detalle">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat numquam rerum perferendis iure consequuntur. Explicabo autem quaerat eveniet eligendi, ex officiis culpa corrupti quod ullam repellat tenetur velit perspiciatis aspernatur! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque nihil eius sequi deserunt quas corrupti ea velit perspiciatis, voluptate ab totam aut molestias voluptatibus placeat quaerat id? Aspernatur, ipsa enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae repellendus perspiciatis, dignissimos consequatur eos officia labore quidem minus fugit ipsa iusto consectetur, similique et? Delectus quibusdam modi qui expedita. Aliquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laboriosam numquam alias totam ipsum, quod cum a explicabo magni maiores earum esse minus fuga molestias velit. Veritatis ut architecto non.</p>

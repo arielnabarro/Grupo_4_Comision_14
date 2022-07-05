@@ -30,7 +30,7 @@
                         <select <%= locals.errors && errors.category ? 'is-invalid' : null%> name="category" id="category" required>
                             <option value="" hidden selected>Selecciona la categoría</option>
                             <% categories.forEach(category => { %>
-                            <option <%= locals.old && old.category && +old.category === +category.id ? 'selected' : null %>  value="<%= category.id %>"><%= category.name %></option>
+                            <option <%= locals.old && old.category && +old.category === +category.id ? 'selected' : null %>  value="<%= category.id %>"><%= category.title %></option>
                             <% }) %>
                         </select>
                         <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>

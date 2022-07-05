@@ -1,3 +1,5 @@
+const Product = require('../../database/models/Product')
+
 module.exports = (sequelize, dataTypes) => {
 
     const alias = "images";
@@ -15,9 +17,14 @@ module.exports = (sequelize, dataTypes) => {
         },
         id_product : {
             type : dataTypes.INTEGER,
-            allowNull : false
+            allowNull : false,
+            references : {
+                models : {
+                    tableName : 'products'
+                },
+                key : 'id'
+            }
         }, 
-
     }
 
     const config = {
@@ -27,7 +34,14 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const Images = sequelize.define(alias,cols,config);
-    
+
+    let association = Images.associate = (modelos) => {
+        Images.belongsTo(modelos.products, {
+            as : 'products',
+            foreignKey : 'id_product'
+        })
+        return association
+    }
     return Images
 
 }

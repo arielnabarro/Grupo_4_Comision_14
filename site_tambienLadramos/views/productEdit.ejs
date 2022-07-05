@@ -18,25 +18,25 @@
             <form method="POST" action="/products/productEdit/<%= product.id %>/?_method=PUT" enctype="multipart/form-data">
                 <article>
                     <div>
-                        <label for="name">nomnbre: <%= product.name %></label>
+                        <label for="name">Nombre: <%= product.title %></label>
                         <input type="text" id="name" name="name" value="<%= product.name %>" required placeholder="<%= product.name %>">
                     </div>
                     <div>
-                        <label for="price">precio: $<%= product.price %></label>
+                        <label for="price">Precio: $<%= product.price %></label>
                         <input type="number" id="price" name="price" value="<%= product.price %>" required placeholder="<%= product.price %>">
                     </div>
                     <div>
-                        <label for="category">categoria: <%= product.category %></label>
+                        <label for="category">Categoria: <%= product.id_category %></label>
                         <select <%= locals.errors && errors.category ? 'is-invalid' : null%> name="category" id="category" value="<%= product.category %>" required>
                             <option value="" hidden selected>Selecciona la categoría</option>
                             <% categories.forEach(category => { %>
-                            <option <%= locals.old && old.category && +old.category === +category.id ? 'selected' : null %>  value="<%= category.id %>"><%= category.name %></option>
+                            <option <%= locals.old && old.category && +old.category === +category.id ? 'selected' : null %>  value="<%= category.id %>"><%= category.title %></option>
                             <% }) %>
                         </select>
                         <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
                     </div>
                     <div>
-                        <label for="image">imagen: <%= product.image %></label>
+                        <label for="image">Imagen: <%= product.image %></label>
                         <input type="file" id="image" name="image" accept="image/*">
                     </div>             
                     <article class="productEdit__form__bottons">

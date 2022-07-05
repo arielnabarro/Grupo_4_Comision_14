@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require("express-validator");
 /* const products = require('../data/products.json'); */
-const categories = require('../data/categories.json');
+const products = require('../data/categories.json'); 
 const db = require('../database/models')
 /* const productsFilePath = path.join(__dirname, '../data/products.json'); */
 /* 
@@ -14,63 +14,84 @@ const readProducts = () => {
 
 module.exports = {
     list : (req, res) => {
-        db.products.findAll()
+
+        db.products.findAll({
+            include : ['images']
+        })
             .then(product => {
-                return res.send(product)
+                return res.render("products", {
+                    product
+                    });
             })
             .catch(error => console.log(error))
+        },
         /* return res.render('products', {
             leerProductos : readProducts(),
             products,
             categories,
         }); */
-    },
 
     detail : (req, res) => {
-        const { id } = req.params;
+        db.products.findByPk(req.params.id, {
+            include : ['images']
+        })
+            .then(product => {
+                return res.render('productDetail', {
+                    product
+                });
+            })
+            .catch(error => console.log(error))
+        /* const { id } = req.params;
         const product = products.find((product) => product.id === +id);
 
         return res.render("productDetail", {
         product
-        });
+        }); */
     },
 
     search : (req, res) => {
         let {keyword} = req.query;
         let noSpaceKeyword = keyword.join("");
-        const result = products.filter(product => product.name.toLowerCase().includes(noSpaceKeyword));
-
-        let namesCategories = categories.map(category => {
-            return {
-                id : category.id,
-                name : category.name
-            }
-        });
-
-            return res.render('searchResult', {
-                products : result,
-                noSpaceKeyword,
-                namesCategories
-                }
-            )
+        db.products.findAll()
+            .then(product => {
+                let result = product.filter(producto => producto.title.toLowerCase().includes(noSpaceKeyword))
+        
+                    return res.render('searchResult', {
+                        product,
+                        result,
+                        noSpaceKeyword
+                        }
+                    )
+            })
+            .catch(error => console.log(error))
+        
      },
 
     add : (req,res) => {
-
-        return res.render('productAdd',{
-            categories
-        });
+        db.categories.findAll()
+            .then(categories => {
+                return res.render('productAdd', {
+                    categories
+                })
+        })
+        .catch(error => console.log(error))
     },
 
     edit : (req,res) => {
     
         const { id } = req.params;
-        const product = products.find((product) => product.id === +id);
+        let product = db.products.findByPk(req.params.id)
 
-        return res.render("productEdit", {
-        categories,
-        product,
-        });
+        let categories = db.categories.findAll()
+
+        Promise.all([product, categories])
+            .then(([product, categories]) => {
+                return res.render("productEdit", {
+                    categories,
+                    product,
+                    });
+            })
+            .catch(error => console.log(error))	
     },
 
     update : (req, res) => {
@@ -107,7 +128,17 @@ module.exports = {
     },
 
     store : (req,res) => {
-        let errors = validationResult(req);
+        let { title, price, id_category } = req.body;
+
+        db.products.create({
+            title : title.trim(),
+            price : +price,
+            id_category
+        })
+        .then(product => {
+            
+        })
+        /* let errors = validationResult(req);
         if(errors.isEmpty()) {
             let { name, price, category } = req.body;
             let lastID = products[products.length - 1].id;
@@ -133,7 +164,7 @@ module.exports = {
                 errors: errors.mapped(),
                 old: req.body,
             })
-        }
+        } */
     },
     
     cart : (req, res) => {
