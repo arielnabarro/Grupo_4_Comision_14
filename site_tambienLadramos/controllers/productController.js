@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require("express-validator");
 /* const products = require('../data/products.json'); */
-const products = require('../data/categories.json'); 
 const db = require('../database/models')
 /* const productsFilePath = path.join(__dirname, '../data/products.json'); */
 /* 
@@ -14,9 +13,9 @@ const readProducts = () => {
 
 module.exports = {
     list : (req, res) => {
+        db.Product.findAll({
+            include : ['images', 'category']
 
-        db.products.findAll({
-            include : ['images']
         })
             .then(product => {
                 return res.render("products", {
@@ -32,8 +31,8 @@ module.exports = {
         }); */
 
     detail : (req, res) => {
-        db.products.findByPk(req.params.id, {
-            include : ['images']
+        db.Product.findByPk(req.params.id, {
+            include : ['images', 'category']
         })
             .then(product => {
                 return res.render('productDetail', {
@@ -52,12 +51,13 @@ module.exports = {
     search : (req, res) => {
         let {keyword} = req.query;
         let noSpaceKeyword = keyword.join("");
-        db.products.findAll()
+        db.Product.findAll({
+            include : ['images']
+        })
             .then(product => {
                 let result = product.filter(producto => producto.title.toLowerCase().includes(noSpaceKeyword))
         
                     return res.render('searchResult', {
-                        product,
                         result,
                         noSpaceKeyword
                         }
@@ -80,9 +80,9 @@ module.exports = {
     edit : (req,res) => {
     
         const { id } = req.params;
-        let product = db.products.findByPk(req.params.id)
+        let product = db.products.findByPk(req.params.id);
 
-        let categories = db.categories.findAll()
+        let categories = db.categories.findAll();
 
         Promise.all([product, categories])
             .then(([product, categories]) => {

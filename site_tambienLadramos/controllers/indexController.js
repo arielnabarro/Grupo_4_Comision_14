@@ -1,16 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require("express-validator");
-const products = require('../data/products.json');
-const categories = require('../data/categories.json');
+const db = require('../database/models')
 
 
 
 module.exports = {
-    index : (req, res) => res.render ('index', {
-        products,
-        categories
-    }),
+    index : (req, res) => {
+        db.Product.findAll({
+            include : ['category']
+        })
+            .then(product => {
+                return res.render('index', {
+                    product
+                })
+            })        
+    },
 
     
     products : (req, res) => res.render('products'),
