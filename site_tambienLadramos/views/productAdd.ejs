@@ -18,16 +18,16 @@
             <form method="POST" action="" enctype="multipart/form-data">
                 <article>
                     <div>
-                        <label for="name">Nombre del producto</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name">Nombre del producto:</label>
+                        <input type="text" id="title" name="title" required>
                     </div>
                     <div>
-                        <label for="price">Precio</label>
+                        <label for="price">Precio:</label>
                         <input type="number" id="price" name="price" required>
                     </div>
                     <div>
-                        <label for="category">Categorías</label>
-                        <select <%= locals.errors && errors.category ? 'is-invalid' : null%> name="category" id="category" required>
+                        <label for="category">Categoría:</label>
+                        <select <%= locals.errors && errors.category ? 'is-invalid' : null%> name="id_category" id="id_category" required>
                             <option value="" hidden selected>Selecciona la categoría</option>
                             <% categories.forEach(category => { %>
                             <option <%= locals.old && old.category && +old.category === +category.id ? 'selected' : null %>  value="<%= category.id %>"><%= category.title %></option>

@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "users";
+    const alias = "User";
 
     const cols = {
         id : {
@@ -29,7 +29,12 @@ module.exports = (sequelize, dataTypes) => {
         id_rol : {
             type : dataTypes.INTEGER, 
             allowNull : false, 
+        },
+        id_avatar : {
+            type : dataTypes.INTEGER, 
+            allowNull : false, 
         }
+        
     }
 
     const config = {
@@ -38,8 +43,19 @@ module.exports = (sequelize, dataTypes) => {
         underscored : true
     }
 
-    const Users = sequelize.define(alias,cols,config);
+    const User = sequelize.define(alias,cols,config);
     
-    return Users
+    User.associate = (modelos) => {
+        User.belongsTo(modelos.Rol, {
+            as : 'rols',
+            foreignKey : 'id_rol'
+        })
+
+        User.belongsTo(modelos.Avatar, {
+            as : 'avatars',
+            foreignKey : 'id_avatar'
+        })
+    }
+    return User
 
 }
