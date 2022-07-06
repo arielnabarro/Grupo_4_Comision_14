@@ -1,82 +1,100 @@
-const fs = require("fs");
-const path = require("path");
 const bcryptjs = require("bcryptjs");
-const users = require("../data/users.json");
 const { validationResult } = require("express-validator");
+const db = require('../database/models')
 
+// const fs = require("fs");
+// const path = require("path");
+// const users = require("../data/users.json");
 /* const leerUsuarios = () => {
     fs.readFileSync(path.resolve(__dirname, "..", "data", "users.json"),JSON.parse(users, null, 3),
     "utf-8"
   );
 }  */
+
 module.exports = {
     register: (req, res) => res.render("users/register"),
 
     processRegister: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let { name, email, password } = req.body;
-            let lastID = users.length !== 0 ? users[users.length - 1].id : 0;
+            let { name, last_name, email, password } = req.body;
 
-            let newUser = {
-                id: +lastID + 1,
-                rol: "user",
+            db.User.create({
                 name: name.trim(),
-                email: email,
+                last_name: last_name.trim(),
+                email: email.trim(),
                 password: bcryptjs.hashSync(password, 10),
-                avatar : req.file ? req.file.filename : "gato-mambru.jpg"
-            };
+                id_rol : 2,
+                        //req.file ? req.file.filename : "gato-mambru.jpg"
+            })
 
-            users.push(newUser);
-
-            fs.writeFileSync(
-                path.resolve(__dirname, "..", "data", "users.json"),
-                JSON.stringify(users, null, 3),
-                "utf-8"
-            );
-
-            return res.redirect("/");
+            .then(user => {
+                db.Address.create({
+                    user_id : user.id,
+                    type_id : 1
+                }).then( () => {
+                    return res.render("users/login")
+                })
+            })
+            .catch(error => console.log(error))
+        
         } else {
             return res.render("users/register", {
-                old: req.body,
-                errores: errors.mapped(),
+                old : req.body,
+                errors : errors.mapped(),
             });
         }
     },
+
+    //         users.push(newUser);
+
+    //         fs.writeFileSync(
+    //             path.resolve(__dirname, "..", "data", "users.json"),
+    //             JSON.stringify(users, null, 3),
+    //             "utf-8"
+    //         );
+
+    //         return res.redirect("/");
+    //     } else {
+    //         return res.render("users/register", {
+    //             old: req.body,
+    //             errores: errors.mapped(),
+    //         });
+    //     }
+    // },
 
     login: (req, res) => res.render("users/login"),
 
     processLogin: (req, res) => {
         let errors = validationResult(req);
-
         if (errors.isEmpty()) {
-            const { rol, name, email, avatar } = users.find(
-                (usuario) => usuario.email === req.body.email
-            );
 
-            req.session.userLogin = {
-                email,
-                rol,
+            const {email} = req.body
+
+            db.users.findOne({
+              where : {
+                email
+              }
+            }).then( ({id, name, last_name, id_rol}) => {
+              req.session.userLogin = {
+                id : +id,
                 name,
-                avatar
-            };
-
-            res.locals.userLogin = req.session.userLogin;
-
-            if (req.body.recordarme) {
-                res.cookie("tambienLadramos", req.session.userLogin, {
-                    maxAge: 1000 * 60 * 2,
-                });
+                last_name,
+                rol : +id_rol
             }
-
-            return res.redirect("/users/profile");
-        } else {
-            res.render("users/login", {
-                errors: errors.mapped(),
-                old: req.body,
+            if(req.body.remember){
+                res.cookie('tambienladramos',req.session.userLogin,{maxAge:3000*60*2})
+            }
+            res.redirect('/')
+            })
+            
+          } else {
+            return res.render("users/Login", {
+              old: req.body,
+              errors: errors.mapped(),
             });
-        }
-    },
+          }
+        },
 
     //posible raiz del problema de que no funcione en la vista
 
@@ -93,27 +111,30 @@ module.exports = {
     },
 
     profile: (req, res) => {
-        const usersRead = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
-        const userProfile = usersRead.find(
-            (user) => user.email === req.session.userLogin.email
-        );
-        return res.render("users/profile", {
-            userProfile
-        });
-    },
+        let user = db.users.findByPk(req.session.userLogin.id,{
+          include : ['avatars']
+        })
+          .then((user) => res.render("users/Profile", {
+            user,
+          }))
+      },
 
-    editProfile : (req, res) => {
-        const {id} = req.params;
-        const userEdit = users.find((user) => user.id === +id)
-        const {name, email, avatar} = userEdit;
+    editProfile : (req,res) => {
+    
+        const { id } = req.params;
+        let user = db.users.findByPk(req.params.id);
+        let avatar = db.avatars.findByPk(req.params.id);
+        let rol = db.rols.findByPk(req.params.id)
 
-        return res.render("users/editProfile", {
-            id,
-            name,
-            email,
-            avatar
-        });
-
+        Promise.all([user, avatar, rol])
+            .then(([user, avatar, rol]) => {
+                return res.render("users/editprofile", {
+                    user,
+                    avatar,
+                    rol,
+                    });
+            })
+            .catch(error => console.log(error))	
     },
 
     updateProfile: (req, res) => { 

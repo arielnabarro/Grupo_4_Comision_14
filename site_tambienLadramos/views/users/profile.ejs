@@ -9,18 +9,18 @@
     
 <main>
 
-    <h2 class="profile-title"><%= userProfile.rol === "user" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
+    <h2 class="profile-title"><%= rol === "User" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
 
     <section class="profile-conjunto">
         <article class="profile-user"> 
-            <h2><%= userProfile.name %></h2>
-            <% if (userProfile.avatar === 'null' || 'undefined') { %>
+            <h2><%= user %></h2>
+            <% if (avatar.name === 'null' || 'undefined') { %>
                 <div>
                     <img src="/images/avatars/perro-informatico.png %> " alt="" id="avatar-preview">
                 </div>
             <% } else { %>
                 <div>
-                    <img src="/images/avatars/<%= userProfile.avatar %> " alt="" id="avatar-preview">
+                    <img src="/images/avatars/<%= avatar.name %> " alt="" id="avatar-preview">
                 </div>
             <% } %>           
             
@@ -41,15 +41,18 @@
         <article class="profile-info">
             <h2>datos</h2>
             <div class="profile-detalle">
-                <p>nombre: <%= userProfile.name %></p>
-                <p>tu email: <%= userProfile.email %></p>
-                <p>mascota: <%= userProfile.mascota %></p>
+                <p>nombre: <%= user.name %></p>
+                <p>tu email: <%= user.email %></p>
+                <p>mascota: firulais </p>
             </div>
                 <article>
-                    <a href="/users/edit-profile/<%= userProfile.id %>" style="margin-left: 2vw; color: var(--marron);">
+                    <a href="/users/edit-profile/<%= user.id %>" style="margin-left: 2vw; color: var(--marron);">
                         <i class="fa-solid fa-pen-to-square">Editar datos del perfil</i>
                     </a>  
                 </article>
+
+                <p></p>
+
         </article>
     </section>  
 
