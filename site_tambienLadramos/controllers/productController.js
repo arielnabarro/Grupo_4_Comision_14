@@ -1,24 +1,9 @@
-const fs = require('fs');
-const path = require('path');
 const { validationResult } = require("express-validator");
-/* const products = require('../data/products.json'); */
 const db = require('../database/models');
-const { title } = require('process');
-/* const productsFilePath = path.join(__dirname, '../data/products.json'); */
-/* 
-const readProducts = () => {
-    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    return products
-} */
-
 
 module.exports = {
     list : (req, res) => {
-        db.User.findAll()
-        .then(user => {
-            return res.send(user)
-        })
-        /* db.Product.findAll({
+        db.Product.findAll({
             include : ['images', 'category']
 
         })
@@ -27,13 +12,8 @@ module.exports = {
                     product
                     });
             })
-            .catch(error => console.log(error)) */
+            .catch(error => console.log(error)) 
         },
-        /* return res.render('products', {
-            leerProductos : readProducts(),
-            products,
-            categories,
-        }); */
 
     detail : (req, res) => {
         db.Product.findByPk(req.params.id, {
@@ -45,12 +25,6 @@ module.exports = {
                 });
             })
             .catch(error => console.log(error))
-        /* const { id } = req.params;
-        const product = products.find((product) => product.id === +id);
-
-        return res.render("productDetail", {
-        product
-        }); */
     },
 
     search : (req, res) => {
@@ -134,33 +108,6 @@ module.exports = {
             return res.redirect('/products');
         }).catch(error => console.log(error))
     },
-        /* const productsUpdated = products.map((product) => {
-          if (product.id === +id) {
-            let productModify = {
-              ...product,
-              name : name,
-              price: +price,
-              category: +category,
-              image : req.file ? req.file.filename : product.image
-            }
-
-            if(req.file) {
-                if(fs.existsSync(path.resolve(__dirname, '..', 'public', 'images', 'Alimento-balanceado', product.image)) && product.image !== "Logo.png" ) {
-                    fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', 'Alimento-balanceado', product.image));
-                }          
-            }
-                return productModify;
-            }else {
-                return product;
-            }        
-        });
-    
-        fs.writeFileSync(path.resolve(__dirname,'..','data','products.json'),JSON.stringify(productsUpdated,null,3),'utf-8');
-        res.redirect('/products')
-        return res.render('productEdit', {
-            categories,
-            product : req.body,
-        }) */
 
     store : (req,res) => {
         const { title, price, id_category } = req.body;
@@ -187,33 +134,6 @@ module.exports = {
             return res.redirect('/products')
         })
         .catch(error => console.log(error))
-        /* let errors = validationResult(req);
-        if(errors.isEmpty()) {
-            let { name, price, category } = req.body;
-            let lastID = products[products.length - 1].id;
-            let newProduct = {
-            id: +lastID + 1,
-            name: name.trim(),
-            price: +price,
-            category: +category,
-            image: req.file ? req.file.originalname : 'Logo.png'
-            };
-
-            products.push(newProduct);
-
-            fs.writeFileSync(
-            path.resolve(__dirname, "..", "data", "products.json"),
-            JSON.stringify(products, null, 3),
-            "utf-8");
-    
-            return res.redirect('/products')
-        } else {
-            return res.render("productAdd", {
-                categories,
-                errors: errors.mapped(),
-                old: req.body,
-            })
-        } */
     },
     
     cart : (req, res) => {
@@ -231,17 +151,7 @@ module.exports = {
             .then(() => {
                 return res.redirect("/products");
         })
-        .catch(error => console.log(error))
-        
-       /*  const productFilter = products.filter(product => product.id !== +id);
-    
-        fs.writeFileSync(
-          path.resolve(__dirname, "..", "data", "products.json"),
-          JSON.stringify(productFilter, null, 3),
-          "utf-8"
-        ); */
-    
-        
+        .catch(error => console.log(error))        
     },
     
     question : (req, res) => res.render('specific-content/questionMark'),
