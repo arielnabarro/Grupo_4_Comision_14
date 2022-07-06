@@ -10,7 +10,7 @@ const { list, detail, search, cart, add, store, edit, update, remove, question, 
 // /products 
 
 router
-        .get('/', list) 
+        .get('/', list)
         .get('/searchResult', search)
         .get('/productDetail/:id', detail) 
         .get('/productCart', cart)

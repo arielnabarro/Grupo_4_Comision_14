@@ -23,14 +23,19 @@ module.exports = (sequelize, dataTypes) => {
 
     const Category = sequelize.define(alias,cols,config);
 
-    let associationProduct = Category.associate = (modelos) => {
+    Category.associate = (modelos) => {
         Category.hasMany(modelos.Product, {
             as : 'products',
             foreignKey : 'id_category'
-        })
-        return associationProduct
-    }
-    
-    return Category
-
+            })
+        Category.hasMany(modelos.Defaultpic, {
+            as : 'defaultpic',
+            foreignKey : 'id_category'
+            })        
+    }   
+        
+        return Category
 }
+    
+   
+

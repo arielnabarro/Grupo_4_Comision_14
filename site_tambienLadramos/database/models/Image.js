@@ -27,15 +27,15 @@ module.exports = (sequelize, dataTypes) => {
         underscored : true
     }
 
-    const Images = sequelize.define(alias,cols,config);
+    const Image = sequelize.define(alias,cols,config);
 
-    let association = Images.associate = (modelos) => {
-         Images.belongsTo(modelos.Product, {
+    Image.associate = (modelos) => {
+         Image.belongsTo(modelos.Product, {
             as : 'products',
             foreignKey : 'id_product'
         })
-        return association 
+    
     }
-    return Images
+    return Image
 
 }

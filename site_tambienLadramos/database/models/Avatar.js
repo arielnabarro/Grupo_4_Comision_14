@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "avatars";
+    const alias = "Avatar";
 
     const cols = {
         id : {
@@ -12,12 +12,7 @@ module.exports = (sequelize, dataTypes) => {
         name : {
             type : dataTypes.TEXT,
             allowNull : false
-        },
-        id_user : {
-            type : dataTypes.INTEGER,
-            allowNull : false
-        }, 
-
+        }
     }
 
     const config = {
@@ -26,7 +21,13 @@ module.exports = (sequelize, dataTypes) => {
         underscored : true
     }
 
-    const Avatars = sequelize.define(alias,cols,config);
-    
-    return Avatars
+    const Avatar = sequelize.define(alias,cols,config);
+
+    Avatar.associate = (modelos) => {
+        Avatar.hasOne(modelos.User, {
+            as : 'users',
+            foreignKey : 'id_avatar'
+        })
+    }
+    return Avatar
 }
