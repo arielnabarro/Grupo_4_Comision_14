@@ -71,7 +71,7 @@ module.exports = {
 
             const {email} = req.body
 
-            db.users.findOne({
+            db.User.findOne({
               where : {
                 email
               }
@@ -111,31 +111,25 @@ module.exports = {
     },
 
     profile: (req, res) => {
-        let user = db.users.findByPk(req.session.userLogin.id,{
-          include : ['avatars']
+        db.User.findByPk(req.session.userLogin.id,{
+          include : ['avatars','rols']
         })
-          .then((user) => res.render("users/Profile", {
-            user,
+          .then((users) => res.render("users/Profile", {
+            users,
           }))
+        .catch(error => console.log(error))
       },
 
     editProfile : (req,res) => {
     
-        const { id } = req.params;
-        let user = db.users.findByPk(req.params.id);
-        let avatar = db.avatars.findByPk(req.params.id);
-        let rol = db.rols.findByPk(req.params.id)
-
-        Promise.all([user, avatar, rol])
-            .then(([user, avatar, rol]) => {
-                return res.render("users/editprofile", {
-                    user,
-                    avatar,
-                    rol,
-                    });
-            })
-            .catch(error => console.log(error))	
-    },
+        db.User.findByPk(req.session.userLogin.id,{
+            include : ['avatars']
+          })
+            .then((users) => res.render("users/editProfile", {
+              users,
+            }))
+          .catch(error => console.log(error))
+        },
 
     updateProfile: (req, res) => { 
         let errors = validationResult(req);

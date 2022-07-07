@@ -13,22 +13,22 @@
 <main class="productEdit">
     
     <section>
-        <h2>Editar perfil : <%= rol.name %></h2>
+        <h2>Editar perfil : <%= users.name %></h2>
 
         <% if (locals.userLogin) { %>
         <div class="productEdit__form">
-            <form method="POST" action="/users/update-profile/<%= id %>/?_method=PUT" enctype="multipart/form-data">
+            <form method="POST" action="/users/update-profile/<%= users.id %>/?_method=PUT" enctype="multipart/form-data">
                 <article>
                     <div>
-                        <label for="name">Nombre: <%= name %></label>
-                        <input type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= name %>" >
+                        <label for="name">Nombre: <%= users.name %></label>
+                        <input type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= users.name %>" >
                     </div>
                     <div>
-                        <label for="email">Email: <%= email %></label>
-                        <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" required placeholder="<%= email %>" >
+                        <label for="email">Email: <%= users.email %></label>
+                        <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" required placeholder="<%= users.email %>" >
                     </div>
                     <div>
-                        <label for="avatar">Imagen: <%= avatar %></label>
+                        <label for="avatar">Imagen: <%= users.avatars.name %></label>
                         <input type="file" id="avatar" name="avatar" accept="avatar/*">
                     </div>             
                     <article class="productEdit__form__bottons">
