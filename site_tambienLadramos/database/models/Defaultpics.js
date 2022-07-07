@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull : false
         },
         id_category : {
-            type : dataTypes.STRING(100),
+            type : dataTypes.INTEGER,
             allowNull : false
         }
     }
