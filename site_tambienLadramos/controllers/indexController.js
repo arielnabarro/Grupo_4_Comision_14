@@ -7,14 +7,15 @@ const db = require('../database/models')
 
 module.exports = {
     index : (req, res) => {
-        db.Product.findAll({
-            include : ['category']
+        db.Category.findAll({
+            include : ['defaultpics']
         })
-            .then(product => {
+            .then(category => {
                 return res.render('index', {
-                    product
+                    category
                 })
-            })        
+            })
+            .catch(error => console.log(error))
     },
 
     

@@ -14,11 +14,7 @@ const readProducts = () => {
 
 module.exports = {
     list : (req, res) => {
-        db.User.findAll()
-        .then(user => {
-            return res.send(user)
-        })
-        /* db.Product.findAll({
+        db.Product.findAll({
             include : ['images', 'category']
 
         })
@@ -27,7 +23,7 @@ module.exports = {
                     product
                     });
             })
-            .catch(error => console.log(error)) */
+            .catch(error => console.log(error))
         },
         /* return res.render('products', {
             leerProductos : readProducts(),

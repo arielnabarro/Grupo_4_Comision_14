@@ -29,7 +29,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey : 'id_category'
             })
         Category.hasMany(modelos.Defaultpic, {
-            as : 'defaultpic',
+            as : 'defaultpics',
             foreignKey : 'id_category'
             })        
     }   
