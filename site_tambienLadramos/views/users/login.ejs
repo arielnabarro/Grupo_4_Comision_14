@@ -12,11 +12,11 @@
     <main class="login-main"> 
         <nav>
                 <h2>Acceder</h2>
-                <form class="login-form" action="" method="POST">
+                <form class="login-form" action="/users/login" method="POST">
                 <ul>   
                     <li>
                         <div>
-                            <input class="login_user" type="text" type="email" id="email" name="email" placeholder="Email" value= <%= locals.old && old.email %>>
+                            <input class="login_user" type="email" id="email" name="email" placeholder="Email" value="<%= locals.old && old.email ? old.email : null %>">
                             <span class="form-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></span>
                         </div>
                         <div>

@@ -7,15 +7,20 @@ const db = require('../database/models')
 
 module.exports = {
     index : (req, res) => {
-        db.Category.findAll({
-            include : ['defaultpics']
-        })
-            .then(category => {
-                return res.render('index', {
-                    category
-                })
-            })
-            .catch(error => console.log(error))
+        let category = db.Category.findAll({
+            include : ['defaultpics', 'products']
+        });
+        let product = db.Product.findAll({
+            include : ['images']
+        });
+        Promise.all([product,category])
+			.then(([products,category]) => {
+				return res.render('index',{
+					products,
+					category
+				})
+			})
+			.catch(error => console.log(error))	
     },
 
     

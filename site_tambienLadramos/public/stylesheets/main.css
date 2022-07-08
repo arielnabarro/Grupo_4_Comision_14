@@ -32,14 +32,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 auto;
     justify-content: center;
     align-items: center;
+    align-self: center;
+    align-content: center;
 }
 
 .home__main__productos article div, .home__main__servicios article div {
-    width: 35vw;
-    height: 35vw;
+    width: 30vw;
+    height: 30vw;
     margin: 1vw auto;
     justify-content: center;
     align-items: center;
@@ -47,8 +49,8 @@
 
 .home__main__productos article div a img, .home__main__servicios article div a img {
     position: relative;
-    width: 100%;
-    height: 35vw;
+    width: 30vw;
+    height: 30vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -71,12 +73,14 @@
 
 .home__main__prod__h2, .home__main__serv__h2, .home__main__nos__h2 {
     margin: 0 auto;
-    padding: 0;
+    padding: 0 auto;
     font-family: opificio-bold-rounded;
     display: flex;
     width: 100%;
-    height: 5vw;
+    height: 4vh;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color: var(--amarillo);
 }
 
@@ -89,8 +93,12 @@
 }
 
 .home__main__prod__h2 h2, .home__main__serv__h2 h2, .home__main__nos__h2 h2 {
+    margin: 0 auto;
+    padding: 0 auto;
     display: flex;
     color: black;
+    justify-content: center;
+    align-items: center;
     align-self: center;
     justify-self: center;
     font-size: 1rem;
@@ -134,15 +142,18 @@
 }
 
 .home__main__nosotros h4 {
-    border: 1px solid black;
-    border-radius: 1vw;
-    background: var(--nieve);
+    background: var(--nieve); 
     font-size: 0.6rem;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 auto;
 }
 
 .home__main__nosotros {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     width: 100%; 
 }
@@ -170,7 +181,7 @@
 
 .home__main__nosotros article div:hover img{
     transform:scale(97%);
-    transition: 2s ease-in-out;
+    transition: 1.5s ease-in-out;
     background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));  
     opacity: 0.9;
 } 
@@ -196,11 +207,15 @@
 }
 
 .home__main__nosotros p:hover {
-    transition: ease-in 3s;
+    transition: ease-in 1s;
     border-radius: 100vh;
-    background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));  
+    background: var(--amarillo);  
 }
 
+.home__main__nosotros article .home__main__nosotros__div1,.home__main__nosotros article .home__main__nosotros__div3  {
+    justify-content: center;
+    align-items: center;
+}
 .home__main__nosotros article .home__main__nosotros__div2 {
     flex-direction: row-reverse; 
     justify-content: center;
@@ -235,7 +250,7 @@
     }
 
     .home__main h3, .home__main__servicios .home__main__cortepelo h3, .home__main__servicios .home__main__baño h3{
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }    
 
     .home__main h4 {

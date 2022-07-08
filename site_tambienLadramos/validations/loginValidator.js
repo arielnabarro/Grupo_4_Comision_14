@@ -1,24 +1,23 @@
 const bcryptjs = require('bcryptjs');
-const { check } = require('express-validator');
-const users = require('../data/users.json')
-
+const { check, body } = require('express-validator');
+const { User } = require('../database/models')
 module.exports = [
 
     check('email')
         .notEmpty().withMessage('Debe ingresar su email').bail()
-        .isEmail().withMessage('Formato de email invalido'),
+        .isEmail().withMessage('Formato de email invalido'),        
 
-    check('password')
+    body('password')
         .notEmpty().withMessage('Debe ingresar su contraseña').bail()
         .custom((value, {req}) => {
-            const usuario = users.find(user => user.email === req.body.email);
-            if(!usuario){
-                return false
-            }else {
-                if(!bcryptjs.compareSync(value,usuario.password)){
-                    return false
-                }
+            return User.findOne({
+            where : {
+                email : req.body.email
             }
-            return true
-        }).withMessage('La contraseña ingresada es incorrecta'),
+            }).then(user => {
+            if(!user || !bcryptjs.compareSync(value, user.password)){
+                return Promise.reject()
+            }
+            }).catch(() => Promise.reject('Credenciales inválidas'))
+        })
 ]

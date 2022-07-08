@@ -20,22 +20,23 @@ module.exports = {
             let { name, last_name, email, password } = req.body;
 
             db.User.create({
-                name: name.trim(),
-                last_name: last_name.trim(),
-                email: email.trim(),
+                name: name,
+                last_name: last_name,
+                email: email,
                 password: bcryptjs.hashSync(password, 10),
                 id_rol : 2,
-                        //req.file ? req.file.filename : "gato-mambru.jpg"
+                id_avatar : 1     
             })
-
             .then(user => {
-                db.Address.create({
-                    user_id : user.id,
-                    type_id : 1
-                }).then( () => {
-                    return res.render("users/login")
+              req.session.userLogin = {
+                id : +user.id,
+                name : user.name,
+                last_name : user.last_name,
+                rol : +user.id_rol
+              }
+              res.locals.user = req.session.user;
+                res.redirect('/')
                 })
-            })
             .catch(error => console.log(error))
         
         } else {
@@ -46,47 +47,32 @@ module.exports = {
         }
     },
 
-    //         users.push(newUser);
-
-    //         fs.writeFileSync(
-    //             path.resolve(__dirname, "..", "data", "users.json"),
-    //             JSON.stringify(users, null, 3),
-    //             "utf-8"
-    //         );
-
-    //         return res.redirect("/");
-    //     } else {
-    //         return res.render("users/register", {
-    //             old: req.body,
-    //             errores: errors.mapped(),
-    //         });
-    //     }
-    // },
-
     login: (req, res) => res.render("users/login"),
 
     processLogin: (req, res) => {
-        let errors = validationResult(req);
+        const errors = validationResult(req);
         if (errors.isEmpty()) {
-
-            const {email} = req.body
+          const {email} = req.body;
 
             db.User.findOne({
               where : {
-                email
+                email : email
               }
-            }).then( ({id, name, last_name, id_rol}) => {
-              req.session.userLogin = {
-                id : +id,
-                name,
-                last_name,
-                rol : +id_rol
+            }).then(user => {
+                  req.session.userLogin = {
+                    id : user.id,
+                    email : user.email,
+                    name : user.name,
+                    avatar : user.id_avatar,
+                    rol : +user.id_rol
             }
+            res.locals.user = req.session.user
             if(req.body.remember){
-                res.cookie('tambienladramos',req.session.userLogin,{maxAge:3000*60*2})
+                res.cookie('tambienladramos', req.session.userLogin,{maxAge:3000*180*2})
             }
             res.redirect('/')
             })
+            .catch(error => console.log(error))
             
           } else {
             return res.render("users/Login", {
@@ -96,23 +82,15 @@ module.exports = {
           }
         },
 
-    //posible raiz del problema de que no funcione en la vista
-
     logout: (req, res) => {
         req.session.destroy();
 
-        if (req.session && req.session.userLogin.rol === "user") {
-            res.cookie("usertambienLadramos", null, { maxAge: -1 });
-            return res.redirect("/");
-        } else {
-            res.cookie("adminLogueado", null, { maxAge: -1 });
-            return res.redirect("/");
-        }
+        
     },
 
     profile: (req, res) => {
         db.User.findByPk(req.session.userLogin.id,{
-          include : ['avatars','rols']
+          include : ['avatars']
         })
           .then((users) => res.render("users/Profile", {
             users,
@@ -132,7 +110,7 @@ module.exports = {
         },
 
     updateProfile: (req, res) => { 
-        let errors = validationResult(req);
+        const errors = validationResult(req);
         if (errors.isEmpty()) {
             const {id} = req.params;
             const { email, name, avatar } = req.body;

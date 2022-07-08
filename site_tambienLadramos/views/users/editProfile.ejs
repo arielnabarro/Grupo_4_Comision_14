@@ -16,22 +16,22 @@
         <h2>Editar perfil : <%= users.name %></h2>
 
         <% if (locals.userLogin) { %>
-        <div class="productEdit__form">
+        <div class="profileEdit__form">
             <form method="POST" action="/users/update-profile/<%= users.id %>/?_method=PUT" enctype="multipart/form-data">
                 <article>
                     <div>
-                        <label for="name">Nombre: <%= users.name %></label>
+                        <label for="name">Nombre: </label>
                         <input type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= users.name %>" >
                     </div>
                     <div>
-                        <label for="email">Email: <%= users.email %></label>
+                        <label for="email">Email: </label>
                         <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" required placeholder="<%= users.email %>" >
                     </div>
                     <div>
                         <label for="avatar">Imagen: <%= users.avatars.name %></label>
                         <input type="file" id="avatar" name="avatar" accept="avatar/*">
                     </div>             
-                    <article class="productEdit__form__bottons">
+                    <article class="profileEdit__form__bottons ">
                         <div><button type="reset">Limpiar</button></div>
                         <div><button type="submit">Guardar</button></div>
                     </article>
@@ -42,8 +42,6 @@
     </section>
 
 </main>
-
-    
     <%- include('../partials/footer') %>
 
 </body>

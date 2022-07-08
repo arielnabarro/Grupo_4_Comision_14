@@ -35,7 +35,6 @@ module.exports = {
         })
             .then(product => {
                 let result = product.filter(producto => producto.title.toLowerCase().includes(noSpaceKeyword))
-        
                     return res.render('searchResult', {
                         result,
                         noSpaceKeyword

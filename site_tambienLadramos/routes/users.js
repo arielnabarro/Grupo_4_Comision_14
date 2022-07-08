@@ -16,7 +16,7 @@ const {uploadAvatars} = require('../middlewares/uploadImages');
 
 router
     .get('/register', register)
-    .post('/register',uploadAvatars.single('avatar'), registerValidator,processRegister)
+    .post('/register', registerValidator,processRegister)
     .get('/login', login)
     .post('/login', loginValidator, processLogin)
     .get('/profile', userCheck,profile)

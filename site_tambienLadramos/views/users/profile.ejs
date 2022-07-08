@@ -9,18 +9,18 @@
     
 <main>
 
-    <h2 class="profile-title"><%= users.rols.title == "User" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
+    <h2 class="profile-title"><%= locals.userLogin.rol == "Admin" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
 
     <section class="profile-conjunto">
         <article class="profile-user"> 
-            <h2><%= users.name %></h2>
-            <% if (users.avatars.name === 'null' || 'undefined') { %>
+            <h2><%= locals.userLogin.name %></h2>
+            <% if (locals.userLogin.avatar === 'null' || 'undefined') { %>
                 <div>
-                    <img src="/images/avatars/perro-informatico.png %> " alt="" id="avatar-preview">
+                    <img src="/images/avatars/perro-informatico.png %>" alt="" id="avatar-preview">
                 </div>
             <% } else { %>
                 <div>
-                    <img src="/images/avatars/<%= users.avatars.name %> " alt="" id="avatar-preview">
+                    <img src="/images/avatars/<%= locals.userLogin.avatar.name %> " alt="" id="avatar-preview">
                 </div>
             <% } %>           
             
@@ -39,14 +39,14 @@
             </form>
         </article>
         <article class="profile-info">
-            <h2>datos</h2>
+            <h2>Información personal</h2>
             <div class="profile-detalle">
-                <p>nombre: <%= users.name %></p>
-                <p>tu email: <%= users.email %></p>
-                <p>mascota: firulais </p>
+                <p>Nombre: <%= locals.userLogin.name %></p>
+                <p>Tu email: <%= locals.userLogin.email %></p>
+                <p>Mascota: firulais </p>
             </div>
                 <article>
-                    <a href="/users/edit-profile/<%= users.id %>" style="margin-left: 2vw; color: var(--marron);">
+                    <a href="/users/edit-profile/<%= locals.userLogin.id %>" style="margin-left: 2vw; color: var(--marron);">
                         <i class="fa-solid fa-pen-to-square">Editar datos del perfil</i>
                     </a>  
                 </article>

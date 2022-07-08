@@ -15,8 +15,12 @@
         <form class="register_form" method="POST" action="" enctype="multipart/form-data" >
             <h2>Registrarse</h2>
             <div>
-                <input class="register_datos <%= locals.name && errores.name ? 'is-invalid' : null %>" type="text" id="name" name="name" placeholder="Nombre completo" value="<%= locals.old && old.name ? old.name : null %>">
+                <input class="register_datos <%= locals.name && errores.name ? 'is-invalid' : null %>" type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && old.name ? old.name : null %>">
                 <span class="form-errors"><%= locals.errores && errores.name ? errores.name.msg : null %></span>
+            </div>
+            <div>
+                <input class="register_datos <%= locals.last_name && errores.last_name ? 'is-invalid' : null %>" type="text" id="last_name" name="last_name" placeholder="Apellido" value="<%= locals.old && old.last_name ? old.last_name : null %>">
+                <span class="form-errors"><%= locals.errores && errores.last_name ? errores.last_name.msg: null %></span>
             </div>
             <div>
                 <input class="register_datos <%= locals.errores && errores.email ? 'is-invalid' : null %>" type="email" id="email" name="email" placeholder="E-mail" value="<%= locals.old && old.email ? old.email : null %>">
