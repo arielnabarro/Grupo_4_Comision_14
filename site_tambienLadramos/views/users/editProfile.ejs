@@ -24,6 +24,10 @@
                         <input type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= users.name %>" >
                     </div>
                     <div>
+                        <label for="last_name">Apellido: </label>
+                        <input type="text" id="last_name" name="last_name" value="<%= locals.old && old.last_name ? old.last_name : null %>" required placeholder="<%= users.last_name %>" >
+                    </div>
+                    <div>
                         <label for="email">Email: </label>
                         <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" required placeholder="<%= users.email %>" >
                     </div>

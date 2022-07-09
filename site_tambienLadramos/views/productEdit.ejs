@@ -36,6 +36,9 @@
                         <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
                     </div>
                     <div>
+                        <div id="imagePreview">
+                            <img src="/images/Alimento-balanceado/<%= product.images[0].name %>" alt="">
+                        </div>
                         <label for="image">Imagen: <%= product.images[0].name %></label>
                         <input type="file" id="image" name="image" accept="image/*">
                     </div>             

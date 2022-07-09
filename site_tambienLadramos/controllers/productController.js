@@ -74,22 +74,26 @@ module.exports = {
     },
 
     update : (req, res) => {
-        let { title, price, id_category } = req.body;
+        let errors = validationResult(req);
+        const { title, price, id_category } = req.body;
+        if(errors.isEmpty()){
+            let product = db.Product.findByPk(req.params.id);
+            db.Product.update({
+                title : title,
+                price : +price,
+                image : req.file ? req.file.filename : product.image,
+                category : +id_category,
+            },
+            {
+                where : {
+                    id : req.params.id
+                }
+            })
 
-        db.Product.update({
-            title : title,
-            price : +price,
-            id_category
-        },
-        {
-            where : {
-                id : req.params.id
-            }
-        } 
-        ).then(async () => {
+        .then( () => {
             if(req.file){
                 try {
-                    await db.Image.update(
+                    db.Image.update(
                         {
                             file : req.file.filename
                         },
@@ -106,6 +110,7 @@ module.exports = {
             }
             return res.redirect('/products');
         }).catch(error => console.log(error))
+        }
     },
 
     store : (req,res) => {

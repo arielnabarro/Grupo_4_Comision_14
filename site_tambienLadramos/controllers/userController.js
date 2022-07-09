@@ -82,12 +82,6 @@ module.exports = {
           }
         },
 
-    logout: (req, res) => {
-        req.session.destroy();
-
-        
-    },
-
     profile: (req, res) => {
         db.User.findByPk(req.session.userLogin.id,{
           include : ['avatars']
@@ -110,19 +104,60 @@ module.exports = {
         },
 
     updateProfile: (req, res) => { 
-        const errors = validationResult(req);
+      const {name,surname,password, address, city, state, type} = req.body;
+      db.User.findByPk(req.session.userLogin.id,{
+      attributes : ['password']
+    })
+      .then(user => {
+        db.User.update(
+          {
+            name : name.trim(),
+            surname : surname.trim(),
+            password : password ? bcryptjs.hashSync(password, 10) : user.password,
+            image : req.file && req.file.filename 
+          },
+          {
+            where : {
+              id : req.session.userLogin.id
+            }
+          }
+        )
+          .then( () => {
+            db.Address.update(
+              {
+                address : address.trim(),
+                city,
+                state,
+                typeId : type
+              },
+              {
+                where : {
+                  userId : req.session.userLogin.id
+                }
+              }
+            ).then( () => res.redirect('/users/profile'))
+          })
+      }).catch(error => console.log(error))
+  },
+        /* const errors = validationResult(req);
+        const id = +req.params.id;
+        const {name, last_name, email} = req.body;
         if (errors.isEmpty()) {
-            const {id} = req.params;
-            const { email, name, avatar } = req.body;
-
-            const usuariosModificados = users.map((user) => {
-            if (user.id === id) {
-            let usuarioModificado = {
-                ...user,
-                name : name.trim(),
-                email : email.trim(),
-                avatar : req.file ? req.file.originalname : user.avatar
-            };
+            db.User.update({
+              name,
+              last_name,
+              email,
+              id_avatar : req.file ? req.file.filename : req.session.userLogin.avatar
+            },
+            {
+              where : {
+                id : id
+              }
+            })
+            .then(user => {
+              res.redirect('users/profile')
+            })
+            .catch(error => console.log(error))
         
             if (req.file) {
                 if (fs.existsSync(path.resolve(__dirname, "..", "public", "images", 'avatars', user.avatar)) 
@@ -133,22 +168,7 @@ module.exports = {
                 }
             }
             return usuarioModificado;
-            }
-            return user;
-        });
 
-        fs.writeFileSync(
-            path.resolve(__dirname, "..", "data", "users.json"),
-            JSON.stringify(usuariosModificados, null, 3),
-            "utf-8"
-        );
-
-        req.session.userLogin = {
-            ...req.session.userLogin,
-            name
-        }
-
-        return res.redirect("/");
         }else{
             console.log(errors);
             return res.render("users/editProfile", {
@@ -156,8 +176,7 @@ module.exports = {
                 errors : errors.mapped()
             });
         }
-
-  },
+   */
 
     storeUser: (req, res) => {
         let errores = validationResult(req);
@@ -168,4 +187,11 @@ module.exports = {
             });
         }
     },
-};
+    logout: (req, res) => {
+        req.session.destroy();
+        res.cookie('tambienLadramos',null,{maxAge : -1})
+        res.redirect('/')
+      }
+
+      
+  };
