@@ -104,40 +104,44 @@ module.exports = {
         },
 
     updateProfile: (req, res) => { 
-      const {name,surname,password, address, city, state, type} = req.body;
+      const {name,last_name,email,password} = req.body;
       db.User.findByPk(req.session.userLogin.id,{
-      attributes : ['password']
+        attributes : ['password'],
     })
       .then(user => {
         db.User.update(
           {
             name : name.trim(),
-            surname : surname.trim(),
+            last_name : last_name.trim(),
+            email : email,
             password : password ? bcryptjs.hashSync(password, 10) : user.password,
-            image : req.file && req.file.filename 
           },
           {
             where : {
               id : req.session.userLogin.id
             }
           }
-        )
-          .then( () => {
-            db.Address.update(
-              {
-                address : address.trim(),
-                city,
-                state,
-                typeId : type
-              },
-              {
-                where : {
-                  userId : req.session.userLogin.id
+        ).then(async () => {
+          if(req.file){
+            try {
+              await db.avatars.update({name},
+                {
+                  name : req.file.filename
+                },
+                {
+                  where : {
+                    id : req.params.id,
+                  }
                 }
-              }
-            ).then( () => res.redirect('/users/profile'))
-          })
-      }).catch(error => console.log(error))
+              )
+            } catch (error) {
+              console.log(error);
+            }
+          }
+          return res.redirect('/products');
+        }
+      )
+    }).catch(error => console.log(error))
   },
         /* const errors = validationResult(req);
         const id = +req.params.id;
