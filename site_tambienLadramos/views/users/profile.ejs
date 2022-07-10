@@ -42,9 +42,9 @@
         <article class="profile-info">
             <h2>Información personal</h2>
             <div class="profile-detalle">
-                <p>Nombre: <%= locals.userLogin.name %></p>
-                <p>Tu email: <%= locals.userLogin.email %></p>
-                <p>Mascota: firulais </p>
+                <p>Nombre: <%= users.name %></p>
+                <p> Apellido: <%= users.last_name %></p>
+                <p>Tu email: <%= users.email %></p>
             </div>
                 <article>
                     <a href="/users/edit-profile/<%= locals.userLogin.id %>" style="margin: 0 auto; padding: 0 auto; color: var(--marron);">

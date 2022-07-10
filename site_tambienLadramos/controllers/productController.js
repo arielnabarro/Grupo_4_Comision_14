@@ -148,9 +148,20 @@ module.exports = {
     },
     
     cart : (req, res) => {
-        return res.render('productCart', {
-            products
-        })
+        let product = db.Product.findAll( {
+            include : [{association : 'images'}]
+        });
+
+        let categories = db.Category.findAll();
+
+        Promise.all([product, categories])
+            .then(([product, categories]) => {
+                return res.render("productCart", {
+                    product,
+                    categories
+                    });
+            })
+            .catch(error => console.log(error))	
     },
 
     remove : (req, res) => {

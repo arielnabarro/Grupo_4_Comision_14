@@ -19,13 +19,15 @@
                 <th>Precio</th>
             </tr>
 
-            <% products.forEach(({name, image, price, description}) => { %>
+            <% product.forEach(({title,price,descript,images}) => { %> 
                 <tr>
-                    <td><%= name %></td>                 
-                    <td class="tabla-img-td">
-                        <img src="/images/Alimento-balanceado/<%= image %>" alt="">
-                    </td>                    
-                    <td><%= description %></td>
+                    <td><%= title %></td>                 
+                    <% images.forEach(({name}) => { %>
+                        <td class="tabla-img-td">
+                            <img src="/images/Alimento-balanceado/<%= name %>" alt="">     
+                        </td>
+                    <% }) %>                                    
+                    <td><%= descript %></td>
                     <td><%= price %></td>
                 </tr>
             <% }) %>
