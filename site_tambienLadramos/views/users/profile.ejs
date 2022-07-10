@@ -9,20 +9,21 @@
     
 <main>
 
-    <h2 class="profile-title"><%= locals.userLogin.rol == "Admin" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
+    <h2 class="profile-title"><%= locals.userLogin.rol === "Admin" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
 
     <section class="profile-conjunto">
         <article class="profile-user"> 
             <h2><%= locals.userLogin.name %></h2>
             <% if (locals.userLogin.avatar === 'null' || 'undefined') { %>
                 <div>
-                    <img src="/images/avatars/perro-informatico.png %>" alt="" id="avatar-preview">
+                    <img src="/images/avatars/perro-informatico.png" alt="" id="avatar-preview">
                 </div>
             <% } else { %>
                 <div>
-                    <img src="/images/avatars/<%= locals.userLogin.avatar.name %> " alt="" id="avatar-preview">
+                    <img src="/images/avatars/<%= locals.userLogin.avatar.name %>" alt="" id="avatar-preview">
                 </div>
-            <% } %>           
+            <% } %>     
+            
             
             <form action="/users/update-profile" enctype="multipart/form-data">
                 <label style="cursor: pointer; color: var(--marron);" for="avatar"><i class="fa-solid fa-pen-to-square fa-2x"></i>Editar</label>
@@ -46,19 +47,51 @@
                 <p>Mascota: firulais </p>
             </div>
                 <article>
-                    <a href="/users/edit-profile/<%= locals.userLogin.id %>" style="margin-left: 2vw; color: var(--marron);">
-                        <i class="fa-solid fa-pen-to-square">Editar datos del perfil</i>
+                    <a href="/users/edit-profile/<%= locals.userLogin.id %>" style="margin: 0 auto; padding: 0 auto; color: var(--marron);">
+                        <i class="fa-solid fa-user-pen fa-2x"></i>Editar datos del perfil</i>
                     </a>  
                 </article>
-
-                <p></p>
-
         </article>
     </section>  
-  
-
+    <% if (locals.userLogin && locals.userLogin.rol === 1) { %>
+        <section class="profile-conjunto">
+            <article class="profile-user">
+                <h2 style="background: var(--marron); margin-top: 5vh;">Editar productos</h2>
+                <ul class="list-group list-group-horizontal w-75" style="border: 1px solid black">
+                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">ID</li>
+                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Titulo</li>
+                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Precio</li>
+                  </ul>
+                <% products.forEach(({id, title, price}) => { %>
+                  <ul class="list-group list-group-horizontal-sm w-75" >
+                    <li class="list-group-item w-100" style="border: 1px solid black"><%= id %></li>
+                    <li class="list-group-item w-100" style="border: 1px solid black"><%= title %></li>
+                    <li class="list-group-item w-100" style="border: 1px solid black">$<%= price %></li>
+                  </ul>
+                <% }) %>
+            </article>
+            <article class="profile-info">
+                <div class="profile-user">
+                    <h2 style="background: var(--azul); margin-top: 5vh;">Editar usuarios</h2>
+                        <ul class="list-group list-group-horizontal w-75" style="border: 1px solid black;">
+                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">ID</li>
+                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Nombre</li>
+                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Rol</li>
+                        </ul>
+                <% users.forEach(({id, name, id_rol, rols}) => { %>
+                        <ul class="list-group list-group-horizontal-sm w-75">
+                            <li class="list-group-item w-100" style="border: 1px solid black"><%= id %></li>
+                            <li class="list-group-item w-100" style="border: 1px solid black"><%= name %></li>
+                            <li class="list-group-item w-100" style="border: 1px solid black"><%= id_rol = rols.title %></li>
+                        </ul>
+                      
+                <% }) %>
+                </div>
+            </article>
+        </section>
+            <% } %>     
 </main>
-    
+
     <%- include('../partials/footer') %>
 
 </body>

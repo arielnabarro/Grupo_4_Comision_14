@@ -32,7 +32,8 @@ module.exports = {
                 id : +user.id,
                 name : user.name,
                 last_name : user.last_name,
-                rol : +user.id_rol
+                rol : +user.id_rol,
+                avatar : +user.id_avatar
               }
               res.locals.user = req.session.user;
                 res.redirect('/')
@@ -83,13 +84,22 @@ module.exports = {
         },
 
     profile: (req, res) => {
-        db.User.findByPk(req.session.userLogin.id,{
+      let users = db.User.findAll({
+        include : ['rols']
+      });
+      let user = db.User.findByPk(req.session.userLogin.id,{
           include : ['avatars']
+        });
+        let products = db.Product.findAll();
+        Promise.all([users, user, products])
+        .then(([users, user, products]) => {
+            return res.render("users/profile", {
+                users,
+                user,
+                products
+                });
         })
-          .then((users) => res.render("users/Profile", {
-            users,
-          }))
-        .catch(error => console.log(error))
+        .catch(error => console.log(error))	
       },
 
     editProfile : (req,res) => {

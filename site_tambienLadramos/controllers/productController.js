@@ -46,13 +46,20 @@ module.exports = {
      },
 
     add : (req,res) => {
-        db.Category.findAll()
-            .then(categories => {
-                return res.render('productAdd', {
-                    categories
-                })
-        })
-        .catch(error => console.log(error))
+        let {image} = req.body;
+        category = db.Category.findAll();
+        product = db.Product.findAll({
+            include : ['images']
+        });
+        Promise.all([product, category])
+            .then(([product, categories]) => {
+                return res.render("productAdd", {
+                    product,
+                    categories,
+                    image
+                    });
+            })
+            .catch(error => console.log(error))	
     },
 
     edit : (req,res) => {
