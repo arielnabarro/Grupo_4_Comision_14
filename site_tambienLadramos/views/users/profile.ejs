@@ -16,11 +16,11 @@
             <h2><%= locals.userLogin.name %></h2>
             <% if (locals.userLogin.avatar === 'null' || 'undefined') { %>
                 <div>
-                    <img src="/images/avatars/perro-informatico.png %>" alt="" id="avatar-preview">
+                    <img src="/images/avatars/<%= users.avatar %>  %>" alt="" id="avatar-preview">
                 </div>
             <% } else { %>
                 <div>
-                    <img src="/images/avatars/<%= locals.userLogin.avatar.name %> " alt="" id="avatar-preview">
+                    <img src="/images/avatars/<%= locals.userLogin.avatar %> " alt="" id="avatar-preview">
                 </div>
             <% } %>           
             

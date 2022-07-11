@@ -25,7 +25,7 @@ module.exports = {
                 email: email,
                 password: bcryptjs.hashSync(password, 10),
                 id_rol : 2,
-                id_avatar : 1     
+                avatar : 'perro-informatico.png'   
             })
             .then(user => {
               req.session.userLogin = {
@@ -63,7 +63,7 @@ module.exports = {
                     id : user.id,
                     email : user.email,
                     name : user.name,
-                    avatar : user.id_avatar,
+                    avatar : user.avatar,
                     rol : +user.id_rol
             }
             res.locals.user = req.session.user
@@ -83,9 +83,7 @@ module.exports = {
         },
 
     profile: (req, res) => {
-        db.User.findByPk(req.session.userLogin.id,{
-          include : ['avatars']
-        })
+        db.User.findByPk(req.session.userLogin.id)
           .then((users) => res.render("users/Profile", {
             users,
           }))
@@ -94,9 +92,7 @@ module.exports = {
 
     editProfile : (req,res) => {
     
-        db.User.findByPk(req.session.userLogin.id,{
-            include : ['avatars']
-          })
+        db.User.findByPk(req.session.userLogin.id)
             .then((users) => res.render("users/editProfile", {
               users,
             }))
@@ -104,7 +100,7 @@ module.exports = {
         },
 
     updateProfile: (req, res) => { 
-      const {name,last_name,email,password} = req.body;
+      const {name,last_name,email,password, avatar} = req.body;
       db.User.findByPk(req.session.userLogin.id,{
         attributes : ['password'],
     })
@@ -115,32 +111,14 @@ module.exports = {
             last_name : last_name.trim(),
             email : email,
             password : password ? bcryptjs.hashSync(password, 10) : user.password,
+            avatar : req.file? req.file.filename : avatar
           },
           {
             where : {
               id : req.session.userLogin.id
             }
           }
-        ).then(async () => {
-          if(req.file){
-            try {
-              await db.avatars.update({name},
-                {
-                  name : req.file.filename
-                },
-                {
-                  where : {
-                    id : req.params.id,
-                  }
-                }
-              )
-            } catch (error) {
-              console.log(error);
-            }
-          }
-          return res.redirect('/products');
-        }
-      )
+        )
     }).catch(error => console.log(error))
   },
         /* const errors = validationResult(req);
