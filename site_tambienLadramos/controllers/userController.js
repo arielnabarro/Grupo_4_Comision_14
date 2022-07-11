@@ -156,8 +156,55 @@ module.exports = {
       )
     }).catch(error => console.log(error))
   },
+        /* const errors = validationResult(req);
+        const id = +req.params.id;
+        const {name, last_name, email} = req.body;
+        if (errors.isEmpty()) {
+            db.User.update({
+              name,
+              last_name,
+              email,
+              id_avatar : req.file ? req.file.filename : req.session.userLogin.avatar
+            },
+            {
+              where : {
+                id : id
+              }
+            })
+            .then(user => {
+              res.redirect('users/profile')
+            })
+            .catch(error => console.log(error))
+        
+            if (req.file) {
+                if (fs.existsSync(path.resolve(__dirname, "..", "public", "images", 'avatars', user.avatar)) 
+                    && user.avatar !== 'perro-informatico.png') {
+                fs.unlinkSync(
+                    path.resolve(__dirname, "..", "public", "images", 'avatars', user.avatar)
+                );
+                }
+            }
+            return usuarioModificado;
 
-  logout: (req, res) => {
+        }else{
+            console.log(errors);
+            return res.render("users/editProfile", {
+                user : req.body,
+                errors : errors.mapped()
+            });
+        }
+   */
+
+    /* storeUser: (req, res) => {
+        let errores = validationResult(req);
+
+        if (!errores.isEmpty()) {
+            return res.render("register", {
+                errorMsg: errores.mapped(),
+            });
+        }
+    }, */
+    logout: (req, res) => {
         req.session.destroy();
         res.cookie('tambienLadramos',null,{maxAge : -1})
         res.redirect('/')

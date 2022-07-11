@@ -42,7 +42,6 @@ module.exports = {
                     )
             })
             .catch(error => console.log(error))
-        
      },
 
     add : (req,res) => {
@@ -56,14 +55,41 @@ module.exports = {
                 return res.render("productAdd", {
                     product,
                     categories,
-                    image
                     });
             })
             .catch(error => console.log(error))	
     },
 
-    edit : (req,res) => {
+    store : (req,res) => {
+        const { title, price, descript, id_category,  } = req.body;
 
+        db.Product.create({
+            title,
+            price : +price,
+            descript,
+            id_category : id_category,
+
+        })
+        .then(product => {
+            if(req.file.length > 0) {
+                let images = req.file.map(({filename}, i) => {
+                    let image = {
+                        file : filename,
+                        id_product : product.id,
+                        primary : i === 0 ? 1 : 0
+                    }
+                    return image
+                })
+                db.Image.bulkCreate(images, {
+                    validate : true
+                }).then((result) => console.log(result))
+            }
+            return res.redirect('/products')
+        })
+        .catch(error => console.log(error))
+    },
+
+    edit : (req,res) => {
         let product = db.Product.findByPk(req.params.id, {
             include : [{association : 'images'}]
         });
@@ -118,33 +144,6 @@ module.exports = {
             return res.redirect('/products');
         }).catch(error => console.log(error))
         }
-    },
-
-    store : (req,res) => {
-        const { title, price, id_category } = req.body;
-
-        db.Product.create({
-            title : title,
-            price : +price,
-            id_category : id_category
-        })
-        .then(product => {
-            if(req.file.length > 0) {
-                let images = req.file.map(({filename}, i) => {
-                    let image = {
-                        file : filename,
-                        id_product : product.id,
-                        primary : i === 0 ? 1 : 0
-                    }
-                    return image
-                })
-                db.Image.bulkCreate(images, {
-                    validate : true
-                }).then((result) => console.log(result))
-            }
-            return res.redirect('/products')
-        })
-        .catch(error => console.log(error))
     },
     
     cart : (req, res) => {
