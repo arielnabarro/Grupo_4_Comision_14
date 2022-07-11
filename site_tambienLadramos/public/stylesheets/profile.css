@@ -36,6 +36,14 @@
     width: 50vw;
 }
 
+.profile-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
 .profile-user div {
     display: flex;
     justify-content: center;
@@ -137,7 +145,59 @@
     border: 2px solid var(--azul);
     outline: 2px solid var(--marron);
 }
+.search__bar__profile {
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 70%;
+    transition: width 500ms ease-in-out ;
+}
 
+.search__bar__profile:focus-within {
+    background: var(--amarillo);
+    width: 30vw;
+}
+
+.search__bar__input__profile {
+    border-radius: 100vh;
+    flex-grow: 1;
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0 0.5rem;
+    border: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer; 
+}
+
+.search__bar__input__profile:focus-within {
+    width: 100%;
+    outline: 0;
+    opacity: 1;
+    cursor: initial; 
+}
+
+.search__bar__submit__profile {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    color: white;
+    margin-left: auto;
+    transition: background 150ms ease-in-out;
+}
+
+.search__bar__profile form div button:hover {
+    color: red;
+}
 @media (min-width: 640px) and (max-width: 1023px) {
 
     .profile-title {
