@@ -14,13 +14,13 @@
     <section class="profile-conjunto">
         <article class="profile-user"> 
             <h2><%= locals.userLogin.name %></h2>
-            <% if (locals.userLogin.avatar === 'null' || 'undefined') { %>
+            <% if (locals.users.avatar === null || undefined) { %>
                 <div class="profile-user-div">
-                    <img src="/images/avatars/<%= users.avatar %> " alt="" id="avatar-preview">
+                    <img src="/images/avatars/perro-informatico.png %> " alt="" id="avatar-preview">
                 </div>
             <% } else { %>
                 <div class="profile-user-div">
-                    <img src="/images/avatars/<%= locals.userLogin.avatar %>" alt="" id="avatar-preview">
+                    <img src="/images/avatars/<%= locals.user.avatar %>" alt="" id="avatar-preview">
                 </div>
             <% } %>     
             

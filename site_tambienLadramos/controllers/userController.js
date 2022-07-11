@@ -33,7 +33,7 @@ module.exports = {
                 name : user.name,
                 last_name : user.last_name,
                 rol : +user.id_rol,
-                avatar : +user.id_avatar
+                avatar : user.avatar
               }
               res.locals.user = req.session.user;
                 res.redirect('/')
@@ -103,8 +103,6 @@ module.exports = {
         },
             
           
-
-
     editProfile : (req,res) => {
     
       db.User.findByPk(req.session.userLogin.id)
