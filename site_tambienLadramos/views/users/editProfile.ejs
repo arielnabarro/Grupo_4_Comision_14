@@ -31,6 +31,9 @@
                         <label for="email">Email: </label>
                         <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" required placeholder="<%= users.email %>" >
                     </div>
+                    <div class="imagePreview">
+                        <img src="/images/avatars/<%= users.avatar %>" alt="">
+                    </div>
                     <div>
                         <label for="avatar">Imagen: <%= users.avatar %></label>
                         <input type="file" id="avatar" name="avatar" accept="avatar/*">

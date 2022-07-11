@@ -9,20 +9,21 @@
     
 <main>
 
-    <h2 class="profile-title"><%= locals.userLogin.rol == "Admin" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
+    <h2 class="profile-title"><%= locals.userLogin.rol === "Admin" ? "Perfil de Usuario" : "Perfil de Administrador" %> </h2>
 
     <section class="profile-conjunto">
         <article class="profile-user"> 
             <h2><%= locals.userLogin.name %></h2>
             <% if (locals.userLogin.avatar === 'null' || 'undefined') { %>
-                <div>
-                    <img src="/images/avatars/<%= users.avatar %>  %>" alt="" id="avatar-preview">
+                <div class="profile-user-div">
+                    <img src="/images/avatars/<%= users.avatar %> " alt="" id="avatar-preview">
                 </div>
             <% } else { %>
-                <div>
-                    <img src="/images/avatars/<%= locals.userLogin.avatar %> " alt="" id="avatar-preview">
+                <div class="profile-user-div">
+                    <img src="/images/avatars/<%= locals.userLogin.avatar %>" alt="" id="avatar-preview">
                 </div>
-            <% } %>           
+            <% } %>     
+            
             
             <form action="/users/update-profile" enctype="multipart/form-data">
                 <label style="cursor: pointer; color: var(--marron);" for="avatar"><i class="fa-solid fa-pen-to-square fa-2x"></i>Editar</label>
@@ -41,24 +42,101 @@
         <article class="profile-info">
             <h2>Información personal</h2>
             <div class="profile-detalle">
-                <p>Nombre: <%= users.name %></p>
-                <p> Apellido: <%= users.last_name %></p>
-                <p>Tu email: <%= users.email %></p>
+                <p>Nombre: <%= user.name %></p>
+                <p>Apellido: <%= user.last_name %></p>
+                <p>Tu email: <%= user.email %></p>
             </div>
                 <article>
-                    <a href="/users/edit-profile/<%= locals.userLogin.id %>" style="margin-left: 2vw; color: var(--marron);">
-                        <i class="fa-solid fa-pen-to-square">Editar datos del perfil</i>
+                    <a href="/users/edit-profile/<%= locals.userLogin.id %>" style="margin: 0 auto; padding: 0 auto; color: var(--marron);">
+                        <i class="fa-solid fa-user-pen fa-2x"></i>Editar datos del perfil</i>
                     </a>  
                 </article>
-
-                <p></p>
-
         </article>
     </section>  
-  
-
+    <% if (locals.userLogin && locals.userLogin.rol === 1) { %>
+        <section class="profile-conjunto">
+            <div class="search__bar">
+                <form action="/products/searchResult" method="GET">
+                    <div>
+                        <input type="text" class="search__bar__input" name="keyword" id="keyword" placeholder="Search..."/>
+                        <button class="search__bar__submit" type="submit" name="keyword">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <article class="profile-products">
+                <h2 style="background: var(--marron); margin-top: 5vh;">Editar productos</h2> 
+                <a href="/products/productAdd" style="color: white; background:var(--colores4); margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;">
+                    <i class="fa-solid fa-circle-plus">Agregar productos</i>
+                </a>  
+                <ul class="list-group list-group-horizontal w-75" style="border: 1px solid black">
+                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">ID</li>
+                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Titulo</li>
+                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Precio</li>
+                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Funciones</li>
+                  </ul>
+                <% products.forEach(({id, title, price}) => { %>
+                  <ul class="list-group list-group-horizontal-sm w-75">
+                    <li class="list-group-item w-100" style="border: 1px solid black"><%= id %></li>
+                    <li class="list-group-item w-100" style="border: 1px solid black"><%= title %></li>
+                    <li class="list-group-item w-100" style="border: 1px solid black">$<%= price %></li>
+                    <li class="list-group-item w-100" style="border: 1px solid black; display: flex; flex-direction: row;align-items: center;">
+                        <form action="">
+                            <select class="form-select form-select-lg" aria-label="Large select">
+                                <option selected=""></option>
+                                <option value="A">Add</option>
+                                <option value="E">Edit</option>
+                                <option value="D">Delete</option>
+                              </select>
+                        </form>
+                        <form style="display: flex; margin-left: 2vw; align-items: center;" action="/products/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
+                            <button type="submit" style="color: var(--verde);">
+                                <i class="fa-solid fa-circle-check"></i>
+                        </i>
+                            </button>
+                        </form>
+                    </li>
+                  </ul>
+                <% }) %>
+            </article>
+            
+            <article class="profile-info">
+                <div class="profile-user">
+                    <h2 style="background: var(--azul); margin-top: 5vh;">Editar usuarios</h2>
+                    <a href="/products/productAdd" style="color: white; background:var(--colores4); margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;">
+                        <i class="fa-solid fa-circle-plus">Agregar usuarios</i>
+                    </a>  
+                        <ul class="list-group list-group-horizontal w-75" style="border: 1px solid black;">
+                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">ID</li>
+                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Nombre</li>
+                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Rol</li>
+                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Funciones</li>
+                        </ul>
+                        
+                <% users.forEach(({id, name, id_rol, rols}) => { %>
+                        <ul class="list-group list-group-horizontal-sm w-75">
+                            <li class="list-group-item w-100" style="border: 1px solid black"><%= id %></li>
+                            <li class="list-group-item w-100" style="border: 1px solid black"><%= name %></li>
+                            <li class="list-group-item w-100" style="border: 1px solid black"><%= rols.title %></li>
+                            <li class="list-group-item w-100" style="border: 1px solid black; display: flex; flex-direction: row;align-items: center;"><a href="/users/users-Edit/<%= id %>" style="color: var(--marron);">
+                                <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                            </a>
+                            <form style="display: flex; padding-left: 2vw; align-items: center;" action="/products/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
+                                <button type="submit" style="color: var(--violeta);">
+                                    <i class="fas fa-trash-alt fa-2x"></i>
+                                </button>
+                            </form>
+                            </li>
+                        </ul>
+                      
+                <% }) %>
+                </div>
+            </article>
+        </section>
+            <% } %>     
 </main>
-    
+
     <%- include('../partials/footer') %>
 
 </body>

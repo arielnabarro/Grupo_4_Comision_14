@@ -49,9 +49,26 @@
 
 .profileEdit__form div:hover {
     background:var(--colores4)
-    
 }
 
+.profileEdit__form .imagePreview {
+    margin: 0 auto;
+    padding: 0 auto;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 50vw;
+} 
+
+.profileEdit__form .imagePreview:hover{
+    background: var(--nieve);
+} 
+
+.profileEdit__form .imagePreview img{
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 10vw;
+} 
 
 @media (min-width: 640px) and (max-width: 1023px) {
     .productEdit h2 {
