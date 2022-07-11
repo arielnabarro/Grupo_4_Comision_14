@@ -26,15 +26,14 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.STRING(250),
             allowNull : false
         },
-        id_rol : {
-            type : dataTypes.INTEGER, 
+        avatar : {
+            type : dataTypes.STRING(250), 
             allowNull : false, 
         },
-        id_avatar : {
+        id_rol : {
             type : dataTypes.INTEGER, 
-            allowNull : false, 
+            allowNull : false,
         }
-        
     }
 
     const config = {
@@ -49,11 +48,6 @@ module.exports = (sequelize, dataTypes) => {
         User.belongsTo(modelos.Rol, {
             as : 'rols',
             foreignKey : 'id_rol'
-        })
-
-        User.belongsTo(modelos.Avatar, {
-            as : 'avatars',
-            foreignKey : 'id_avatar'
         })
     }
     return User

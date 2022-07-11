@@ -25,7 +25,7 @@ module.exports = {
                 email: email,
                 password: bcryptjs.hashSync(password, 10),
                 id_rol : 2,
-                id_avatar : 1     
+                avatar : 'perro-informatico.png'   
             })
             .then(user => {
               req.session.userLogin = {
@@ -64,7 +64,7 @@ module.exports = {
                     id : user.id,
                     email : user.email,
                     name : user.name,
-                    avatar : user.id_avatar,
+                    avatar : user.avatar,
                     rol : +user.id_rol
             }
             res.locals.user = req.session.user
@@ -83,41 +83,39 @@ module.exports = {
           }
         },
 
-    profile: (req, res) => {
-      let users = db.User.findAll({
-        include : ['rols'],
-        where : {
-          id_rol : 1
-        }
-      });
-      let user = db.User.findByPk(req.session.userLogin.id,{
-          include : ['avatars']
-        });
-        let products = db.Product.findAll();
-        Promise.all([users, user, products])
-        .then(([users, user, products]) => {
-            return res.render("users/profile", {
-                users,
-                user,
-                products
+        profile: (req, res) => {
+          let users = db.User.findAll({
+            include : ['rols'],
+            where : {
+              id_rol : 1
+            }
+          });
+          let user = db.User.findByPk(req.session.userLogin.id);
+            let products = db.Product.findAll();
+            Promise.all([users, user, products])
+            .then(([users, user, products]) => {
+                return res.render("users/profile", {
+                    users,
+                    user,
+                    products
                 });
-        })
-        .catch(error => console.log(error))	
-      },
+            }).catch(error => console.log(error))	
+        },
+            
+          
+
 
     editProfile : (req,res) => {
     
-        db.User.findByPk(req.session.userLogin.id,{
-            include : ['avatars']
-          })
-            .then((users) => res.render("users/editProfile", {
-              users,
-            }))
-          .catch(error => console.log(error))
-        },
+      db.User.findByPk(req.session.userLogin.id)
+      .then((users) => res.render("users/editProfile", {
+        users,
+      }))
+    .catch(error => console.log(error))
+  },
 
     updateProfile: (req, res) => { 
-      const {name,last_name,email,password} = req.body;
+      const {name,last_name,email,password, avatar} = req.body;
       db.User.findByPk(req.session.userLogin.id,{
         attributes : ['password'],
     })
@@ -128,32 +126,14 @@ module.exports = {
             last_name : last_name.trim(),
             email : email,
             password : password ? bcryptjs.hashSync(password, 10) : user.password,
+            avatar : req.file? req.file.filename : avatar
           },
           {
             where : {
               id : req.session.userLogin.id
             }
           }
-        ).then(async () => {
-          if(req.file){
-            try {
-              await db.avatars.update({name},
-                {
-                  name : req.file.filename
-                },
-                {
-                  where : {
-                    id : req.params.id,
-                  }
-                }
-              )
-            } catch (error) {
-              console.log(error);
-            }
-          }
-          return res.redirect('/products');
-        }
-      )
+        )
     }).catch(error => console.log(error))
   },
         /* const errors = validationResult(req);
