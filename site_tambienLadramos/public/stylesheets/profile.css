@@ -52,15 +52,16 @@
     height: 30vw;
     background-color: var(--nieve);
     margin-bottom: 5px;
-    border: 2px solid var(--verde);
+   
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 100%;
+    border-radius: 100%; 
 }
 
 .profile-user img {
     width: 30vw;
     height: 30vw;
     border-radius: 100%;
+    border: 2px solid var(--verde); 
 }
 
 .profile-user input {
@@ -213,12 +214,12 @@
         font-size: 2vw;
     }
 
-    .profile-user div {
+    /* .profile-user div {
         width: 55%;
-        border: 5px solid var(--verde);
+        border: 5px solid var(--verde); 
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     }
-
+ */
     .profile-info h2 {
         font-size: 2vw;
     }
