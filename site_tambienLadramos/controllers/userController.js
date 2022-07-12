@@ -1,6 +1,7 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require('../database/models')
+const { Sequelize, Op } = require("sequelize");
 
 // const fs = require("fs");
 // const path = require("path");
@@ -85,13 +86,12 @@ module.exports = {
 
         profile: (req, res) => {
           let users = db.User.findAll({
-            include : ['rols'],
-            where : {
-              id_rol : 1
-            }
+            include : ['rols']
           });
           let user = db.User.findByPk(req.session.userLogin.id);
-            let products = db.Product.findAll();
+            let products = db.Product.findAll({
+              'limit' : 5
+            });
             Promise.all([users, user, products])
             .then(([users, user, products]) => {
                 return res.render("users/profile", {
@@ -124,15 +124,16 @@ module.exports = {
             last_name : last_name.trim(),
             email : email,
             password : password ? bcryptjs.hashSync(password, 10) : user.password,
-            avatar : req.file? req.file.filename : avatar
+            avatar : req.file ? req.file.filename : avatar || 'perro-informatico.png'
           },
           {
             where : {
               id : req.session.userLogin.id
             }
-          }
-        )
-    }).catch(error => console.log(error))
+          }  
+        ).then( () => res.redirect('/users/profile'))
+    })
+    .catch(error => console.log(error))
   },
         /* const errors = validationResult(req);
         const id = +req.params.id;

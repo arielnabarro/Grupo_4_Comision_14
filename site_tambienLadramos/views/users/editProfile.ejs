@@ -10,12 +10,12 @@
 
     <%- include('../partials/header') %>
 
-<main class="productEdit">
+<main>
     
     <section>
         <h2>Editar perfil : <%= users.name %></h2>
 
-        <% if (locals.userLogin) { %>
+        <% if (locals.userLogin && locals.userLogin.id) { %>
         <div class="profileEdit__form">
             <form method="POST" action="/users/update-profile/<%= users.id %>/?_method=PUT" enctype="multipart/form-data">
                 <article>
