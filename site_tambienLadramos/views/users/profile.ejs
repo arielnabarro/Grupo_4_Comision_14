@@ -15,11 +15,11 @@
         <article class="profile-user"> 
             <h2><%= locals.userLogin.name %></h2>
             <% if (locals.users.avatar === null || undefined) { %>
-                <div class="profile-user-div">
+                <div class="profile-user">
                     <img src="/images/avatars/perro-informatico.png %> " alt="" id="avatar-preview">
                 </div>
             <% } else { %>
-                <div class="profile-user-div">
+                <div class="profile-user">
                     <img src="/images/avatars/<%= locals.user.avatar %>" alt="" id="avatar-preview">
                 </div>
             <% } %>     
@@ -54,86 +54,93 @@
         </article>
     </section>  
     <% if (locals.userLogin && locals.userLogin.rol === 1) { %>
-        <section class="profile-conjunto">
-            <div class="search__bar">
-                <form action="/products/searchResult" method="GET">
-                    <div>
-                        <input type="text" class="search__bar__input" name="keyword" id="keyword" placeholder="Search..."/>
-                        <button class="search__bar__submit" type="submit" name="keyword">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <article class="profile-products">
-                <h2 style="background: var(--marron); margin-top: 5vh;">Editar productos</h2> 
-                <a href="/products/productAdd" style="color: white; background:var(--colores4); margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;">
-                    <i class="fa-solid fa-circle-plus">Agregar productos</i>
-                </a>  
-                <ul class="list-group list-group-horizontal w-75" style="border: 1px solid black">
-                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">ID</li>
-                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Titulo</li>
-                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Precio</li>
-                    <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Funciones</li>
-                  </ul>
-                <% products.forEach(({id, title, price}) => { %>
-                  <ul class="list-group list-group-horizontal-sm w-75">
-                    <li class="list-group-item w-100" style="border: 1px solid black"><%= id %></li>
-                    <li class="list-group-item w-100" style="border: 1px solid black"><%= title %></li>
-                    <li class="list-group-item w-100" style="border: 1px solid black">$<%= price %></li>
-                    <li class="list-group-item w-100" style="border: 1px solid black; display: flex; flex-direction: row;align-items: center;">
-                        <form action="">
-                            <select class="form-select form-select-lg" aria-label="Large select">
-                                <option selected=""></option>
-                                <option value="A">Add</option>
-                                <option value="E">Edit</option>
-                                <option value="D">Delete</option>
-                              </select>
-                        </form>
-                        <form style="display: flex; margin-left: 2vw; align-items: center;" action="/products/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
-                            <button type="submit" style="color: var(--verde);">
-                                <i class="fa-solid fa-circle-check"></i>
-                        </i>
-                            </button>
-                        </form>
-                    </li>
-                  </ul>
-                <% }) %>
-            </article>
-            
-            <article class="profile-info">
-                <div class="profile-user">
-                    <h2 style="background: var(--azul); margin-top: 5vh;">Editar usuarios</h2>
-                    <a href="/products/productAdd" style="color: white; background:var(--colores4); margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;">
-                        <i class="fa-solid fa-circle-plus">Agregar usuarios</i>
-                    </a>  
-                        <ul class="list-group list-group-horizontal w-75" style="border: 1px solid black;">
-                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">ID</li>
-                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Nombre</li>
-                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Rol</li>
-                            <li class="list-group-item w-100" style="border: 1px solid black; background:var(--colores4);">Funciones</li>
-                        </ul>
-                        
-                <% users.forEach(({id, name, id_rol, rols}) => { %>
-                        <ul class="list-group list-group-horizontal-sm w-75">
-                            <li class="list-group-item w-100" style="border: 1px solid black"><%= id %></li>
-                            <li class="list-group-item w-100" style="border: 1px solid black"><%= name %></li>
-                            <li class="list-group-item w-100" style="border: 1px solid black"><%= rols.title %></li>
-                            <li class="list-group-item w-100" style="border: 1px solid black; display: flex; flex-direction: row;align-items: center;"><a href="/users/users-Edit/<%= id %>" style="color: var(--marron);">
-                                <i class="fa-solid fa-pen-to-square fa-2x"></i>
+        <div></div>
+        <div class="profile-info" style="display: flex; flex-direction: row; justify-content: space-evenly; margin-top: 10vh;">
+            <h2 style="background: var(--marron); color: black;">Editar productos</h2> 
+            <h2 style="background: var(--azul); color: black;">Editar usuarios</h2> 
+        </div>
+            <div style="display: flex; justify-content: space-around; margin-top: 1vh; margin-bottom: 2vh;">
+                <a href="/products/productAdd" style="color: white; background:var(--colores4);">
+                    <i class="fa-solid fa-circle-plus"> Agregar productos</i>
+                </a> 
+                <a href="/products/productAdd" style="color: white; background:var(--colores4);">
+                    <i class="fa-solid fa-circle-plus"> Agregar administrador</i>
+                </a> 
+            </div>     
+        <section style="display: flex; justify-content: space-around; align-items: center;">            
+                <table class="table caption-top table-striped table-hover table-bordered" >
+                    <thead class="table" style="background: var(--marron);">
+                      <tr style="text-align: center;">
+                        <th scope="col">ID</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Funciones</th>
+                      </tr>
+                    </thead>
+                    <% products.forEach(({id, title, price, id_category}) => { %>
+                    <tbody>
+                      <tr style="text-align: center;">
+                        <td><%= id %></td>
+                        <td><%= title %></td>
+                        <td>$<%= price %></td>
+                        <td><%= id_category %></td>
+                        <td>1</td>
+                        <td style="display: flex; flex-direction: row; justify-content: space-between;">
+                            <a href="/products/productAdd" style="color: var(--amarillo);">
+                            <i class="fa-solid fa-circle-plus fa-2x"></i>
                             </a>
-                            <form style="display: flex; padding-left: 2vw; align-items: center;" action="/products/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
-                                <button type="submit" style="color: var(--violeta);">
+                            <a href="/products/productEdit/<%= id %>" style="color: var(--marron);">
+                                <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                            </a>  
+                                <form action="/products/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
+                                <button type="submit">
                                     <i class="fas fa-trash-alt fa-2x"></i>
                                 </button>
-                            </form>
-                            </li>
-                        </ul>
-                      
-                <% }) %>
-                </div>
-            </article>
+                                </form>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <% }) %>
+                  </table>       
+                    <table class="table caption-top table-striped table-hover table-bordered">
+                    <thead class="table" style="background: var(--azul);">
+                      <tr style="text-align: center;">
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Funciones</th>
+                      </tr>
+                    </thead>
+                    <% users.forEach(({id, name, rols}) => { %>
+                    <tbody>
+                      <tr style="text-align: center;">
+                        <td><%= id %></td>
+                        <td><%= name %></td>
+                        <td><%= rols.title %></td>
+                        <td style="display: flex; justify-content: space-around; align-items: center;">
+                            <a href="/users/edit-Profile/<%= id %>" style="color: var(--marron);">
+                                <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                            </a>  
+                            <a href="" style="display: flex;">
+                                <form action="/users/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
+                                    <button type="submit">
+                                        <i class="fas fa-trash-alt fa-2x"></i>
+                                    </button>
+                                </form>
+                            </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <% }) %>
+                  </table>
         </section>
+        <div style="display: flex; justify-content:space-around;">
+            <a href="/products" style="color: black; background: var(--marron);">Ver todos los productos</a>
+            <a href="/products" style="color: black; background: var(--azul);">Ver todos los usuarios</a> 
+        </div>
+         
             <% } %>     
 </main>
 
