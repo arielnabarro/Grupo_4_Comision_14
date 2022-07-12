@@ -86,11 +86,12 @@ module.exports = {
 
         profile: (req, res) => {
           let users = db.User.findAll({
-            include : ['rols']
+            include : ['rols'],
+            'limit' : 8
           });
           let user = db.User.findByPk(req.session.userLogin.id);
             let products = db.Product.findAll({
-              'limit' : 5
+              'limit' : 8
             });
             Promise.all([users, user, products])
             .then(([users, user, products]) => {
