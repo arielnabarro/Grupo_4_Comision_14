@@ -18,7 +18,8 @@ module.exports = (sequelize, dataTypes) => {
         id_product : {
             type : dataTypes.INTEGER,
             allowNull : false,
-        }, 
+            onDelete: 'cascade'
+        }
     }
 
     const config = {

@@ -1,5 +1,7 @@
 const { validationResult } = require("express-validator");
 const db = require('../database/models');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
     list : (req, res) => {
@@ -45,7 +47,7 @@ module.exports = {
      },
 
     add : (req,res) => {
-        let {image} = req.body;
+        
         category = db.Category.findAll();
         product = db.Product.findAll({
             include : ['images']
@@ -61,30 +63,21 @@ module.exports = {
     },
 
     store : (req,res) => {
-        const { title, price, descript, id_category,  } = req.body;
+        const { title, price, descript, id_category } = req.body;
 
         db.Product.create({
             title,
             price : +price,
             descript,
-            id_category : id_category,
-
+            id_category : id_category
         })
         .then(product => {
-            if(req.file.length > 0) {
-                let images = req.file.map(({filename}, i) => {
-                    let image = {
-                        file : filename,
-                        id_product : product.id,
-                        primary : i === 0 ? 1 : 0
-                    }
-                    return image
-                })
-                db.Image.bulkCreate(images, {
-                    validate : true
-                }).then((result) => console.log(result))
-            }
-            return res.redirect('/products')
+            if(req.file)
+            db.Image.create({
+                name : req.file ? req.file.filename : 'Logo.png',
+                id_product : product.id
+            })
+            res.redirect('/products')
         })
         .catch(error => console.log(error))
     },
@@ -163,17 +156,30 @@ module.exports = {
             .catch(error => console.log(error))	
     },
 
-    remove : (req, res) => {
-        db.Product.destroy({
-            where : {
-                id : req.params.id
-            }
-        })
-            .then(() => {
-                return res.redirect("/products");
-        })
-        .catch(error => console.log(error))        
-    },
+    destroy : (req, res) => {
+		let image = db.Image.findOne({
+			where : {
+				id_product : req.params.id
+			}
+		})
+			.then(() => {
+					if(fs.existsSync(path.resolve(__dirname,'../public/images/Alimento-balanceado/' + image.name))){
+						fs.unlinkSync(path.resolve(__dirname,'../public/images/Alimento-balanceado/' + image.name))
+					}
+				});
+				db.Product.destroy({
+					where : {
+						id : req.params.id
+					},
+                    paranoid : true,
+                    
+					force : true
+				})
+					.then(() => {
+						return res.redirect('/products');
+					})
+			.catch(error => console.log(error))
+	},
     
     question : (req, res) => res.render('specific-content/questionMark'),
 
