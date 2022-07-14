@@ -6,7 +6,7 @@ const loginValidator = require('../validations/loginValidator');
 /* const profileValidator = require('../validations/profileValidator'); */
 
 
-const {register, login, processRegister, processLogin, profile, logout, updateProfile, editProfile} = require('../controllers/userController');
+const {register, login, processRegister, processLogin, profile, logout, updateProfile, editProfile, adminAdd, storeAdmin, usersList} = require('../controllers/userController');
 const userCheck = require('../middlewares/userCheck');
 const {uploadAvatars} = require('../middlewares/uploadImages');
 
@@ -20,8 +20,12 @@ router
     .get('/login', login)
     .post('/login', loginValidator, processLogin)
     .get('/profile', userCheck,profile)
+    .put('/profile', userCheck,profile)
     .get('/logout', logout)
     .get('/edit-profile/:id', editProfile)
     .put('/update-profile/:id',uploadAvatars.single('avatar'),updateProfile)
+    .get('/list', usersList)
+    .get('/adminAdd', adminAdd) 
+    .post('/adminAdd', storeAdmin) 
 
 module.exports = router;

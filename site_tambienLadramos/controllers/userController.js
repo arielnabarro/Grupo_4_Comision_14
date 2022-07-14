@@ -85,33 +85,77 @@ module.exports = {
         },
 
         profile: (req, res) => {
+
           let users = db.User.findAll({
             include : ['rols'],
             'limit' : 8
           });
+
+          let rolAdm = db.User.findAll({
+            include : ['rols'],
+            where : {
+              id_rol : 1
+            }
+          });
+
+          let rolUser = db.User.findAll({
+            include : ['rols'],
+            where : {
+              id_rol : 2
+            }
+          });
+
           let user = db.User.findByPk(req.session.userLogin.id);
-            let products = db.Product.findAll({
+          let products = db.Product.findAll({
               'limit' : 8
             });
-            Promise.all([users, user, products])
-            .then(([users, user, products]) => {
-                return res.render("users/profile", {
-                    users,
-                    user,
-                    products
-                });
-            }).catch(error => console.log(error))	
-        },
+            Promise.all([users, user, rolAdm, rolUser, products])
+              .then(([users, user, rolAdm, rolUser, products]) => {
+                  return res.render("users/profile", {
+                      users,
+                      user,
+                      rolAdm,
+                      rolUser,
+                      products
+                  })
+              }).catch(error => console.log(error))	
+                .then(() => {
+                  let productToEdit = findByPk({
+                    where : {
+                      id : req.params.id
+                    }
+                  })
+                  .then(() => {
+                    let {quantity} = req.body;
+                    if(quantity != productToEdit.quantity) {
+                      db.Product.Update({
+                        quantity : quantity
+                    },
+                    {
+                        where : {
+                            id : req.params.id
+                        }
+                    })
+                    return res.redirect('users/profile')
+                  }  
+                })
+                })
+              .catch(error => console.log(error)) 
+      },
             
           
     editProfile : (req,res) => {
-    
-      db.User.findByPk(req.session.userLogin.id)
-      .then((users) => res.render("users/editProfile", {
-        users,
-      }))
-    .catch(error => console.log(error))
-  },
+      let userToEdit = db.User.findByPk(req.params.id);
+      let userLogged = db.User.findByPk(req.session.userLogin.id);
+
+      Promise.all([userToEdit, userLogged])
+        .then(([userEdit, user ]) => {
+            return res.render("users/editProfile", {
+                userEdit : userEdit,
+                user
+            })
+        }).catch(error => console.log(error))
+    },
 
     updateProfile: (req, res) => { 
       const {name,last_name,email,password, avatar} = req.body;
@@ -136,59 +180,54 @@ module.exports = {
     })
     .catch(error => console.log(error))
   },
-        /* const errors = validationResult(req);
-        const id = +req.params.id;
-        const {name, last_name, email} = req.body;
-        if (errors.isEmpty()) {
-            db.User.update({
-              name,
-              last_name,
-              email,
-              id_avatar : req.file ? req.file.filename : req.session.userLogin.avatar
-            },
-            {
-              where : {
-                id : id
-              }
-            })
-            .then(user => {
-              res.redirect('users/profile')
-            })
-            .catch(error => console.log(error))
-        
-            if (req.file) {
-                if (fs.existsSync(path.resolve(__dirname, "..", "public", "images", 'avatars', user.avatar)) 
-                    && user.avatar !== 'perro-informatico.png') {
-                fs.unlinkSync(
-                    path.resolve(__dirname, "..", "public", "images", 'avatars', user.avatar)
-                );
-                }
-            }
-            return usuarioModificado;
-
-        }else{
-            console.log(errors);
-            return res.render("users/editProfile", {
-                user : req.body,
-                errors : errors.mapped()
-            });
+  adminAdd : (req, res) => {
+    db.User.findByPk(req.session.userLogin.id, {
+        include : ['rols'],
+        where : {
+            id_rol : 1
         }
-   */
+    })
+    .then(admin => {
+        return res.render('users/adminAdd', {
+            admin
+        })
+    })
+    .catch(error => console.log(error))	
+},
 
-    /* storeUser: (req, res) => {
-        let errores = validationResult(req);
+  storeAdmin: (req, res) => {
+        const { name, last_name, email} = req.body;
 
-        if (!errores.isEmpty()) {
-            return res.render("register", {
-                errorMsg: errores.mapped(),
-            });
-        }
-    }, */
+        db.User.create({
+            name : name,
+            last_name : last_name,
+            email : email,
+            id_rol : 1
+        })
+        .then(() => {
+            if(req.file)
+            db.Avatar.create({
+                name : req.file ? req.file.filename : 'Logo.png',
+            })
+            res.redirect('users/profile')
+        })
+        .catch(error => console.log(error))
+    },
+
+    usersList: (req, res) => {
+      db.User.findAll({
+        include : ['rols']
+      })
+        .then((user)=> {
+          return res.render('users/usersList', {
+            user
+          })
+        })
+    },
+
     logout: (req, res) => {
         req.session.destroy();
         res.cookie('tambienLadramos',null,{maxAge : -1})
         res.redirect('/')
-      }
-
-      
+      }      
   };

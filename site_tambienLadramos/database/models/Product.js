@@ -22,6 +22,10 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.STRING(250),
             allowNull : true,
         },
+        quantity : {
+            type : dataTypes.INTEGER,
+            allowNull : false
+        },
         id_category : {
             type : dataTypes.INTEGER,
             allowNull : false
