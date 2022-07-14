@@ -68,4 +68,19 @@ Contexto: reorganización de equipo y forma de trabajar (mejora en la productivi
 
 4. Hacer menos: no pedir ayuda a otros cuando es necesario
 
-5. Dejar de hacer: confiar en que el equipo va a tapar la carencia indiviual
+5. Dejar de hacer: confiar en que el equipo va a tapar la carencia individual
+
+
+## SPRINT 6 | BASE DE DATOS
+
+Contexto: Mejoramiento de defectos marcados en sprints anteriores. Desestructuración del sprint en objetivos con plazos de vencimiento. Mayor responsabilidad en asignación individual de tareas.
+
+1. Comenzar a hacer: Expansión de objetivos a nivel global del proyecto para el perfeccionamiento del producto final.
+
+2. Hacer más: Desestructuración de sprints en objetivos concretos.
+
+3. Continuar haciendo: Objetivos con plazos de tiempo más breves y rigidos.
+
+4. Hacer menos: Abordaje de contenidos requeridos en forma tardía.
+
+5. Dejar de hacer: Relegar los posibles detalles que complementen la interfaz y funcionalidad del proyecto.
