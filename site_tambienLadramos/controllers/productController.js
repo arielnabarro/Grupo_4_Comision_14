@@ -5,7 +5,7 @@ const path = require("path");
 
 module.exports = {
   list: (req, res) => {
-    db.Product.findAll({
+    let product = db.Product.findAll({
       include: ["images", "category"],
     })
       .then((product) => {
@@ -17,12 +17,18 @@ module.exports = {
   },
 
   tableList: (req, res) => {
-    db.Product.findAll({
-      include: ["images", "category"],
-    })
-      .then((product) => {
+    let product = db.Product.findAll({
+      include: ["images", "category"]
+    });
+    let category = db.Category.findAll({
+      attributes : ['title']
+    });
+
+    Promise.all([product, category])
+      .then(([product, category]) => {
         return res.render("productList", {
           product,
+          category
         });
       })
       .catch((error) => console.log(error));
@@ -112,13 +118,14 @@ module.exports = {
 
   update: (req, res) => {
     let errors = validationResult(req);
-    const { title, price, id_category } = req.body;
+    const { title, price, quantity, id_category } = req.body;
     if (errors.isEmpty()) {
       let product = db.Product.findByPk(req.params.id);
       db.Product.update(
         {
           title: title,
           price: +price,
+          quantity : +quantity,
           image: req.file ? req.file.filename : product.image,
           category: +id_category,
         },
@@ -147,7 +154,7 @@ module.exports = {
               console.log(error);
             }
           }
-          return res.redirect("/products");
+          return res.redirect("/products/tableList");
         })
         .catch((error) => console.log(error));
     }

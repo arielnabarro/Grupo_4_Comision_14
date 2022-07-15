@@ -1,19 +1,31 @@
+/* GLOBAL */
 @import url(./normalize.css);
-@import url(./variables.css);
 @import url(./general.css);
-@import url(./header.css);
-@import url(./hamburgerMenu.css);
-@import url(./main.css);
-@import url(./footer.css);
-@import url(./product.css);
-@import url(./productDetail.css);
-@import url(./productCart.css);
-@import url(./login.css);
-@import url(./register.css);
-@import url(./profile.css);
-@import url(./editProfile.css);
-@import url(./searchResult.css);
-@import url(./productAdd.css);
-@import url(./productEdit.css);
+@import url(./variables.css);
+
+/* PARTIALS */
+@import url(./partials/header.css);
+@import url(./partials/main.css);
+@import url(./partials/footer.css);
+
+/* PRODUCTS */
+@import url(./products/product.css);
+@import url(./products/productDetail.css);
+@import url(./products/productCart.css);
+@import url(./products/productAdd.css);
+@import url(./products/productEdit.css);
+
+/* USERS */
+@import url(./users/login.css);
+@import url(./users/register.css);
+@import url(./users/profile.css);
+@import url(./users/editProfile.css);
+
+/* GENERAL-CONTENT */
+@import url(.//general-content/carousel.css);
+@import url(./general-content/hamburgerMenu.css);
+@import url(.//general-content/modalButtons.css);
+@import url(.//general-content/searchResult.css);
+
 
 
