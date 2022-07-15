@@ -148,8 +148,26 @@
 #profile__li {
     font-size: 0.7rem;
 }
+.profile-table-prod {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
 
+.profile-table-prod #profile-table-users thead{
+    background: var(--azul);
+}
+.profile-table-prod #profile-table-products thead{
+    background: var(--marron);
+}
 
+.profile-toEdit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 @media (min-width: 640px) and (max-width: 1023px) {
 

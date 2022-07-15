@@ -4,13 +4,14 @@ const {uploadProducts} = require('../middlewares/uploadImages');
 const adminCheck = require('../middlewares/adminCheck')
 
 /* const productValidator = require('../validations/productValidator'); */
-const { list, detail, search, cart, add, store, edit, update, question, terms, destroy } = require('../controllers/productController');
+const { list, tableList, detail, search, cart, add, store, edit, update, question, terms, destroy } = require('../controllers/productController');
 
 
 // /products 
 
 router
         .get('/', list)
+        .get('/tableList', tableList)
         .get('/searchResult', search)
         .get('/productDetail/:id', detail) 
         .get('/productCart', cart)

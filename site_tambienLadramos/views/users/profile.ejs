@@ -47,109 +47,71 @@
                 <p>Tu email: <%= user.email %></p>
             </div>
                 <article>
-                    <a href="/users/edit-profile/<%= locals.userLogin.id %>" style="margin: 0 auto; padding: 0 auto; color: var(--marron);">
+                    <a href="/users/edit-profile/<%= locals.userLogin.id %>" style= "color: var(--marron);">
                         <i class="fa-solid fa-user-pen fa-2x"></i>Editar datos del perfil</i>
                     </a>  
                 </article>
         </article>
     </section>  
     <% if (locals.userLogin && locals.userLogin.rol === 1) { %>
-        <div class="profile-info" style="display: flex; flex-direction: row; justify-content: space-evenly; margin-top: 10vh;">
-            <h2 style="background: var(--marron); color: black;">Editar productos</h2> 
-            <h2 style="background: var(--azul); color: black;">Editar usuarios</h2> 
+        <section>
+        <div style="display: flex; margin-top: 4vh;">
+            <h2 style="background: var(--marron); color: black; width: 50%; text-align: center;color: white; box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);border-radius: 35px;margin-bottom: 2vh; font-size: 2vw;">Editar productos</h2> 
+            <h2 style="background: var(--azul); color: black; width: 50%; text-align: center;color: white; box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);border-radius: 35px;margin-bottom: 2vh; font-size: 2vw;">Editar usuarios</h2> 
         </div>
-            <div style="display: flex; justify-content: space-around; margin-top: 1vh; margin-bottom: 2vh;">
-                <a href="/products/productAdd" style="color: white; background:var(--colores4);">
-                    <i class="fa-solid fa-circle-plus"> Agregar productos</i>
-                </a> 
-                <a href="/users/adminAdd" style="color: white; background:var(--colores4);">
-                    <i class="fa-solid fa-circle-plus"> Agregar administrador</i>
-                </a> 
-            </div>     
-        <section class="table-responsive" style="display: flex; justify-content: space-around; align-items: center;">            
-                <table class="table caption-top table-striped table-hover table-bordered table-responsive">
-                    <thead class="table caption-top table-striped table-hover table-bordered" style="background: var(--marron);">
-                      <tr style="text-align: center;">
-                        <th scope="col">ID</th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Categoría</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Funciones</th>
-                      </tr>
-                    </thead>
-                    <% products.forEach(({id, title, price, quantity, id_category}) => { %>
-                    <tbody>
-                      <tr style="text-align: center;">
-                        <td><%= id %></td>
-                        <td><%= title %></td>
-                        <td>$<%= price %></td>
-                        <td><%= id_category %></td>
-                        <td>
-                            <form method="POST" action="/products/productEdit/<%= id %>/?_method=PUT">
-                                <input type="number" value="<%= quantity %>" min="0" max="100" name="quantity" id="quantity" placeholder="<%= quantity %>" style="text-align: center;">
-                                <button type="submit" style="border: none;">
-                                    <a href="" style="color:var(--verde)"><i class="fa-solid fa-circle-check fa-2x"></i></a>
-                                </button>
-                            </form>
-                         </td>
-                        <td style="display: flex; flex-direction: row; justify-content: space-between;">
-                            
-                            <a href="/products/productEdit/<%= id %>" style="color: var(--marron);">
-                                <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                            </a>  
-                                <form action="/products/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
-                                <button type="submit">
-                                    <i class="fas fa-trash-alt fa-2x"></i>
-                                </button>
-                                </form>
-                        </td>
-                      </tr>
-                    </tbody>
-                    <% }) %>
-                </table>     
-                <table class="table caption-top table-striped table-hover table-bordered">
-                        <thead class="table" style="background: var(--azul);">
-                          <tr style="text-align: center;">
-                            <th scope="col">ID</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Rol</th>
-                            <th scope="col">Funciones</th>
-                          </tr>
-                        </thead>
-                        <% users.forEach(({id, name}) => { %>
-                        <tbody>
-                          <tr style="text-align: center;">
-                            <td><%= id %></td>
-                            <td><%= name %></td>
-                            <td>
-                                <select name="" id="">
-                                    <% users.forEach(({rols}) => { %>
-                                        <option value="<%= rols.id %>"><%= rols.title %></option>
-                                    <% }) %>
-                                </select>                           
-                            </td>
-                            <td style="display: flex; justify-content: space-around; align-items: center;">
-                                <a href="/users/edit-Profile/<%= id %>" style="color: var(--marron);">
-                                    <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                                </a>  
-                                <a href="" style="display: flex;">
-                                    <form action="/users/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
-                                        <button type="submit">
-                                            <i class="fas fa-trash-alt fa-2x"></i>
-                                        </button>
-                                    </form>
-                                </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                        <% }) %>
-                      </table>                    
+        <div style="display: flex; flex-direction: row; justify-content: space-around; margin: 2vh auto;">
+            <a href="/products/productAdd" style="color: white; background:var(--colores4); margin-bottom: 1vh;">
+                <i class="fa-solid fa-circle-plus"> Agregar productos</i>
+            </a> 
+            <a href="/users/adminAdd" style="color: white; background:var(--colores4); margin-bottom: 1vh;">
+                <i class="fa-solid fa-circle-plus"> Agregar administrador</i>
+            </a> 
+        </div>     
+        <section class="profile-table-prod">    
+            <table class="table table-sm table-bordered table-hover table-striped w-25 table-responsive" id="profile-table-products">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                  </tr>
+                </thead>
+                <% products.forEach(({id, title, price, quantity})=> { %>   
+                <tbody>
+                  <tr>
+                    <td><%= id %></td>
+                    <td><%= title %></td>
+                    <td><%= price %></td>
+                    <td><%= quantity %></td>
+                  </tr>
+                </tbody>
+                <% }) %>  
+              </table>   
+              <table class="table table-sm table-bordered table-hover table-striped w-25 table-responsive" id="profile-table-users">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Rol</th>
+                  </tr>
+                </thead>
+                <% users.forEach(({id, name, rols})=> { %>   
+                <tbody>
+                  <tr>
+                    <td><%= id %></td>
+                    <td><%= name %></td>
+                    <td><%= rols.title %></td>
+                  </tr>
+                </tbody>
+                <% }) %>  
+              </table>   
         </section>
-        <div style="display: flex; justify-content:space-around;">
-            <a href="/products" style="color: black; background: var(--marron);">Ver todos los productos</a>
-            <a href="/users/list" style="color: black; background: var(--azul);">Ver todos los usuarios</a> 
+        <div class="profile-toEdit">
+            <a href="/products/tableList" style="color: black; background: var(--marron);margin-bottom: 2vh;">Ver todos los productos</a>
+            <a href="/users/list" style="color: black; background: var(--azul); margin-bottom: 2vh;">Ver todos los usuarios</a> 
         </div>
+    </section>
          
             <% } %>     
 </main>
