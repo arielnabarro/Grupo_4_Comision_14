@@ -1,0 +1,32 @@
+.services-section {
+    display: flex;
+    justify-content: center;
+}
+
+.services-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 3px;
+    background: var(--colores4);
+}
+
+.services-divs-imgs {
+    display: flex;
+    margin: 5px 3px;
+}
+
+.services-divs-imgs div img{
+    width: 20vw;
+    height: 20vw;
+}
+
+.services-details {
+    display: flex;
+    width: 45vw;
+    height: 40vw;
+    background-color: var(--azul);
+    border: 2px solid var(--amarillo);
+    align-items: center;
+    justify-content: space-around;
+}
