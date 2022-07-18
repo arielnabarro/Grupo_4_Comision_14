@@ -2,10 +2,11 @@
 @import url(./normalize.css);
 @import url(./general.css);
 @import url(./variables.css);
+@import url(./main.css);
 
 /* PARTIALS */
 @import url(./partials/header.css);
-@import url(./partials/main.css);
+
 @import url(./partials/footer.css);
 
 /* PRODUCTS */
