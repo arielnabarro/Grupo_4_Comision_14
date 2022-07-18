@@ -52,15 +52,16 @@
 
 .products-productos article{
     display: flex;
-    height: 70vw;
+    height: 65vw;
     width: 45%;
-    margin-bottom: 10px;
+    margin: 2vw 2vw;
     box-shadow: 0px 0px 5px 3px rgb(0 0 0 / 25%);
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     border-radius: 35px;
-    padding: 10px;
+    padding: 1vw;
+
 }
 
 .products-productos article:hover{
@@ -96,8 +97,8 @@
 }
 
 .products-productos article a div img {
-    height: 40vw;
-    width: 20vw
+    height: 25vw;
+    width: 15vw
 }
 
 .products-productos article a p {
@@ -145,8 +146,11 @@
     }
 
     .products-productos article a div img {
-        height: 25vw;
+        height: 20vw;
         width: 15vw;
+    }
+    .producto_pag_1 i {
+        font-size: 3vw;
     }
 }
 
@@ -159,8 +163,8 @@
         font-size: 2vw;
     }
 
-    .product-mas-relevante i p{
-        font-size: 2vw;
+    .product-mas-relevante i {
+        font-size: 5vw;
     }
 
     .products-productos {
@@ -168,8 +172,9 @@
     }
 
     .products-productos article{
-        height: 30vw;
-        width: 17vw;
+        height: 40vh;
+        width: 13vw;
+        margin: 1vw 1vw;
     }
 
     .products-productos input {
@@ -181,11 +186,11 @@
     }
 
     .products-productos article a div img {
-        height: 18vw;
-        width: 12vw;
+        height: 10vw;
+        width: 8vw;
     }
 
-    .producto_pag_1 {
-        font-size: 2vw;
+    .producto_pag_1 i {
+        font-size: 2.5vw;
     }
 }
