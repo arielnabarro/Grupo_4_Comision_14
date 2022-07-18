@@ -85,65 +85,26 @@ module.exports = {
         },
 
         profile: (req, res) => {
-
           let users = db.User.findAll({
             include : ['rols'],
-            'limit' : 8
+            'limit' : 5
           });
-
-          let rolAdm = db.User.findAll({
-            include : ['rols'],
-            where : {
-              id_rol : 1
-            }
-          });
-
-          let rolUser = db.User.findAll({
-            include : ['rols'],
-            where : {
-              id_rol : 2
-            }
-          });
-
+          let rols = db.Rol.findAll()
           let user = db.User.findByPk(req.session.userLogin.id);
           let products = db.Product.findAll({
-              'limit' : 8
+              'limit' : 5
             });
-            Promise.all([users, user, rolAdm, rolUser, products])
-              .then(([users, user, rolAdm, rolUser, products]) => {
+            Promise.all([users, user, rols, products])
+              .then(([users, user, rols, products]) => {
                   return res.render("users/profile", {
                       users,
                       user,
-                      rolAdm,
-                      rolUser,
+                      rols,
                       products
                   })
-              }).catch(error => console.log(error))	
-                .then(() => {
-                  let productToEdit = findByPk({
-                    where : {
-                      id : req.params.id
-                    }
-                  })
-                  .then(() => {
-                    let {quantity} = req.body;
-                    if(quantity != productToEdit.quantity) {
-                      db.Product.Update({
-                        quantity : quantity
-                    },
-                    {
-                        where : {
-                            id : req.params.id
-                        }
-                    })
-                    return res.redirect('users/profile')
-                  }  
-                })
-                })
-              .catch(error => console.log(error)) 
-      },
+              }).catch(error => console.log(error))                
+            },       
             
-          
     editProfile : (req,res) => {
       let userToEdit = db.User.findByPk(req.params.id);
       let userLogged = db.User.findByPk(req.session.userLogin.id);
@@ -196,12 +157,13 @@ module.exports = {
 },
 
   storeAdmin: (req, res) => {
-        const { name, last_name, email} = req.body;
+        const { name, last_name, email, password} = req.body;
 
         db.User.create({
             name : name,
             last_name : last_name,
             email : email,
+            password : bcryptjs.hashSync(password, 10),
             id_rol : 1
         })
         .then(() => {
