@@ -4,6 +4,8 @@ const router = express.Router();
 const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator');
 const profileValidator = require('../validations/profileValidator');
+const adminValidator = require('../validations/adminValidator');
+
 
 
 const {register, login, processRegister, processLogin, profile, logout, updateProfile, editProfile, adminAdd, storeAdmin, usersList} = require('../controllers/userController');
@@ -23,7 +25,7 @@ router
     .put('/profile', userCheck,profile)
     .get('/logout', logout)
     .get('/edit-profile/:id', editProfile)
-    .put('/update-profile/:id',uploadAvatars.single('avatar'), profileValidator,updateProfile)
+    .put('/update-profile/:id',uploadAvatars.single('avatar'), adminValidator, updateProfile)
     .get('/list', usersList)
     .get('/adminAdd', adminAdd) 
     .post('/adminAdd', storeAdmin) 

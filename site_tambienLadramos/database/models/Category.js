@@ -28,10 +28,22 @@ module.exports = (sequelize, dataTypes) => {
             as : 'products',
             foreignKey : 'id_category'
             })
+        Category.hasMany(modelos.Brand, {
+            as : 'brands',
+            foreignKey : 'id_category'
+            })   
         Category.hasMany(modelos.Defaultpic, {
             as : 'defaultpics',
             foreignKey : 'id_category'
-            })        
+            })  
+        Category.hasMany(modelos.Dog_Breed, {
+            as : 'dog_breeds',
+            foreignKey : 'id_category'
+            })   
+        Category.hasMany(modelos.Cat_Breed, {
+            as : 'cat_breeds',
+            foreignKey : 'id_category'
+            })          
     }   
         
         return Category

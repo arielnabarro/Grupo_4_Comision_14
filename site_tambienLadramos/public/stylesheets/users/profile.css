@@ -152,16 +152,32 @@
     display: flex;
     flex-direction: row;
     text-align: center;
-    justify-content: space-around;
-    align-items: center;
+    align-items:baseline;
 }
 
 .profile-table-prod #profile-table-users thead{
     background: var(--azul);
 }
 .profile-table-prod #profile-table-products thead{
-    background: var(--marron);
+    background: var(--marron); 
 }
+
+.section-profile-prod-users #profile-h2-products, #profile-h2-users {
+    background: var(--marron); color: black; width: 50%; text-align: center;color: white; box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);border-radius: 35px;margin-bottom: 2vh; font-size: 2vw;
+}
+
+.section-profile-prod-users #profile-h2-users {
+    background: var(--azul);
+}
+
+.section-profile-prod-users div a {
+    color: black; background:var(--colores4); padding-left: 1vh; margin-bottom: 1vh;
+}
+
+.section-profile-prod-users div a:hover {
+    color: white;
+}
+
 
 .profile-toEdit {
     display: flex;

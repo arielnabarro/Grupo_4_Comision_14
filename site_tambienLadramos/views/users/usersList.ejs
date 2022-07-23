@@ -10,14 +10,15 @@
 <main>
 
     <h2 class="profile-title">Vista global de edición de usuarios</h2>
+    <section class="section-profile-prod-users">
     <div style="display: flex; flex-direction: row; justify-content: space-around;">
-        <a href="/users/profile" style="color: black; background:var(--colores4); padding-left: 1vh; margin-bottom: 1vh;">
+        <a href="/users/profile">
             <i class="fa-solid fa-circle-left"> Volver al perfil</i>
         </a> 
-        <a href="/users/adminAdd" style="color: black; background:var(--colores4); padding-left: 1vh; margin-bottom: 1vh;">
+        <a href="/users/adminAdd">
             <i class="fa-solid fa-circle-plus"> Agregar administrador</i>
         </a> 
-        <a href="/products/tablelist" style="color: black; background:var(--colores4); padding-left: 1vh;  margin-bottom: 1vh;">
+        <a href="/products/tablelist">
             <i class="fa-solid fa-circle-right"> Editar productos</i>
         </a> 
     </div>  
@@ -26,15 +27,17 @@
                     <tr style="text-align: center;">
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
+                    <th scope="col">email</th>
                     <th scope="col">Rol</th>
                     <th scope="col">Funciones</th>
                     </tr>
                 </thead>
-                <% user.forEach(({id, name, rols}) => { %>
+                <% user.forEach(({id, name, email, rols}) => { %>
                 <tbody>
                     <tr style="text-align: center;">
                     <td><%= id %></td>
                     <td><%= name %></td>
+                    <td><%= email %></td>
                     <td><%= rols.title %></td>
                     <td style="display: flex; justify-content: space-around; align-items: center;">
                         <a href="/users/edit-Profile/<%= id %>" style="color: var(--marron);">

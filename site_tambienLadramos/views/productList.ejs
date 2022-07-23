@@ -10,14 +10,15 @@
 <main>
 
     <h2 class="profile-title">Vista global de edición de productos</h2>
+    <section class="section-profile-prod-users">
     <div style="display: flex; flex-direction: row; justify-content: space-around;">
-        <a href="/users/profile" style="color: black; background:var(--colores4); padding-left: 1vh; margin-bottom: 1vh;">
+        <a href="/users/profile">
             <i class="fa-solid fa-circle-left"> Volver al perfil</i>
         </a> 
-        <a href="/products/productAdd" style="color: black; background:var(--colores4); padding-left: 1vh; margin-bottom: 1vh;">
-            <i class="fa-solid fa-circle-plus"> Agregar productos</i>
+        <a href="/products/productAdd">
+            <i class="fa-solid fa-circle-plus"> Agregar producto</i>
         </a> 
-        <a href="/users/list" style="color: black; background:var(--colores4); padding-left: 1vh;  margin-bottom: 1vh;">
+        <a href="/users/list">
             <i class="fa-solid fa-circle-right"> Editar usuarios</i>
         </a> 
     </div>     
@@ -32,9 +33,10 @@
                     <th scope="col">Funciones</th>
                     </tr>
                 </thead>
-                <% product.forEach(({id, title, price, quantity, category}) => { %>
-                <form method="POST" action="/products/productEdit/<%= id %>/?_method=PUT">
+                
+                <form method="POST" action="/products/productEdit/<%= product.id %>/?_method=PUT">
                 <tbody>
+                    <% product.forEach(({id, title, price, quantity, id_category}) => { %>
                     <tr style="text-align: center;">
                     <td><%= id %></td>
 
@@ -49,21 +51,38 @@
                         <input type="number" name="quantity" id="quantity" value="<%= quantity %>">
                     </td>
                     <td>
-                    <%= category.id %> 
+                            <select name="category">
+                                <option hidden selected value="<%= id_category %>">
+                                    <% if (id_category === 1) { %>
+                                        <%= id_category = 'Perro' %> 
+                                    <% } else { %> 
+                                        <%= id_category = 'Gato' %> 
+                                    <% } %>
+                                </option>
+                                <% category.forEach(({id, title}) => { %>
+                                <option <%= +id ? 'selected' : null %> value="<%= id_category %>">
+                                    <%= title %>
+                                </option>
+                                <% }) %>
+                            </select>
+                            <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
+                    </td>
                     <td style="display: flex; justify-content: space-around; align-items: center;">
                             <button type="submit" style="border: none; color: var(--verde);">
                                 <i class="fa-solid fa-circle-check fa-2x"></i>
                             </button>
-                        <a href="/products/productEdit/<%= product.id %>" style="color: var(--marron);">
+                    
+                        <a href="/products/productEdit/<%= id %>" style="color: var(--marron);">
                             <i class="fa-solid fa-pen-to-square fa-2x"></i>
                         </a>  
-                        <a href="" style="display: flex;">
-                            <form action="/products/productDetail/remove/<%= product.id %>?_method=DELETE" method="POST">
+                        <div>
+                            <form action="/products/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
                                 <button type="submit" style="border: none;">
                                     <i class="fas fa-trash-alt fa-2x"></i>
                                 </button>
                             </form>
-                        </a>
+                        </div>
+                        
                     </td>
                     </tr> 
                 </tbody>
