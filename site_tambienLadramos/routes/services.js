@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const {service} = require('../controllers/serviceController');
+const {service, turn} = require('../controllers/serviceController');
 
 /* /services */
-router.get('/', service);
+router
+        .get('/', service)
+        .get('/turns', turn)
 
 module.exports = router;

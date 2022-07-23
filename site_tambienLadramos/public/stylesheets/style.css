@@ -18,9 +18,12 @@
 
 /* USERS */
 @import url(./users/login.css);
-@import url(./users/registegitr.css);
+@import url(./users/register.css);
 @import url(./users/profile.css);
 @import url(./users/editProfile.css);
+
+/* SERVICE */
+@import url(./services.css);
 
 /* GENERAL-CONTENT */
 @import url(.//general-content/carousel.css);

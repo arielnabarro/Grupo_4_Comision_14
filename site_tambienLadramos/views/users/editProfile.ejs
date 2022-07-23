@@ -21,7 +21,7 @@
                 <article>
                     <div>
                         <label for="name">Nombre: </label>
-                        <input type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= userEdit.name %>" >
+                        <input class="<%= locals.name && errors.name ? 'is-invalid' : null %>" type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= userEdit.name %>" >
                     </div>
                     <div>
                         <label for="last_name">Apellido: </label>
