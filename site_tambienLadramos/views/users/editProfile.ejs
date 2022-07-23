@@ -29,7 +29,7 @@
                     </div>
                     <div>
                         <label for="email">Email: </label>
-                        <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" required placeholder="<%= userEdit.email %>" >
+                        <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" disabled placeholder="<%= userEdit.email %>" >
                     </div>
                     <div class="imagePreview">
                         <img src="/images/avatars/<%= userEdit.avatar %>" alt="">

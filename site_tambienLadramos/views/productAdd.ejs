@@ -12,8 +12,19 @@
 
 <main class="productAdd"> 
 
-    <section>
-        <h2>Agregar Producto</h2>
+    <section class="section-profile-prod-users">
+        <h2 class="profile-title">Agregar producto</h2>
+        <div style="display: flex; flex-direction: row; justify-content: space-around;">
+            <a href="/users/profile">
+                <i class="fa-solid fa-circle-left"> Volver al perfil</i>
+            </a> 
+            <a href="/products/tableList">
+                <i class="fa-solid fa-circle-plus"> Editar productos</i>
+            </a> 
+            <a href="/users/list">
+                <i class="fa-solid fa-circle-right"> Editar usuarios</i>
+            </a> 
+        </div>   
         <div class="productAdd__form" >
             <form method="POST" action="" enctype="multipart/form-data">
                 <article>
@@ -24,6 +35,10 @@
                     <div>
                         <label for="price">Precio:</label>
                         <input type="number" id="price" name="price" required>
+                    </div>
+                    <div>
+                        <label for="price">Stock:</label>
+                        <input type="number" id="quantity" name="quantity" required>
                     </div>
                     <div>
                         <label for="category">Categoría:</label>

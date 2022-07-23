@@ -11,3 +11,7 @@
 .form-errors {
     color: red;
 }
+
+.home-body #button-redirect:hover {
+    color: red;
+}

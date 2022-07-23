@@ -86,14 +86,12 @@ module.exports = {
 
         profile: (req, res) => {
           let users = db.User.findAll({
-            include : ['rols'],
-            'limit' : 5
+            include : ['rols']
           });
           let rols = db.Rol.findAll()
           let user = db.User.findByPk(req.session.userLogin.id);
           let products = db.Product.findAll({
-              'limit' : 5
-            });
+          });
             Promise.all([users, user, rols, products])
               .then(([users, user, rols, products]) => {
                   return res.render("users/profile", {
@@ -157,24 +155,47 @@ module.exports = {
 },
 
   storeAdmin: (req, res) => {
-        const { name, last_name, email, password} = req.body;
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+        let { name, last_name, email, password } = req.body;
 
         db.User.create({
-            name : name,
-            last_name : last_name,
-            email : email,
-            password : bcryptjs.hashSync(password, 10),
-            id_rol : 1
+            name: name,
+            last_name: last_name,
+            email: email,
+            password: bcryptjs.hashSync(password, 10),
+            id_rol : 1,
+            avatar : 'perro-informatico.png'   
         })
         .then(() => {
-            if(req.file)
-            db.Avatar.create({
-                name : req.file ? req.file.filename : 'Logo.png',
-            })
-            res.redirect('users/profile')
+          if (req.session.userLogin) {
+            req.session.destroy();
+            if (res.cookie) {
+              res.cookie('tambienLadramos',null,{maxAge : -1})
+            }
+          }
         })
+        .then(user => {
+          req.session.userLogin = {
+            id : +user.id,
+            name : user.name,
+            last_name : user.last_name,
+            rol : +user.id_rol,
+            avatar : user.avatar
+          }
+          res.locals.user = req.session.user;
+            res.redirect('/')
+            })
         .catch(error => console.log(error))
-    },
+    
+    } else {
+        return res.render("users/register", {
+            old : req.body,
+            errors : errors.mapped(),
+        });
+    }
+},
+  
 
     usersList: (req, res) => {
       db.User.findAll({

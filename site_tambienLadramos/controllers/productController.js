@@ -5,8 +5,8 @@ const path = require("path");
 
 module.exports = {
   list: (req, res) => {
-    let product = db.Product.findAll({
-      include: ["images", "category"],
+    db.Product.findAll({
+      include: ["images", "category", "brands"],
     })
       .then((product) => {
         return res.render("products", {
@@ -80,11 +80,12 @@ module.exports = {
   },
 
   store: (req, res) => {
-    const { title, price, descript, id_category } = req.body;
+    const { title, price, descript, quantity, id_category } = req.body;
 
     db.Product.create({
       title,
       price: +price,
+      quantity : +quantity,
       descript,
       id_category: id_category,
     })
@@ -101,16 +102,16 @@ module.exports = {
 
   edit: (req, res) => {
     let product = db.Product.findByPk(req.params.id, {
-      include: [{ association: "images" }],
+      include : ["images", "category"]       
     });
 
-    let categories = db.Category.findAll();
+    let category = db.Category.findAll();
 
-    Promise.all([product, categories])
-      .then(([product, categories]) => {
+    Promise.all([product, category])
+      .then(([product, category]) => {
         return res.render("productEdit", {
           product,
-          categories,
+          category,
         });
       })
       .catch((error) => console.log(error));
@@ -118,7 +119,7 @@ module.exports = {
 
   update: (req, res) => {
     let errors = validationResult(req);
-    const { title, price, quantity, id_category } = req.body;
+    const { title, price, quantity, category } = req.body;
     if (errors.isEmpty()) {
       let product = db.Product.findByPk(req.params.id);
       db.Product.update(
@@ -127,7 +128,7 @@ module.exports = {
           price: +price,
           quantity : +quantity,
           image: req.file ? req.file.filename : product.image,
-          category: +id_category,
+          id_category: +category,
         },
         {
           where: {
@@ -135,7 +136,6 @@ module.exports = {
           },
         }
       )
-
         .then(() => {
           if (req.file) {
             try {

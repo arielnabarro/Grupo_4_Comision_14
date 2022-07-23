@@ -3,6 +3,7 @@ const router = express.Router();
 
 const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator');
+const adminValidator = require('../validations/adminValidator');
 /* const profileValidator = require('../validations/profileValidator'); */
 
 

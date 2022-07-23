@@ -49,6 +49,16 @@ module.exports = (sequelize, dataTypes) => {
             as : 'rols',
             foreignKey : 'id_rol'
         })
+    User.hasMany(modelos.Pet, {
+            as : 'pets',
+            foreignKey : 'id_user'
+        })
+    User.belongsToMany(modelos.Service, {
+            as : 'services',
+            through : 'turns',
+            foreignKey : 'id_user',
+            timestamps : false
+        }) 
     }
     return User
 

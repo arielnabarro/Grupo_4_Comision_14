@@ -1,5 +1,19 @@
-//???
+const db = require('../database/models')
+const { Sequelize, Op } = require("sequelize");
 
 module.exports = {
-    service : (req, res) => res.render('services')
+    service : (req, res) => {
+        db.Dog_Breed.findAll({
+            include : ['pets']
+        }
+        
+        )
+        .then((dog) => {
+            return res.send(dog)
+            res.render('servicesProof', {
+                dog
+            })
+        })
+        
+    }
 }

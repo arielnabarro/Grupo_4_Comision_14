@@ -44,11 +44,18 @@ module.exports = (sequelize, dataTypes) => {
             as : 'images',
             foreignKey : 'id_product'
         })
+        
     Product.belongsTo(modelos.Category, {
             as : 'category',
             foreignKey : 'id_category'
         })
+
+    Product.belongsTo(modelos.Brand, {
+            as : 'brands',
+            foreignKey : 'id_brand'
+        })
     }
+    
 
         return Product
 }

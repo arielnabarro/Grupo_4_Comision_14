@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="body_productos">
+
+    <%- include('./partials/head') %>
+    
+<body class="body_productos">
+
+    <%- include('./partials/header') %>
+    
+<main>
+<% dog.forEach(({name, pets}) => { %>
+    <p>
+        <%= name %> 
+    </p>
+    <% pets.forEach(({name}) => { %>
+    <p>
+        <%= name %> 
+    </p>
+    <% }) %>
+    
+<% }) %>
+    
+
+</main>
+
+    <%- include('./partials/footer') %>
+
+</body>
+</html>

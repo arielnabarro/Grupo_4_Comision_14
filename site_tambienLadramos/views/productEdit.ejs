@@ -13,7 +13,19 @@
 <main class="productEdit">
     
     <section>
-        <h2>Editar Producto : <%= product.title %></h2>
+        <h2 class="profile-title">Editar Producto : <%= product.title %></h2>
+        <section class="section-profile-prod-users">
+        <div style="display: flex; flex-direction: row; justify-content: space-around;">
+            <a href="/users/profile">
+                <i class="fa-solid fa-circle-left"> Volver al perfil</i>
+            </a> 
+            <a href="/products/productAdd">
+                <i class="fa-solid fa-circle-plus"> Agregar productos</i>
+            </a> 
+            <a href="/users/list">
+                <i class="fa-solid fa-circle-right"> Editar usuarios</i>
+            </a> 
+        </div>   
         <div class="productEdit__form">
             <form method="POST" action="/products/productEdit/<%= product.id %>/?_method=PUT" enctype="multipart/form-data">
                 <article>
@@ -26,11 +38,13 @@
                         <input type="number" id="price" name="price" value="<%= product.price %>" required placeholder="<%= product.price %>">
                     </div>
                     <div>
-                        <label for="category">Categoria: <%= categories.id %></label>
-                        <select <%= locals.errors && errors.category ? 'is-invalid' : null%> name="category" id="category" value="<%= product.category %>" required>
-                            <option value="<%= categories.title %> " hidden selected>Selecciona la categoría</option>
-                            <% categories.forEach(category => { %>
-                            <option <%= locals.old && old.category && +old.category === +category.id ? 'selected' : null %>  value="<%= category.title %>"><%= category.title %></option>
+                        <label for="category">Categoria: </label>
+                        <select name="category">
+                            <option hidden selected value="<%= product.id_category %>">
+                                <%= product.category.title %> 
+                            </option>
+                            <% category.forEach(({id, title}) => { %>
+                            <option <%= locals.old && old.category && +old.category === +id ? 'selected' : null %> value="<%= id %>"><%= title %></option>
                             <% }) %>
                         </select>
                         <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
