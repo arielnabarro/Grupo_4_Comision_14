@@ -102,7 +102,12 @@
 }
 
 .products-productos article a p {
-    font-size: 3vw;
+    font-size: 4vw;
+    
+}
+
+.products-productos article a {
+    text-decoration: none;
 }
 
 .producto_pag_1 {
@@ -141,8 +146,13 @@
         font-size: 2vw;
     }
 
+    .products-productos article a {
+        text-decoration: none;
+    }
+
     .products-productos article a p {
-        font-size: 2vw;
+        font-size: 2.5vw;
+        text-decoration: none;
     }
 
     .products-productos article a div img {
@@ -172,7 +182,7 @@
     }
 
     .products-productos article{
-        height: 40vh;
+        height: 35vh;
         width: 13vw;
         margin: 1vw 1vw;
     }
@@ -181,8 +191,12 @@
         font-size: 1vw;
     }
 
+    .products-productos article a {
+        text-decoration: none;
+    }
+
     .products-productos article a p {
-        font-size: 1vw;
+        font-size: 1.3vw;
     }
 
     .products-productos article a div img {

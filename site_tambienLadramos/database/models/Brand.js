@@ -13,10 +13,6 @@ module.exports = (sequelize, dataTypes) => {
         title : {
             type : dataTypes.STRING(50),
             allowNull : false
-        },
-        id_category : {
-            type : dataTypes.INTEGER,
-            allowNull : false
         }
     }
 
@@ -31,10 +27,6 @@ module.exports = (sequelize, dataTypes) => {
         Brand.hasMany(modelos.Product, {
                 as : 'products',
                 foreignKey : 'id_brand'
-                })
-        Brand.belongsTo(modelos.Category, {
-                as : 'category',
-                foreignKey : 'id_category'
                 })
             }
 
