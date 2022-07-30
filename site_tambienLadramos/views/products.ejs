@@ -19,7 +19,6 @@
             
             <% product.forEach(({id, title, price, images}) => { %> 
                 <article>
-                    <p><%= title %></p>
                     <a href="/products/productDetail/<%= id %>">
                         <% images.forEach(({name}) => { %>
                             <div>
@@ -27,6 +26,7 @@
                             </div>
                         <% }) %>
                         <p>$<%= price %></p>
+                        <p id="title-product"><%= title %></p>
                     </a>
                     <form class="form-product-cart" action="" method="get">
                         <i class="fa-solid fa-cart-plus">
