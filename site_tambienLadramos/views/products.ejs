@@ -19,20 +19,20 @@
             
             <% product.forEach(({id, title, price, images}) => { %> 
                 <article>
-                    <p><%= title %></p>
                     <a href="/products/productDetail/<%= id %>">
-                        <% images.forEach(({name}) => { %>
-                            <div>
-                                <img src="/images/Alimento-balanceado/<%= name %>" alt="">     
-                            </div>
-                        <% }) %>
-                        <p>$<%= price %></p>
-                    </a>
-                    <form class="form-product-cart" action="" method="get">
-                        <i class="fa-solid fa-cart-plus">
-                        </i>
+                        <p><%= title %></p>
+                    
+                            <% images.forEach(({name}) => { %>
+                                <div>
+                                    <img src="/images/Alimento-balanceado/<%= name %>" alt="">     
+                                </div>
+                            <% }) %>
+                            <p>$<%= price %></p>
 
-                    </form>
+                        <form class="form-product-cart" action="" method="get">
+                            <i class="fa-solid fa-cart-plus">agregar</i>
+                        </form>
+                    </a>
                 </article> 
            <% }) %>
 
