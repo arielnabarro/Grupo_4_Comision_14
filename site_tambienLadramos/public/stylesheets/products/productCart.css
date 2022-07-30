@@ -18,6 +18,7 @@
     height: 20vw;
     margin: 0px auto;
     border-collapse: collapse;
+    
 }
 
 .cart-end-section-table {
@@ -39,6 +40,13 @@
     font-size: 3vw;
     border: 3px solid var(--azul);
     outline: 1px solid var(--amarillo);
+    overflow: auto;
+}
+
+.cart-table td {
+    width: 20px;
+    height: 30px;
+    overflow-y: scroll;
 }
 
 .cart-end-of-table a {
