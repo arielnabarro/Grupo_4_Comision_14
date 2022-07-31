@@ -18,7 +18,6 @@
                 <th>Detalles de producto</th>
                 <th>Precio</th>
             </tr>
-
             <% product.forEach(({title,price,descript,images}) => { %> 
                 <tr>
                     <td><%= title %></td>                 
@@ -31,14 +30,13 @@
                     <td><%= price %></td>
                 </tr>
             <% }) %>
-        </table> 
-
+        </table>
+    </nav>
+    <nav class="tabla-carrito-2">
         <section class="cart-end-section-table">
             <table class="cart-end-of-table">     
                 <tr>
                     <th>Total a pagar</th>
-                </tr>
-                <tr>
                     <th><a href="">Finalizar compra</a></th>
                 </tr>
             </table>
