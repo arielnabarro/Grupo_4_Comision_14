@@ -10,7 +10,63 @@
 <main>
 
     <h1 class="cart-title">Carrito de compras</h1>
-    <nav class="tabla-carrito"> 
+    
+    <section class="cart-tarjets">
+        <% product.forEach(({title,price,descript,images}) => { %>
+            <article class="cart-tarjet">
+                <div class="cart-tarjet-img">
+                    <% images.forEach(({name}) => { %>
+                        <img src="/images/Alimento-balanceado/<%= name %>" alt="">
+                    <% }) %> 
+                </div>
+                <div class="cart-tarjet-title">
+                    <h6><%= title %></h6>
+                </div>
+                <div class="cart-tarjet-price">
+                    <p><%= price %> $</p>
+                </div>
+            </article>
+        <% }) %>
+
+        <article class="cart-tarjet">
+            <div class="cart-tarjet-img">
+                <img src="/images/avatars/Logo.png" alt="">
+            </div>
+            <div class="cart-tarjet-options">
+                 <input type="checkbox" name="" id="">
+                 <option value="">a</option>
+            </div>
+            <div class="cart-tarjet-option-2">
+                <p>codigo postal:</p>
+            </div>
+        </article>
+
+        <article class="cart-tarjet">
+            <div class="cart-tarjet-img">
+                <img src="/images/avatars/Logo.png" alt="">
+            </div>
+            <div class="cart-tarjet-options">
+                <h6><option value="">???</option></h6>
+            </div>
+            <div class="cart-tarjet-price-total">
+                <p>total a pagar: ???</p>
+            </div>
+        </article>
+    </section>
+    
+    <section>
+        <div class="cart-botton-comprar"> 
+            <button>comprar</button>
+        </div>
+        
+        <div class="cart-ver-mas"> 
+            <a href="/products"><p>ver más productos</p></a>
+        </div>
+    </section>
+        
+    
+    
+    <!-- <nav class="tabla-carrito"> 
         <table class="cart-table">
             <tr>
                 <th>Nombre</th>
@@ -18,18 +74,16 @@
                 <th>Detalles de producto</th>
                 <th>Precio</th>
             </tr>
-            <% product.forEach(({title,price,descript,images}) => { %> 
                 <tr>
-                    <td><%= title %></td>                 
-                    <% images.forEach(({name}) => { %>
+                    <td></td>                 
                         <td class="tabla-img-td">
-                            <img src="/images/Alimento-balanceado/<%= name %>" alt="">     
+                                 
                         </td>
-                    <% }) %>                                    
-                    <td><%= descript %></td>
-                    <td><%= price %></td>
+                                                       
+                    <td></td>
+                    <td></td>
                 </tr>
-            <% }) %>
+            
         </table>
     </nav>
     <nav class="tabla-carrito-2">
@@ -42,62 +96,7 @@
             </table>
         </section>
         
-    </nav>
-
-    <nav>
-        <h2 class="cart-title-relaciondos">Productos relacionados</h2>
-        <section class="productos_relacionados">
-            <div>
-                <i class="fa-solid fa-circle-arrow-left fa-2x"></i>
-            </div>
-
-            <article>
-                <a href="/products/productDetail/1">
-                    <div>
-                        <img src="/images/productos_jpg/raza_1.jpg" alt="producto">
-                    </div>
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <article>
-                <a href="/products/productDetail/2">
-                    <div>
-                        <img src="/images/productos_jpg/raza_1.jpg" alt="producto">
-                    </div>
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <article>
-                <a href="/products/productDetail/3">
-                    <div>
-                        <img src="/images/productos_jpg/raza_1.jpg" alt="producto">
-                    </div>
-                    <p>producto-1</p>
-                    <p>precio 000$</p>
-                </a>
-                <form action="" method="get">
-                    <input type="button" value="agregar a carrito">
-                </form>
-            </article>
-
-            <div>
-                <i class="fa-solid fa-circle-arrow-right fa-2x"></i>
-            </div>
-        </section>
-        <div class="cart-ver-mas"> 
-            <a href="/products"><p>ver más productos</p></a>
-        </div>
-    </nav>
+    </nav> -->
 
 </main>
 
