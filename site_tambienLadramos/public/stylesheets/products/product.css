@@ -51,8 +51,8 @@
 
 .products-productos article{
     display: flex;
-    height: 65vw;
-    width: 40%;
+    height: 5vh;
+    width: 40vw;
     margin: 2vw 2vw;
     box-shadow: 0px 0px 5px 3px rgb(36 124 154 / 25%);
     border-radius: 35px;
@@ -65,12 +65,11 @@
 .products-productos article:hover{
     background: 
     linear-gradient(to right, var(--nieve), white, var(--nieve)) padding-box;
-    content: "aaaa";
 }
 
 .products-productos article:hover #title-product {
     display: flex;
-    font-size: small;
+    font-size: medium;
 }
 
 .products-productos form {
@@ -100,13 +99,15 @@
     align-items: center;
 }
 
-.products-productos article a div {
+.products-productos article  {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 60vw;
 }
 
 .products-productos article a div img {
-    height: 25vw;
+    height: 22vw;
     width: 15vw
 }
 
@@ -131,6 +132,9 @@
     text-align: center;
 }
 
+.form-product-cart i {
+    font-size: 1px;
+}
 @media (min-width: 640px) and (max-width: 1023px) {
     .productos h1 {
         font-size: 3vw;
@@ -167,8 +171,8 @@
     }
 
     .products-productos article a div img {
-        height: 20vw;
-        width: 15vw;
+        height: 18vw;
+        width: 14vw;
     }
     .producto_pag_1 i {
         font-size: 3vw;
@@ -193,8 +197,8 @@
     }
 
     .products-productos article{
-        height: 35vh;
-        width: 13vw;
+        height: 34vh;
+        width: 15vw;
         margin: 1vw 1vw;
     }
 
@@ -208,12 +212,13 @@
     }
 
     .products-productos article a p {
-        font-size: 1.3vw;
+        font-size: 1vw;
     }
 
     .products-productos article a div img {
-        height: 10vw;
-        width: 8vw;
+        height: 9vw;
+        width: 7vw;
+        background: none;
     }
 
     .producto_pag_1 i {

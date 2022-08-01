@@ -57,7 +57,4 @@ qs('.login-form').addEventListener('submit', (e) => {
     }
 
     !error && e.target.submit()
-
-
-
 })
