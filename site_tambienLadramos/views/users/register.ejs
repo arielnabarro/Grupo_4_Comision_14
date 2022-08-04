@@ -17,27 +17,27 @@
             <div>
                 <input class="register_datos <%= locals.name && errors.name ? 'is-invalid' : null %>" type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && old.name ? old.name : null %>">
                 <span class="form-errors"><%= locals.errors && errors.name ? errors.name.msg : null %></span>
-                <small id="front-errors-register-name"></small>
+                <small class="front-errors" id="small__register-name"></small>
             </div>
             <div>
                 <input class="register_datos <%= locals.last_name && errors.last_name ? 'is-invalid' : null %>" type="text" id="last_name" name="last_name" placeholder="Apellido" value="<%= locals.old && old.last_name ? old.last_name : null %>">
                 <span class="form-errors"><%= locals.errors && errors.last_name ? errors.last_name.msg: null %></span>
-                <small id="front-errors-register-lastname"></small>
+                <small class="front-errors" id="small__register-last_name"></small>
             </div>
             <div>
                 <input class="register_datos <%= locals.errors && errors.email ? 'is-invalid' : null %>" type="email" id="email" name="email" placeholder="E-mail" value="<%= locals.old && old.email ? old.email : null %>">
                 <span class="form-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></span>
-                <small id="front-errors-register-email"></small>
+                <small class="front-errors" id="small__register-email"></small>
             </div>
             <div>
                 <input class="register_datos <%= locals.errors && errors.password ? 'is-invalid' : null %>" type="password" id="password" name="password" placeholder="Contraseña" value="<%= locals.old && old.password ? old.password : null %>">
                 <span class="form-errors"><%= locals.errors && errors.password ? errors.password.msg : null %></span>
-                <small id="front-errors-register-password"></small>
+                <small class="front-errors" id="small__register-password"></small>
             </div>
             <div>
                 <input class="register_datos <%= locals.errors && errors.password2 ? 'is-invalid' : null %>" type="password" id="password2" name="password2" placeholder="Confirmar contraseña" value="<%= locals.old && old.password2 ? old.password2 : null %>">
                 <span class="form-errors"><%= locals.errors && errors.password2 ? errors.password2.msg : null %></span>
-                <small class="front-errors-register-password2"></small>
+                <small class="front-errors" id="small__register-password2"></small>
             </div>
             <div>
                 <input type="checkbox" name="terminos" id="terminos">
