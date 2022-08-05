@@ -27,15 +27,17 @@
             </a> 
         </div>   
         <div class="productEdit__form">
-            <form method="POST" action="/products/productEdit/<%= product.id %>/?_method=PUT" enctype="multipart/form-data">
+            <form id="product__edit-form" method="POST" action="/products/productEdit/<%= product.id %>/?_method=PUT" enctype="multipart/form-data">
                 <article>
                     <div>
-                        <label for="name">Nombre: <%= product.title %></label>
+                        <label for="title">Nombre: </label>
                         <input type="text" id="title" name="title" value="<%= product.title %>" required placeholder="<%= product.title %>">
+                        <small class="front-errors" id="small__product__title-edit"></small>
                     </div>
                     <div>
-                        <label for="price">Precio: $<%= product.price %></label>
+                        <label for="price">Precio: </label>
                         <input type="number" id="price" name="price" value="<%= product.price %>" required placeholder="<%= product.price %>">
+                        <small class="front-errors" id="small__product__price-edit"></small>
                     </div>
                     <div>
                         <label for="category">Categoria: </label>
@@ -48,22 +50,34 @@
                             <% }) %>
                         </select>
                         <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
+                        <small class="front-errors" id="small__product__category-edit"></small>
+                    </div>
+                    <div>
+                        <label style="display: flex; flex-direction: column;" for="description">Descripción: </label>
+                        <textarea name="" id="description-text" cols="90" rows="5"></textarea>
+                        <input hidden type="text" id="description" name="description" value="<%= product.descript %>" required placeholder="<%= product.descript %>">
+                        <small class="front-errors" id="small__product__description-edit"></small>
                     </div>
                     <div>
                         <label for="quantity">Stock: </label>
                         <input type="number" id="quantity" name="quantity" value="<%= product.quantity %>" required placeholder="<%= product.quantity %>">
+                        <small class="front-errors" id="small__product__quantity-edit"></small>
                     </div>
                     <div>
                         <div id="imagePreview">
-                            <img src="/images/Alimento-balanceado/<%= product.images[0].name %>" alt="">
+                            <img id="image-preview" src="/images/Alimento-balanceado/<%= product.images[0].name %>" alt="">
                         </div>
                         <label for="image">Imagen: <%= product.images[0].name %></label>
                         <input type="file" id="image" name="image" accept="image/*">
-                    </div>             
+                        <small class="front-errors" id="small__product__image-edit"></small>
+                    </div>           
+                    
                     <article class="productEdit__form__bottons">
                         <div><button type="reset">Limpiar</button></div>
                         <div><button type="submit">Guardar</button></div>
+                        
                     </article>
+                    <small class="front-errors-global"></small>  
                 </article>    
             </form>
         </div>
@@ -73,6 +87,6 @@
 
     
     <%- include('./partials/footer') %>
-
+<script src="/javascript/validations/productEdit.js"></script>
 </body>
 </html>

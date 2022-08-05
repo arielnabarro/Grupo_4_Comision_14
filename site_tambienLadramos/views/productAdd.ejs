@@ -29,19 +29,22 @@
             <form method="POST" action="" enctype="multipart/form-data">
                 <article>
                     <div>
-                        <label for="name">Nombre del producto:</label>
+                        <label for="name">Nombre del producto: </label>
                         <input type="text" id="title" name="title" required>
+                        <small class="front-errors" id="small__product__title-edit"></small>
                     </div>
                     <div>
-                        <label for="price">Precio:</label>
+                        <label for="price">Precio: </label>
                         <input type="number" id="price" name="price" required>
+                        <small class="front-errors" id="small__product__price-edit"></small>
                     </div>
                     <div>
-                        <label for="price">Stock:</label>
+                        <label for="quantity">Stock: </label>
                         <input type="number" id="quantity" name="quantity" required>
+                        <small class="front-errors" id="small__product__quantity-edit"></small>
                     </div>
                     <div>
-                        <label for="category">Categoría:</label>
+                        <label for="id_category">Categoría: </label>
                         <select <%= locals.errors && errors.category ? 'is-invalid' : null%> name="id_category" id="id_category" required>
                             <option value="" hidden selected>Selecciona la categoría</option>
                             <% categories.forEach(category => { %>
@@ -49,15 +52,23 @@
                             <% }) %>
                         </select>
                         <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
-                    </div>  
+                    </div>
                     <div>
-                        <label for="image">Imagen</label>
+                        <label style="display: flex; flex-direction: column;" for="description">Descripción: </label>
+                        <textarea name="" id="description-text" cols="90" rows="5"></textarea>
+                        <input hidden type="text" id="description" name="description" value="<%= product.descript %>" required placeholder="<%= product.descript %>">
+                        <small class="front-errors" id="small__product__description-edit"></small>
+                    </div>
+                    <div>
+                        <label for="image">Imagen: </label>
                         <input type="file" id="image" name="image" accept="image/*">
+                        <small class="front-errors" id="small__product__image-edit"></small>
                     </div>  
                     <article class="productAdd__form__bottons">
                         <div><button type="reset">Limpiar</button></div>
                         <div><button type="submit">Guardar</button></div>
                     </article> 
+                    <small class="front-errors-global"></small>  
             </article>
             </form>
         </div>
@@ -67,7 +78,7 @@
 
     
     <%- include('./partials/footer') %>
-
+<script src="/javascript/validations/productAdd.js"></script>
 </body>
 </html>
 

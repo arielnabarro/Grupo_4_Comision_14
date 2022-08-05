@@ -13,10 +13,6 @@ let $loginForm = qs('.login-form'),
         regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/,
         regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/,
         errores
-        
-
-console.log('scripts success');
-
 
 window.addEventListener('load', () => {
     $email.addEventListener('blur', function() {
@@ -75,7 +71,6 @@ $loginForm.addEventListener('submit', (e) => {
     
     let elements = e.target.elements;
     let error = false;
-    console.log(elements)
     for (let i = 0; i < elements.length - 2; i++) {
         if(!elements[i].value.trim()){
             elements[i].classList.add('.front-errors-global');

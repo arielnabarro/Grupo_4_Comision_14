@@ -83,20 +83,22 @@ module.exports = {
     const { title, price, descript, quantity, id_category } = req.body;
 
     db.Product.create({
-      title,
+      title : title,
       price: +price,
       quantity : +quantity,
-      descript,
-      id_category: id_category,
+      descript : descript,
+      id_category: +id_category,
     })
-      .then((product) => {
+    res.redirect("/products")
+      /* .then((product) => {
         if (req.file)
           db.Image.create({
             name: req.file ? req.file.filename : "Logo.png",
             id_product: product.id,
           });
-        res.redirect("/products");
-      })
+
+        
+      }) */
       .catch((error) => console.log(error));
   },
 
