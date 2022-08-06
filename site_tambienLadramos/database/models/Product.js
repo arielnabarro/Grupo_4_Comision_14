@@ -26,6 +26,10 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.INTEGER,
             allowNull : false
         },
+        weight : {
+            type : dataTypes.FLOAT,
+            allowNull : false
+        },
         id_category : {
             type : dataTypes.INTEGER,
             allowNull : false

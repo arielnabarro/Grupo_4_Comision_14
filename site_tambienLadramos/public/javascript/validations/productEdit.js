@@ -48,23 +48,42 @@ window.addEventListener("load", () => {
     }
 })
 
-qs("#description-text").addEventListener("blur", function () {
+qs("#descript").addEventListener("blur", function () {
     switch (true) {
       case !this.value.trim():
         qs("#small__product__description-edit").innerHTML = "Debe ingresar una descripción para el producto";
-        qs("#description-text").classList.add("front-errors");
+        qs("#descript").classList.add("front-errors");
         break;
       case this.value.trim().length < 20:
         qs("#small__product__description-edit").innerHTML = "La descripción no puede contener menos de 20 caracteres";
-        qs("#description-text").classList.add("front-errors");
+        qs("#descript").classList.add("front-errors");
         break;
       default:
-        qs("#description-text").classList.remove("front-errors");
+        qs("#descript").classList.remove("front-errors");
         qs("#small__product__description-edit").innerHTML = null;
         qs(".front-errors").innerHTML = null;
         break;
     }
 })
+
+qs("#weight").addEventListener("blur", function () {
+  switch (true) {
+    case !this.value.trim():
+      qs("#small__product__weight-edit").innerHTML = "Debe ingresar un peso para el producto";
+      qs("#weight").classList.add("front-errors");
+      break;
+    case this.value.trim() < 1:
+      qs("#small__product__weight-edit").innerHTML = "La cantidad no puede ser menor a 1";
+      qs("#weight").classList.add("front-errors");
+      break;
+    default:
+      qs("#weight").classList.remove("front-errors");
+      qs("#small__product__weight-edit").innerHTML = null;
+      qs(".front-errors").innerHTML = null;
+      break;
+  }
+})
+
 
 qs("#quantity").addEventListener("blur", function () {
     switch (true) {
@@ -84,14 +103,16 @@ qs("#quantity").addEventListener("blur", function () {
     }
 })
 
-qs('#image').addEventListener('change', (e) => {
+  qs('#image').addEventListener('change', (e) => {
     switch (true) {
         case this.value:
             let reader = new FileReader();
-            reader.readAsDataURL(e.target.file)
+            reader.readAsDataURL(e.target.file[0])
             reader.onload = () => {
                 qs('#image').src = reader.result  
             }
+            break;
+          case !this.value:
             break;
         default:
             qs("#image").classList.remove("front-errors");
@@ -99,13 +120,15 @@ qs('#image').addEventListener('change', (e) => {
             qs(".front-errors").innerHTML = null;
             break;
     } 
-});
+}); 
+
+
 
 qs('#product__edit-form').addEventListener('submit', (e) => {
     e.preventDefault();
     let elements = e.target.elements;
     let error = false;
-    for (let i = 0; i < elements.length -2; i++) {
+    for (let i = 0; i < elements.length -3; i++) {
       if (!elements[i].value.trim()) {
         elements[i].classList.add('front-errors');
         error = true;
@@ -118,7 +141,7 @@ qs('#product__edit-form').addEventListener('submit', (e) => {
       }
     }
 
-    for (let i = 0; i < elements.length -2; i++) {
+    for (let i = 0; i < elements.length -3; i++) {
       if (elements[i].classList.contains('front-errors')) {
         elements[i].style.border = 'solid 1px red'
         error = true;

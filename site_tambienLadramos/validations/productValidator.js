@@ -12,6 +12,14 @@ module.exports = [
     
     check('category')
         .notEmpty()
+        .withMessage('Debe ingresar una categoría'),
+    
+    check('descript')
+        .notEmpty()
+        .withMessage('Debe ingresar una categoría'),
+
+    check('quantity')
+        .notEmpty()
         .withMessage('Debe ingresar una categoría')
 
 ]

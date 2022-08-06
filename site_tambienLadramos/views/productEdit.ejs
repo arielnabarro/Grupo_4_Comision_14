@@ -54,9 +54,13 @@
                     </div>
                     <div>
                         <label style="display: flex; flex-direction: column;" for="description">Descripción: </label>
-                        <textarea name="" id="description-text" cols="90" rows="5"></textarea>
-                        <input hidden type="text" id="description" name="description" value="<%= product.descript %>" required placeholder="<%= product.descript %>">
+                        <input type="text" id="descript" name="descript" style="width: 100%; height: 10vw;" value="<%= product.descript %>" required placeholder="<%= product.descript %>">
                         <small class="front-errors" id="small__product__description-edit"></small>
+                    </div>
+                    <div>
+                        <label for="weight">Peso: </label>
+                        <input type="number" id="weight" name="weight" required placeholder="<%= product.weight %>">
+                        <small class="front-errors" id="small__product__weight-edit"></small>
                     </div>
                     <div>
                         <label for="quantity">Stock: </label>

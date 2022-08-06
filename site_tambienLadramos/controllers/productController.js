@@ -80,25 +80,24 @@ module.exports = {
   },
 
   store: (req, res) => {
-    const { title, price, descript, quantity, id_category } = req.body;
+    const { title, price, descript, quantity, id_category, weight } = req.body;
 
     db.Product.create({
       title : title,
       price: +price,
+      weight : +weight,
       quantity : +quantity,
       descript : descript,
       id_category: +id_category,
     })
-    res.redirect("/products")
-      /* .then((product) => {
+      .then((product) => {
         if (req.file)
           db.Image.create({
-            name: req.file ? req.file.filename : "Logo.png",
+            name: req.file.filename,
             id_product: product.id,
-          });
-
-        
-      }) */
+          })
+          res.redirect("/products")
+      }) 
       .catch((error) => console.log(error));
   },
 
@@ -121,16 +120,18 @@ module.exports = {
 
   update: (req, res) => {
     let errors = validationResult(req);
-    const { title, price, quantity, category } = req.body;
+    const { title, price, category, descript, quantity, weight} = req.body;
     if (errors.isEmpty()) {
-      let product = db.Product.findByPk(req.params.id);
+      db.Product.findByPk(req.params.id);
       db.Product.update(
         {
           title: title,
           price: +price,
-          quantity : +quantity,
-          image: req.file ? req.file.filename : product.image,
+          weight : +weight,
           id_category: +category,
+          descript : descript,
+          quantity : +quantity,
+          
         },
         {
           where: {
@@ -143,12 +144,11 @@ module.exports = {
             try {
               db.Image.update(
                 {
-                  file: req.file.filename,
+                  name: req.file.filename,
                 },
                 {
                   where: {
-                    id_product: req.params.id,
-                    primary: true,
+                    id_product: req.params.id
                   },
                 }
               );
@@ -158,7 +158,7 @@ module.exports = {
           }
           return res.redirect("/products/tableList");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error)); 
     }
   },
 
