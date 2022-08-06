@@ -40,10 +40,10 @@
                 <small class="front-errors" id="small__register-password2"></small>
             </div>
             <div>
-                <input type="checkbox" name="terminos" id="terminos">
                 <label class="register_terminos" for="terminos"><a href="/products/terms">Términos y condiciones</a></label>
+                <input type="checkbox" name="terminos" id="terminos">
                 <span class="form-errors"><%= locals.errors && errors.terminos ? errors.terminos.msg : null %></span>
-                <small class="front-errors"></small>
+                <small class="front-errors" id="small__register-terms"></small>
             </div>
             <div>
                 <small class="front-errors-global"></small>

@@ -123,6 +123,18 @@ window.addEventListener('load', () => {
     }
   });
 
+  qs('#terminos').addEventListener('click', function() {
+        if (qs('#terminos').checked) {
+          this.classList.remove('front-errors');
+          qs('#small__register-terms').innerHTML = null
+        }
+        else {
+          qs('#terminos').classList.add('front-errors');
+          qs('#small__register-terms').innerHTML = 'Debe aceptar los términos y condiciones'
+        }
+    })
+
+
   $registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -141,7 +153,17 @@ window.addEventListener('load', () => {
       }
     }
 
-    for (let i = 0; i < elements.length - 2; i++) {
+    if(!qs('#terminos').checked){
+      qs('#terminos').classList.add('front-errors')
+      qs('#small__register-terms').innerHTML = "Debe aceptar los términos y condiciones"
+      error = true
+  } else {
+      qs('#terminos').classList.remove('front-errors')
+      qs('#small__register-terms').innerHTML = null;
+      error = false
+  }
+
+     for (let i = 0; i < elements.length - 2; i++) {
       if (elements[i].classList.contains('front-errors')) {
         elements[i].style.border = 'solid 1px red'
         error = true;
@@ -150,8 +172,9 @@ window.addEventListener('load', () => {
         qs('.front-errors').innerHTML = null;
         error = false;
       }
-    }
+    } 
 
+    
     !error && e.target.submit();
 
     

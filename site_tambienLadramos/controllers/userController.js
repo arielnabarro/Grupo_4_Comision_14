@@ -91,6 +91,7 @@ module.exports = {
           let rols = db.Rol.findAll()
           let user = db.User.findByPk(req.session.userLogin.id);
           let products = db.Product.findAll({
+            limit : 10
           });
             Promise.all([users, user, rols, products])
               .then(([users, user, rols, products]) => {
