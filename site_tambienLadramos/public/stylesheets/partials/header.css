@@ -24,7 +24,7 @@
 }
 
 .home__header__ig div img {
-    width: 100%;  
+    width: 12vw;  
 }
 
 .home__header__ig__number span, .home__header__ig__number i {
@@ -295,14 +295,18 @@
     }
     
     .home__header__div__logo {
-        margin: 0 47vw;
+        width: 5vw;
+        height: 5vw;
+        position: absolute;
         display: flex;
-        justify-content: flex-end;
+        left: 50vw;
+        bottom: 7vw;
+        background-color: var(--verde);
+        border-radius: 100vh;
     }
 
     .home__header__contenedor {    
         height: 7vw; 
-        overflow: auto;
     }
 
     .home__header__ig, .home__header__ig img  {
@@ -315,8 +319,25 @@
         flex-direction: column;
     }
 
+    .home__header__ig div {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .home__header__ig__perro {
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .home__header__ig__number {
+        display: flex;
+        justify-content: flex-end;
+    }
+
     .home__header__ig__number span, .home__header__ig__number i {
         display: flex;
+        margin: 0.5vw;
     }
 
     .home__header__contenedor .home__header__div__user {

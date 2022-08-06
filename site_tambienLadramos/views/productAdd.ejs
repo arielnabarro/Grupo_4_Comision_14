@@ -55,8 +55,8 @@
                     </div>
                     <div>
                         <label style="display: flex; flex-direction: column;" for="description">Descripción: </label>
-                        <textarea name="" id="description-text" cols="90" rows="5"></textarea>
-                        <input hidden type="text" id="description" name="description" value="<%= product.descript %>" required placeholder="<%= product.descript %>">
+                        <textarea name="description" id="description-text" cols="90" rows="5"><%= product.descript %></textarea>
+                        
                         <small class="front-errors" id="small__product__description-edit"></small>
                     </div>
                     <div>

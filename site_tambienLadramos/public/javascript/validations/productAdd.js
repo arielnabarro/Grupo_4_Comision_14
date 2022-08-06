@@ -2,12 +2,12 @@ const qs = (element) => document.querySelector(element);
 const qsa = (element) => document.querySelectorAll(element);
 const $ = (element) => document.getElementById(element);
 
-let $registerForm = qs(".register_form"),
   regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/,
   regExEmail =
     /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
 window.addEventListener("load", () => {
+  
   qs("#title").addEventListener("blur", function () {
     switch (true) {
       case !this.value.trim():
@@ -108,14 +108,17 @@ window.addEventListener("load", () => {
         break;
     }
   });
-
-  qs("#product__edit-form").addEventListener("submit", (e) => {
+let formulario = qs('form')
+  formulario.addEventListener("submit", (e) => {
+    let elements = formulario.elements;
     e.preventDefault();
-    let elements = e.target.elements;
+    
+    console.log(elements);
     let error = false;
     for (let i = 0; i < elements.length - 2; i++) {
-      if (!elements[i].value.trim()) {
+      if (!elements[i].value.trim() || elements[i].classList.contains("front-errors")) {
         elements[i].classList.add("front-errors");
+        elements[i].style.border = "solid 1px red";
         error = true;
         qs(".front-errors-global").innerHTML =
           "Los campos señalados son obligatorios";
@@ -123,10 +126,12 @@ window.addEventListener("load", () => {
         elements[i].classList.remove("front-errors");
         elements[i].style.border = "solid 1px green";
         elements[i].classList.add("front-errors-good");
+        qs(".front-errors").innerHTML = null;
+        error = false;
       }
     }
 
-    for (let i = 0; i < elements.length - 2; i++) {
+    /* for (let i = 0; i < elements.length - 2; i++) {
       if (elements[i].classList.contains("front-errors")) {
         elements[i].style.border = "solid 1px red";
         error = true;
@@ -135,7 +140,7 @@ window.addEventListener("load", () => {
         qs(".front-errors").innerHTML = null;
         error = false;
       }
-    }
+    } */
 
     !error && e.target.submit();
   });

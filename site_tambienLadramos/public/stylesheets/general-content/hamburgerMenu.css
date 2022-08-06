@@ -59,21 +59,24 @@
     font-size: 0.7rem;
     color: white;
     justify-content: space-between;
-    margin: 1vw;
+    margin: 0.6vw;
     text-align: left; 
 }
 
 .menu-btn.open .burger-list {
-    width: 20vw;
+    width: 10vw;
     display: flex;
     position: absolute;
-    top: 5vw;
+    top: 2vw;
+    left: 1vw;
     flex-direction: column;
     list-style: none;
+    list-style-type: none;
     text-decoration: none;
     font-size: 1rem;
-    align-items: center;
-    justify-content: space-around;
+    align-items: left;
+    text-align: left;
+    justify-content: space-evenly;
     background: var(--azul);
     
 }

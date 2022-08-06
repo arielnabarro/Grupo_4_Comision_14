@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     max-width: 100%;
+    background-color: var(--nieve);
 }
 
 .home__main  h3 {
