@@ -15,7 +15,7 @@
         <form class="register_form" method="POST" action="">
             <h2>Registrarse</h2>
             <div>
-                <input class="register_datos <%= locals.name && errors.name ? 'is-invalid' : null %>" type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && old.name ? old.name : null %>">
+                <input class="register_datos <%= locals.name && errors.name ? 'is-invalid' : null %>" type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && old.name ? old.name : null %>" autofocus>
                 <span class="form-errors"><%= locals.errors && errors.name ? errors.name.msg : null %></span>
                 <small class="front-errors" id="small__register-name"></small>
             </div>
@@ -46,7 +46,7 @@
                 <small class="front-errors" id="small__register-terms"></small>
             </div>
             <div>
-                <small class="front-errors-global"></small>
+                <strong class="front-errors-global"></strong>
             </div>
             <div class="register-boton">
                 <input class="bottons" name="register-button" type="submit" value="Registrarse"> 

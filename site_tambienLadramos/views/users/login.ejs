@@ -16,7 +16,7 @@
                 <ul>   
                     <li>
                         <div>
-                            <input class="login_user" type="email" id="email" name="email" placeholder="Email" value="<%= locals.old && old.email ? old.email : null %>">
+                            <input class="login_user" type="email" id="email" name="email" placeholder="Email" value="<%= locals.old && old.email ? old.email : null %>" autofocus>
                             <span class="form-errors" id="span-error"><%= locals.errors && errors.email ? errors.email.msg : null %></span>
                             <small class="front-errors" id="small__login-email"></small>
                         </div>
@@ -29,12 +29,11 @@
                             
                         </div>
                     <div>
-                        <small class="front-errors-global"></small>
+                        <strong class="front-errors-global"></strong>
                         <div>
                             <input type="checkbox" name="recordarme" id="recordarme">
                             <label for="recordame">Recordarme</label>
                         </div>
-                        
                             <a id="boton" href="">
                                 <input class="login_bottons" type="submit" value="Acceder">
                             </a>  

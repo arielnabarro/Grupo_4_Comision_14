@@ -19,9 +19,9 @@ window.addEventListener('load', () => {
         qs('#small__register-name').innerHTML = null;
         qs('#name').classList.remove('front-errors');
         break;
-      case this.value.trim().length < 3:
+      case this.value.trim().length < 2:
         qs('#small__register-name').innerHTML =
-          'El nombre no puede tener menos de 3 caracteres';
+          'El nombre no puede tener menos de 2 caracteres';
         qs('#name').classList.remove('front-errors');
         break;
       default:
@@ -44,9 +44,9 @@ window.addEventListener('load', () => {
         qs('#small__register-last_name').innerHTML = null;
         qs('#last_name').classList.remove('front-errors');
         break;
-      case this.value.trim().length < 3:
+      case this.value.trim().length < 2:
         qs('#small__register-last_name').innerHTML =
-          'El apellido no puede tener menos de 3 caracteres';
+          'El apellido no puede tener menos de 2 caracteres';
         qs('#last_name').classList.remove('front-errors');
         break;
       default:
@@ -89,12 +89,12 @@ window.addEventListener('load', () => {
           'Debe ingresar su contraseña';
         qs('#password').classList.add('front-errors');
         break;
-      case this.value.trim().length < 8 || this.value.trim().length > 12:
+      case this.value.trim().length < 8 || this.value.trim().length > 16:
         qs('#small__register-password').innerHTML =
-          'La contraseña debe tener entre 8 y 12 caracteres';
+          'La contraseña debe tener entre 8 y 16 caracteres';
         qs('#password').classList.add('front-errors');
         break;
-      case this.value.trim().length > 7 && this.value.trim().length < 13:
+      case this.value.trim().length > 7 || this.value.trim().length < 17:
         qs('#small__register-password').innerHTML = null;
         qs('#password').classList.remove('#small__register-password');
         qs('#password').classList.remove('front-errors');
@@ -123,14 +123,15 @@ window.addEventListener('load', () => {
     }
   });
 
-  qs('#terminos').addEventListener('click', function() {
+  qs('#terminos').addEventListener('toggle', function() {
         if (qs('#terminos').checked) {
-          this.classList.remove('front-errors');
-          qs('#small__register-terms').innerHTML = null
-        }
-        else {
           qs('#terminos').classList.add('front-errors');
           qs('#small__register-terms').innerHTML = 'Debe aceptar los términos y condiciones'
+          
+        }
+        else {
+          this.classList.remove('front-errors');
+          qs('#small__register-terms').innerHTML = null
         }
     })
 
@@ -143,13 +144,14 @@ window.addEventListener('load', () => {
     for (let i = 0; i < elements.length - 2; i++) {
       if (!elements[i].value.trim()) {
         elements[i].classList.add('front-errors');
-        error = true;
         qs('.front-errors-global').innerHTML =
           'Los campos señalados son obligatorios';
+          error = true;
       } else {
         elements[i].classList.remove('front-errors');
         elements[i].style.border = 'solid 1px green'
         elements[i].classList.add('front-errors-good');
+        error = false;
       }
     }
 
@@ -163,7 +165,7 @@ window.addEventListener('load', () => {
       error = false
   }
 
-     for (let i = 0; i < elements.length - 2; i++) {
+     /* for (let i = 0; i < elements.length - 2; i++) {
       if (elements[i].classList.contains('front-errors')) {
         elements[i].style.border = 'solid 1px red'
         error = true;
@@ -172,7 +174,7 @@ window.addEventListener('load', () => {
         qs('.front-errors').innerHTML = null;
         error = false;
       }
-    } 
+    }  */
 
     
     !error && e.target.submit();

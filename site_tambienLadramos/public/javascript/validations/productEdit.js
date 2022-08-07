@@ -128,6 +128,7 @@ qs('#product__edit-form').addEventListener('submit', (e) => {
     e.preventDefault();
     let elements = e.target.elements;
     let error = false;
+    console.log(elements)
     for (let i = 0; i < elements.length -3; i++) {
       if (!elements[i].value.trim()) {
         elements[i].classList.add('front-errors');

@@ -2,6 +2,7 @@ const { validationResult } = require("express-validator");
 const db = require("../database/models");
 const fs = require("fs");
 const path = require("path");
+const Product = require("../database/models/Product");
 
 module.exports = {
   list: (req, res) => {
@@ -67,28 +68,32 @@ module.exports = {
   add: (req, res) => {
     category = db.Category.findAll();
     product = db.Product.findAll({
-      include: ["images"],
+      include: ["images", "brands"],
     });
-    Promise.all([product, category])
-      .then(([product, categories]) => {
+    brand = db.Brand.findAll();
+    Promise.all([product, category, brand])
+      .then(([product, categories, brands]) => {
         return res.render("productAdd", {
           product,
           categories,
+          brands
         });
       })
       .catch((error) => console.log(error));
   },
 
   store: (req, res) => {
-    const { title, price, descript, quantity, id_category, weight } = req.body;
+    const { title, price, descript, quantity, id_category, id_brand, weight } = req.body;
 
     db.Product.create({
       title : title,
+      id_brand : +id_brand ? + id_brand : null,
       price: +price,
       weight : +weight,
       quantity : +quantity,
       descript : descript,
       id_category: +id_category,
+      
     })
       .then((product) => {
         if (req.file)
@@ -96,9 +101,15 @@ module.exports = {
             name: req.file.filename,
             id_product: product.id,
           })
-          res.redirect("/products")
+          /* res.redirect("/products") */
       }) 
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .then(() => {
+        if(req.body.new_brand) {
+
+        }
+
+      })
   },
 
   edit: (req, res) => {

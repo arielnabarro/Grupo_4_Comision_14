@@ -30,6 +30,10 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.FLOAT,
             allowNull : false
         },
+        id_brand : {
+            type : dataTypes.INTEGER,
+            allowNull : true
+        },
         id_category : {
             type : dataTypes.INTEGER,
             allowNull : false
