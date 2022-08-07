@@ -66,11 +66,11 @@ module.exports = {
   },
 
   add: (req, res) => {
-    category = db.Category.findAll();
-    product = db.Product.findAll({
-      include: ["images", "brands"],
+    let category = db.Category.findAll();
+    let product = db.Product.findAll({
+      include: ["brands"],
     });
-    brand = db.Brand.findAll();
+    let brand = db.Brand.findAll();
     Promise.all([product, category, brand])
       .then(([product, categories, brands]) => {
         return res.render("productAdd", {
@@ -108,16 +108,19 @@ module.exports = {
 
   edit: (req, res) => {
     let product = db.Product.findByPk(req.params.id, {
-      include : ["images", "category"]       
+      include : ["images", "category", 'brands']       
     });
 
     let category = db.Category.findAll();
 
-    Promise.all([product, category])
-      .then(([product, category]) => {
+    let brand = db.Brand.findAll();
+
+    Promise.all([product, category, brand])
+      .then(([product, category, brand]) => {
         return res.render("productEdit", {
           product,
           category,
+          brand
         });
       })
       .catch((error) => console.log(error));
