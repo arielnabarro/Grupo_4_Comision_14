@@ -26,7 +26,7 @@
             </a> 
         </div>   
         <div class="productAdd__form" >
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form id="product__edit-form" method="POST" action="" enctype="multipart/form-data">
                 <article>
                     <div>
                         <label for="name">Nombre del producto: </label>
@@ -41,8 +41,8 @@
                             <option <%= locals.old && old.brand && +old.brand === +brand.id ? 'selected' : null %> value="<%= brand.id %>"><%= brand.title %></option>
                             <% }) %>
                         </select>
-                        <br><p> O <br> Introduce una nueva marca</p>
-                        <input type="text" name="new_brand">
+                        <!-- <br><p> O <br> Introduce una nueva marca</p>
+                        <input type="text" name="new_brand"> -->
                         
                         <span><%= locals.errors && errors.brand ? errors.brand.msg : null%></span>
                     </div>

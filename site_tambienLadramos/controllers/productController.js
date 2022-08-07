@@ -87,7 +87,7 @@ module.exports = {
 
     db.Product.create({
       title : title,
-      id_brand : +id_brand ? + id_brand : null,
+      id_brand : +id_brand,
       price: +price,
       weight : +weight,
       quantity : +quantity,
@@ -101,15 +101,9 @@ module.exports = {
             name: req.file.filename,
             id_product: product.id,
           })
-          /* res.redirect("/products") */
+          res.redirect("/products")
       }) 
       .catch((error) => console.log(error))
-      .then(() => {
-        if(req.body.new_brand) {
-
-        }
-
-      })
   },
 
   edit: (req, res) => {

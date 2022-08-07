@@ -1,4 +1,4 @@
-const {check} = require('express-validator');
+const {check, body} = require('express-validator');
 
 module.exports = [
 
@@ -20,6 +20,18 @@ module.exports = [
 
     check('quantity')
         .notEmpty()
-        .withMessage('Debe ingresar una categoría')
+        .withMessage('Debe ingresar una categoría'),
+
+    body('image')
+    .custom(( value, {req} ) => {
+        let allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+        if(!req.file){
+            return Promise.reject('este campo es ogligatorio')
+        }if(!allowedExtensions.exec(req.file.filename)){
+            return Promise.reject('Solo archivos con estas extensiones .jpeg/.jpg/.png/.gif only.')
+        }else{
+            return true
+        }
+    }),
 
 ]

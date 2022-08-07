@@ -3,6 +3,7 @@ const qsa = (element) => document.querySelectorAll(element);
 const $ = (element) => document.getElementById(element);
 
 let $registerForm = qs(".register_form"),
+  regExExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
   regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/,
   regExEmail =
     /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
@@ -103,24 +104,33 @@ qs("#quantity").addEventListener("blur", function () {
     }
 })
 
-  qs('#image').addEventListener('change', (e) => {
-    switch (true) {
-        case this.value:
-            let reader = new FileReader();
-            reader.readAsDataURL(e.target.file[0])
-            reader.onload = () => {
-                qs('#image').src = reader.result  
-            }
-            break;
-          case !this.value:
-            break;
-        default:
-            qs("#image").classList.remove("front-errors");
-            qs("#small__product__image-edit").innerHTML = null;
-            qs(".front-errors").innerHTML = null;
-            break;
-    } 
-}); 
+  qs('#image').addEventListener('change', () => {
+    if(!regExExtensions.exec(imagen.value)){
+        image.value = '';
+        image.classList.add('front-errors');
+        errorImagen.innerHTML = 'Archivo no soportado';
+        error = true
+    }else{
+        image.classList.remove('front-errors');
+        image.classList.add('front-errors-good');
+        errorImagen.innerHTML = '';
+        error = false;
+    }
+})
+
+qs('#image2').addEventListener('blur', (e) => {
+  switch (true) {
+        case !this.value:
+
+          break;
+
+      default:
+          qs("#image").classList.remove("front-errors");
+          qs("#small__product__image-edit").innerHTML = null;
+          qs(".front-errors").innerHTML = null;
+          break;
+  } 
+});
 
 
 
@@ -129,7 +139,7 @@ qs('#product__edit-form').addEventListener('submit', (e) => {
     let elements = e.target.elements;
     let error = false;
     console.log(elements)
-    for (let i = 0; i < elements.length -3; i++) {
+    for (let i = 0; i < elements.length -2; i++) {
       if (!elements[i].value.trim()) {
         elements[i].classList.add('front-errors');
         error = true;
@@ -142,7 +152,7 @@ qs('#product__edit-form').addEventListener('submit', (e) => {
       }
     }
 
-    for (let i = 0; i < elements.length -3; i++) {
+    for (let i = 0; i < elements.length -2; i++) {
       if (elements[i].classList.contains('front-errors')) {
         elements[i].style.border = 'solid 1px red'
         error = true;
