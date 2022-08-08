@@ -8,9 +8,10 @@ const adminValidator = require('../validations/adminValidator');
 
 
 
-const {register, login, processRegister, processLogin, profile, logout, updateProfile, editProfile, adminAdd, storeAdmin, usersList} = require('../controllers/userController');
+const {register, login, processRegister, processLogin, profile, logout, updateProfile, editProfile, adminAdd, storeAdmin, usersList, remove} = require('../controllers/userController');
 const userCheck = require('../middlewares/userCheck');
 const {uploadAvatars} = require('../middlewares/uploadImages');
+const adminCheck = require('../middlewares/adminCheck');
 
 /* /users */
 
@@ -27,6 +28,7 @@ router
     .get('/edit-profile/:id', editProfile)
     .put('/update-profile/:id',uploadAvatars.single('avatar'), adminValidator, updateProfile)
     .get('/list', usersList)
+    .delete('/list/:id', adminCheck, remove)
     .get('/adminAdd', adminAdd) 
     .post('/adminAdd', storeAdmin) 
 

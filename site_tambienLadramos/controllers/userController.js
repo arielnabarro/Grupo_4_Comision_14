@@ -196,8 +196,6 @@ module.exports = {
         });
     }
 },
-  
-
     usersList: (req, res) => {
       db.User.findAll({
         include : ['rols']
@@ -213,5 +211,18 @@ module.exports = {
         req.session.destroy();
         res.cookie('tambienLadramos',null,{maxAge : -1})
         res.redirect('/')
-      }      
-  };
+      },   
+      
+    remove : async (req,res) => {
+        const userId = await req.params.id
+        const user = await db.User.destroy({
+            where:{
+                id : userId
+            },
+            raw : true
+        }).catch(error=> console.log(error))
+        .then(() => {
+          res.redirect('/')
+        })
+  }
+}
