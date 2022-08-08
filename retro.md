@@ -84,3 +84,18 @@ Contexto: Mejoramiento de defectos marcados en sprints anteriores. Desestructura
 4. Hacer menos: Abordaje de contenidos requeridos en forma tardía.
 
 5. Dejar de hacer: Relegar los posibles detalles que complementen la interfaz y funcionalidad del proyecto.
+
+
+## SPRINT 7 | VALIDACIONES 
+
+Contexto: Continuación de objetivos con plazos de vencimiento pero con errores de cálculo en los plazos. Corrupción del alcance en metas globales del proyecto.
+
+1. Comenzar a hacer: Definir con claridad los pasos a seguir.
+
+2. Hacer más: Establecer prioridades en base a los objetivos del sprint.
+
+3. Continuar haciendo: Comunicación y colaboración en torno a tareas específicas. 
+
+4. Hacer menos: Reuniones de larga duración.
+
+5. Dejar de hacer: No eliminar líneas de código sin utilidad.
