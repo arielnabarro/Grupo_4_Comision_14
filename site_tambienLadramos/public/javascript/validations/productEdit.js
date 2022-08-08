@@ -143,24 +143,20 @@ window.addEventListener("load", () => {
     }
   });
 
-  
-
-  
-
-  qs("#image").addEventListener("change", () => {
-    if (!regExExtensions.exec(image.value)) {
-      qs("#image").value = "";
-      qs("#image").classList.add("front-errors");
-      qs("small__product__image-edit").innerHTML =
-        "La imagen debe tener alguna de las siguientes extensiones: (.jpg / .jpeg / .png / .gif)";
-      error = true;
-    } else {
-      qs("#image").classList.remove("front-errors");
-      qs("#image").classList.add("front-errors-good");
-      qs("small__product__image-edit").innerHTML = "";
-      error = false;
-    }
-  });
+  // qs("#image").addEventListener("change", () => {
+  //   if (!regExExtensions.exec(image.value)) {
+  //     qs("#image").value = "";
+  //     qs("#image").classList.add("front-errors");
+  //     qs("small__product__image-edit").innerHTML =
+  //       "La imagen debe tener alguna de las siguientes extensiones: (.jpg / .jpeg / .png / .gif)";
+  //     error = true;
+  //   } else {
+  //     qs("#image").classList.remove("front-errors");
+  //     qs("#image").classList.add("front-errors-good");
+  //     qs("small__product__image-edit").innerHTML = "";
+  //     error = false;
+  //   }
+  // });
 
   /* qs('#image2').addEventListener('blur', (e) => {
   switch (true) {
@@ -180,7 +176,7 @@ window.addEventListener("load", () => {
     let elements = e.target.elements;
     let error = false;
     console.log(elements);
-    for (let i = 0; i < elements.length - 2; i++) {
+    for (let i = 0; i < elements.length - 3; i++) {
       if (!elements[i].value.trim()) {
         elements[i].classList.add("front-errors");
         qs(".front-errors-global").innerHTML =
@@ -193,7 +189,7 @@ window.addEventListener("load", () => {
       }
     }
 
-    for (let i = 0; i < elements.length - 2; i++) {
+    for (let i = 0; i < elements.length - 3; i++) {
       if (elements[i].classList.contains("front-errors")) {
         elements[i].style.border = "solid 1px red";
         error = true;

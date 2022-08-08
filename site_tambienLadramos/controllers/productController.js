@@ -101,6 +101,11 @@ module.exports = {
             name: req.file.filename,
             id_product: product.id,
           })
+        else (!req.file)
+          db.Image.create({
+            name: "Logo.png",
+            id_product: product.id,
+          })
           res.redirect("/products")
       }) 
       .catch((error) => console.log(error))
