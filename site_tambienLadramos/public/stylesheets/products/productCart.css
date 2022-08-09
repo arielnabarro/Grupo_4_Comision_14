@@ -3,20 +3,21 @@
     align-items: center;
     justify-content:center;
     margin: 3px 0px 10px;
-    height: 30px;
+    height: 3vw;
     font-size: 4vw;
     font-weight: 500;
     background: #FAC368;
     border-bottom:0px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
+/* 
 .cart-tarjets {
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    box-shadow: 10px 10px 10px 10px gainsboro;
 }
 
 .cart-tarjet {
@@ -27,7 +28,7 @@
     height: 45vw;
     margin: 10px 0px;
     justify-content: space-evenly;
-    box-shadow: 0px 0px 7px 4px rgb(36 154 57 / 25%);
+    box-shadow: 0px 0px 0px 5px gainsboro;
 }
 
 .cart-tarjet-img {
@@ -109,12 +110,12 @@
     background: 
     linear-gradient(to right, var(--azul), var(--verde), var(--azul)) padding-box;
 }
-
+*/
 @media (min-width: 640px) and (max-width: 1023px) {
     .cart-title {
         font-size: 3vw;
     }
-
+/*
     .cart-tarjets{
         flex-direction: column;
     }
@@ -156,25 +157,28 @@
     .cart-ver-mas a p{
         font-size: 2vw;
     }
+    */
 }
+
+
 
 @media (min-width: 1024px) and (max-width: 2561px) {
     .cart-title {
         font-size: 2vw;
     }
 
-    .cart-tarjet {
+    /* .cart-tarjet {
         flex-direction: row;
         align-items: center;
-        width: 85vw;
-        height: 9vw;
+        width: 60vw;
+        height: 8vw;
         margin: 10px 0px;
         justify-content: space-between;
     }
 
     .cart-tarjet-img img{
-        width: 9vw;
-        height: 9vw;
+        width: 6vw;
+        height: 6vw;
     }
 
     .cart-tarjet-title p{
@@ -199,5 +203,16 @@
 
     .cart-ver-mas a p{
         font-size: 1.5vw;
+    } */
+} 
+
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #6a11cb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), var(--colores4));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: var(--colores4)
     }
-}
