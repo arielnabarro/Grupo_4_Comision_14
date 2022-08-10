@@ -6,8 +6,9 @@ const Product = require("../database/models/Product");
 
 module.exports = {
   list: (req, res) => {
+    let page = req.params.id;
     db.Product.findAll({
-      include: ["images", "category", "brands"],
+      include: ["images", "category", "brands"]
     })
       .then((product) => {
         return res.render("products", {

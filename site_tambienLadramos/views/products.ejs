@@ -17,15 +17,20 @@
 
         <nav class="products-productos">
             
-            <% product.forEach(({id, title, price, images}) => { %> 
+            <% product.forEach(({id, title, price, weight, images}) => { %> 
                 <article>
                     <a href="/products/productDetail/<%= id %>">
                         <% images.forEach(({name}) => { %>
                             <div>
+                                <div style="position: relative; display: flex; justify-content: center;">
+                                    <span style="color: black; text-align: center; width: 4vw; display: flex; flex-direction: column; justify-content: center; border: 0.2vw solid grey; border-radius: 100vh; background:var(--colores4);"><strong><%= weight %> kg</strong></span>
+                                    
+                                </div>
+                               
                                 <img src="/images/Alimento-balanceado/<%= name %>" alt="">     
                             </div>
                         <% }) %>
-                        <p>$<%= price %></p>
+                        <p><strong>$<%= price %></strong></p>
                         <p id="title-product"><%= title %></p>                     
                         <form class="form-product-cart" action="" method="get">
                             <i class="fa-solid fa-cart-plus">Agregar</i>
@@ -37,14 +42,28 @@
         </nav>
 
     </section>
-
-    <section>
+    <!-- <nav aria-label="..." class="w-100 d-flex justify-content-center">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav> -->
+    <!-- <section>
         <article class="producto_pag_1">
            <i class="fa-solid fa-circle-arrow-left"></i>
                 <p>Pág 1</p>
             <i class="fa-solid fa-circle-arrow-right"></i>    
         </article>
-    </section>
+    </section> -->
 
 </main>
 
