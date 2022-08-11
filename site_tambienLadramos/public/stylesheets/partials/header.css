@@ -1,142 +1,88 @@
-.home__header__ig {
-    display: flex;
+.header__nav-ig {
     position: relative;
-    flex-wrap: wrap;
-    width: 100%;
-    background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
-    align-content: space-between;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.home__header__ig div {
     display: flex;
     flex-direction: row;
-    width: 30vw;
-    align-items: center;   
-}
-
-.home__header__ig span, .home__header__ig i {
-    font-size: 1.2rem;
-    color: var(--nieve);
-    justify-content: center;
-    text-align: center;
-}
-
-.home__header__ig div img {
-    width: 12vw;  
-}
-
-.home__header__ig__number span, .home__header__ig__number i {
-    display: none;
-}
-
-.home__header__contenedor {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    background-color: var(--verde);
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: 25%;
-    width: 100vw;
-    height: 50vw;
-}
-
-.home__header__div__logo {
-    overflow: hidden;
-    width: 15vw;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     height: 100%;
+    background: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron));
+}
+
+.header__nav-ig div {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    color: white;
+}
+.header__ig-perro {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.home__header__logo {
+#perro-informatico {
     width: 20vw;
-    height: 35vw;
+    height: 10vh;
+}
+.header__nav-ig .header__div-logo {
+    width: 15vw;
+    height: 10vh;
+    border: 1px solid black;
+    border-radius: 100vh;
+}
+
+.header__nav-ig .header__div-logo .header__logo {
+    width: 25vw;
+    height: 25vh;
     margin: 0 auto;
     padding: 0 auto;
     background: url(/images/Alimento-balanceado/Logo.png); 
     background-position:center;
-    justify-content: center;
     background-repeat:no-repeat;
-    background-size: 50%;
+    background-size: 100%;
+    justify-content: center;
+    align-items: center;
     display: flex;
     position: relative;
-    z-index: 2;
     animation: rotacion 6s normal linear infinite; 
     cursor: pointer;
+    border-radius: 100vh;
+
 }
 
-.home__header__contenedor .home__header__div__busqueda{
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;   
-    margin-left: 13vw;
-    
-}
 
-.home__header__contenedor .home__header__div__user {   
-    position: absolute;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items:center;
-    margin-left: 70vw;
-    padding: 0;
-}
 
-.home__header__contenedor #home__header__div1{
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    align-items:flex-start;
-    padding: 0;
-}
 
-.home__header__contenedor #home__header__div2{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    align-self: center;
-    padding: 0;
-    margin: 0;
-}
 
-#question i, #user i, #cart i, #hamburger , #logout i, .search__bar i{
-    font-size: 2rem;
-    color: white;
-}
 
-#question i:hover, #user i:hover, #cart i:hover, #logout i:hover, .search__bar i:hover{
-    font-size: 2rem;
-    color: var(--amarillo);
-}
+
+
+
+
+
+
+
+
+
+
+
 
 #logout {
     color: black;
     position: relative;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;   
 }
 
 
-.home__header__div__user {
+.header__div__user {
     text-align: center;
 }
 
-.home__header__div__user #userName {
+.header__div__user #userName {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -167,146 +113,6 @@
         transform: rotate3d(0, 0, 1, 360deg);
     }
 } 
-
-
-@media (min-width: 640px) and (max-width: 767px){
-    .home__header__logo {
-        width: 20vw;
-        height: 20vw;
-    }
-
-    .home__header__contenedor {    
-        height: 35vw;
-    }
-    .home__header__contenedor i {
-        font-size: 2.2rem;
-    }
-    .home__header__ig, .home__header__ig img {
-        height: 12vw; 
-    }
-
-    .home__header__ig {
-        align-content: space-between;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .home__header__ig__number span, .home__header__ig__number i {
-        display: flex;
-    }
-
-
-}
-
-@media (min-width: 768px) and (max-width: 1023px){
-    .home__header__logo {
-        width: 19vw;
-        height: 19vw;
-    }
-
-    .home__header__contenedor {    
-        height: 35vw;
-        font-size: 5rem;
-    }
-
-    .home__header__contenedor i {
-        font-size: 2.2rem;
-    }
-    .home__header__ig, .home__header__ig img {
-        height: 12vw; 
-    }
-
-    .home__header__ig {
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .home__header__ig__number {
-        display: flex;
-        justify-content:flex-start;
-    }
-
-    .home__header__ig__number span, .home__header__ig__number i {
-        display: flex;
-        align-self: center;
-    }
-
-}
-
-@media (min-width: 1024px) {
-    header .home__header__ig   {
-        height: 5vw;
-    }
-    .home__header__logo {
-        width: 10vw;
-        height: 10vw;
-    }
-    
-    .home__header__div__logo {
-        width: 5vw;
-        height: 5vw;
-        position: absolute;
-        display: flex;
-        left: 50vw;
-        bottom: 7vw;
-        background-color: var(--verde);
-        border-radius: 100vh;
-    }
-
-    .home__header__contenedor {    
-        height: 7vw; 
-    }
-
-    .home__header__ig, .home__header__ig img  {
-        height: 5vw; 
-    }
-
-    .home__header__ig {
-        align-content: space-between;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .home__header__ig div {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-    }
-
-    .home__header__ig__perro {
-        display: flex;
-        justify-content: flex-start;
-    }
-    
-    .home__header__ig__number {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .home__header__ig__number span, .home__header__ig__number i {
-        display: flex;
-        margin: 0.5vw;
-    }
-
-    .home__header__contenedor .home__header__div__user {
-        width: 30vw;
-        flex-direction: row;
-        align-items: center;
-        margin-left: 60vw;
-    }
-
-    .search__bar {
-        margin-right: 15vw;
-        top: 30%;
-    }
-
-    .home__header__contenedor .home__header__div__busqueda{
-        width: 15vw;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-}
 
 
 
