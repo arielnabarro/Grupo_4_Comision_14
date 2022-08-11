@@ -30,11 +30,10 @@
 .header__nav-ig .header__div-logo {
     width: 15vw;
     height: 10vh;
-    border: 1px solid black;
     border-radius: 100vh;
 }
 
-.header__nav-ig .header__div-logo .header__logo {
+/* .header__nav-ig .header__div-logo .header__logo {
     width: 25vw;
     height: 25vh;
     margin: 0 auto;
@@ -50,9 +49,8 @@
     animation: rotacion 6s normal linear infinite; 
     cursor: pointer;
     border-radius: 100vh;
-
 }
-
+ */
 
 
 

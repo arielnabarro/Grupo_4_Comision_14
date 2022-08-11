@@ -34,12 +34,12 @@
         <% } %>
     </nav>
 
-    <nav style="width: 90vw; display: flex; justify-content: center; margin: 4vw auto;"> 
+    <nav style="width: 80vw; display: flex; justify-content: center; margin: 4vw auto;"> 
     <div class="card mb-3 w-100 h-100" style="background: white;">
     <div class="row g-0">
           <div class="col-md-4 d-flex justify-content-center" style="background: white;">
             <% product.images.forEach(({name}) => { %>
-                <img src="/images/Alimento-balanceado/<%= name %>" class="img-fluid rounded-start" alt="..." width="vw" height="50vh">
+                <img src="/images/Alimento-balanceado/<%= name %>" class="img-fluid rounded-start" alt="..." width="30%" height="30%">
                 <% }) %>
           </div>
         <div class="col-md-8" style="display: flex;flex-direction: column; text-align: center;justify-content: space-between; align-items: top;background: var(--nieve);">
