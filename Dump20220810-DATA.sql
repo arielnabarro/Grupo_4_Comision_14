@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
--- Host: localhost    Database: tambienladramos
+-- Host: 127.0.0.1    Database: tambienladramos
 -- ------------------------------------------------------
 -- Server version	8.0.29
 
@@ -71,7 +71,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'perro-eukanuba-1kg.png',1),(2,'image-1659917087158.webp',2),(3,'perro-eukanuba-15kg.webp',3),(4,'perro-proplan-3kg.webp',4),(5,'perro-proplan-7.5kg.webp',5),(6,'perro-proplan-15kg.webp',6),(7,'gato-excelent-1kg.png',7),(8,'gato-excelent-3kg.png',8),(9,'gato-excelent-7.5kg.png',9),(10,'gato-proplan-3kg.webp',10),(11,'gato-proplan-7.5kg.webp',11),(12,'gato-proplan-15kg.webp',12),(25,'balanced-perro-envase-senior-peque-@2x-600x896.png',35),(26,'balanced-perro-envase-senior-medio-@2x-600x896.png',36),(27,'balanced-perro-envase-senior-grande-@2x..png',37),(28,'front-adult-grilled-steak-vegtable.png',38),(29,'pedigree-tender-bites-chicken-steak-front22b00c8ea3f66930bcd1ff28004ce6f7.png',39),(30,'pedigree-dry-dog-food-for-big-dogs-roasted-chicken-rice-vegetable-front.jpg',40),(31,'pack (1).png',41),(32,'pack.png',42),(33,'pack-2020.png',43),(34,'edrrv41an1jimnt7t3ro.jfif',44),(35,'jf8ag9xzafav3ru3l5uy.jfif',45),(36,'zptmk34i2mffbudhtkt7.jfif',46);
+INSERT INTO `images` VALUES (1,'image-1660077414742.png',1),(2,'image-1660077481525.png',2),(3,'image-1660077508539.png',3),(4,'image-1660077533848.png',4),(5,'image-1660077553617.png',5),(6,'image-1660077570813.png',6),(7,'gato-excelent-1kg.png',7),(8,'gato-excelent-3kg.png',8),(9,'gato-excelent-3kg.png',9),(10,'image-1660077626536.png',10),(11,'image-1660077626536.png',11),(12,'image-1660077674541.png',12),(25,'image-1660077716011.png',35),(26,'image-1660077753913.png',36),(27,'image-1660077774581.png',37),(28,'image-1660077810177.png',38),(29,'image-1660077828347.png',39),(30,'image-1660077849813.png',40),(31,'image-1660077874080.png',41),(32,'image-1660077891520.png',42),(33,'image-1660077908753.png',43),(34,'image-1660077928190.png',44),(35,'image-1660077947712.png',45),(36,'image-1660077966243.png',46);
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-10 11:54:27
+-- Dump completed on 2022-08-11 18:42:03
