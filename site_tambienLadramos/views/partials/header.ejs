@@ -12,56 +12,56 @@
         </div> 
     </nav>
     <nav class="home__header__contenedor">
-
         <div class="home__header__div__logo">
-            <a href="/">
                 <div class="home__header__logo">
+                    <a href="/"></a>
                 </div>
-            </a>
         </div>
-
-        <div id="home__header__div1">
-            <div class="home__header__div__busqueda">
-                <a id="question" href="/products/info"><i class="fa-solid fa-circle-question"></i></a>       
-                <div class="menu-btn">
-                    <div class="menu-btn__burger">
-                        <ul class="burger-list">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/products">Productos</a></li>
-                            <li><a href="/services">Servicios</a></li>
-                            <li><a href="">Nosotros</a></li>
-                            <li><a href="">Contacto</a></li>
-                        </ul>
-                    </div>
-                </div>         
-                <!-- <a id="hamburger" href=""><i class="fa-solid fa-align-justify fa-2x"></i></a> -->
+        <div class="home__header__div1">   
+            <div>
+                <a id="question" href="/products/info"><i class="fa-solid fa-circle-question"></i></a>  
+            </div>      
+            <div>
+                <ul class="menu">
+                    <li><a class="menuItem" href="/">Home</a></li>
+                    <li><a class="menuItem" href="/products">Products</a></li>
+                    <li><a class="menuItem" href="/services">Services</a></li>
+                  </ul>
+                  <button class="hamburger">
+                    <i class="menuIcon fa-solid fa-bars"></i>
+                    <i class="closeIcon fa-solid fa-x"></i>
+                  </button>
             </div>
         </div>
 
-        <div id="home__header__div2">
-            <div class="home__header__div__user">
-                <% if (!locals.userLogin) { %>
+        <div class="home__header__div2">
+            <% if (!locals.userLogin) { %>
+                <div>
                     <a id="user" href="/users/login"><i class="fa-solid fa-user"></i></a>
-                <% }else{ %>
-                    <a id="user" href="/users/profile"><i class="fa-solid fa-user"><span id="userName"><%= locals.userLogin.name %></span></i></a>
-                    <a id="logout" href="/users/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
-                <% } %>
-                
-                <a id="cart" href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            <% }else{ %>
+                <div>
+                    <a id="user" href="/users/profile"><i class="fa-solid fa-user"><span id="userName"><%= locals.userLogin.name %></span></i><a> 
+                </div>
+                <div>
+                    <a id="logout" href="/users/logout"><i class="fa-solid fa-right-from-bracket"></i></a>   
+                </div>
+            <% } %>
+                <div>
+                    <a id="cart" href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
             </div>
-
-            <div class="search__bar">
+            <div class="home__header__div3">
                 <form action="/products/searchResult" method="GET">
                     <div>
-                        <input type="text" class="search__bar__input" name="keyword" id="keyword" placeholder="Search..."/>
-                        <button class="search__bar__submit" type="submit" name="keyword">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" class="" name="keyword" id="keyword" placeholder="Search..."/>
+                        <button class="" type="submit" name="keyword">
+                            <i id="search__icon" class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
-                    
                 </form>
+                
             </div>
-        </div>
     </nav>
     <script src="/javascript/hamburger-btn.js"></script>
 </header>
