@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const Product = require("../database/models/Product");
 
+
 module.exports = {
   list: (req, res) => {
     let page = req.params.id;
@@ -84,9 +85,12 @@ module.exports = {
   },
 
   store: (req, res) => {
-    const { title, price, descript, quantity, id_category, id_brand, weight } = req.body;
 
-    db.Product.create({
+    const errores = validationResult(req)
+    const { title, price, descript, quantity, id_category, id_brand, weight } = req.body;
+    if (errores.isEmpty()) {
+      
+      db.Product.create({
       title : title,
       id_brand : +id_brand,
       price: +price,
@@ -102,14 +106,37 @@ module.exports = {
             name: req.file.filename,
             id_product: product.id,
           })
-        else (!req.file)
-          db.Image.create({
-            name: "Logo.png",
-            id_product: product.id,
-          })
           res.redirect("/products")
       }) 
       .catch((error) => console.log(error))
+    } else {
+      let errors = errores.mapped()
+      if (req.fileValidationError) {
+        errors = {
+            ...errors,
+            image: {
+                msg: req.fileValidationError,
+            },
+        };
+    }
+      let category = db.Category.findAll();
+      let product = db.Product.findAll({
+        include: ["brands"],
+      });
+      let brand = db.Brand.findAll();
+      Promise.all([product, category, brand])
+        .then(([product, categories, brands]) => {
+          return res.render("productAdd", {
+            product,
+            categories,
+            brands,
+            old : req.body,
+            errors
+          });
+        })
+        .catch((error) => console.log(error));    }
+
+    
   },
 
   edit: (req, res) => {
