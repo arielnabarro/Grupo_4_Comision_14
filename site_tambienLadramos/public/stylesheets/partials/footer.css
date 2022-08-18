@@ -65,8 +65,10 @@
 #home__footer__heart {
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-content: stretch;
+
 }
 #home__footer__heart span i {
     color: red;
@@ -91,6 +93,13 @@
     background: var(--colores4);
 }
 
+.footer__section-map {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 5vw;
+    height: 5vw;
+}
 
  @media (min-width: 600px) and (max-width: 1023px){
     .home__footer__div1 span, .home__footer__div2  span, .home__footer__div3 span,

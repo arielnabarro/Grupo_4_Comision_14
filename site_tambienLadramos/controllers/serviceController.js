@@ -10,8 +10,7 @@ module.exports = {
         
         )
         .then((dog) => {
-            return res.send(dog)
-            res.render('servicesProof', {
+            res.render('services', {
                 dog
             })
         })

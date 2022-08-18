@@ -9,14 +9,8 @@
     background-color: var(--nieve);
 }
 
-
-
-.home__main  h3 {
-    font-size: 2rem;
-}
-
 .home__main__productos, .home__main__servicios {
-    width: 100%;
+    width: 90%;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -43,8 +37,8 @@
 }
 
 .home__main__productos article div, .home__main__servicios article div {
-    width: 30vw;
-    height: 30vw;
+    width: 25vw;
+    height: 25vw;
     margin: 1vw auto;
     justify-content: center;
     align-items: center;
@@ -52,8 +46,8 @@
 
 .home__main__productos article div a img, .home__main__servicios article div a img {
     position: relative;
-    width: 30vw;
-    height: 30vw;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -127,7 +121,7 @@
 }
 
 .home__main__servicios .home__main__cortepelo, .home__main__servicios .home__main__baño {
-    width: 45vw;
+    width: 40vw;
     height: 0 auto;
     margin: 0 auto;
     padding: 0;
@@ -149,8 +143,10 @@
     text-align: center;
     vertical-align: middle;
     align-items: center;
+    justify-content: center;
     margin: 0 auto;
     padding: 0 auto;
+    height: 10%;
 }
 
 .home__main__nosotros {
@@ -166,7 +162,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     width: 33.3%;
-    height: 75vh;
+    height: 100%;
     text-align: center;
     justify-content: center;   
     border-left: 1px dotted black;
@@ -205,9 +201,9 @@
 }
 
 .home__main__nosotros p {
-    font-size: 0.8rem;
+    font-size: 0.4rem;
     display: none;
-    width: 70%;
+    width: 95%;
     color:white;
 }
 
@@ -218,13 +214,13 @@
     background: var(--amarillo);  
 }
 
-.home__main__nosotros article .home__main__nosotros__div1,.home__main__nosotros article .home__main__nosotros__div3  {
+.home__main__nosotros article .home__main__nosotros__div1,.home__main__nosotros article .home__main__nosotros__div2, .home__main__nosotros article .home__main__nosotros__div3  {
     justify-content: center;
     align-items: center;
+    height: 50%;
 }
 .home__main__nosotros article .home__main__nosotros__div2 {
     flex-direction: row-reverse; 
-    justify-content: center;
 }
 
 
@@ -245,7 +241,7 @@
         
     }
     .home__main__nosotros p {
-        font-size: 1.2rem;
+        font-size: 0.7rem;
     }   
 }
 
@@ -269,7 +265,7 @@
     }
 
     .home__main__nosotros p {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
 }
      
