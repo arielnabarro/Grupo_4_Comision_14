@@ -1,0 +1,75 @@
+  .menuItem {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .menuItem:hover {
+    text-decoration: underline;
+  }
+  
+  .hamburger {
+
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer; 
+    color: white;
+    background: none;
+    border: none;
+    overflow: hidden;
+    
+  }
+  
+  .closeIcon {
+    display: none;
+    position: fixed;
+    font-size: 3rem;
+  }
+  
+  .menu {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items:center;
+    position: fixed;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    color: white;
+    background:var(--colores4);
+    background-position:top left;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    list-style: none;
+  }
+
+  
+
+.menu::before {
+    content: url('/images/Alimento-balanceado/Logo-removebg-preview.png'); 
+    height: 15%;
+    display: flex;
+    align-self:center;
+    justify-self: center;
+}
+
+.showMenu {
+    transform: translateY(0);
+    
+  }

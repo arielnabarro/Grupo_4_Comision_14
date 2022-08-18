@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('./partials/head') %>
+
+<body>
+    
+    <%- include('./partials/header') %>
+    
+<main>
+
+    <h2 class="profile-title">Vista global de edición de productos</h2>
+    <section class="section-profile-prod-users">
+    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+        <a href="/users/profile">
+            <i class="fa-solid fa-circle-left"> Volver al perfil</i>
+        </a> 
+        <a href="/products/productAdd">
+            <i class="fa-solid fa-circle-plus"> Agregar producto</i>
+        </a> 
+        <a href="/users/list">
+            <i class="fa-solid fa-circle-right"> Editar usuarios</i>
+        </a> 
+    </div>     
+        <table class="table caption-top table-striped table-hover table-bordered">
+                <thead class="table" style="background: var(--marron);">
+                    <tr style="text-align: center;">
+                    <th scope="col">ID</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Funciones</th>
+                    </tr>
+                </thead>
+                
+                <form method="POST" action="/products/productEdit/<%= product.id %>/?_method=PUT">
+                <tbody>
+                    <% product.forEach(({id, title, price, quantity, id_category}) => { %>
+                    <tr style="text-align: center;">
+                    <td><%= id %></td>
+
+                    <td>
+                        <input type="text" name="title" id="title" value="<%= title %>">
+                    </td>
+
+                    <td>
+                        <input type="text" name="price" id="price" value="<%= price %>">
+                    </td>
+                    <td>
+                        <input type="number" name="quantity" id="quantity" value="<%= quantity %>">
+                    </td>
+                    <td>
+                            <select name="category">
+                                <option hidden selected value="<%= id_category %>">
+                                    <% if (id_category === 1) { %>
+                                        <%= id_category = 'Perro' %> 
+                                    <% } else { %> 
+                                        <%= id_category = 'Gato' %> 
+                                    <% } %>
+                                </option>
+                                <% category.forEach(({id, title}) => { %>
+                                <option <%= +id ? 'selected' : null %> value="<%= id_category %>">
+                                    <%= title %>
+                                </option>
+                                <% }) %>
+                            </select>
+                            <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
+                    </td>
+                    <td style="display: flex; justify-content: space-around; align-items: center;">
+                            <button type="submit" style="border: none; color: var(--verde);">
+                                <i class="fa-solid fa-circle-check fa-2x"></i>
+                            </button>
+                    
+                        <a href="/products/productEdit/<%= id %>" style="color: var(--marron);">
+                            <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                        </a>  
+                        <div>
+                            <form action="/products/productDetail/remove/<%= id %>?_method=DELETE" method="POST">
+                                <button type="submit" style="border: none;">
+                                    <i class="fas fa-trash-alt fa-2x"></i>
+                                </button>
+                            </form>
+                        </div>
+                        
+                    </td>
+                    </tr> 
+                </tbody>
+            </form>
+            <% }) %>
+                </table>                    
+        </section>        
+</main>
+
+    <%- include('./partials/footer') %>
+
+</body>
+</html>

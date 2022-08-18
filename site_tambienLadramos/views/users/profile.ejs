@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+    
+<main class="main-profile">
+
+    <h2 class="profile-title"><%= locals.userLogin.rol === 1 ? "Perfil de administrador" : "Perfil de usuario" %> </h2>
+
+    <section class="profile-conjunto">
+        <article class="profile-user"> 
+            <h2><%= locals.userLogin.name %></h2>
+            <% if (locals.users.avatar === null || undefined) { %>
+                <div class="profile-user">
+                    <img src="/images/avatars/perro-informatico.png %> " alt="" id="avatar-preview">
+                </div>
+            <% } else { %>
+                <div class="profile-user">
+                    <img src="/images/avatars/<%= locals.user.avatar %>" alt="" id="avatar-preview">
+                </div>
+            <% } %>     
+            
+            
+            <form action="/users/update-profile" enctype="multipart/form-data">
+                <label style="cursor: pointer; color: var(--marron);" for="avatar"><i class="fa-solid fa-pen-to-square fa-2x"></i>Editar</label>
+                <input type="file" hidden id="avatar" onchange="changeAvatar(event)">
+                <script>
+                    const changeAvatar = (e) => {
+                        let reader = new FileReader();
+                        reader.readAsDataURL(e.target.files[0])
+                        reader.onload = () => {
+                            document.getElementById('avatar-preview').src = reader.result
+                        }
+                    }
+                </script>
+            </form>
+        </article>
+        <article class="profile-info">
+            <h2>Información personal</h2>
+            <div class="profile-detalle">
+                <p>Nombre: <%= user.name %></p>
+                <p>Apellido: <%= user.last_name %></p>
+                <p>Tu email: <%= user.email %></p>
+            </div>
+                <article>
+                    <a href="/users/edit-profile/<%= locals.userLogin.id %>" style= "color: var(--marron);">
+                        <i class="fa-solid fa-user-pen fa-2x"></i>Editar datos del perfil</i>
+                    </a>  
+                </article>
+        </article>
+    </section>  
+    <% if (locals.userLogin && locals.userLogin.rol === 1) { %>
+    <section class="section-profile-prod-users">
+        <div style="display: flex; margin-top: 4vh;">
+            <h2 id="profile-h2-products">Productos</h2> 
+            <h2 id="profile-h2-users">Usuarios</h2> 
+        </div>
+        <div style="display: flex; flex-direction: row; justify-content: space-around; margin: 2vh auto;">
+            <a id="button-redirect" href="/products/productAdd">
+                <i class="fa-solid fa-circle-plus"> Agregar productos</i>
+            </a> 
+            <a id="button-redirect" href="/products/tableList" style="background-color:var(--marron) ;">
+                <i class="fa-solid fa-table"> Vista global de productos</i>
+            </a> 
+            <a id="button-redirect" href="/users/adminAdd">
+                <i class="fa-solid fa-circle-plus"> Agregar administrador</i>
+            </a> 
+            <a id="button-redirect" href="/users/list">
+                <i class="fa-solid fa-table"> Vista global de usuarios</i>
+            </a> 
+        </div>     
+        <section class="profile-table-prod">    
+            <table class="table table-sm table-bordered table-hover table-striped w-50 table-responsive" id="profile-table-products">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                  </tr>
+                </thead>
+                <% products.forEach(({id, title, price, quantity})=> { %>   
+                <tbody>
+                  <tr>
+                    <td><%= id %></td>
+                    <td><%= title %></td>
+                    <td>$<%= price %></td>
+                    <td><%= quantity %></td>
+                  </tr>
+                </tbody>
+                <% }) %>  
+              </table>   
+              <table class="table table-sm table-bordered table-hover table-striped w-50 table-responsive" id="profile-table-users">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Rol</th>
+                  </tr>
+                </thead>
+                <% users.forEach(({id, name, rols})=> { %>   
+                <tbody>
+                  <tr>
+                    <td><%= id %></td>
+                    <td><%= name %></td>
+                    <td><%= rols.title %></td>
+                  </tr>
+                </tbody>
+                <% }) %>  
+              </table>   
+        </section>
+    </section>
+         
+            <% } %>     
+</main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<header>
+
+    <nav class="home__header__ig">
+        <div class="home__header__ig__perro">
+            <a href="https://www.instagram.com/tambienladramos/" target="_blank">
+                <img src="/images/perro-informatico.png" alt="">
+                <i class="fa-brands fa-instagram"></i>
+                <span>#tambiénLadramos</span>
+            </a>
+            
+        </div>
+        <div class="home__header__div__logo-1024">
+            <div class="home__header__logo-1024">
+                <a href="/"></a>
+            </div>
+        </div>
+        <div class="home__header__ig__number">
+                <div>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                    <i class="fa-brands fa-square-facebook"></i>
+                </div>         
+        </div> 
+    </nav>
+    <nav class="home__header__contenedor">
+        <div class="home__header__div__logo">
+                <div class="home__header__logo">
+                    <a href="/"></a>
+                </div>
+        </div>
+        <div class="home__header__div1">       
+            <div>
+                <ul class="menu">
+                    <li><a class="menuItem" href="/">Home</a></li>
+                    <li><a class="menuItem" href="/products">Products</a></li>
+                    <li><a class="menuItem" href="/services">Services</a></li>
+                  </ul>
+                  <button class="hamburger">
+                    <i class="menuIcon fa-solid fa-bars"></i>
+                    <i class="closeIcon fa-solid fa-x"></i>
+                  </button>
+            </div>
+            <div>
+                <a id="question" href="/products/info"><i class="fa-solid fa-circle-question"></i></a>  
+            </div>  
+        </div>
+
+        <div class="home__header__div2">
+            <% if (!locals.userLogin) { %>
+                <div>
+                    <a id="user" href="/users/login"><i class="fa-solid fa-user"></i></a>
+                </div>
+            <% }else{ %>
+                <div>
+                    <a id="user" href="/users/profile"><i class="fa-solid fa-user"><span id="userName"><%= locals.userLogin.name %></span></i><a> 
+                </div>
+                <div>
+                    <a id="logout" href="/users/logout"><i class="fa-solid fa-right-from-bracket"></i></a>   
+                </div>
+            <% } %>
+                <div class="position-relative">
+                    <a id="cart" href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <span id="totalItems" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      </span>
+                </div>
+            </div>
+            <div class="home__header__div3">
+                <form action="/products/searchResult" method="GET">
+                    <div>
+                        <input type="text" class="" name="keyword" id="keyword" placeholder="Search..."/>
+                        <button class="" type="submit" name="keyword">
+                            <i id="search__icon" class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+    </nav>
+    <script src="/javascript/hamburger-btn.js"></script>
+</header>

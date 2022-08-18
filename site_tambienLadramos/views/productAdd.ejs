@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('./partials/head',{
+        title : 'Nuevo producto'
+    })  %> 
+
+
+<body class="home-body">
+
+    <%- include('./partials/header') %>
+
+<main class="productAdd"> 
+
+    <section class="section-profile-prod-users">
+        <h2 class="profile-title">Agregar producto</h2>
+        <div style="display: flex; flex-direction: row; justify-content: space-around;">
+            <a href="/users/profile">
+                <i class="fa-solid fa-circle-left"> Volver al perfil</i>
+            </a> 
+            <a href="/products/tableList">
+                <i class="fa-solid fa-circle-plus"> Editar productos</i>
+            </a> 
+            <a href="/users/list">
+                <i class="fa-solid fa-circle-right"> Editar usuarios</i>
+            </a> 
+        </div>   
+        <div class="productAdd__form" >
+            <form id="product__edit-form" method="POST" action="" enctype="multipart/form-data">
+                <article>
+                    <div>
+                        <label for="name">Nombre del producto: </label>
+                        <input type="text" id="title" name="title">
+                        <small class="front-errors" id="small__product__title-edit"><%= locals.errors && errors.title ? errors.title.msg : null %></small>
+                    </div>
+                    <div>
+                        <label for="id_brand">Marca del producto: </label>
+                        <select <%= locals.errors && errors.brand ? 'is-invalid' : null%> name="id_brand" id="id_brand">
+                            <option id="select-brand" value="" hidden selected>Selecciona la marca: </option>
+                            <% brands.forEach(brand => { %>
+                            <option <%= locals.old && old.brand && +old.brand === +brand.id ? 'selected' : null %> value="<%= brand.id %>"><%= brand.title %></option>
+                            <% }) %>
+                        </select>
+                        <!-- <br><p> O <br> Introduce una nueva marca</p>
+                        <input type="text" name="new_brand"> -->
+                        <span><%= locals.errors && errors.brand ? errors.brand.msg : null%></span>
+                        <small class="front-errors" id="small__product__brand-edit"><%= locals.errors && errors.id_brand ? errors.id_brand.msg : null %></small>
+                    </div>
+                    <div>
+                        <label for="price">Precio: </label>
+                        <input type="number" id="price" name="price">
+                        <small class="front-errors" id="small__product__price-edit"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
+                    </div>
+                    <div>
+                        <label for="weight">Peso: </label>
+                        <input type="number" id="weight" name="weight">
+                        <small class="front-errors" id="small__product__weight-edit"><%= locals.errors && errors.weight ? errors.weight.msg : null %></small>
+                    </div>
+                    <div>
+                        <label for="quantity">Stock: </label>
+                        <input type="number" id="quantity" name="quantity">
+                        <small class="front-errors" id="small__product__quantity-edit"><%= locals.errors && errors.quantity ? errors.quantity.msg : null %></small>
+                    </div>
+                    <div>
+                        <label for="id_category">Categoría: </label>
+                        <select <%= locals.errors && errors.category ? 'is-invalid' : null%> name="id_category" id="id_category">
+                            <option value="" hidden selected>Selecciona la categoría</option>
+                            <% categories.forEach(category => { %>
+                            <option <%= locals.old && old.category && +old.category === +category.id ? 'selected' : null %>  value="<%= category.id %>"><%= category.title %></option>
+                            <% }) %>
+                        </select>
+                        <span><%= locals.errors && errors.category ? errors.category.msg : null%></span>
+                        <small class="front-errors" id="small__product__category-edit"><%= locals.errors && errors.id_category ? errors.id_category.msg : null %></small>
+                    </div>
+                    <div>
+                        <label style="display: flex; flex-direction: column;" for="descript">Descripción: </label>
+                        <input type="text" id="descript" name="descript" style="width: 100%; height: 10vw;" value="<%= product.descript %>" placeholder="<%= product.descript %>">
+                        <small class="front-errors" id="small__product__description-edit"><%= locals.errors && errors.descript ? errors.descript.msg : null %></small>
+                    </div>
+                    <div>
+                        <label for="image">Imagen: </label>
+                        <input type="file" id="image" name="image" accept="image/*">
+                        <small class="front-errors" id="small__product__image-edit"><%= locals.errors && errors.image ? errors.image.msg : null %></small>
+                    </div>  
+                    <article class="productAdd__form__bottons">
+                        <div><button type="reset">Limpiar</button></div>
+                        <div><button type="submit">Guardar</button></div>
+                    </article> 
+                    <small class="front-errors-global"></small>  
+            </article>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+    
+    <%- include('./partials/footer') %>
+<script src="/javascript/validations/productEdit.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+    
+    
+</body>
+</html>

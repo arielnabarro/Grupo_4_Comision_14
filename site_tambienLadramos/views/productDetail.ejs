@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('./partials/head') %>
+
+<body>
+    
+    <%- include('./partials/header') %>
+    
+<main>
+    
+    <nav class="detail-nav">
+        <h2><%= product.title %></h2>
+        <article> 
+            <a class="navegacion" href="/">Inicio</a>
+            <a class="navegacion" href="/products">Productos</a>
+            <p class="navegacion"><%= product.title %></p>
+        </article> 
+
+        <% if (locals.userLogin && locals.userLogin.rol === 1) { %> 
+        <article>
+            <a href="/products/productAdd" style="margin-left: 2vw; color: var(--marron);">
+                <i class="fa-solid fa-circle-plus fa-2x"></i>
+            </a>  
+            <a href="/products/productEdit/<%= product.id %>" style="margin-left: 2vw; color: var(--marron);">
+                <i class="fa-solid fa-pen-to-square fa-2x"></i>
+            </a>  
+            <form action="/products/productDetail/remove/<%= product.id %>?_method=DELETE" method="POST">
+                <button type="submit" style="border: none;">
+                    <i class="fas fa-trash-alt fa-2x"></i>
+                </button>
+            </form>
+        </article>
+        <% } %>
+    </nav>
+
+    <nav style="width: 80vw; display: flex; justify-content: center; margin: 4vw auto;"> 
+    <div class="card mb-3 w-100 h-100" style="background: white;">
+    <div class="row g-0">
+          <div class="col-md-4 d-flex justify-content-center" style="background: white;">
+            <% product.images.forEach(({name}) => { %>
+                <img src="/images/Alimento-balanceado/<%= name %>" class="img-fluid rounded-start" alt="..." width="30%" height="30%">
+                <% }) %>
+          </div>
+        <div class="col-md-8" style="display: flex;flex-direction: column; text-align: center;justify-content: space-between; align-items: top;background: var(--nieve);">
+        <div>
+            <h5 class="card-title text-center"><%= product.title %></h5>
+        </div>
+            <div class="card-body" style="display: flex;flex-direction: row; justify-content: center;align-items:top; text-align: center;">
+                <div class="card-body">  
+                    <div><%= product.weight %> kg</span>
+                    </div>
+                    <div>
+                        <span><%= product.weight %> kg</span>
+                    </div>
+                    <div>
+                        <span><%= product.weight %> kg</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span><%= product.weight %> kg</span>
+            </div>
+        </div>
+    </div>
+        <div>
+            <div>Comprar ahora</span>
+            </div>
+            <div>
+                <span>
+                        Agregar al carrito
+                </span>
+            </div>
+        </div>
+      </div>
+    </nav>
+</main>
+    
+    <%- include('./partials/footer') %>
+
+</body>
+</html>

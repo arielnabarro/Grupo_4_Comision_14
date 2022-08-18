@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head',{
+        title : 'Editar perfil'
+    })  %> 
+
+
+<body class="home-body">
+
+    <%- include('../partials/header') %>
+
+<main>
+    
+    <section>
+        <h2>Editar perfil : <%= userEdit.name %></h2>
+
+        <% if (locals.userLogin && locals.userLogin.id) { %>
+        <div class="profileEdit__form">
+            <form method="POST" action="/users/update-profile/<%= user.id %>/?_method=PUT" enctype="multipart/form-data">
+                <article>
+                    <div>
+                        <label for="name">Nombre: </label>
+                        <input class="<%= locals.name && errors.name ? 'is-invalid' : null %>" type="text" id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>" required placeholder="<%= userEdit.name %>" >
+                    </div>
+                    <div>
+                        <label for="last_name">Apellido: </label>
+                        <input type="text" id="last_name" name="last_name" value="<%= locals.old && old.last_name ? old.last_name : null %>" required placeholder="<%= userEdit.last_name %>" >
+                    </div>
+                    <div>
+                        <label for="email">Email: </label>
+                        <input type="text" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" disabled placeholder="<%= userEdit.email %>" >
+                    </div>
+                    <div class="imagePreview">
+                        <img src="/images/avatars/<%= userEdit.avatar %>" alt="">
+                    </div>
+                    <div>
+                        <label for="avatar">Imagen: <%= userEdit.avatar %></label>
+                        <input type="file" id="avatar" name="avatar" accept="avatar/*">
+                    </div>             
+                    <article class="profileEdit__form__bottons ">
+                        <div><button type="reset">Limpiar</button></div>
+                        <div><button type="submit">Guardar</button></div>
+                    </article>
+                </article>    
+            </form>
+        </div>
+        <% } %>
+    </section>
+
+</main>
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

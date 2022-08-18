@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head'); %>
+<body>
+    
+<%- include('partials/header'); %> 
+
+<main>
+    
+    <section class="searchResult"> 
+        <h1>Resultado de la búsqueda: "<%= noSpaceKeyword %>"</h1>
+        <nav class="searchResult-productos">
+            <% if (result.length > 0) { %>
+            <% result.forEach(({id, title, price, images}) => { %>
+                <article>
+                    <a href="/products/productDetail/<%= id %>">
+                        <% images.forEach(image => { %>
+                            <div>
+                                <img src="/images/Alimento-balanceado/<%= image.name %>" alt="">     
+                            </div>
+                        <% }) %>
+                        
+                        <p><%= title %></p>
+                        <p>$<%= price %></p>
+                    </a>
+                    <form action="" method="get">
+                        <input type="button" value="agregar a carrito">
+                    </form>
+                </article> 
+            <% }) %>
+            <% }else{ %>
+                <div>
+                    No se encontraron resultados
+                </div>
+            <% } %>
+        </nav>
+    </section>
+    
+</main>
+
+
+<%- include('partials/footer'); %> 
+
+</body>
+</html>

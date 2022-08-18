@@ -1,0 +1,27 @@
+:root {
+    --verde: #46b593;
+    --marron: #cf8f69;
+    --amarillo: #fac368;
+    --violeta: #AA42EB;
+    --azul: #78aad7;
+    --gris: #f5f4f2;
+    --amarillento: #f5deb3;
+    --nieve: #f5f3f4;
+    --colores4: linear-gradient(var(--azul) ,var(--verde), var(--amarillo), var(--marron))
+}
+
+@font-face {
+    font-family: opificio-bold-rounded;
+    src: url(/stylesheets/fonts/Opificio/opificio_bold_rounded.ttf);
+  }
+  
+@font-face {
+    font-family: opificio-regular;
+    src: url(/stylesheets/fonts/Opificio/opificio_regular.ttf);
+  }
+  
+  @font-face {
+    font-family: opificio-rounded;
+    src: url(/stylesheets/fonts/Opificio/opificio_rounded.ttf);
+  }
+  

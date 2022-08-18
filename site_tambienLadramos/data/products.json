@@ -1,0 +1,133 @@
+[
+   {
+      "id": 1,
+      "name": "Eukanuba 1 kg",
+      "description": "PERRO",
+      "image": "perro-eukanuba-1kg.webp",
+      "category": 1,
+      "price": 1206
+   },
+   {
+      "id": 2,
+      "name": "Eukanuba 3 kg",
+      "description": "PERRO",
+      "image": "perro-eukanuba-3kg.webp",
+      "category": 1,
+      "price": 7209
+   },
+   {
+      "id": 3,
+      "name": "Eukanuba 15 kg",
+      "description": "PERRO",
+      "image": "perro-eukanuba-15kg.webp",
+      "category": 2,
+      "price": 8675
+   },
+   {
+      "id": 4,
+      "name": "Pro Plan 3 kg",
+      "description": "PERRO",
+      "image": "perro-proplan-3kg.webp",
+      "category": 1,
+      "price": 7861
+   },
+   {
+      "id": 5,
+      "name": "Pro Plan 7.5 kg",
+      "description": "PERRO",
+      "image": "perro-proplan-7.5kg.webp",
+      "category": 1,
+      "price": 4577
+   },
+   {
+      "id": 6,
+      "name": "Pro Plan 15 kg",
+      "description": "PERRO",
+      "image": "perro-proplan-15kg.webp",
+      "category": 1,
+      "price": 9038
+   },
+   {
+      "id": 7,
+      "name": "Excellent 1 kg",
+      "description": "GATO",
+      "image": "gato-excelent-1kg.png",
+      "category": 2,
+      "price": 4209
+   },
+   {
+      "id": 8,
+      "name": "Excellent 3 kg",
+      "description": "GATO",
+      "image": "gato-excelent-3kg.png",
+      "category": 2,
+      "price": 4884
+   },
+   {
+      "id": 9,
+      "name": "Excellent 7.5 kg",
+      "description": "GATO",
+      "image": "gato-excelent-7.5kg.png",
+      "category": 2,
+      "price": 5618
+   },
+   {
+      "id": 10,
+      "name": "Pro Plan 3 kg",
+      "description": "GATO",
+      "image": "gato-proplan-3kg.webp",
+      "category": 2,
+      "price": 2675
+   },
+   {
+      "id": 11,
+      "name": "Pro Plan 7.5 kg",
+      "description": "GATO",
+      "image": "gato-proplan-7.5kg.webp",
+      "category": 2,
+      "price": 3153
+   },
+   {
+      "id": 12,
+      "name": "Pro Plan 15 KG",
+      "description": "GATO",
+      "image": "gato-proplan-15kg.webp",
+      "category": 2,
+      "price": 3250
+   },
+   {
+      "id": 13,
+      "name": "prueba1",
+      "price": 123,
+      "category": 1,
+      "image": "79012449_10216055645083431_5971596166125584384_n.jpg"
+   },
+   {
+      "id": 14,
+      "name": "werty",
+      "price": 23456,
+      "category": 1,
+      "image": "dragon love .png"
+   },
+   {
+      "id": 15,
+      "name": "243245",
+      "price": 34342,
+      "category": 1,
+      "image": "dragon love .png"
+   },
+   {
+      "id": 16,
+      "name": "dhsfcfc",
+      "price": 5534653,
+      "category": 1,
+      "image": "dragon love .png"
+   },
+   {
+      "id": 17,
+      "name": "432354253",
+      "price": 55442342,
+      "category": 1,
+      "image": "jkcaptura.png"
+   }
+]

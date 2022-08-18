@@ -1,0 +1,11 @@
+/* #carouselHero{
+    object-fit: cover;
+    object-position: center;
+    height: 25vh;
+    overflow: hidden;
+}
+
+#carouselExampleControls .carousel-item:before{
+    content: "";
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
+} */

@@ -1,0 +1,227 @@
+.productos h1 {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: 3px 0px 10px;
+    height: 30px;
+    font-size: 4vw;
+    background: #FAC368;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+}
+
+.product-mas-relevante {
+    width: 80vw;
+    position: relative;
+    left: 10vw;
+    display: flex;
+    justify-content: center;
+    background: var(--verde);
+    border-radius: 35px;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--amarillo);
+}
+
+.product-mas-relevante:hover {
+    cursor: pointer;
+    background:
+    linear-gradient(to right, var(--azul), var(--verde), var(--azul)) padding-box;
+}
+
+.product-mas-relevante i {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.product-mas-relevante i p{
+    margin-right: 5px;
+    font-size: 3vw;
+}
+
+ 
+.products-productos{
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+
+.products-productos article{
+    display: flex;
+    height: 5vh;
+    width: 40vw;
+    margin: 2vw 2vw;
+    box-shadow: 0px 0px 5px 3px rgb(36 124 154 / 25%);
+    border-radius: 35px;
+    padding: 1vw;
+}
+.products-productos article #title-product {
+    display: none;
+}
+
+.products-productos article:hover{
+    background: 
+    linear-gradient(to right, var(--nieve), white, var(--nieve)) padding-box;
+}
+
+.products-productos article:hover #title-product {
+    display: flex;
+    font-size: medium;
+}
+
+.products-productos form {
+    background: var(--amarillo);
+    box-shadow: 0px 0px 5px 3px rgb(36 124 154 / 25%);
+    color: black;
+    border-radius: 35px;
+    padding: 10px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+.products-productos form:hover {
+    cursor: pointer;
+    background: var(--violeta);
+    color: white;
+}
+.products-productos form i {
+    font-size: 2.5vw;
+}
+
+.products-productos article a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.products-productos article  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vw;
+}
+
+.products-productos article a div img {
+    height: 22vw;
+    width: 15vw
+}
+
+.products-productos article a p {
+    font-size: 3.5vw;
+}
+
+.products-productos article a {
+        text-decoration: none;
+        color: black;
+        width: 100%;
+        height: 100%;
+    }
+
+.producto_pag_1 {
+    display:flex;
+    align-items:center ;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    background-color: var(--azul);
+    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.189);
+    text-align: center;
+}
+
+.form-product-cart i {
+    font-size: 1px;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+    .productos h1 {
+        font-size: 3vw;
+    }
+
+    .product-mas-relevante {
+        font-size: 3vw;
+    }
+
+    .product-mas-relevante i p{
+        font-size: 2vw;
+    }
+
+    .products-productos {
+        font-size: 3vw;
+    }
+
+    .products-productos article{
+        height: 43vw;
+        width: 26%;
+    }
+
+    .products-productos form i {
+        font-size: 2vw;
+    }
+
+    .products-productos article a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .products-productos article a p {
+        font-size: 2vw;
+    }
+
+    .products-productos article a div img {
+        height: 18vw;
+        width: 14vw;
+    }
+    .producto_pag_1 i {
+        font-size: 3vw;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 2561px) {
+    .productos h1 {
+        font-size: 2vw;
+    }
+
+    .product-mas-relevante {
+        font-size: 2vw;
+    }
+
+    .product-mas-relevante i {
+        font-size: 5vw;
+    }
+
+    .products-productos {
+        font-size: 2vw;
+    }
+
+    .products-productos article{
+        height: 34vh;
+        width: 15vw;
+        margin: 1vw 1vw;
+    }
+
+    .products-productos form i {
+        font-size: 1vw;
+    }
+
+    .products-productos article a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .products-productos article a p {
+        font-size: 1vw;
+    }
+
+    .products-productos article a div img {
+        height: 9vw;
+        width: 7vw;
+        background: none;
+    }
+
+    .producto_pag_1 i {
+        font-size: 2.5vw;
+    }
+}

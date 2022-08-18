@@ -1,0 +1,94 @@
+.profileEdit__form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+.profileEdit__form div {
+    width: 100%;
+    justify-content:left;
+    align-items: center;
+    text-align:justify;
+    margin: 0 auto;
+    padding: 2vw 2vw;
+    border: 1px solid black;
+    background-color: var(--nieve);
+}
+.profileEdit__form__bottons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileEdit__form__bottons div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileEdit__form__bottons button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.profileEdit__form__bottons button:hover {
+    background-color: white;
+}
+
+.profileEdit__form div:hover {
+    background:var(--colores4)
+}
+
+.profileEdit__form .imagePreview {
+    margin: 0 auto;
+    padding: 0 auto;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 50vw;
+} 
+
+.profileEdit__form .imagePreview:hover{
+    background: var(--nieve);
+} 
+
+.profileEdit__form .imagePreview img{
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 10vw;
+} 
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .productEdit h2 {
+        font-size: 3vw;
+    }
+
+    .profileEdit__form div, .profileEdit__form button {
+        font-size: 1vw;
+
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 2561px) {
+    .productEdit h2 {
+        font-size: 2vw;
+        height: 4vw;
+    }
+
+    .profileEdit__form div, .profileEdit__form button {
+        font-size: 1vw;
+       
+    }
+}
