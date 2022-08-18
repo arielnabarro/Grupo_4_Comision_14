@@ -14,13 +14,22 @@ module.exports = {
   },
 
   detail : (req, res) => {
-    db.Product.findByPk(req.params.id)
+    db.Product.findByPk(req.params.id, {
+      include : ['images']
+    })
     .then((product) => {
       return res.status(200).json({
+        ok : true,
         data: product,
         status: 200,
       });
-    });
+    }).catch(error => {
+      console.log(error)
+      return res.status(500).json({
+        ok : false,
+        data : error
+      })
+    })
   },
 
   create : (req, res) => {
