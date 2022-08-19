@@ -192,26 +192,44 @@
     height: 20vw;   
     border: 2px solid var(--nieve);
     border-radius: 100vh;
+    opacity: 0.35;
 }
 
-.home__main__nosotros article div img:hover {
+.home__main__nosotros article:hover img{
     transform:scale(95%);
     transition: 2s ease-in-out;
     border-radius: 1vh;
+    opacity: 1;
+}
+
+.index-nostros-ver-mas{
+    display: none;
 }
 
 .home__main__nosotros p {
     font-size: 0.4rem;
-    display: none;
+    display: flex;
+    opacity: 0;
+    position: absolute;
     width: 95%;
     color:white;
 }
 
-.home__main__nosotros p,.home__main__nosotros article div :hover p{
+.home__main__nosotros article p{
     display: flex;
+    width: 15vw;
+    height: 15vw;
+    font-size: 1.2vw;
+    inset: 0;
+    opacity: 1;
+    position: absolute;
     transition: ease-in 1s;
     border-radius: 100vh;
-    background: var(--amarillo);  
+    margin: auto;
+}
+
+.home__main__nosotros article:hover p{
+    display: none;
 }
 
 .home__main__nosotros article .home__main__nosotros__div1,.home__main__nosotros article .home__main__nosotros__div2, .home__main__nosotros article .home__main__nosotros__div3  {
@@ -253,7 +271,7 @@
 
     .home__main h3, .home__main__servicios .home__main__cortepelo h3, .home__main__servicios .home__main__baño h3{
         font-size: 1.2rem;
-    }    
+    }
 
     .home__main h4 {
         font-size: 1rem;

@@ -75,7 +75,7 @@
     position: relative;
     animation: rotacion 10s normal linear infinite; 
     cursor: pointer;
-    width: 40%;
+    width: 35vw;
     height: 100%;
     overflow: hidden;
 } 
@@ -90,7 +90,7 @@
     height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -99,21 +99,16 @@
     height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 .home__header__div3 {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items:center;
-    width: 50%;
 }
 
 .home__header__div3 div {
@@ -189,7 +184,7 @@
 
 @media (min-width: 767px) and (max-width: 1023px){
     .home__header__logo {
-        width: 30%;
+        width: 25vw;
         height: 100%;
     }
 
