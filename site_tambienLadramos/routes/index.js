@@ -2,14 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 
-const { index, adminProfile, question, terms } = require('../controllers/indexController');
+const { index, adminProfile, aboutUs } = require('../controllers/indexController');
 
 const adminCheck = require('../middlewares/adminCheck');
 
 /* GET home page. */
-router.get
-        ('/', index);
-        ('/', adminCheck, adminProfile)
+router
+        .get('/', index)
+        .get('/aboutus', aboutUs)
+
         
 
 
