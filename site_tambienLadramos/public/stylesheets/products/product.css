@@ -58,8 +58,26 @@
     border-radius: 35px;
     padding: 1vw;
 }
+.product-cart-weight {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.product-weight {
+    color: black;
+    text-align: center;
+    width: 7vw;
+    display: flex;
+    border: 0.2vw solid grey;
+    border-radius: 100vh;
+    background: var(--colores4);
+    flex-direction: column;
+}
+
 .products-productos article #title-product {
-    display: none;
+    display: flex;
+    overflow: hidden;
+    height: 2vw;
 }
 
 .products-productos article:hover{
@@ -104,6 +122,7 @@
     justify-content: center;
     align-items: center;
     height: 60vw;
+    flex-direction: column;
 }
 
 .products-productos article a div img {

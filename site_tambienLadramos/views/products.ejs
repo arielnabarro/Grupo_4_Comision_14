@@ -19,13 +19,13 @@
             
             <% product.forEach(({id, title, price, weight, images}) => { %> 
                 <article>
+                    <span class="product-weight">
+                        <strong><%= weight %> kg</strong>
+                    </span>
                     <a href="/products/productDetail/<%= id %>">
+                        
                         <% images.forEach(({name}) => { %>
                             <div>
-                                <div style="position: relative; display: flex; justify-content: center;">
-                                    <span style="color: black; text-align: center; width: 4vw; display: flex; flex-direction: column; justify-content: center; border: 0.2vw solid grey; border-radius: 100vh; background:var(--colores4);"><strong><%= weight %> kg</strong></span>
-                                </div>
-                               
                                 <img src="/images/Alimento-balanceado/<%= name %>" alt="">     
                             </div>
                         <% }) %>
