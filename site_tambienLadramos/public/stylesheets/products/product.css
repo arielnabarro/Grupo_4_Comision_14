@@ -75,9 +75,10 @@
 }
 
 .products-productos article #title-product {
-    display: flex;
+    display: none;
     overflow: hidden;
     height: 2vw;
+    margin: none;
 }
 
 .products-productos article:hover{

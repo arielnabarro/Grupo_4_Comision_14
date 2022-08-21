@@ -34,46 +34,44 @@
         <% } %>
     </nav>
 
-    <nav style="width: 80vw; display: flex; justify-content: center; margin: 4vw auto;"> 
-    <div class="card mb-3 w-100 h-100" style="background: white;">
-    <div class="row g-0">
-          <div class="col-md-4 d-flex justify-content-center" style="background: white;">
-            <% product.images.forEach(({name}) => { %>
-                <img src="/images/Alimento-balanceado/<%= name %>" class="img-fluid rounded-start" alt="..." width="30%" height="30%">
-                <% }) %>
-          </div>
-        <div class="col-md-8" style="display: flex;flex-direction: column; text-align: center;justify-content: space-between; align-items: top;background: var(--nieve);">
-        <div>
-            <h5 class="card-title text-center"><%= product.title %></h5>
-        </div>
-            <div class="card-body" style="display: flex;flex-direction: row; justify-content: center;align-items:top; text-align: center;">
-                <div class="card-body">  
-                    <div><%= product.weight %> kg</span>
+        <div  class="detail-conjunto" class="detail-conjunto card mb-3 w-100 h-100">
+            <div class="detail-producto">
+                <div class="detail-producto-imgs">
+                    <% product.images.forEach(({name}) => { %>
+                        <img class="detail-producto-img" src="/images/Alimento-balanceado/<%= name %>" class="img-fluid rounded-start" alt="...">
+                        <% }) %>
+                </div>
+                <div class="detail-detalle" class="col-md-8">
+                    <div class="detail-detalle-title">
+                        <h5 class="card-title text-center"><%= product.title %></h5>
                     </div>
-                    <div>
-                        <span><%= product.weight %> kg</span>
+                    <div class="detail-detalle-descript">
+                        <span><%= product.descript %></span>
                     </div>
-                    <div>
-                        <span><%= product.weight %> kg</span>
+                    <div class="detail-detalle-conjunto">
+                        <div>
+                            <span><%= product.weight %> kg</span>
+                        </div>
+                        <div>
+                            <span><%= product.quantity %> disponibles</span>
+                        </div>
+                        <div>
+                            <span><%= product.price %> $</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <span><%= product.weight %> kg</span>
+            <div class="detail-comprar-botons">
+                <div class="detail-comprar-boton">
+                    <span class="detail-comprar-span"><i class="fa-solid fa-hand-holding-dollar"></i>Comprar</span>
+                </div>
+                <div class="detail-comprar-boton">
+                    <form action="" method="get">
+                        <span class="detail-comprar-span"><i id="btn-add-card" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus" ></i>Agregar</span>
+                    </form>     
+                </div>
             </div>
         </div>
-    </div>
-        <div>
-            <div>Comprar ahora</span>
-            </div>
-            <div>
-                <span>
-                        Agregar al carrito
-                </span>
-            </div>
-        </div>
-      </div>
-    </nav>
 </main>
     
     <%- include('./partials/footer') %>
