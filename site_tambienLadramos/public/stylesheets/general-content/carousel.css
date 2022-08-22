@@ -9,7 +9,7 @@
 } */
 
 .home__-carousel {
-    display: flex;
+    display: none;
     margin: 0 auto;
     width: 100vw;
     margin: 2vw auto;
@@ -27,4 +27,11 @@
 
 #carouselExampleDark p, #carouselExampleDark h5 {
     opacity: 0;
+}
+@media (min-width: 1024px) and (max-width: 2561px) {
+
+    .home__-carousel {
+        display: flex;
+    }
+
 }
