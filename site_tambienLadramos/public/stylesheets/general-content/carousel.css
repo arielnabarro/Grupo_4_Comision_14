@@ -1,11 +1,30 @@
-/* #carouselHero{
-    object-fit: cover;
-    object-position: center;
-    height: 25vh;
-    overflow: hidden;
+/* .active{
+    display: block;
+    justify-content: left;
+    align-items: center;
+    margin: 2vw auto;
+    box-shadow: 0px 0px 5px 3px rgb(36 124 154 / 25%); 
+    width: 50%;
+    height: 30vh;
+} */
+
+.home__-carousel {
+    display: flex;
+    margin: 0 auto;
+    width: 100vw;
+    margin: 2vw auto;
 }
 
-#carouselExampleControls .carousel-item:before{
-    content: "";
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
-} */
+.home__-carousel:hover img{
+    transition: all 2s;
+    opacity: 1;
+}
+
+.hover:hover .img-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+#carouselExampleDark p, #carouselExampleDark h5 {
+    opacity: 0;
+}

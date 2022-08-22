@@ -16,16 +16,18 @@
     flex-wrap: wrap;
     width: 100%; 
     height: 100%;
+    
 }
 
 .home__about__nosotros article {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     height: 100%;
     text-align: center;
-    justify-content: center;   
+    justify-content: center; 
+    margin: 0 auto;  
     border-left: 1px dotted black;
 }
 
@@ -57,6 +59,28 @@
     color:white;
 }
 
+.home__about__nosotros:hover .home__about__nosotros__div1 img, .home__about__nosotros:hover .home__about__nosotros__div3 img {
+    transform: rotate(360deg) translateX(150%);
+    transition: all 5s;
+    opacity: 0.2;
+}
+
+.home__about__nosotros:hover .home__about__nosotros__div1 p, .home__about__nosotros:hover .home__about__nosotros__div3 p{
+    transform: rotate(360deg) translateX(-62%);
+    transition: all 5s;
+}
+
+.home__about__nosotros:hover .home__about__nosotros__div2 img{
+    transform: rotate(360deg) translateX(-150%);
+    transition: all 5s;
+    opacity: 0.2;
+}
+
+.home__about__nosotros:hover .home__about__nosotros__div2 p{
+    transform: rotate(360deg) translateX(62%);
+    transition: all 5s;
+}
+
 .home__about__nosotros article p{
     display: flex;
     width: 15vw;
@@ -83,38 +107,38 @@
 
 @media (min-width: 600px) and (max-width: 1023px){
 
-    .home__main h2 {
+    .home__about__nosotros h2 {
         font-size: 1.2rem;
     }   
 
-    .home__main h4 {
+    .home__about__nosotros h4 {
         font-size: 0.8rem;
     }
 
-    .home__main__nosotros article div img {
+    .home__about__nosotros article div img {
         border: 3px solid var(--nieve);
         
     }
-    .home__main__nosotros p {
+    .home__about__nosotros p {
         font-size: 0.7rem;
     }   
 }
 
 
 @media (min-width: 1024px) {
-    .home__main h2 {
-        font-size: 1.4rem;
+    .home__about__nosotros h2 {
+        font-size: 1.6rem;
     }
 
-    .home__main h4 {
+    .home__about__nosotros h4 {
         font-size: 1rem;
     }
 
-    .home__main__nosotros article div {
+    .home__about__nosotros article div {
         height: 27vw;
     }
 
-    .home__main__nosotros p {
+    .home__about__nosotros p {
         font-size: 1rem;
     }
 }
