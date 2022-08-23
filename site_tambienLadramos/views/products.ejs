@@ -11,9 +11,9 @@
     
     <section class="productos"> 
         <h1>Productos</h1>
-            <div class="product-mas-relevante">
-                <p>Más relevante</p>   
-            </div>
+        <div class="product-mas-relevante">
+            <p>Más relevante</p>   
+        </div>
 
         <nav class="products-productos">
             
@@ -32,9 +32,9 @@
                         <p><strong>$<%= price %></strong></p>
                         <p id="title-product"><%= title %></p>    
                     </a>                 
-                        <form class="form-product-cart" action="" method="get">
-                            <i id="btn-add-card" onclick="addCart('<%=id%>')" class="fa-solid fa-cart-plus" >Agregar</i>
-                        </form>
+                    <form class="form-product-cart" action="" method="get">
+                        <i id="btn-add-card" onclick="addCart('<%=id%>')" class="fa-solid fa-cart-plus" >Agregar</i>
+                    </form>
                   
                 </article> 
            <% }) %>

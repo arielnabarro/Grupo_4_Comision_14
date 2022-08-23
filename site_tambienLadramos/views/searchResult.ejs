@@ -9,23 +9,32 @@
     
     <section class="searchResult"> 
         <h1>Resultado de la búsqueda: "<%= noSpaceKeyword %>"</h1>
+        <div class="searchResult-mas-relevante">
+            <p>Más relevante</p>   
+        </div>
+        
         <nav class="searchResult-productos">
             <% if (result.length > 0) { %>
-            <% result.forEach(({id, title, price, images}) => { %>
+            <% result.forEach(({id, title, price, weight, images}) => { %>
                 <article>
+                    <span class="searchResult-weight">
+                        <strong><%= weight %> kg</strong>
+                    </span>
                     <a href="/products/productDetail/<%= id %>">
-                        <% images.forEach(image => { %>
+
+                        <% images.forEach(({name}) => { %>
                             <div>
-                                <img src="/images/Alimento-balanceado/<%= image.name %>" alt="">     
+                                <img src="/images/Alimento-balanceado/<%= name %>" alt="">     
                             </div>
                         <% }) %>
                         
-                        <p><%= title %></p>
-                        <p>$<%= price %></p>
+                        <p><strong>$<%= price %></strong></p>
+                        <p id="title-product"><%= title %></p>
                     </a>
-                    <form action="" method="get">
-                        <input type="button" value="agregar a carrito">
+                    <form class="form-product-cart" action="" method="get">
+                        <i id="btn-add-card" onclick="addCart('<%=id%>')" class="fa-solid fa-cart-plus" >Agregar</i>
                     </form>
+
                 </article> 
             <% }) %>
             <% }else{ %>
