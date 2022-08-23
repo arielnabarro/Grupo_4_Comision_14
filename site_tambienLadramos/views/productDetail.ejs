@@ -34,7 +34,7 @@
         <% } %>
     </nav>
 
-        <div  class="detail-conjunto" class="detail-conjunto card mb-3 w-100 h-100">
+        <div class="detail-conjunto" class="detail-conjunto card mb-3 w-100 h-100">
             <div class="detail-producto">
                 <div class="detail-producto-imgs">
                     <% product.images.forEach(({name}) => { %>
@@ -49,31 +49,38 @@
                         <span><%= product.descript %></span>
                     </div>
                     <div class="detail-detalle-conjunto">
-                        <div>
+                        <div id="detail-weight">
+                            <h5>Peso</h5>
                             <span><%= product.weight %> kg</span>
                         </div>
-                        <div>
-                            <span><%= product.quantity %> disponibles</span>
+                        <div id="detail-stock">
+                            <h5>Stock</h5>
+                            <span><%= product.quantity %> </span>
                         </div>
-                        <div>
-                            <span><%= product.price %> $</span>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
             <div class="detail-comprar-botons">
+                <div id="detail-price">
+                    <span>$ <%= product.price %></span>
+                </div>
                 <div class="detail-comprar-boton">
                     <span class="detail-comprar-span"><i class="fa-solid fa-hand-holding-dollar"></i>Comprar</span>
                 </div>
                 <div class="detail-comprar-boton">
-                    <form action="" method="get">
-                        <span class="detail-comprar-span"><i id="btn-add-card" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus" ></i>Agregar</span>
-                    </form>     
+
+                    <!-- <form class="form-product-cart" action="" method="get">
+                        <i id="btn-add-card" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus" >Agregar</i>
+                    </form> -->
+                     <form action="" method="get">
+                        <span class="detail-comprar-span"><i id="btn-add-card" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus"></i>Agregar al carrito</span>
+                    </form>   
                 </div>
             </div>
         </div>
 </main>
-    
+<script src="/javascript/cart.js"></script>
     <%- include('./partials/footer') %>
 
 </body>

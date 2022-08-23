@@ -13,11 +13,11 @@ module.exports = {
         let product = db.Product.findAll({
             include : ['images']
         });
-        Promise.all([product,category])
-			.then(([products,category]) => {
+        Promise.all([category,product])
+			.then(([category,products,]) => {
 				return res.render('index',{
-					products,
-					category
+					category,
+                    products
 				})
 			})
 			.catch(error => console.log(error))	

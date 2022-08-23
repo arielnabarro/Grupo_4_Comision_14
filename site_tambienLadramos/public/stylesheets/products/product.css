@@ -68,7 +68,7 @@
     text-align: center;
     width: 7vw;
     display: flex;
-    border: 0.2vw solid grey;
+    border: 0.1vw solid grey;
     border-radius: 100vh;
     background: var(--colores4);
     flex-direction: column;
