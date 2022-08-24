@@ -209,12 +209,14 @@ module.exports = {
     });
 
     let categories = db.Category.findAll();
+    let logged = db.User.findByPk(req.session.userLogin ? req.session.userLogin.id : null);
 
-    Promise.all([product, categories])
-      .then(([product, categories]) => {
+    Promise.all([product, categories, logged])
+      .then(([product, categories, logged]) => {
         return res.render("productCart", {
           product,
           categories,
+          logged
         });
       })
       .catch((error) => console.log(error));

@@ -51,7 +51,7 @@ const showCart = (cart) => {
     let total = subtotal.reduce((acum,num) => acum + num);
     console.log(total);
 
-    document.getElementById('amountProducts').textContent = total;
+    document.getElementById('amountProducts').textContent = "$ " + total;
     document.getElementById('amountTotal').textContent = total;
 
     cart.forEach(({ id, image, title, price, weight, quantity }) => {
@@ -59,7 +59,7 @@ const showCart = (cart) => {
   <div class="row">
   <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
     <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-          <img src="/images/Alimento-balanceado/${image}" alt="" class="w-75" alt="Blue Jeans Jacket"/>
+          <img src="/images/Alimento-balanceado/${image}" alt="" class="w-75" alt=""/>
       <a href="#!">
         <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
       </a>
@@ -84,7 +84,7 @@ const showCart = (cart) => {
         <i class="fas fa-minus"></i>
       </button>
       <div class="form-outline">
-        <input id="form1" min="1" readonly name="quantity" value="${quantity}" type="number" class="form-control" />
+        <input id="form1" min="1" readonly name="quantity" value="${quantity}" type="number" class="form-control text-center" />
       </div>
       <button class="btn btn-primary px-3 ms-2"
         onclick="this.parentNode.querySelector('input[type=number]').stepUp();upQuantity(${id})">

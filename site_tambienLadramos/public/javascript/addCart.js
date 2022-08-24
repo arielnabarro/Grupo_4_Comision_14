@@ -42,3 +42,4 @@ const addCart = async (id) => {
     }
 
 }
+
