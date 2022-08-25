@@ -37,7 +37,7 @@
                     <div>
                         <label for="id_brand">Marca del producto: </label>
                         <select <%= locals.errors && errors.brand ? 'is-invalid' : null%> name="id_brand" id="id_brand" required>
-                            <option id="select-brand" value="" hidden selected></option>
+                            <option id="select-brand" value="<%= product.brands.id %>" hidden selected><%= product.brands.title %></option>
                             <% brand.forEach(brand => { %>
                             <option <%= locals.old && old.brand && +old.brand === +brand.id ? 'selected' : null %> value="<%= brand.id %>"><%= brand.title %></option>
                             <% }) %>
