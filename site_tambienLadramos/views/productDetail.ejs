@@ -10,8 +10,8 @@
 <main>
     
     <nav class="detail-nav">
-        <h2><%= product.title %></h2>
-        <article> 
+        
+        <article style="margin-top: 2vw;"> 
             <a class="navegacion" href="/">Inicio</a>
             <a class="navegacion" href="/products">Productos</a>
             <p class="navegacion"><%= product.title %></p>
@@ -74,7 +74,7 @@
                         <i id="btn-add-card" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus" >Agregar</i>
                     </form> -->
                      <form action="" method="get">
-                        <span class="detail-comprar-span"><i id="btn-add-card" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus"></i>Agregar al carrito</span>
+                        <i id="btn-add-car" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus">Agregar al carrito</i>
                     </form>   
                 </div>
             </div>
