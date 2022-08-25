@@ -93,7 +93,7 @@
     
     .services-botons {
         margin: 10px;
-        width: 65%;
+        width: 100%;
     }
 
 }
@@ -101,6 +101,7 @@
 @media (min-width: 1023px) and (max-width: 2561px) {
 
     .services-section {
+        margin: 10px;
         flex-direction: row;
         justify-content: space-evenly;
     }
@@ -117,16 +118,29 @@
     }
     
     .services-divs-imgs img{
-        width: 30vw;
-        height: 25vw;
+        width: 20vw;
+        height: 15vw;
         border-radius: 25px;
         margin: 0 25px;
     }
     
     .services-details {
-        width: 45vw;
-        height: 45vw;
+        width: 35vw;
+        height: 35vw;
         border: 3px solid var(--amarillo);
+    }
+
+    .services-details p{
+        font-size: 1.3vw;
+        width: 90%;
+        margin: 0 auto;
+        color: #000000c4;
+    }
+
+    .services-details h2{
+        color: lawngreen;
+        width: 90%;
+        margin: 0 auto;
     }
     
     .services-botons {

@@ -66,16 +66,12 @@
                     <span>$ <%= product.price %></span>
                 </div>
                 <div class="detail-comprar-boton">
-                    <span class="detail-comprar-span"><i class="fa-solid fa-hand-holding-dollar"></i>Comprar</span>
+                    <a class="detail-comprar-boton-a" href="/products/productCart"><span class="detail-comprar-span"><i class="fa-solid fa-hand-holding-dollar"></i> Comprar</span></a>
                 </div>
-                <div class="detail-comprar-boton">
-
-                    <!-- <form class="form-product-cart" action="" method="get">
-                        <i id="btn-add-card" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus" >Agregar</i>
-                    </form> -->
-                     <form action="" method="get">
-                        <i id="btn-add-car" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus">Agregar al carrito</i>
-                    </form>   
+                <div class="detail-comprar-boton">                     
+                    <form class="" action="" method="get">
+                        <i id="btn-add-card" onclick="addCart('<%=product.id%>')" class="fa-solid fa-cart-plus" > Agregar</i>
+                    </form>  
                 </div>
             </div>
         </div>
