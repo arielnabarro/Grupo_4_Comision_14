@@ -105,12 +105,26 @@
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 class="modal-title">Necesita iniciar sesión para poder realizar la compra.</h4>
-                              <button type="button" class="close" data-dismiss="modal">X</button>
+                              <h4 class="modal-title">Necesita iniciar sesión para poder realizar la compra</h4>
+                              <button type="button" class="close btn btn-danger" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
                             </div>
-                            <div class="modal-body">
-                              <a href="/users/login">Ir al login</a>
-                            </div>
+                            <div class="modal-body text-center">
+                              <div>
+                                <button type="button" class="btn btn-primary">
+                                  <a style="color: white;" href="/users/login">Iniciar sesión</a>
+                              </button>
+                              </div>
+                              <br>
+                              <div style="margin: auto 1vw;">
+                                ¿No tienes cuenta? 
+                              </div>
+                              <div>
+                                <button type="button" class="btn btn-success">
+                                  <a style="color: white;" href="/users/login">Regístrate ahora</a>
+                              </button>
+                              </div>
+                              
+                              
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             </div>
